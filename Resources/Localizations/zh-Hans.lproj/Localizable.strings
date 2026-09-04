@@ -1,0 +1,153 @@
+/* MacCleaner — zh-Hans */
+/* Generado desde las tablas de traduccion. Una clave por linea. */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "选中的类别将被永久删除。";
+"alert.clean.body.trash" = "选中的类别将被移到废纸篓。";
+"alert.clean.count" = "类别数：%d";
+"alert.clean.delete" = "删除";
+"alert.clean.risky" = "标记为「需谨慎」：%@";
+"alert.clean.title" = "清理 %@？";
+"alert.clean.trash" = "移到废纸篓";
+"alert.report.count" = "已清理类别：%d";
+"alert.report.failures" = "部分内容无法删除（受影响类别：%d）。通常是权限问题：请在「系统设置 › 隐私与安全性」中授予 MacCleaner 完全磁盘访问权限。";
+"alert.report.freed" = "已释放 %@。";
+"alert.report.title" = "清理完成";
+
+/* ---- category ---- */
+"category.jvm" = "Android、Gradle 与 JVM";
+"category.langs" = "其他语言";
+"category.node" = "Node 与 Web";
+"category.system" = "系统与应用";
+"category.tools" = "包管理器";
+"category.xcode" = "Xcode 与 iOS";
+
+/* ---- common ---- */
+"common.cancel" = "取消";
+"common.done" = "完成";
+
+/* ---- empty ---- */
+"empty.button" = "立即扫描";
+"empty.subtitle" = "默认不选中任何项：由你决定删除什么，并在执行前确认。";
+"empty.title" = "扫描一下，看看能释放多少空间";
+
+/* ---- footer ---- */
+"footer.clean" = "清理 %@";
+"footer.hideEmpty" = "隐藏空项";
+"footer.selected" = "已选择：%d";
+"footer.trash" = "移到废纸篓";
+"footer.trash.help" = "速度较慢，且在清倒废纸篓前仍占用空间，但可以撤销。";
+
+/* ---- group ---- */
+"group.all" = "全选";
+"group.none" = "全不选";
+
+/* ---- header ---- */
+"header.notScanned" = "尚未扫描";
+"header.reclaimable" = "可释放空间";
+"header.rescan" = "重新扫描";
+"header.scan" = "扫描";
+"header.stop" = "停止";
+"header.working" = "处理中…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "需要重新下载，或者会丢失有用的数据。";
+"risk.caution.label" = "需谨慎";
+"risk.caution.plural" = "需谨慎项";
+"risk.rebuild.help" = "安全，但下一次构建会变慢。";
+"risk.rebuild.label" = "会重建";
+"risk.rebuild.plural" = "会重建项";
+"risk.safe.help" = "会自动重新生成，没有副作用。";
+"risk.safe.label" = "安全";
+"risk.safe.plural" = "安全项";
+
+/* ---- row ---- */
+"row.files" = "文件：%d";
+"row.noPath" = "在这台 Mac 上没有找到对应的路径。";
+
+/* ---- select ---- */
+"select.clear" = "全部取消";
+"select.mark" = "选择";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Android 缓存";
+"target.android.caches.note" = "SDK 构建缓存和工具的临时数据";
+"target.browsers.headless.name" = "Playwright / Puppeteer 浏览器";
+"target.browsers.headless.note" = "为端到端测试下载的 Chromium、Firefox 和 WebKit";
+"target.bun.deno.name" = "Bun 与 Deno 缓存";
+"target.bun.deno.note" = "Bun 和 Deno 下载的模块";
+"target.caches.other.name" = "其他应用缓存";
+"target.caches.other.note" = "~/Library/Caches 中上面各项未覆盖的剩余内容";
+"target.carthage.name" = "Carthage 缓存";
+"target.carthage.note" = "Carthage 的框架和检出内容";
+"target.cocoapods.name" = "CocoaPods 缓存";
+"target.cocoapods.note" = "已下载的 pod 和 spec";
+"target.docker.logs.name" = "Docker Desktop 日志";
+"target.docker.logs.note" = "仅日志。不会动镜像和卷";
+"target.electron.name" = "Electron 缓存";
+"target.electron.note" = "Electron 和 electron-builder 的二进制文件";
+"target.flutter.name" = "Flutter / Dart 缓存";
+"target.flutter.note" = "~/.pub-cache：来自 pub.dev 的包";
+"target.go.build.name" = "Go 构建缓存";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Go 模块缓存";
+"target.go.mod.note" = "~/go/pkg/mod。只读，可能需要额外权限";
+"target.gradle.caches.name" = "Gradle 缓存";
+"target.gradle.caches.note" = "~/.gradle/caches：所有项目的依赖和构建缓存";
+"target.gradle.daemon.name" = "Gradle 守护进程与日志";
+"target.gradle.daemon.note" = "守护进程的日志";
+"target.gradle.wrapper.name" = "Gradle Wrapper 分发包";
+"target.gradle.wrapper.note" = "每个项目下载的各个 Gradle 版本（每个约 150 MB）";
+"target.homebrew.name" = "Homebrew 缓存";
+"target.homebrew.note" = "bottle 文件和 brew 的旧下载内容";
+"target.ios.backups.name" = "iOS 备份";
+"target.ios.backups.note" = "iPhone 和 iPad 的备份。可能是你唯一的副本";
+"target.jetbrains.caches.name" = "JetBrains / Android Studio 缓存";
+"target.jetbrains.caches.note" = "IntelliJ、Android Studio、PyCharm 等的索引和缓存";
+"target.jetbrains.logs.name" = "JetBrains / Android Studio 日志";
+"target.jetbrains.logs.note" = "这些 IDE 的日志";
+"target.kotlin.name" = "Kotlin / Konan 缓存";
+"target.kotlin.note" = "Kotlin 与 Kotlin Native 编译器的产物";
+"target.maven.name" = "本地 Maven 仓库";
+"target.maven.note" = "~/.m2/repository。下次构建时会重新完整下载";
+"target.npm.name" = "npm 缓存";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composer 缓存（PHP）";
+"target.php.note" = "Composer 下载的包";
+"target.pnpm.name" = "pnpm 存储区";
+"target.pnpm.note" = "pnpm 的共享包存储区";
+"target.python.name" = "Python 缓存";
+"target.python.note" = "pip、uv、poetry 以及已编译的 wheel";
+"target.ruby.name" = "Ruby 缓存";
+"target.ruby.note" = "Bundler 下载的 gem";
+"target.rust.name" = "Cargo 缓存（Rust）";
+"target.rust.note" = "已下载的 crate 和 git 检出内容";
+"target.savedstate.name" = "已保存的应用状态";
+"target.savedstate.note" = "App 启动时会重新打开的窗口和文稿";
+"target.sim.caches.name" = "CoreSimulator 缓存";
+"target.sim.caches.note" = "已下载的运行时和模拟器共享缓存";
+"target.sim.devicedata.name" = "模拟器临时数据";
+"target.sim.devicedata.note" = "每个模拟器内部的缓存和 /tmp（不会删除已安装的 App）";
+"target.swiftpm.name" = "Swift Package Manager 缓存";
+"target.swiftpm.note" = "SwiftPM 依赖的仓库和二进制文件";
+"target.trash.name" = "废纸篓";
+"target.trash.note" = "永久清空 ~/.Trash";
+"target.user.logs.name" = "用户日志";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcode 归档";
+"target.xcode.archives.note" = "为 App Store 归档的构建。符号化崩溃日志时需要用到";
+"target.xcode.caches.name" = "Xcode 缓存";
+"target.xcode.caches.note" = "com.apple.dt.Xcode：IDE 的索引、下载内容和临时数据";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "所有项目的索引、中间构建产物和 ModuleCache";
+"target.xcode.devicelogs.name" = "设备日志与崩溃报告";
+"target.xcode.devicelogs.note" = "从已连接的 iPhone 和 iPad 拉取的日志";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "你连接过设备的每个 iOS 版本的符号文件";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "其他平台的同类文件";
+"target.xcode.previews.name" = "Xcode 预览缓存";
+"target.xcode.previews.note" = "SwiftUI 预览的缓存";
+"target.yarn.name" = "Yarn 缓存";
+"target.yarn.note" = "Yarn 下载的包";

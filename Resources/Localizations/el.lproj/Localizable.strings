@@ -1,0 +1,152 @@
+/* MacCleaner — el */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Οι επιλεγμένες κατηγορίες θα διαγραφούν οριστικά.";
+"alert.clean.body.trash" = "Οι επιλεγμένες κατηγορίες θα μεταφερθούν στα Απορρίμματα.";
+"alert.clean.count" = "Κατηγορίες: %d";
+"alert.clean.delete" = "Διαγραφή";
+"alert.clean.risky" = "Επισημασμένες ως «Προσοχή»: %@";
+"alert.clean.title" = "Καθαρισμός %@;";
+"alert.clean.trash" = "Μεταφορά στα Απορρίμματα";
+"alert.report.count" = "Κατηγορίες που καθαρίστηκαν: %d";
+"alert.report.failures" = "Δεν διαγράφηκαν όλα (κατηγορίες που επηρεάστηκαν: %d). Συνήθως είναι θέμα δικαιωμάτων: δώστε στο MacCleaner πλήρη πρόσβαση στον δίσκο από τις Ρυθμίσεις › Απόρρητο και ασφάλεια.";
+"alert.report.freed" = "Ελευθερώθηκαν %@.";
+"alert.report.title" = "Ο καθαρισμός ολοκληρώθηκε";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle και JVM";
+"category.langs" = "Άλλες γλώσσες";
+"category.node" = "Node και web";
+"category.system" = "Σύστημα και εφαρμογές";
+"category.tools" = "Διαχειριστές πακέτων";
+"category.xcode" = "Xcode και iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Ακύρωση";
+"common.done" = "Τέλος";
+
+/* ---- empty ---- */
+"empty.button" = "Σάρωση τώρα";
+"empty.subtitle" = "Δεν είναι επιλεγμένο τίποτα: εσείς επιλέγετε τι θα διαγραφεί και το επιβεβαιώνετε πρώτα.";
+"empty.title" = "Κάντε σάρωση για να δείτε πόσο χώρο μπορείτε να ελευθερώσετε";
+
+/* ---- footer ---- */
+"footer.clean" = "Καθαρισμός %@";
+"footer.hideEmpty" = "Απόκρυψη κενών";
+"footer.selected" = "Επιλεγμένες: %d";
+"footer.trash" = "Μεταφορά στα Απορρίμματα";
+"footer.trash.help" = "Πιο αργό, και ο χώρος παραμένει δεσμευμένος μέχρι να αδειάσετε τα Απορρίμματα — αλλά αναιρείται.";
+
+/* ---- group ---- */
+"group.all" = "Όλα";
+"group.none" = "Κανένα";
+
+/* ---- header ---- */
+"header.notScanned" = "Χωρίς σάρωση";
+"header.reclaimable" = "Χώρος που μπορεί να ελευθερωθεί";
+"header.rescan" = "Νέα σάρωση";
+"header.scan" = "Σάρωση";
+"header.stop" = "Διακοπή";
+"header.working" = "Εργασία σε εξέλιξη…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Θα χρειαστεί να ξανακατεβούν πράγματα, αλλιώς χάνετε χρήσιμα δεδομένα.";
+"risk.caution.label" = "Προσοχή";
+"risk.caution.plural" = "Προσοχή";
+"risk.rebuild.help" = "Ασφαλές, αλλά η επόμενη μεταγλώττιση θα είναι πιο αργή.";
+"risk.rebuild.label" = "Αναδημιουργείται";
+"risk.rebuild.plural" = "Αναδημιουργούνται";
+"risk.safe.help" = "Αναδημιουργούνται μόνες τους, χωρίς παρενέργειες.";
+"risk.safe.label" = "Ασφαλές";
+"risk.safe.plural" = "Ασφαλείς";
+
+/* ---- row ---- */
+"row.files" = "Αρχεία: %d";
+"row.noPath" = "Δεν βρέθηκε καμία αντίστοιχη διαδρομή σε αυτό το Mac.";
+
+/* ---- select ---- */
+"select.clear" = "Καθαρισμός επιλογής";
+"select.mark" = "Επιλογή";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Προσωρινή μνήμη Android";
+"target.android.caches.note" = "Προσωρινή μνήμη μεταγλώττισης του SDK και προσωρινά δεδομένα των εργαλείων";
+"target.browsers.headless.name" = "Προγράμματα περιήγησης Playwright / Puppeteer";
+"target.browsers.headless.note" = "Chromium, Firefox και WebKit που κατέβηκαν για δοκιμές E2E";
+"target.bun.deno.name" = "Προσωρινή μνήμη Bun και Deno";
+"target.bun.deno.note" = "Μονάδες που κατέβασαν το Bun και το Deno";
+"target.caches.other.name" = "Άλλες προσωρινές μνήμες εφαρμογών";
+"target.caches.other.note" = "Ό,τι απομένει στο ~/Library/Caches και δεν καλύπτεται από καμία γραμμή παραπάνω";
+"target.carthage.name" = "Προσωρινή μνήμη Carthage";
+"target.carthage.note" = "Frameworks και checkouts του Carthage";
+"target.cocoapods.name" = "Προσωρινή μνήμη CocoaPods";
+"target.cocoapods.note" = "Ληφθέντα pods και specs";
+"target.docker.logs.name" = "Καταγραφές Docker Desktop";
+"target.docker.logs.note" = "Μόνο καταγραφές. Οι εικόνες και οι τόμοι δεν θίγονται";
+"target.electron.name" = "Προσωρινή μνήμη Electron";
+"target.electron.note" = "Δυαδικά αρχεία του Electron και του electron-builder";
+"target.flutter.name" = "Προσωρινή μνήμη Flutter / Dart";
+"target.flutter.note" = "~/.pub-cache: πακέτα από το pub.dev";
+"target.go.build.name" = "Προσωρινή μνήμη μεταγλώττισης Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Προσωρινή μνήμη μονάδων Go";
+"target.go.mod.note" = "~/go/pkg/mod. Μόνο για ανάγνωση: μπορεί να απαιτεί δικαιώματα";
+"target.gradle.caches.name" = "Προσωρινή μνήμη Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: εξαρτήσεις και προσωρινή μνήμη μεταγλώττισης όλων των έργων";
+"target.gradle.daemon.name" = "Δαίμονες και καταγραφές Gradle";
+"target.gradle.daemon.note" = "Καταγραφές των διεργασιών δαίμονα";
+"target.gradle.wrapper.name" = "Διανομές Gradle Wrapper";
+"target.gradle.wrapper.note" = "Κάθε έκδοση του Gradle που έχει κατεβάσει κάποιο έργο (περίπου 150 MB η καθεμία)";
+"target.homebrew.name" = "Προσωρινή μνήμη Homebrew";
+"target.homebrew.note" = "Bottles και παλιές λήψεις του brew";
+"target.ios.backups.name" = "Εφεδρικά αντίγραφα iOS";
+"target.ios.backups.note" = "Αντίγραφα iPhone και iPad. Μπορεί να είναι το μόνο αντίγραφο που έχετε";
+"target.jetbrains.caches.name" = "Προσωρινή μνήμη JetBrains / Android Studio";
+"target.jetbrains.caches.note" = "Ευρετήρια και προσωρινές μνήμες από IntelliJ, Android Studio, PyCharm και άλλα";
+"target.jetbrains.logs.name" = "Καταγραφές JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "Καταγραφές των περιβαλλόντων ανάπτυξης";
+"target.kotlin.name" = "Προσωρινή μνήμη Kotlin / Konan";
+"target.kotlin.note" = "Artifacts των μεταγλωττιστών Kotlin και Kotlin Native";
+"target.maven.name" = "Τοπικό αποθετήριο Maven";
+"target.maven.note" = "~/.m2/repository. Θα ξανακατέβει ολόκληρο στην επόμενη μεταγλώττιση";
+"target.npm.name" = "Προσωρινή μνήμη npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Προσωρινή μνήμη Composer (PHP)";
+"target.php.note" = "Πακέτα που κατέβασε το Composer";
+"target.pnpm.name" = "Αποθήκη pnpm";
+"target.pnpm.note" = "Κοινή αποθήκη πακέτων του pnpm";
+"target.python.name" = "Προσωρινή μνήμη Python";
+"target.python.note" = "pip, uv, poetry και μεταγλωττισμένα wheels";
+"target.ruby.name" = "Προσωρινή μνήμη Ruby";
+"target.ruby.note" = "Gems που κατέβασε το Bundler";
+"target.rust.name" = "Προσωρινή μνήμη Cargo (Rust)";
+"target.rust.note" = "Ληφθέντα crates και checkouts του git";
+"target.savedstate.name" = "Αποθηκευμένη κατάσταση εφαρμογών";
+"target.savedstate.note" = "Παράθυρα και έγγραφα που οι εφαρμογές ανοίγουν ξανά κατά την εκκίνηση";
+"target.sim.caches.name" = "Προσωρινή μνήμη CoreSimulator";
+"target.sim.caches.note" = "Ληφθέντα περιβάλλοντα εκτέλεσης και κοινή προσωρινή μνήμη των προσομοιωτών";
+"target.sim.devicedata.name" = "Προσωρινά δεδομένα προσομοιωτών";
+"target.sim.devicedata.note" = "Προσωρινές μνήμες και /tmp μέσα σε κάθε προσομοιωτή (οι εγκατεστημένες εφαρμογές παραμένουν)";
+"target.swiftpm.name" = "Προσωρινή μνήμη Swift Package Manager";
+"target.swiftpm.note" = "Αποθετήρια και δυαδικά αρχεία των εξαρτήσεων SwiftPM";
+"target.trash.name" = "Απορρίμματα";
+"target.trash.note" = "Αδειάζει οριστικά τον φάκελο ~/.Trash";
+"target.user.logs.name" = "Καταγραφές χρήστη";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Αρχειοθετήσεις Xcode";
+"target.xcode.archives.note" = "Μεταγλωττίσεις αρχειοθετημένες για το App Store. Τις χρειάζεστε για τη συμβολοποίηση σφαλμάτων";
+"target.xcode.caches.name" = "Προσωρινή μνήμη Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: ευρετήρια, λήψεις και προσωρινά δεδομένα του IDE";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Ευρετήρια, ενδιάμεσες μεταγλωττίσεις και ModuleCache από όλα τα έργα σας";
+"target.xcode.devicelogs.name" = "Καταγραφές και σφάλματα συσκευών";
+"target.xcode.devicelogs.note" = "Καταγραφές που λήφθηκαν από συνδεδεμένα iPhone και iPad";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Σύμβολα για κάθε έκδοση iOS από την οποία έχετε συνδέσει συσκευή";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Το ίδιο για τις υπόλοιπες πλατφόρμες";
+"target.xcode.previews.name" = "Προεπισκοπήσεις Xcode";
+"target.xcode.previews.note" = "Προσωρινή μνήμη για τις προεπισκοπήσεις SwiftUI";
+"target.yarn.name" = "Προσωρινή μνήμη Yarn";
+"target.yarn.note" = "Πακέτα που κατέβασε το Yarn";

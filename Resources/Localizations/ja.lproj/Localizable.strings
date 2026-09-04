@@ -1,0 +1,153 @@
+/* MacCleaner — ja */
+/* Generado desde las tablas de traduccion. Una clave por linea. */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "選択したカテゴリを完全に削除します。";
+"alert.clean.body.trash" = "選択したカテゴリをゴミ箱に移動します。";
+"alert.clean.count" = "カテゴリ数: %d";
+"alert.clean.delete" = "削除";
+"alert.clean.risky" = "「注意」の項目: %@";
+"alert.clean.title" = "%@ を削除しますか？";
+"alert.clean.trash" = "ゴミ箱に入れる";
+"alert.report.count" = "クリーンアップしたカテゴリ: %d";
+"alert.report.failures" = "一部の項目を削除できませんでした（対象カテゴリ: %d）。多くの場合は権限の問題です。「システム設定 › プライバシーとセキュリティ」で MacCleaner にフルディスクアクセスを許可してください。";
+"alert.report.freed" = "%@ を解放しました。";
+"alert.report.title" = "クリーンアップ完了";
+
+/* ---- category ---- */
+"category.jvm" = "Android・Gradle・JVM";
+"category.langs" = "その他の言語";
+"category.node" = "Node と Web";
+"category.system" = "システムとApp";
+"category.tools" = "パッケージマネージャ";
+"category.xcode" = "Xcode と iOS";
+
+/* ---- common ---- */
+"common.cancel" = "キャンセル";
+"common.done" = "完了";
+
+/* ---- empty ---- */
+"empty.button" = "今すぐスキャン";
+"empty.subtitle" = "何も選択されていません。削除する対象はあなたが選び、実行前に確認します。";
+"empty.title" = "スキャンして、どれだけ容量を空けられるか確認しましょう";
+
+/* ---- footer ---- */
+"footer.clean" = "%@ を削除";
+"footer.hideEmpty" = "空の項目を隠す";
+"footer.selected" = "選択中: %d";
+"footer.trash" = "ゴミ箱に入れる";
+"footer.trash.help" = "低速で、ゴミ箱を空にするまで容量は解放されませんが、取り消せます。";
+
+/* ---- group ---- */
+"group.all" = "すべて";
+"group.none" = "なし";
+
+/* ---- header ---- */
+"header.notScanned" = "未スキャン";
+"header.reclaimable" = "解放可能な容量";
+"header.rescan" = "再スキャン";
+"header.scan" = "スキャン";
+"header.stop" = "停止";
+"header.working" = "処理中…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "再ダウンロードが必要になるか、有用なデータを失います。";
+"risk.caution.label" = "注意";
+"risk.caution.plural" = "注意が必要な項目";
+"risk.rebuild.help" = "安全ですが、次のビルドが遅くなります。";
+"risk.rebuild.label" = "再生成";
+"risk.rebuild.plural" = "再生成される項目";
+"risk.safe.help" = "副作用なく自動的に再生成されます。";
+"risk.safe.label" = "安全";
+"risk.safe.plural" = "安全な項目";
+
+/* ---- row ---- */
+"row.files" = "ファイル: %d";
+"row.noPath" = "この Mac に該当するパスは見つかりませんでした。";
+
+/* ---- select ---- */
+"select.clear" = "すべて解除";
+"select.mark" = "選択";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Android のキャッシュ";
+"target.android.caches.note" = "SDK のビルドキャッシュとツールの一時データ";
+"target.browsers.headless.name" = "Playwright / Puppeteer のブラウザ";
+"target.browsers.headless.note" = "E2E テスト用にダウンロードした Chromium、Firefox、WebKit";
+"target.bun.deno.name" = "Bun と Deno のキャッシュ";
+"target.bun.deno.note" = "Bun と Deno がダウンロードしたモジュール";
+"target.caches.other.name" = "その他のAppキャッシュ";
+"target.caches.other.note" = "~/Library/Caches のうち、上のどの行にも該当しない残り";
+"target.carthage.name" = "Carthage のキャッシュ";
+"target.carthage.note" = "Carthage のフレームワークとチェックアウト";
+"target.cocoapods.name" = "CocoaPods のキャッシュ";
+"target.cocoapods.note" = "ダウンロード済みの pod と spec";
+"target.docker.logs.name" = "Docker Desktop のログ";
+"target.docker.logs.note" = "ログのみ。イメージとボリュームには触れません";
+"target.electron.name" = "Electron のキャッシュ";
+"target.electron.note" = "Electron と electron-builder のバイナリ";
+"target.flutter.name" = "Flutter / Dart のキャッシュ";
+"target.flutter.note" = "~/.pub-cache：pub.dev のパッケージ";
+"target.go.build.name" = "Go のビルドキャッシュ";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Go のモジュールキャッシュ";
+"target.go.mod.note" = "~/go/pkg/mod。読み取り専用のため、追加の権限が必要な場合があります";
+"target.gradle.caches.name" = "Gradle のキャッシュ";
+"target.gradle.caches.note" = "~/.gradle/caches：全プロジェクトの依存関係とビルドキャッシュ";
+"target.gradle.daemon.name" = "Gradle デーモンとログ";
+"target.gradle.daemon.note" = "デーモンプロセスのログ";
+"target.gradle.wrapper.name" = "Gradle Wrapper のディストリビューション";
+"target.gradle.wrapper.note" = "プロジェクトごとにダウンロードされた Gradle の各バージョン（1 つ約 150 MB）";
+"target.homebrew.name" = "Homebrew のキャッシュ";
+"target.homebrew.note" = "bottle と brew の古いダウンロード";
+"target.ios.backups.name" = "iOS のバックアップ";
+"target.ios.backups.note" = "iPhone・iPad のバックアップ。これが唯一の控えかもしれません";
+"target.jetbrains.caches.name" = "JetBrains / Android Studio のキャッシュ";
+"target.jetbrains.caches.note" = "IntelliJ、Android Studio、PyCharm などのインデックスとキャッシュ";
+"target.jetbrains.logs.name" = "JetBrains / Android Studio のログ";
+"target.jetbrains.logs.note" = "各 IDE のログ";
+"target.kotlin.name" = "Kotlin / Konan のキャッシュ";
+"target.kotlin.note" = "Kotlin および Kotlin Native コンパイラの成果物";
+"target.maven.name" = "ローカル Maven リポジトリ";
+"target.maven.note" = "~/.m2/repository。次のビルドで全体が再ダウンロードされます";
+"target.npm.name" = "npm のキャッシュ";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composer のキャッシュ（PHP）";
+"target.php.note" = "Composer がダウンロードしたパッケージ";
+"target.pnpm.name" = "pnpm ストア";
+"target.pnpm.note" = "pnpm の共有パッケージストア";
+"target.python.name" = "Python のキャッシュ";
+"target.python.note" = "pip、uv、poetry とビルド済み wheel";
+"target.ruby.name" = "Ruby のキャッシュ";
+"target.ruby.note" = "Bundler がダウンロードした gem";
+"target.rust.name" = "Cargo のキャッシュ（Rust）";
+"target.rust.note" = "ダウンロード済みの crate と git チェックアウト";
+"target.savedstate.name" = "保存されたAppの状態";
+"target.savedstate.note" = "App の起動時に再度開かれるウインドウと書類";
+"target.sim.caches.name" = "CoreSimulator のキャッシュ";
+"target.sim.caches.note" = "ダウンロード済みランタイムとシミュレータの共有キャッシュ";
+"target.sim.devicedata.name" = "シミュレータの一時データ";
+"target.sim.devicedata.note" = "各シミュレータ内のキャッシュと /tmp（インストール済みAppは残ります）";
+"target.swiftpm.name" = "Swift Package Manager のキャッシュ";
+"target.swiftpm.note" = "SwiftPM 依存関係のリポジトリとバイナリ";
+"target.trash.name" = "ゴミ箱";
+"target.trash.note" = "~/.Trash を完全に空にします";
+"target.user.logs.name" = "ユーザのログ";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcode アーカイブ";
+"target.xcode.archives.note" = "App Store 用にアーカイブしたビルド。クラッシュのシンボル化に必要です";
+"target.xcode.caches.name" = "Xcode のキャッシュ";
+"target.xcode.caches.note" = "com.apple.dt.Xcode：IDE のインデックス、ダウンロード、一時データ";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "全プロジェクトのインデックス、中間ビルド、ModuleCache";
+"target.xcode.devicelogs.name" = "デバイスのログとクラッシュ";
+"target.xcode.devicelogs.note" = "接続した iPhone・iPad から取得したログ";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "デバイスを接続した各 iOS バージョンのシンボル";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "他のプラットフォームについても同様";
+"target.xcode.previews.name" = "Xcode プレビュー";
+"target.xcode.previews.note" = "SwiftUI プレビューのキャッシュ";
+"target.yarn.name" = "Yarn のキャッシュ";
+"target.yarn.note" = "Yarn がダウンロードしたパッケージ";

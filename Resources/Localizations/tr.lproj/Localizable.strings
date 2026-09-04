@@ -1,0 +1,152 @@
+/* MacCleaner — tr */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Seçilen kategoriler kalıcı olarak silinecek.";
+"alert.clean.body.trash" = "Seçilen kategoriler Çöp Sepeti’ne taşınacak.";
+"alert.clean.count" = "Kategori: %d";
+"alert.clean.delete" = "Sil";
+"alert.clean.risky" = "“Dikkat” olarak işaretlenenler: %@";
+"alert.clean.title" = "%@ temizlensin mi?";
+"alert.clean.trash" = "Çöp Sepeti’ne taşı";
+"alert.report.count" = "Temizlenen kategori: %d";
+"alert.report.failures" = "Her şey silinemedi (etkilenen kategori: %d). Genellikle izin meselesidir: Ayarlar › Gizlilik ve Güvenlik bölümünden MacCleaner’a Tam Disk Erişimi verin.";
+"alert.report.freed" = "%@ boşaltıldı.";
+"alert.report.title" = "Temizlik tamamlandı";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle ve JVM";
+"category.langs" = "Diğer diller";
+"category.node" = "Node ve web";
+"category.system" = "Sistem ve uygulamalar";
+"category.tools" = "Paket yöneticileri";
+"category.xcode" = "Xcode ve iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Vazgeç";
+"common.done" = "Bitti";
+
+/* ---- empty ---- */
+"empty.button" = "Şimdi tara";
+"empty.subtitle" = "Hiçbir şey seçili değil: neyin sileceğine sen karar verir, öncesinde onaylarsın.";
+"empty.title" = "Ne kadar alan kazanabileceğini görmek için tara";
+
+/* ---- footer ---- */
+"footer.clean" = "%@ temizle";
+"footer.hideEmpty" = "Boşları gizle";
+"footer.selected" = "Seçilen: %d";
+"footer.trash" = "Çöp Sepeti’ne taşı";
+"footer.trash.help" = "Daha yavaş ve Çöp Sepeti’ni boşaltana kadar alan dolu kalır — ama geri alınabilir.";
+
+/* ---- group ---- */
+"group.all" = "Tümü";
+"group.none" = "Hiçbiri";
+
+/* ---- header ---- */
+"header.notScanned" = "Taranmadı";
+"header.reclaimable" = "Geri kazanılabilir alan";
+"header.rescan" = "Yeniden tara";
+"header.scan" = "Tara";
+"header.stop" = "Durdur";
+"header.working" = "Çalışıyor…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Bazı şeyleri yeniden indirmen gerekir, yoksa işine yarayan veriyi kaybedersin.";
+"risk.caution.label" = "Dikkat";
+"risk.caution.plural" = "Dikkat";
+"risk.rebuild.help" = "Güvenli, ama bir sonraki derleme daha yavaş olur.";
+"risk.rebuild.label" = "Yeniden oluşur";
+"risk.rebuild.plural" = "Yeniden oluşanlar";
+"risk.safe.help" = "Yan etkisi olmadan kendiliğinden yeniden oluşur.";
+"risk.safe.label" = "Güvenli";
+"risk.safe.plural" = "Güvenli";
+
+/* ---- row ---- */
+"row.files" = "Dosya: %d";
+"row.noPath" = "Bu Mac’te eşleşen bir yol bulunamadı.";
+
+/* ---- select ---- */
+"select.clear" = "Tüm seçimi kaldır";
+"select.mark" = "Seç";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Android önbelleği";
+"target.android.caches.note" = "SDK’nın derleme önbelleği ve araçların geçici verileri";
+"target.browsers.headless.name" = "Playwright / Puppeteer tarayıcıları";
+"target.browsers.headless.note" = "E2E testleri için indirilen Chromium, Firefox ve WebKit";
+"target.bun.deno.name" = "Bun ve Deno önbelleği";
+"target.bun.deno.note" = "Bun ve Deno’nun indirdiği modüller";
+"target.caches.other.name" = "Diğer uygulama önbellekleri";
+"target.caches.other.note" = "~/Library/Caches içinde kalan ve yukarıdaki hiçbir satırın kapsamadığı her şey";
+"target.carthage.name" = "Carthage önbelleği";
+"target.carthage.note" = "Carthage çatıları ve checkout’ları";
+"target.cocoapods.name" = "CocoaPods önbelleği";
+"target.cocoapods.note" = "İndirilen pod’lar ve spec’ler";
+"target.docker.logs.name" = "Docker Desktop günlükleri";
+"target.docker.logs.note" = "Yalnızca günlükler. İmajlara ve birimlere dokunulmaz";
+"target.electron.name" = "Electron önbelleği";
+"target.electron.note" = "Electron ve electron-builder ikili dosyaları";
+"target.flutter.name" = "Flutter / Dart önbelleği";
+"target.flutter.note" = "~/.pub-cache: pub.dev’den gelen paketler";
+"target.go.build.name" = "Go derleme önbelleği";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Go modül önbelleği";
+"target.go.mod.note" = "~/go/pkg/mod. Salt okunur: izin gerektirebilir";
+"target.gradle.caches.name" = "Gradle önbelleği";
+"target.gradle.caches.note" = "~/.gradle/caches: tüm projelerin bağımlılıkları ve derleme önbelleği";
+"target.gradle.daemon.name" = "Gradle arka plan süreçleri ve günlükleri";
+"target.gradle.daemon.note" = "Arka plan süreçlerinin günlükleri";
+"target.gradle.wrapper.name" = "Gradle Wrapper dağıtımları";
+"target.gradle.wrapper.note" = "Bir projenin indirdiği her Gradle sürümü (her biri yaklaşık 150 MB)";
+"target.homebrew.name" = "Homebrew önbelleği";
+"target.homebrew.note" = "Bottle’lar ve eski brew indirmeleri";
+"target.ios.backups.name" = "iOS yedeklemeleri";
+"target.ios.backups.note" = "iPhone ve iPad yedekleri. Elindeki tek kopya olabilir";
+"target.jetbrains.caches.name" = "JetBrains / Android Studio önbelleği";
+"target.jetbrains.caches.note" = "IntelliJ, Android Studio, PyCharm ve benzerlerinin dizinleri ve önbellekleri";
+"target.jetbrains.logs.name" = "JetBrains / Android Studio günlükleri";
+"target.jetbrains.logs.note" = "Geliştirme ortamlarının günlükleri";
+"target.kotlin.name" = "Kotlin / Konan önbelleği";
+"target.kotlin.note" = "Kotlin ve Kotlin Native derleyicilerinin ürünleri";
+"target.maven.name" = "Yerel Maven deposu";
+"target.maven.note" = "~/.m2/repository. Bir sonraki derlemede baştan tamamen indirilir";
+"target.npm.name" = "npm önbelleği";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composer önbelleği (PHP)";
+"target.php.note" = "Composer’ın indirdiği paketler";
+"target.pnpm.name" = "pnpm deposu";
+"target.pnpm.note" = "pnpm’in ortak paket deposu";
+"target.python.name" = "Python önbelleği";
+"target.python.note" = "pip, uv, poetry ve derlenmiş wheel’ler";
+"target.ruby.name" = "Ruby önbelleği";
+"target.ruby.note" = "Bundler’ın indirdiği gem’ler";
+"target.rust.name" = "Cargo önbelleği (Rust)";
+"target.rust.note" = "İndirilen crate’ler ve git checkout’ları";
+"target.savedstate.name" = "Kaydedilmiş uygulama durumu";
+"target.savedstate.note" = "Uygulamaların açılışta yeniden açtığı pencereler ve belgeler";
+"target.sim.caches.name" = "CoreSimulator önbelleği";
+"target.sim.caches.note" = "İndirilen çalışma zamanları ve benzeticilerin ortak önbelleği";
+"target.sim.devicedata.name" = "Benzeticilerin geçici verileri";
+"target.sim.devicedata.note" = "Her benzeticinin içindeki önbellekler ve /tmp (kurulu uygulamalar kalır)";
+"target.swiftpm.name" = "Swift Package Manager önbelleği";
+"target.swiftpm.note" = "SwiftPM bağımlılıklarının depoları ve ikili dosyaları";
+"target.trash.name" = "Çöp Sepeti";
+"target.trash.note" = "~/.Trash klasörünü kalıcı olarak boşaltır";
+"target.user.logs.name" = "Kullanıcı günlükleri";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcode arşivleri";
+"target.xcode.archives.note" = "App Store için arşivlenmiş derlemeler. Çökmeleri sembolleştirmek için gerekli";
+"target.xcode.caches.name" = "Xcode önbelleği";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: IDE dizinleri, indirmeleri ve geçici verileri";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Tüm projelerinin dizinleri, ara derlemeleri ve ModuleCache’i";
+"target.xcode.devicelogs.name" = "Aygıt günlükleri ve çökmeleri";
+"target.xcode.devicelogs.note" = "Bağlı iPhone ve iPad’lerden çekilen günlükler";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Aygıt bağladığın her iOS sürümü için semboller";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Diğer platformlar için aynısı";
+"target.xcode.previews.name" = "Xcode önizlemeleri";
+"target.xcode.previews.note" = "SwiftUI önizlemelerinin önbelleği";
+"target.yarn.name" = "Yarn önbelleği";
+"target.yarn.note" = "Yarn’ın indirdiği paketler";

@@ -1,0 +1,152 @@
+/* MacCleaner — sv */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "De markerade kategorierna raderas permanent.";
+"alert.clean.body.trash" = "De markerade kategorierna flyttas till papperskorgen.";
+"alert.clean.count" = "Kategorier: %d";
+"alert.clean.delete" = "Radera";
+"alert.clean.risky" = "Markerade som ”Varning”: %@";
+"alert.clean.title" = "Rensa %@?";
+"alert.clean.trash" = "Flytta till papperskorgen";
+"alert.report.count" = "Rensade kategorier: %d";
+"alert.report.failures" = "Allt kunde inte raderas (berörda kategorier: %d). Oftast handlar det om behörigheter: ge MacCleaner fullständig diskåtkomst i Systeminställningar › Integritet och säkerhet.";
+"alert.report.freed" = "Frigjorde %@.";
+"alert.report.title" = "Rensningen är klar";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle och JVM";
+"category.langs" = "Andra språk";
+"category.node" = "Node och webb";
+"category.system" = "System och appar";
+"category.tools" = "Pakethanterare";
+"category.xcode" = "Xcode och iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Avbryt";
+"common.done" = "Klar";
+
+/* ---- empty ---- */
+"empty.button" = "Sök igenom nu";
+"empty.subtitle" = "Inget är markerat: du väljer vad som ska tas bort och bekräftar innan.";
+"empty.title" = "Sök igenom för att se hur mycket utrymme du kan frigöra";
+
+/* ---- footer ---- */
+"footer.clean" = "Rensa %@";
+"footer.hideEmpty" = "Dölj tomma";
+"footer.selected" = "Markerade: %d";
+"footer.trash" = "Flytta till papperskorgen";
+"footer.trash.help" = "Långsammare, och utrymmet är upptaget tills du tömmer papperskorgen — men går att ångra.";
+
+/* ---- group ---- */
+"group.all" = "Alla";
+"group.none" = "Inga";
+
+/* ---- header ---- */
+"header.notScanned" = "Inte genomsökt";
+"header.reclaimable" = "Utrymme att frigöra";
+"header.rescan" = "Sök igen";
+"header.scan" = "Sök igenom";
+"header.stop" = "Stoppa";
+"header.working" = "Arbetar…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Saker måste laddas ned igen, annars förlorar du användbara data.";
+"risk.caution.label" = "Varning";
+"risk.caution.plural" = "Varning";
+"risk.rebuild.help" = "Säkert, men nästa bygge tar längre tid.";
+"risk.rebuild.label" = "Byggs om";
+"risk.rebuild.plural" = "Byggs om";
+"risk.safe.help" = "Skapas på nytt av sig själva, utan bieffekter.";
+"risk.safe.label" = "Säkert";
+"risk.safe.plural" = "Säkra";
+
+/* ---- row ---- */
+"row.files" = "Filer: %d";
+"row.noPath" = "Ingen matchande sökväg hittades på den här Macen.";
+
+/* ---- select ---- */
+"select.clear" = "Avmarkera alla";
+"select.mark" = "Markera";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Android-cache";
+"target.android.caches.note" = "SDK:ns byggcache och tillfälliga verktygsdata";
+"target.browsers.headless.name" = "Playwright-/Puppeteer-webbläsare";
+"target.browsers.headless.note" = "Chromium, Firefox och WebKit hämtade för E2E-tester";
+"target.bun.deno.name" = "Bun- och Deno-cache";
+"target.bun.deno.note" = "Moduler hämtade av Bun och Deno";
+"target.caches.other.name" = "Övriga appcacher";
+"target.caches.other.note" = "Allt som blir kvar i ~/Library/Caches och inte täcks av någon rad ovan";
+"target.carthage.name" = "Carthage-cache";
+"target.carthage.note" = "Carthage-ramverk och checkouts";
+"target.cocoapods.name" = "CocoaPods-cache";
+"target.cocoapods.note" = "Hämtade pods och specs";
+"target.docker.logs.name" = "Docker Desktop-loggar";
+"target.docker.logs.note" = "Endast loggar. Avbildningar och volymer rörs inte";
+"target.electron.name" = "Electron-cache";
+"target.electron.note" = "Binärer för Electron och electron-builder";
+"target.flutter.name" = "Flutter-/Dart-cache";
+"target.flutter.note" = "~/.pub-cache: paket från pub.dev";
+"target.go.build.name" = "Go-byggcache";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Go-modulcache";
+"target.go.mod.note" = "~/go/pkg/mod. Skrivskyddad, så extra behörighet kan behövas";
+"target.gradle.caches.name" = "Gradle-cache";
+"target.gradle.caches.note" = "~/.gradle/caches: beroenden och byggcache för alla projekt";
+"target.gradle.daemon.name" = "Gradle-daemoner och loggar";
+"target.gradle.daemon.note" = "Loggar från daemon-processerna";
+"target.gradle.wrapper.name" = "Gradle Wrapper-distributioner";
+"target.gradle.wrapper.note" = "Varje Gradle-version som ett projekt har hämtat (~150 MB styck)";
+"target.homebrew.name" = "Homebrew-cache";
+"target.homebrew.note" = "Bottles och gamla brew-hämtningar";
+"target.ios.backups.name" = "iOS-säkerhetskopior";
+"target.ios.backups.note" = "Säkerhetskopior av iPhone och iPad. Kan vara din enda kopia";
+"target.jetbrains.caches.name" = "JetBrains-/Android Studio-cache";
+"target.jetbrains.caches.note" = "Index och cacher från IntelliJ, Android Studio, PyCharm med flera";
+"target.jetbrains.logs.name" = "JetBrains-/Android Studio-loggar";
+"target.jetbrains.logs.note" = "Loggar från utvecklingsmiljöerna";
+"target.kotlin.name" = "Kotlin-/Konan-cache";
+"target.kotlin.note" = "Artefakter från Kotlin- och Kotlin Native-kompilatorerna";
+"target.maven.name" = "Lokalt Maven-arkiv";
+"target.maven.note" = "~/.m2/repository. Hämtas i sin helhet igen vid nästa bygge";
+"target.npm.name" = "npm-cache";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composer-cache (PHP)";
+"target.php.note" = "Paket hämtade av Composer";
+"target.pnpm.name" = "pnpm-lager";
+"target.pnpm.note" = "pnpm:s delade paketlager";
+"target.python.name" = "Python-cache";
+"target.python.note" = "pip, uv, poetry och kompilerade wheels";
+"target.ruby.name" = "Ruby-cache";
+"target.ruby.note" = "Gems hämtade av Bundler";
+"target.rust.name" = "Cargo-cache (Rust)";
+"target.rust.note" = "Hämtade crates och git-checkouts";
+"target.savedstate.name" = "Sparat appläge";
+"target.savedstate.note" = "Fönster och dokument som appar återöppnar vid start";
+"target.sim.caches.name" = "CoreSimulator-cache";
+"target.sim.caches.note" = "Hämtade runtime-miljöer och simulatorernas delade cache";
+"target.sim.devicedata.name" = "Tillfälliga simulatordata";
+"target.sim.devicedata.note" = "Cacher och /tmp inuti varje simulator (installerade appar behålls)";
+"target.swiftpm.name" = "Swift Package Manager-cache";
+"target.swiftpm.note" = "Arkiv och binärer för SwiftPM-beroenden";
+"target.trash.name" = "Papperskorgen";
+"target.trash.note" = "Tömmer ~/.Trash permanent";
+"target.user.logs.name" = "Användarloggar";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcode-arkiv";
+"target.xcode.archives.note" = "Byggen arkiverade för App Store. Du behöver dem för att symbolisera krascher";
+"target.xcode.caches.name" = "Xcode-cache";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: index, hämtningar och tillfälliga IDE-data";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Index, mellanliggande byggen och ModuleCache från alla dina projekt";
+"target.xcode.devicelogs.name" = "Enhetsloggar och krascher";
+"target.xcode.devicelogs.note" = "Loggar hämtade från anslutna iPhone- och iPad-enheter";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Symboler för varje iOS-version du har anslutit en enhet från";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Detsamma för övriga plattformar";
+"target.xcode.previews.name" = "Xcode-förhandsvisningar";
+"target.xcode.previews.note" = "Cache för SwiftUI-förhandsvisningar";
+"target.yarn.name" = "Yarn-cache";
+"target.yarn.note" = "Paket hämtade av Yarn";

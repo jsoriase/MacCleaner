@@ -1,0 +1,152 @@
+/* MacCleaner — mt */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Il-kategoriji magħżula se jitħassru għal dejjem.";
+"alert.clean.body.trash" = "Il-kategoriji magħżula se jiġu mmexxija lejn il-Basket.";
+"alert.clean.count" = "Kategoriji: %d";
+"alert.clean.delete" = "Ħassar";
+"alert.clean.risky" = "Immarkati bħala “Attenzjoni”: %@";
+"alert.clean.title" = "Tnaddaf %@?";
+"alert.clean.trash" = "Mexxi lejn il-Basket";
+"alert.report.count" = "Kategoriji mnaddfa: %d";
+"alert.report.failures" = "Ma setax jitħassar kollox (kategoriji affettwati: %d). Normalment hija kwistjoni ta’ permessi: agħti lil MacCleaner Aċċess Sħiħ għad-Disk fis-Settings › Privatezza u sigurtà.";
+"alert.report.freed" = "Inħelsu %@.";
+"alert.report.title" = "It-tindif tlesta";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle u JVM";
+"category.langs" = "Lingwi oħra";
+"category.node" = "Node u web";
+"category.system" = "Sistema u apps";
+"category.tools" = "Maniġers tal-pakketti";
+"category.xcode" = "Xcode u iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Ikkanċella";
+"common.done" = "Lest";
+
+/* ---- empty ---- */
+"empty.button" = "Skennja issa";
+"empty.subtitle" = "Xejn mhu magħżul: int tagħżel x’jitħassar, u tikkonferma qabel.";
+"empty.title" = "Skennja biex tara kemm spazju tista’ tikseb lura";
+
+/* ---- footer ---- */
+"footer.clean" = "Naddaf %@";
+"footer.hideEmpty" = "Aħbi l-vojta";
+"footer.selected" = "Magħżula: %d";
+"footer.trash" = "Mexxi lejn il-Basket";
+"footer.trash.help" = "Aktar bil-mod, u l-ispazju jibqa’ meħud sakemm tbattal il-Basket — imma jista’ jitreġġa’ lura.";
+
+/* ---- group ---- */
+"group.all" = "Kollox";
+"group.none" = "Xejn";
+
+/* ---- header ---- */
+"header.notScanned" = "Mhux skennjat";
+"header.reclaimable" = "Spazju li jista’ jinkiseb lura";
+"header.rescan" = "Skennja mill-ġdid";
+"header.scan" = "Skennja";
+"header.stop" = "Waqqaf";
+"header.working" = "Qed jaħdem…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Ikollok terġa’ tniżżel l-affarijiet, inkella titlef dejta utli.";
+"risk.caution.label" = "Attenzjoni";
+"risk.caution.plural" = "Attenzjoni";
+"risk.rebuild.help" = "Sikur, imma l-bini li jmiss ikun aktar bil-mod.";
+"risk.rebuild.label" = "Jinbena mill-ġdid";
+"risk.rebuild.plural" = "Jinbnew mill-ġdid";
+"risk.safe.help" = "Jinħolqu mill-ġdid waħidhom, mingħajr effetti sekondarji.";
+"risk.safe.label" = "Sikur";
+"risk.safe.plural" = "Sikuri";
+
+/* ---- row ---- */
+"row.files" = "Fajls: %d";
+"row.noPath" = "Ma nstab l-ebda passaġġ li jaqbel f’dan il-Mac.";
+
+/* ---- select ---- */
+"select.clear" = "Neħħi kollox";
+"select.mark" = "Agħżel";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Cache ta’ Android";
+"target.android.caches.note" = "Cache tal-bini tal-SDK u dejta temporanja tal-għodod";
+"target.browsers.headless.name" = "Brawżers ta’ Playwright / Puppeteer";
+"target.browsers.headless.note" = "Chromium, Firefox u WebKit imniżżla għat-testijiet E2E";
+"target.bun.deno.name" = "Cache ta’ Bun u Deno";
+"target.bun.deno.note" = "Moduli mniżżla minn Bun u Deno";
+"target.caches.other.name" = "Caches oħra tal-apps";
+"target.caches.other.note" = "Dak kollu li jibqa’ f’~/Library/Caches u li l-ebda ringiela ta’ fuq ma tkopri";
+"target.carthage.name" = "Cache ta’ Carthage";
+"target.carthage.note" = "Frameworks u checkouts ta’ Carthage";
+"target.cocoapods.name" = "Cache ta’ CocoaPods";
+"target.cocoapods.note" = "Pods u specs imniżżla";
+"target.docker.logs.name" = "Logs ta’ Docker Desktop";
+"target.docker.logs.note" = "Logs biss. L-images u l-volumi ma jintmessux";
+"target.electron.name" = "Cache ta’ Electron";
+"target.electron.note" = "Binarji ta’ Electron u electron-builder";
+"target.flutter.name" = "Cache ta’ Flutter / Dart";
+"target.flutter.note" = "~/.pub-cache: pakketti minn pub.dev";
+"target.go.build.name" = "Cache tal-bini ta’ Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Cache tal-moduli ta’ Go";
+"target.go.mod.note" = "~/go/pkg/mod. Għall-qari biss: jista’ jkun jeħtieġ permessi";
+"target.gradle.caches.name" = "Cache ta’ Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: dipendenzi u cache tal-bini tal-proġetti kollha";
+"target.gradle.daemon.name" = "Daemons u logs ta’ Gradle";
+"target.gradle.daemon.note" = "Logs tal-proċessi daemon";
+"target.gradle.wrapper.name" = "Distribuzzjonijiet ta’ Gradle Wrapper";
+"target.gradle.wrapper.note" = "Kull verżjoni ta’ Gradle li niżżel xi proġett (madwar 150 MB kull waħda)";
+"target.homebrew.name" = "Cache ta’ Homebrew";
+"target.homebrew.note" = "Bottles u tniżżil qadim ta’ brew";
+"target.ios.backups.name" = "Backups ta’ iOS";
+"target.ios.backups.note" = "Backups tal-iPhone u l-iPad. Jista’ jkun l-uniku kopja li għandek";
+"target.jetbrains.caches.name" = "Cache ta’ JetBrains / Android Studio";
+"target.jetbrains.caches.note" = "Indiċi u caches ta’ IntelliJ, Android Studio, PyCharm u oħrajn";
+"target.jetbrains.logs.name" = "Logs ta’ JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "Logs tal-ambjenti tal-iżvilupp";
+"target.kotlin.name" = "Cache ta’ Kotlin / Konan";
+"target.kotlin.note" = "Artifatti tal-kompilaturi Kotlin u Kotlin Native";
+"target.maven.name" = "Repożitorju lokali ta’ Maven";
+"target.maven.note" = "~/.m2/repository. Jitniżżel kollu mill-ġdid fil-bini li jmiss";
+"target.npm.name" = "Cache ta’ npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Cache ta’ Composer (PHP)";
+"target.php.note" = "Pakketti mniżżla minn Composer";
+"target.pnpm.name" = "Ħażna ta’ pnpm";
+"target.pnpm.note" = "Ħażna komuni tal-pakketti ta’ pnpm";
+"target.python.name" = "Cache ta’ Python";
+"target.python.note" = "pip, uv, poetry u wheels ikkompilati";
+"target.ruby.name" = "Cache ta’ Ruby";
+"target.ruby.note" = "Gems imniżżla minn Bundler";
+"target.rust.name" = "Cache ta’ Cargo (Rust)";
+"target.rust.note" = "Crates imniżżla u checkouts ta’ git";
+"target.savedstate.name" = "Stat salvat tal-apps";
+"target.savedstate.note" = "Twieqi u dokumenti li l-apps jerġgħu jiftħu meta jibdew";
+"target.sim.caches.name" = "Cache ta’ CoreSimulator";
+"target.sim.caches.note" = "Runtimes imniżżla u l-cache komuni tas-simulaturi";
+"target.sim.devicedata.name" = "Dejta temporanja tas-simulaturi";
+"target.sim.devicedata.note" = "Caches u /tmp ġewwa kull simulatur (l-apps installati jibqgħu)";
+"target.swiftpm.name" = "Cache ta’ Swift Package Manager";
+"target.swiftpm.note" = "Repożitorji u binarji tad-dipendenzi ta’ SwiftPM";
+"target.trash.name" = "Basket";
+"target.trash.note" = "Ibattal ~/.Trash għal dejjem";
+"target.user.logs.name" = "Logs tal-utent";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Arkivji ta’ Xcode";
+"target.xcode.archives.note" = "Binjiet arkivjati għall-App Store. Għandek bżonnhom biex tissimbolizza l-crashes";
+"target.xcode.caches.name" = "Cache ta’ Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: indiċi, tniżżil u dejta temporanja tal-IDE";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Indiċi, binjiet intermedji u ModuleCache mill-proġetti kollha tiegħek";
+"target.xcode.devicelogs.name" = "Logs u crashes tal-apparati";
+"target.xcode.devicelogs.note" = "Logs miġbura minn iPhones u iPads imqabbda";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Simboli għal kull verżjoni ta’ iOS li minnha qbadt apparat";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "L-istess għall-pjattaformi l-oħra";
+"target.xcode.previews.name" = "Previews ta’ Xcode";
+"target.xcode.previews.note" = "Cache tal-previews ta’ SwiftUI";
+"target.yarn.name" = "Cache ta’ Yarn";
+"target.yarn.note" = "Pakketti mniżżla minn Yarn";

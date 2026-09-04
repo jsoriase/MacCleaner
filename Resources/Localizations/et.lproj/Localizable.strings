@@ -1,0 +1,152 @@
+/* MacCleaner — et */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Valitud kategooriad kustutatakse jäädavalt.";
+"alert.clean.body.trash" = "Valitud kategooriad teisaldatakse prügikasti.";
+"alert.clean.count" = "Kategooriaid: %d";
+"alert.clean.delete" = "Kustuta";
+"alert.clean.risky" = "Märgitud kui „Ettevaatust“: %@";
+"alert.clean.title" = "Kas puhastada %@?";
+"alert.clean.trash" = "Teisalda prügikasti";
+"alert.report.count" = "Puhastatud kategooriaid: %d";
+"alert.report.failures" = "Kõike ei õnnestunud kustutada (mõjutatud kategooriaid: %d). Tavaliselt on tegu õigustega: anna MacCleanerile täielik kettaligipääs jaotises Sätted › Privaatsus ja turvalisus.";
+"alert.report.freed" = "Vabastati %@.";
+"alert.report.title" = "Puhastamine lõpetatud";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle ja JVM";
+"category.langs" = "Muud keeled";
+"category.node" = "Node ja veeb";
+"category.system" = "Süsteem ja rakendused";
+"category.tools" = "Paketihaldurid";
+"category.xcode" = "Xcode ja iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Loobu";
+"common.done" = "Valmis";
+
+/* ---- empty ---- */
+"empty.button" = "Skanni kohe";
+"empty.subtitle" = "Midagi pole valitud: sina otsustad, mida kustutada, ja kinnitad enne seda.";
+"empty.title" = "Skanni, et näha, kui palju ruumi saad vabastada";
+
+/* ---- footer ---- */
+"footer.clean" = "Puhasta %@";
+"footer.hideEmpty" = "Peida tühjad";
+"footer.selected" = "Valitud: %d";
+"footer.trash" = "Teisalda prügikasti";
+"footer.trash.help" = "Aeglasem ja ruum jääb hõivatuks, kuni prügikasti tühjendad — kuid seda saab tagasi võtta.";
+
+/* ---- group ---- */
+"group.all" = "Kõik";
+"group.none" = "Mitte midagi";
+
+/* ---- header ---- */
+"header.notScanned" = "Skannimata";
+"header.reclaimable" = "Vabastatav ruum";
+"header.rescan" = "Skanni uuesti";
+"header.scan" = "Skanni";
+"header.stop" = "Peata";
+"header.working" = "Töötan…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Asju tuleb uuesti alla laadida, muidu kaotad kasulikke andmeid.";
+"risk.caution.label" = "Ettevaatust";
+"risk.caution.plural" = "Ettevaatust";
+"risk.rebuild.help" = "Ohutu, kuid järgmine ehitus võtab kauem aega.";
+"risk.rebuild.label" = "Taastub";
+"risk.rebuild.plural" = "Taastuvad";
+"risk.safe.help" = "Tekivad ise uuesti, ilma kõrvalmõjudeta.";
+"risk.safe.label" = "Ohutu";
+"risk.safe.plural" = "Ohutud";
+
+/* ---- row ---- */
+"row.files" = "Failid: %d";
+"row.noPath" = "Sellest Macist ei leitud ühtegi sobivat teed.";
+
+/* ---- select ---- */
+"select.clear" = "Tühista valik";
+"select.mark" = "Vali";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Androidi vahemälu";
+"target.android.caches.note" = "SDK ehitusvahemälu ja tööriistade ajutised andmed";
+"target.browsers.headless.name" = "Playwrighti / Puppeteeri brauserid";
+"target.browsers.headless.note" = "E2E-testide jaoks alla laaditud Chromium, Firefox ja WebKit";
+"target.bun.deno.name" = "Buni ja Deno vahemälu";
+"target.bun.deno.note" = "Buni ja Deno alla laaditud moodulid";
+"target.caches.other.name" = "Muud rakenduste vahemälud";
+"target.caches.other.note" = "Kõik, mis jääb kausta ~/Library/Caches ja mida ükski ülalolev rida ei kata";
+"target.carthage.name" = "Carthage’i vahemälu";
+"target.carthage.note" = "Carthage’i raamistikud ja checkoutid";
+"target.cocoapods.name" = "CocoaPodsi vahemälu";
+"target.cocoapods.note" = "Allalaaditud podid ja specid";
+"target.docker.logs.name" = "Docker Desktopi logid";
+"target.docker.logs.note" = "Ainult logid. Tõmmiseid ja köiteid ei puudutata";
+"target.electron.name" = "Electroni vahemälu";
+"target.electron.note" = "Electroni ja electron-builderi binaarfailid";
+"target.flutter.name" = "Flutteri / Darti vahemälu";
+"target.flutter.note" = "~/.pub-cache: paketid saidilt pub.dev";
+"target.go.build.name" = "Go ehitusvahemälu";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Go moodulite vahemälu";
+"target.go.mod.note" = "~/go/pkg/mod. Ainult lugemiseks: võib vajada õigusi";
+"target.gradle.caches.name" = "Gradle’i vahemälu";
+"target.gradle.caches.note" = "~/.gradle/caches: kõigi projektide sõltuvused ja ehitusvahemälu";
+"target.gradle.daemon.name" = "Gradle’i deemonid ja logid";
+"target.gradle.daemon.note" = "Deemonprotsesside logid";
+"target.gradle.wrapper.name" = "Gradle Wrapperi distributsioonid";
+"target.gradle.wrapper.note" = "Iga Gradle’i versioon, mille mõni projekt on alla laadinud (umbes 150 MB tükk)";
+"target.homebrew.name" = "Homebrew’ vahemälu";
+"target.homebrew.note" = "Bottle’id ja vanad brew’ allalaadimised";
+"target.ios.backups.name" = "iOS-i varukoopiad";
+"target.ios.backups.note" = "iPhone’i ja iPadi koopiad. Võivad olla ainus koopia, mis sul on";
+"target.jetbrains.caches.name" = "JetBrainsi / Android Studio vahemälu";
+"target.jetbrains.caches.note" = "IntelliJ, Android Studio, PyCharmi ja teiste indeksid ja vahemälud";
+"target.jetbrains.logs.name" = "JetBrainsi / Android Studio logid";
+"target.jetbrains.logs.note" = "Arenduskeskkondade logid";
+"target.kotlin.name" = "Kotlini / Konani vahemälu";
+"target.kotlin.note" = "Kotlini ja Kotlin Native’i kompilaatorite artefaktid";
+"target.maven.name" = "Kohalik Maveni hoidla";
+"target.maven.note" = "~/.m2/repository. Järgmisel ehitusel laaditakse tervikuna uuesti alla";
+"target.npm.name" = "npm-i vahemälu";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composeri vahemälu (PHP)";
+"target.php.note" = "Composeri alla laaditud paketid";
+"target.pnpm.name" = "pnpm-i hoidla";
+"target.pnpm.note" = "pnpm-i ühine paketihoidla";
+"target.python.name" = "Pythoni vahemälu";
+"target.python.note" = "pip, uv, poetry ja kompileeritud wheelid";
+"target.ruby.name" = "Ruby vahemälu";
+"target.ruby.note" = "Bundleri alla laaditud gemid";
+"target.rust.name" = "Cargo vahemälu (Rust)";
+"target.rust.note" = "Alla laaditud crate’id ja git-checkoutid";
+"target.savedstate.name" = "Salvestatud rakenduste olek";
+"target.savedstate.note" = "Aknad ja dokumendid, mille rakendused käivitumisel uuesti avavad";
+"target.sim.caches.name" = "CoreSimulatori vahemälu";
+"target.sim.caches.note" = "Allalaaditud käituskeskkonnad ja simulaatorite ühine vahemälu";
+"target.sim.devicedata.name" = "Simulaatorite ajutised andmed";
+"target.sim.devicedata.note" = "Vahemälud ja /tmp igas simulaatoris (paigaldatud rakendused jäävad alles)";
+"target.swiftpm.name" = "Swift Package Manageri vahemälu";
+"target.swiftpm.note" = "SwiftPM-i sõltuvuste hoidlad ja binaarfailid";
+"target.trash.name" = "Prügikast";
+"target.trash.note" = "Tühjendab ~/.Trash jäädavalt";
+"target.user.logs.name" = "Kasutaja logid";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcode’i arhiivid";
+"target.xcode.archives.note" = "App Store’i jaoks arhiveeritud ehitused. Vaja krahhide sümboliseerimiseks";
+"target.xcode.caches.name" = "Xcode’i vahemälu";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: IDE indeksid, allalaadimised ja ajutised andmed";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Kõigi sinu projektide indeksid, vaheehitused ja ModuleCache";
+"target.xcode.devicelogs.name" = "Seadmete logid ja krahhid";
+"target.xcode.devicelogs.note" = "Ühendatud iPhone’idest ja iPadidest laaditud logid";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Sümbolid iga iOS-i versiooni kohta, millest oled seadme ühendanud";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Sama ülejäänud platvormide puhul";
+"target.xcode.previews.name" = "Xcode’i eelvaated";
+"target.xcode.previews.note" = "SwiftUI eelvaadete vahemälu";
+"target.yarn.name" = "Yarni vahemälu";
+"target.yarn.note" = "Yarni alla laaditud paketid";

@@ -1,0 +1,152 @@
+/* MacCleaner — be */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Выбраныя катэгорыі будуць выдалены назаўсёды.";
+"alert.clean.body.trash" = "Выбраныя катэгорыі будуць перамешчаны ў сметніцу.";
+"alert.clean.count" = "Катэгорыі: %d";
+"alert.clean.delete" = "Выдаліць";
+"alert.clean.risky" = "Пазначаныя як «Асцярожна»: %@";
+"alert.clean.title" = "Ачысціць %@?";
+"alert.clean.trash" = "Перамясціць у сметніцу";
+"alert.report.count" = "Ачышчана катэгорый: %d";
+"alert.report.failures" = "Не ўдалося выдаліць усё (закранутыя катэгорыі: %d). Звычайна гэта пытанне дазволаў: дайце MacCleaner поўны доступ да дыска ў Налады › Прыватнасць і бяспека.";
+"alert.report.freed" = "Вызвалена %@.";
+"alert.report.title" = "Ачыстка завершана";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle і JVM";
+"category.langs" = "Іншыя мовы";
+"category.node" = "Node і вэб";
+"category.system" = "Сістэма і праграмы";
+"category.tools" = "Менеджары пакетаў";
+"category.xcode" = "Xcode і iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Скасаваць";
+"common.done" = "Гатова";
+
+/* ---- empty ---- */
+"empty.button" = "Сканаваць зараз";
+"empty.subtitle" = "Нічога не выбрана: вы самі вырашаеце, што выдаліць, і пацвярджаеце перад гэтым.";
+"empty.title" = "Праскануйце, каб убачыць, колькі месца можна вызваліць";
+
+/* ---- footer ---- */
+"footer.clean" = "Ачысціць %@";
+"footer.hideEmpty" = "Схаваць пустыя";
+"footer.selected" = "Выбрана: %d";
+"footer.trash" = "Перамясціць у сметніцу";
+"footer.trash.help" = "Больш павольна, і месца застаецца занятым, пакуль не спустошыце сметніцу — затое гэта зваротна.";
+
+/* ---- group ---- */
+"group.all" = "Усё";
+"group.none" = "Нічога";
+
+/* ---- header ---- */
+"header.notScanned" = "Не прасканавана";
+"header.reclaimable" = "Месца, якое можна вызваліць";
+"header.rescan" = "Сканаваць зноў";
+"header.scan" = "Сканаваць";
+"header.stop" = "Спыніць";
+"header.working" = "Працую…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Давядзецца спампоўваць нанова, інакш страціце карысныя даныя.";
+"risk.caution.label" = "Асцярожна";
+"risk.caution.plural" = "Асцярожна";
+"risk.rebuild.help" = "Бяспечна, але наступная зборка будзе даўжэйшай.";
+"risk.rebuild.label" = "Адновіцца";
+"risk.rebuild.plural" = "Аднаўляльныя";
+"risk.safe.help" = "Ствараюцца нанова самі, без пабочных наступстваў.";
+"risk.safe.label" = "Бяспечна";
+"risk.safe.plural" = "Бяспечныя";
+
+/* ---- row ---- */
+"row.files" = "Файлы: %d";
+"row.noPath" = "На гэтым Mac не знойдзена ніводнага адпаведнага шляху.";
+
+/* ---- select ---- */
+"select.clear" = "Зняць адзнакі";
+"select.mark" = "Выбраць";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Кэш Android";
+"target.android.caches.note" = "Кэш зборкі SDK і часовыя даныя інструментаў";
+"target.browsers.headless.name" = "Браўзеры Playwright / Puppeteer";
+"target.browsers.headless.note" = "Chromium, Firefox і WebKit, спампаваныя для E2E-тэстаў";
+"target.bun.deno.name" = "Кэш Bun і Deno";
+"target.bun.deno.note" = "Модулі, спампаваныя Bun і Deno";
+"target.caches.other.name" = "Іншыя кэшы праграм";
+"target.caches.other.note" = "Усё, што застаецца ў ~/Library/Caches і не ахоплена ніводным радком вышэй";
+"target.carthage.name" = "Кэш Carthage";
+"target.carthage.note" = "Фрэймворкі і checkout-ы Carthage";
+"target.cocoapods.name" = "Кэш CocoaPods";
+"target.cocoapods.note" = "Спампаваныя pod-ы і specs";
+"target.docker.logs.name" = "Журналы Docker Desktop";
+"target.docker.logs.note" = "Толькі журналы. Вобразы і тамы не чапаюцца";
+"target.electron.name" = "Кэш Electron";
+"target.electron.note" = "Бінарныя файлы Electron і electron-builder";
+"target.flutter.name" = "Кэш Flutter / Dart";
+"target.flutter.note" = "~/.pub-cache: пакеты з pub.dev";
+"target.go.build.name" = "Кэш зборкі Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Кэш модуляў Go";
+"target.go.mod.note" = "~/go/pkg/mod. Толькі для чытання: можа спатрэбіцца дазвол";
+"target.gradle.caches.name" = "Кэш Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: залежнасці і кэш зборкі ўсіх праектаў";
+"target.gradle.daemon.name" = "Дэманы і журналы Gradle";
+"target.gradle.daemon.note" = "Журналы працэсаў-дэманаў";
+"target.gradle.wrapper.name" = "Дыстрыбутывы Gradle Wrapper";
+"target.gradle.wrapper.note" = "Кожная версія Gradle, спампаваная нейкім праектам (каля 150 МБ кожная)";
+"target.homebrew.name" = "Кэш Homebrew";
+"target.homebrew.note" = "Bottles і старыя спампоўкі brew";
+"target.ios.backups.name" = "Рэзервовыя копіі iOS";
+"target.ios.backups.note" = "Копіі iPhone і iPad. Магчыма, гэта адзіная копія, якая ў вас ёсць";
+"target.jetbrains.caches.name" = "Кэш JetBrains / Android Studio";
+"target.jetbrains.caches.note" = "Індэксы і кэшы IntelliJ, Android Studio, PyCharm і іншых";
+"target.jetbrains.logs.name" = "Журналы JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "Журналы асяроддзяў распрацоўкі";
+"target.kotlin.name" = "Кэш Kotlin / Konan";
+"target.kotlin.note" = "Артэфакты кампілятараў Kotlin і Kotlin Native";
+"target.maven.name" = "Лакальны рэпазіторый Maven";
+"target.maven.note" = "~/.m2/repository. Пры наступнай зборцы спампуецца цалкам нанова";
+"target.npm.name" = "Кэш npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Кэш Composer (PHP)";
+"target.php.note" = "Пакеты, спампаваныя Composer";
+"target.pnpm.name" = "Сховішча pnpm";
+"target.pnpm.note" = "Супольнае сховішча пакетаў pnpm";
+"target.python.name" = "Кэш Python";
+"target.python.note" = "pip, uv, poetry і скампіляваныя wheels";
+"target.ruby.name" = "Кэш Ruby";
+"target.ruby.note" = "Gem-ы, спампаваныя Bundler";
+"target.rust.name" = "Кэш Cargo (Rust)";
+"target.rust.note" = "Спампаваныя crate-ы і git checkout-ы";
+"target.savedstate.name" = "Захаваны стан праграм";
+"target.savedstate.note" = "Вокны і дакументы, якія праграмы адчыняюць зноў пры запуску";
+"target.sim.caches.name" = "Кэш CoreSimulator";
+"target.sim.caches.note" = "Спампаваныя асяроддзі выканання і супольны кэш сімулятараў";
+"target.sim.devicedata.name" = "Часовыя даныя сімулятараў";
+"target.sim.devicedata.note" = "Кэшы і /tmp унутры кожнага сімулятара (усталяваныя праграмы застаюцца)";
+"target.swiftpm.name" = "Кэш Swift Package Manager";
+"target.swiftpm.note" = "Рэпазіторыі і бінарныя файлы залежнасцяў SwiftPM";
+"target.trash.name" = "Сметніца";
+"target.trash.note" = "Назаўсёды спусташае ~/.Trash";
+"target.user.logs.name" = "Журналы карыстальніка";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Архівы Xcode";
+"target.xcode.archives.note" = "Зборкі, заархіваваныя для App Store. Патрэбныя для сімвалізацыі збояў";
+"target.xcode.caches.name" = "Кэш Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: індэксы, спампоўкі і часовыя даныя асяроддзя";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Індэксы, прамежкавыя зборкі і ModuleCache з усіх вашых праектаў";
+"target.xcode.devicelogs.name" = "Журналы і збоі прылад";
+"target.xcode.devicelogs.note" = "Журналы, спампаваныя з падключаных iPhone і iPad";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Сімвалы для кожнай версіі iOS, з якой вы падключалі прыладу";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Тое самае для астатніх платформаў";
+"target.xcode.previews.name" = "Перадпрагляды Xcode";
+"target.xcode.previews.note" = "Кэш перадпраглядаў SwiftUI";
+"target.yarn.name" = "Кэш Yarn";
+"target.yarn.note" = "Пакеты, спампаваныя Yarn";

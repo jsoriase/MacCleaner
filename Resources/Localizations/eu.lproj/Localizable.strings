@@ -1,0 +1,152 @@
+/* MacCleaner — eu */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Hautatutako kategoriak betiko ezabatuko dira.";
+"alert.clean.body.trash" = "Hautatutako kategoriak Zakarrontzira eramango dira.";
+"alert.clean.count" = "Kategoriak: %d";
+"alert.clean.delete" = "Ezabatu";
+"alert.clean.risky" = "«Kontuz» markatuta: %@";
+"alert.clean.title" = "%@ garbitu?";
+"alert.clean.trash" = "Eraman Zakarrontzira";
+"alert.report.count" = "Garbitutako kategoriak: %d";
+"alert.report.failures" = "Ezin izan da dena ezabatu (eragindako kategoriak: %d). Normalean baimen kontua da: eman MacCleaner-i diskorako sarbide osoa Ezarpenak › Pribatutasuna eta segurtasuna atalean.";
+"alert.report.freed" = "%@ askatu dira.";
+"alert.report.title" = "Garbiketa amaituta";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle eta JVM";
+"category.langs" = "Beste lengoaia batzuk";
+"category.node" = "Node eta weba";
+"category.system" = "Sistema eta aplikazioak";
+"category.tools" = "Pakete-kudeatzaileak";
+"category.xcode" = "Xcode eta iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Utzi";
+"common.done" = "Eginda";
+
+/* ---- empty ---- */
+"empty.button" = "Aztertu orain";
+"empty.subtitle" = "Ez dago ezer hautatuta: zuk erabakitzen duzu zer ezabatu, eta aurretik berresten duzu.";
+"empty.title" = "Aztertu zenbat leku berreskura dezakezun ikusteko";
+
+/* ---- footer ---- */
+"footer.clean" = "Garbitu %@";
+"footer.hideEmpty" = "Ezkutatu hutsak";
+"footer.selected" = "Hautatuta: %d";
+"footer.trash" = "Eraman Zakarrontzira";
+"footer.trash.help" = "Motelagoa da, eta lekua beteta jarraitzen du Zakarrontzia hustu arte — baina atzera egin daiteke.";
+
+/* ---- group ---- */
+"group.all" = "Dena";
+"group.none" = "Ezer ez";
+
+/* ---- header ---- */
+"header.notScanned" = "Aztertu gabe";
+"header.reclaimable" = "Berreskura daitekeen lekua";
+"header.rescan" = "Aztertu berriro";
+"header.scan" = "Aztertu";
+"header.stop" = "Gelditu";
+"header.working" = "Lanean…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Gauzak berriro deskargatu beharko dituzu, edo datu erabilgarriak galduko dituzu.";
+"risk.caution.label" = "Kontuz";
+"risk.caution.plural" = "Kontuz";
+"risk.rebuild.help" = "Segurua, baina hurrengo konpilazioa motelagoa izango da.";
+"risk.rebuild.label" = "Berriz sortzen da";
+"risk.rebuild.plural" = "Berriz sortzen dira";
+"risk.safe.help" = "Berez sortzen dira berriro, bigarren mailako ondoriorik gabe.";
+"risk.safe.label" = "Segurua";
+"risk.safe.plural" = "Seguruak";
+
+/* ---- row ---- */
+"row.files" = "Fitxategiak: %d";
+"row.noPath" = "Ez da bat datorren bide-izenik aurkitu Mac honetan.";
+
+/* ---- select ---- */
+"select.clear" = "Kendu hautapen guztiak";
+"select.mark" = "Hautatu";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Androiden cachea";
+"target.android.caches.note" = "SDKaren konpilazio-cachea eta tresnen aldi baterako datuak";
+"target.browsers.headless.name" = "Playwright / Puppeteerren nabigatzaileak";
+"target.browsers.headless.note" = "E2E probetarako deskargatutako Chromium, Firefox eta WebKit";
+"target.bun.deno.name" = "Bun eta Denoren cachea";
+"target.bun.deno.note" = "Bunek eta Denok deskargatutako moduluak";
+"target.caches.other.name" = "Aplikazioen beste cache batzuk";
+"target.caches.other.note" = "~/Library/Caches barruan geratzen den eta goiko lerroek estaltzen ez duten guztia";
+"target.carthage.name" = "Carthageren cachea";
+"target.carthage.note" = "Carthageren frameworkak eta checkout-ak";
+"target.cocoapods.name" = "CocoaPodsen cachea";
+"target.cocoapods.note" = "Deskargatutako pod-ak eta spec-ak";
+"target.docker.logs.name" = "Docker Desktopen erregistroak";
+"target.docker.logs.note" = "Erregistroak soilik. Ez ditu irudiak ez bolumenak ukitzen";
+"target.electron.name" = "Electronen cachea";
+"target.electron.note" = "Electron eta electron-builderren binarioak";
+"target.flutter.name" = "Flutter / Darten cachea";
+"target.flutter.note" = "~/.pub-cache: pub.dev-eko paketeak";
+"target.go.build.name" = "Goren konpilazio-cachea";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Goren moduluen cachea";
+"target.go.mod.note" = "~/go/pkg/mod. Irakurtzeko soilik: baimenak behar litezke";
+"target.gradle.caches.name" = "Gradleren cachea";
+"target.gradle.caches.note" = "~/.gradle/caches: proiektu guztien mendekotasunak eta konpilazio-cachea";
+"target.gradle.daemon.name" = "Gradleren daimonak eta erregistroak";
+"target.gradle.daemon.note" = "Daimon-prozesuen erregistroak";
+"target.gradle.wrapper.name" = "Gradle Wrapperren banaketak";
+"target.gradle.wrapper.note" = "Proiektu batek deskargatutako Gradle bertsio bakoitza (150 MB inguru bakoitza)";
+"target.homebrew.name" = "Homebrewen cachea";
+"target.homebrew.note" = "Bottle-ak eta brew-en deskarga zaharrak";
+"target.ios.backups.name" = "iOSen babeskopiak";
+"target.ios.backups.note" = "iPhone eta iPaden kopiak. Dituzun kopia bakarra izan liteke";
+"target.jetbrains.caches.name" = "JetBrains / Android Studioren cachea";
+"target.jetbrains.caches.note" = "IntelliJ, Android Studio, PyCharm eta besteen indizeak eta cacheak";
+"target.jetbrains.logs.name" = "JetBrains / Android Studioren erregistroak";
+"target.jetbrains.logs.note" = "Garapen-inguruneen erregistroak";
+"target.kotlin.name" = "Kotlin / Konanen cachea";
+"target.kotlin.note" = "Kotlin eta Kotlin Native konpiladoreen artefaktuak";
+"target.maven.name" = "Mavenen biltegi lokala";
+"target.maven.note" = "~/.m2/repository. Osorik berriro deskargatuko da hurrengo konpilazioan";
+"target.npm.name" = "npm-ren cachea";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composerren cachea (PHP)";
+"target.php.note" = "Composerrek deskargatutako paketeak";
+"target.pnpm.name" = "pnpm-ren biltegia";
+"target.pnpm.note" = "pnpm-ren pakete-biltegi partekatua";
+"target.python.name" = "Pythonen cachea";
+"target.python.note" = "pip, uv, poetry eta konpilatutako wheel-ak";
+"target.ruby.name" = "Rubyren cachea";
+"target.ruby.note" = "Bundlerrek deskargatutako gem-ak";
+"target.rust.name" = "Cargoren cachea (Rust)";
+"target.rust.note" = "Deskargatutako crate-ak eta git checkout-ak";
+"target.savedstate.name" = "Aplikazioen egoera gordea";
+"target.savedstate.note" = "Aplikazioek abiaraztean berriro irekitzen dituzten leihoak eta dokumentuak";
+"target.sim.caches.name" = "CoreSimulatorren cachea";
+"target.sim.caches.note" = "Deskargatutako exekuzio-inguruneak eta simulagailuen cache partekatua";
+"target.sim.devicedata.name" = "Simulagailuen aldi baterako datuak";
+"target.sim.devicedata.note" = "Cacheak eta /tmp simulagailu bakoitzaren barruan (instalatutako aplikazioek hor jarraitzen dute)";
+"target.swiftpm.name" = "Swift Package Managerren cachea";
+"target.swiftpm.note" = "SwiftPM mendekotasunen biltegiak eta binarioak";
+"target.trash.name" = "Zakarrontzia";
+"target.trash.note" = "~/.Trash betiko husten du";
+"target.user.logs.name" = "Erabiltzailearen erregistroak";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcoderen artxiboak";
+"target.xcode.archives.note" = "App Storerako artxibatutako konpilazioak. Kraskadurak sinbolizatzeko behar dituzu";
+"target.xcode.caches.name" = "Xcoderen cachea";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: IDEaren indizeak, deskargak eta aldi baterako datuak";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Zure proiektu guztien indizeak, tarteko konpilazioak eta ModuleCache";
+"target.xcode.devicelogs.name" = "Gailuen erregistroak eta kraskadurak";
+"target.xcode.devicelogs.note" = "Konektatutako iPhone eta iPadetatik jaitsitako erregistroak";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Gailu bat konektatu duzun iOS bertsio bakoitzaren sinboloak";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Gauza bera gainerako plataformetarako";
+"target.xcode.previews.name" = "Xcoderen aurrebistak";
+"target.xcode.previews.note" = "SwiftUIren aurrebisten cachea";
+"target.yarn.name" = "Yarnen cachea";
+"target.yarn.note" = "Yarnek deskargatutako paketeak";

@@ -1,0 +1,153 @@
+/* MacCleaner — ar */
+/* Generado desde las tablas de traduccion. Una clave por linea. */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "سيتم حذف الفئات المحددة نهائيًا.";
+"alert.clean.body.trash" = "سيتم نقل الفئات المحددة إلى المهملات.";
+"alert.clean.count" = "الفئات: %d";
+"alert.clean.delete" = "حذف";
+"alert.clean.risky" = "المُعلَّمة بـ «تنبيه»: %@";
+"alert.clean.title" = "تنظيف %@؟";
+"alert.clean.trash" = "النقل إلى المهملات";
+"alert.report.count" = "الفئات التي تم تنظيفها: %d";
+"alert.report.failures" = "تعذّر حذف بعض العناصر (الفئات المتأثرة: %d). عادةً ما يكون السبب هو الأذونات: امنح MacCleaner إذن الوصول الكامل للقرص من الإعدادات › الخصوصية والأمان.";
+"alert.report.freed" = "تم تحرير %@.";
+"alert.report.title" = "اكتمل التنظيف";
+
+/* ---- category ---- */
+"category.jvm" = "Android وGradle وJVM";
+"category.langs" = "لغات أخرى";
+"category.node" = "Node والويب";
+"category.system" = "النظام والتطبيقات";
+"category.tools" = "مديرو الحزم";
+"category.xcode" = "Xcode و iOS";
+
+/* ---- common ---- */
+"common.cancel" = "إلغاء";
+"common.done" = "تم";
+
+/* ---- empty ---- */
+"empty.button" = "افحص الآن";
+"empty.subtitle" = "لا شيء محدد مسبقًا: أنت تختار ما سيُحذف وتؤكده قبل التنفيذ.";
+"empty.title" = "افحص لترى حجم المساحة التي يمكنك استردادها";
+
+/* ---- footer ---- */
+"footer.clean" = "تنظيف %@";
+"footer.hideEmpty" = "إخفاء الفارغة";
+"footer.selected" = "المحدد: %d";
+"footer.trash" = "النقل إلى المهملات";
+"footer.trash.help" = "أبطأ وتظل المساحة مشغولة حتى تفريغ المهملات، لكنه قابل للتراجع.";
+
+/* ---- group ---- */
+"group.all" = "الكل";
+"group.none" = "لا شيء";
+
+/* ---- header ---- */
+"header.notScanned" = "لم يتم الفحص";
+"header.reclaimable" = "المساحة القابلة للاسترداد";
+"header.rescan" = "إعادة الفحص";
+"header.scan" = "فحص";
+"header.stop" = "إيقاف";
+"header.working" = "جارٍ العمل…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "ستحتاج إلى إعادة التنزيل، أو ستفقد بيانات مفيدة.";
+"risk.caution.label" = "تنبيه";
+"risk.caution.plural" = "تحتاج تنبيهًا";
+"risk.rebuild.help" = "آمنة، لكن عملية البناء التالية ستكون أبطأ.";
+"risk.rebuild.label" = "يُعاد بناؤه";
+"risk.rebuild.plural" = "القابلة لإعادة البناء";
+"risk.safe.help" = "تُعاد إنشاؤها تلقائيًا دون أي آثار جانبية.";
+"risk.safe.label" = "آمن";
+"risk.safe.plural" = "الآمنة";
+
+/* ---- row ---- */
+"row.files" = "الملفات: %d";
+"row.noPath" = "لم يتم العثور على أي مسار مطابق على هذا الـ Mac.";
+
+/* ---- select ---- */
+"select.clear" = "إلغاء تحديد الكل";
+"select.mark" = "تحديد";
+
+/* ---- target ---- */
+"target.android.caches.name" = "ذاكرة Android المؤقتة";
+"target.android.caches.note" = "ذاكرة بناء SDK المؤقتة وبيانات الأدوات المؤقتة";
+"target.browsers.headless.name" = "متصفحات Playwright / Puppeteer";
+"target.browsers.headless.note" = "متصفحات Chromium وFirefox وWebKit المُنزَّلة لاختبارات E2E";
+"target.bun.deno.name" = "ذاكرة Bun وDeno المؤقتة";
+"target.bun.deno.note" = "الوحدات التي نزّلها Bun وDeno";
+"target.caches.other.name" = "ذاكرات التطبيقات المؤقتة الأخرى";
+"target.caches.other.note" = "كل ما تبقّى في ‎~/Library/Caches ولا يغطيه أي صف أعلاه";
+"target.carthage.name" = "ذاكرة Carthage المؤقتة";
+"target.carthage.note" = "أُطر Carthage ونُسخ الفحص";
+"target.cocoapods.name" = "ذاكرة CocoaPods المؤقتة";
+"target.cocoapods.note" = "حزم pods المُنزَّلة وملفات specs";
+"target.docker.logs.name" = "سجلات Docker Desktop";
+"target.docker.logs.note" = "السجلات فقط. لا تُمَس الصور ولا وحدات التخزين";
+"target.electron.name" = "ذاكرة Electron المؤقتة";
+"target.electron.note" = "ثنائيات Electron وelectron-builder";
+"target.flutter.name" = "ذاكرة Flutter / Dart المؤقتة";
+"target.flutter.note" = "‎~/.pub-cache: حزم من pub.dev";
+"target.go.build.name" = "ذاكرة بناء Go المؤقتة";
+"target.go.build.note" = "‎~/Library/Caches/go-build";
+"target.go.mod.name" = "ذاكرة وحدات Go المؤقتة";
+"target.go.mod.note" = "‎~/go/pkg/mod. للقراءة فقط، وقد يتطلب أذونات إضافية";
+"target.gradle.caches.name" = "ذاكرة Gradle المؤقتة";
+"target.gradle.caches.note" = "‎~/.gradle/caches: اعتماديات جميع المشاريع وذاكرة البناء المؤقتة";
+"target.gradle.daemon.name" = "عمليات Gradle الخفية وسجلاتها";
+"target.gradle.daemon.note" = "سجلات العمليات الخفية";
+"target.gradle.wrapper.name" = "توزيعات Gradle Wrapper";
+"target.gradle.wrapper.note" = "كل إصدار Gradle نزّله مشروع ما (نحو 150 ميغابايت لكلٍّ منها)";
+"target.homebrew.name" = "ذاكرة Homebrew المؤقتة";
+"target.homebrew.note" = "ملفات bottles وتنزيلات brew القديمة";
+"target.ios.backups.name" = "نسخ iOS الاحتياطية";
+"target.ios.backups.note" = "نسخ iPhone وiPad الاحتياطية. قد تكون النسخة الوحيدة لديك";
+"target.jetbrains.caches.name" = "ذاكرة JetBrains / Android Studio المؤقتة";
+"target.jetbrains.caches.note" = "فهارس وذاكرات مؤقتة لـ IntelliJ وAndroid Studio وPyCharm وغيرها";
+"target.jetbrains.logs.name" = "سجلات JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "سجلات بيئات التطوير";
+"target.kotlin.name" = "ذاكرة Kotlin / Konan المؤقتة";
+"target.kotlin.note" = "مخرجات مُصرِّفَي Kotlin وKotlin Native";
+"target.maven.name" = "مستودع Maven المحلي";
+"target.maven.note" = "‎~/.m2/repository. سيُعاد تنزيله بالكامل في عملية البناء التالية";
+"target.npm.name" = "ذاكرة npm المؤقتة";
+"target.npm.note" = "‎~/.npm/_cacache";
+"target.php.name" = "ذاكرة Composer المؤقتة (PHP)";
+"target.php.note" = "الحزم التي نزّلها Composer";
+"target.pnpm.name" = "مخزن pnpm";
+"target.pnpm.note" = "مخزن الحزم المشترك لـ pnpm";
+"target.python.name" = "ذاكرة Python المؤقتة";
+"target.python.note" = "pip وuv وpoetry وملفات wheel المُصرَّفة";
+"target.ruby.name" = "ذاكرة Ruby المؤقتة";
+"target.ruby.note" = "حزم gems التي نزّلها Bundler";
+"target.rust.name" = "ذاكرة Cargo المؤقتة (Rust)";
+"target.rust.note" = "حزم crates المُنزَّلة ونُسخ git";
+"target.savedstate.name" = "حالة التطبيقات المحفوظة";
+"target.savedstate.note" = "النوافذ والمستندات التي تعيد التطبيقات فتحها عند التشغيل";
+"target.sim.caches.name" = "ذاكرة CoreSimulator المؤقتة";
+"target.sim.caches.note" = "أوقات التشغيل المُنزَّلة والذاكرة المؤقتة المشتركة للمحاكيات";
+"target.sim.devicedata.name" = "البيانات المؤقتة للمحاكيات";
+"target.sim.devicedata.note" = "الذاكرات المؤقتة و/tmp داخل كل محاكٍ (لا تُحذف التطبيقات المثبتة)";
+"target.swiftpm.name" = "ذاكرة Swift Package Manager المؤقتة";
+"target.swiftpm.note" = "مستودعات وثنائيات اعتماديات SwiftPM";
+"target.trash.name" = "المهملات";
+"target.trash.note" = "يُفرِغ ‎~/.Trash نهائيًا";
+"target.user.logs.name" = "سجلات المستخدم";
+"target.user.logs.note" = "‎~/Library/Logs";
+"target.xcode.archives.name" = "أرشيفات Xcode";
+"target.xcode.archives.note" = "عمليات بناء مؤرشفة لمتجر App Store. تحتاجها لترميز الأعطال";
+"target.xcode.caches.name" = "ذاكرة Xcode المؤقتة";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: فهارس بيئة التطوير وتنزيلاتها وبياناتها المؤقتة";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "الفهارس وملفات البناء الوسيطة وModuleCache لكل مشاريعك";
+"target.xcode.devicelogs.name" = "سجلات الأجهزة والأعطال";
+"target.xcode.devicelogs.note" = "السجلات المسحوبة من أجهزة iPhone وiPad المتصلة";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "رموز كل إصدار iOS وصّلت منه جهازًا";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "الشيء نفسه لبقية المنصات";
+"target.xcode.previews.name" = "معاينات Xcode";
+"target.xcode.previews.note" = "ذاكرة معاينات SwiftUI المؤقتة";
+"target.yarn.name" = "ذاكرة Yarn المؤقتة";
+"target.yarn.note" = "الحزم التي نزّلها Yarn";

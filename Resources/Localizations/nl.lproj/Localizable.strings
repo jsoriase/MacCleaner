@@ -1,0 +1,152 @@
+/* MacCleaner — nl */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "De geselecteerde categorieën worden definitief verwijderd.";
+"alert.clean.body.trash" = "De geselecteerde categorieën worden naar de prullenmand verplaatst.";
+"alert.clean.count" = "Categorieën: %d";
+"alert.clean.delete" = "Verwijder";
+"alert.clean.risky" = "Gemarkeerd als ‘Let op’: %@";
+"alert.clean.title" = "%@ opruimen?";
+"alert.clean.trash" = "Naar prullenmand";
+"alert.report.count" = "Opgeruimde categorieën: %d";
+"alert.report.failures" = "Niet alles kon worden verwijderd (betrokken categorieën: %d). Meestal is dit een kwestie van rechten: geef MacCleaner volledige schijftoegang via Instellingen › Privacy en beveiliging.";
+"alert.report.freed" = "%@ vrijgemaakt.";
+"alert.report.title" = "Opruimen voltooid";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle en JVM";
+"category.langs" = "Andere talen";
+"category.node" = "Node en web";
+"category.system" = "Systeem en apps";
+"category.tools" = "Pakketbeheerders";
+"category.xcode" = "Xcode en iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Annuleer";
+"common.done" = "Gereed";
+
+/* ---- empty ---- */
+"empty.button" = "Scan nu";
+"empty.subtitle" = "Er is niets geselecteerd: jij kiest wat er weg mag en bevestigt vooraf.";
+"empty.title" = "Scan om te zien hoeveel ruimte je kunt terugwinnen";
+
+/* ---- footer ---- */
+"footer.clean" = "Ruim %@ op";
+"footer.hideEmpty" = "Verberg lege";
+"footer.selected" = "Geselecteerd: %d";
+"footer.trash" = "Naar prullenmand";
+"footer.trash.help" = "Trager, en de ruimte blijft bezet tot je de prullenmand leegt — maar omkeerbaar.";
+
+/* ---- group ---- */
+"group.all" = "Alles";
+"group.none" = "Geen";
+
+/* ---- header ---- */
+"header.notScanned" = "Niet gescand";
+"header.reclaimable" = "Terug te winnen ruimte";
+"header.rescan" = "Scan opnieuw";
+"header.scan" = "Scan";
+"header.stop" = "Stop";
+"header.working" = "Bezig…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Dingen moeten opnieuw worden gedownload, of je verliest nuttige gegevens.";
+"risk.caution.label" = "Let op";
+"risk.caution.plural" = "Let op";
+"risk.rebuild.help" = "Veilig, maar je volgende build duurt langer.";
+"risk.rebuild.label" = "Wordt hersteld";
+"risk.rebuild.plural" = "Worden hersteld";
+"risk.safe.help" = "Worden vanzelf opnieuw aangemaakt, zonder bijwerkingen.";
+"risk.safe.label" = "Veilig";
+"risk.safe.plural" = "Veilige";
+
+/* ---- row ---- */
+"row.files" = "Bestanden: %d";
+"row.noPath" = "Geen bijbehorend pad gevonden op deze Mac.";
+
+/* ---- select ---- */
+"select.clear" = "Alles deselecteren";
+"select.mark" = "Selecteer";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Android-cache";
+"target.android.caches.note" = "Buildcache van de SDK en tijdelijke gegevens van de tools";
+"target.browsers.headless.name" = "Playwright- / Puppeteer-browsers";
+"target.browsers.headless.note" = "Chromium, Firefox en WebKit gedownload voor E2E-tests";
+"target.bun.deno.name" = "Bun- en Deno-cache";
+"target.bun.deno.note" = "Door Bun en Deno gedownloade modules";
+"target.caches.other.name" = "Overige app-caches";
+"target.caches.other.note" = "Alles wat in ~/Library/Caches overblijft en door geen rij hierboven wordt gedekt";
+"target.carthage.name" = "Carthage-cache";
+"target.carthage.note" = "Carthage-frameworks en -checkouts";
+"target.cocoapods.name" = "CocoaPods-cache";
+"target.cocoapods.note" = "Gedownloade pods en specs";
+"target.docker.logs.name" = "Docker Desktop-logboeken";
+"target.docker.logs.note" = "Alleen logboeken. Images en volumes blijven onaangeroerd";
+"target.electron.name" = "Electron-cache";
+"target.electron.note" = "Binaries van Electron en electron-builder";
+"target.flutter.name" = "Flutter- / Dart-cache";
+"target.flutter.note" = "~/.pub-cache: pakketten van pub.dev";
+"target.go.build.name" = "Go-buildcache";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Go-modulecache";
+"target.go.mod.note" = "~/go/pkg/mod. Alleen-lezen, dus mogelijk zijn extra rechten nodig";
+"target.gradle.caches.name" = "Gradle-cache";
+"target.gradle.caches.note" = "~/.gradle/caches: afhankelijkheden en buildcache van al je projecten";
+"target.gradle.daemon.name" = "Gradle-daemons en -logboeken";
+"target.gradle.daemon.note" = "Logboeken van de daemonprocessen";
+"target.gradle.wrapper.name" = "Gradle Wrapper-distributies";
+"target.gradle.wrapper.note" = "Elke Gradle-versie die een project heeft gedownload (~150 MB per stuk)";
+"target.homebrew.name" = "Homebrew-cache";
+"target.homebrew.note" = "Bottles en oude brew-downloads";
+"target.ios.backups.name" = "iOS-reservekopieën";
+"target.ios.backups.note" = "Reservekopieën van iPhone en iPad. Mogelijk je enige kopie";
+"target.jetbrains.caches.name" = "JetBrains- / Android Studio-cache";
+"target.jetbrains.caches.note" = "Indexen en caches van IntelliJ, Android Studio, PyCharm en dergelijke";
+"target.jetbrains.logs.name" = "JetBrains- / Android Studio-logboeken";
+"target.jetbrains.logs.note" = "Logboeken van de IDE’s";
+"target.kotlin.name" = "Kotlin- / Konan-cache";
+"target.kotlin.note" = "Artefacten van de Kotlin- en Kotlin Native-compilers";
+"target.maven.name" = "Lokale Maven-repository";
+"target.maven.note" = "~/.m2/repository. Wordt bij je volgende build volledig opnieuw gedownload";
+"target.npm.name" = "npm-cache";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composer-cache (PHP)";
+"target.php.note" = "Door Composer gedownloade pakketten";
+"target.pnpm.name" = "pnpm-store";
+"target.pnpm.note" = "Gedeelde pakketopslag van pnpm";
+"target.python.name" = "Python-cache";
+"target.python.note" = "pip, uv, poetry en gecompileerde wheels";
+"target.ruby.name" = "Ruby-cache";
+"target.ruby.note" = "Door Bundler gedownloade gems";
+"target.rust.name" = "Cargo-cache (Rust)";
+"target.rust.note" = "Gedownloade crates en git-checkouts";
+"target.savedstate.name" = "Bewaarde app-status";
+"target.savedstate.note" = "Vensters en documenten die apps bij het starten heropenen";
+"target.sim.caches.name" = "CoreSimulator-cache";
+"target.sim.caches.note" = "Gedownloade runtimes en de gedeelde cache van de simulators";
+"target.sim.devicedata.name" = "Tijdelijke simulatorgegevens";
+"target.sim.devicedata.note" = "Caches en /tmp in elke simulator (geïnstalleerde apps blijven staan)";
+"target.swiftpm.name" = "Swift Package Manager-cache";
+"target.swiftpm.note" = "Repositories en binaries van SwiftPM-afhankelijkheden";
+"target.trash.name" = "Prullenmand";
+"target.trash.note" = "Leegt ~/.Trash definitief";
+"target.user.logs.name" = "Gebruikerslogboeken";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcode-archieven";
+"target.xcode.archives.note" = "Builds gearchiveerd voor de App Store. Nodig om crashes te symboliseren";
+"target.xcode.caches.name" = "Xcode-cache";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: indexen, downloads en tijdelijke IDE-gegevens";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Indexen, tussentijdse builds en ModuleCache van al je projecten";
+"target.xcode.devicelogs.name" = "Apparaatlogboeken en crashes";
+"target.xcode.devicelogs.note" = "Logboeken opgehaald van aangesloten iPhones en iPads";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Symbolen voor elke iOS-versie waarvan je een apparaat hebt aangesloten";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Hetzelfde, voor de overige platforms";
+"target.xcode.previews.name" = "Xcode-voorvertoningen";
+"target.xcode.previews.note" = "Cache voor SwiftUI-voorvertoningen";
+"target.yarn.name" = "Yarn-cache";
+"target.yarn.note" = "Door Yarn gedownloade pakketten";

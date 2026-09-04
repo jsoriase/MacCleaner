@@ -1,0 +1,152 @@
+/* MacCleaner — sl */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Izbrane kategorije bodo trajno izbrisane.";
+"alert.clean.body.trash" = "Izbrane kategorije bodo premaknjene v koš.";
+"alert.clean.count" = "Kategorije: %d";
+"alert.clean.delete" = "Izbriši";
+"alert.clean.risky" = "Označene s »Pozor«: %@";
+"alert.clean.title" = "Počistim %@?";
+"alert.clean.trash" = "Premakni v koš";
+"alert.report.count" = "Počiščene kategorije: %d";
+"alert.report.failures" = "Ni bilo mogoče izbrisati vsega (prizadete kategorije: %d). Običajno gre za dovoljenja: MacCleanerju odobrite polni dostop do diska v Nastavitve › Zasebnost in varnost.";
+"alert.report.freed" = "Sproščeno %@.";
+"alert.report.title" = "Čiščenje je končano";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle in JVM";
+"category.langs" = "Drugi jeziki";
+"category.node" = "Node in splet";
+"category.system" = "Sistem in aplikacije";
+"category.tools" = "Upravitelji paketov";
+"category.xcode" = "Xcode in iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Prekliči";
+"common.done" = "Končano";
+
+/* ---- empty ---- */
+"empty.button" = "Preglej zdaj";
+"empty.subtitle" = "Nič ni izbrano: sami določite, kaj se izbriše, in to prej potrdite.";
+"empty.title" = "Preglejte in poglejte, koliko prostora lahko sprostite";
+
+/* ---- footer ---- */
+"footer.clean" = "Počisti %@";
+"footer.hideEmpty" = "Skrij prazne";
+"footer.selected" = "Izbrano: %d";
+"footer.trash" = "Premakni v koš";
+"footer.trash.help" = "Počasneje in prostor ostane zaseden, dokler ne izpraznite koša — a je povrnljivo.";
+
+/* ---- group ---- */
+"group.all" = "Vse";
+"group.none" = "Nič";
+
+/* ---- header ---- */
+"header.notScanned" = "Ni pregledano";
+"header.reclaimable" = "Prostor, ki ga je mogoče sprostiti";
+"header.rescan" = "Ponovno preglej";
+"header.scan" = "Preglej";
+"header.stop" = "Ustavi";
+"header.working" = "Delam…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Stvari bo treba znova prenesti, sicer izgubite uporabne podatke.";
+"risk.caution.label" = "Pozor";
+"risk.caution.plural" = "Pozor";
+"risk.rebuild.help" = "Varno, a naslednja gradnja bo počasnejša.";
+"risk.rebuild.label" = "Se obnovi";
+"risk.rebuild.plural" = "Se obnovijo";
+"risk.safe.help" = "Obnovijo se same, brez stranskih učinkov.";
+"risk.safe.label" = "Varno";
+"risk.safe.plural" = "Varne";
+
+/* ---- row ---- */
+"row.files" = "Datoteke: %d";
+"row.noPath" = "Na tem Macu ni bilo najdene nobene ustrezne poti.";
+
+/* ---- select ---- */
+"select.clear" = "Počisti izbor";
+"select.mark" = "Izberi";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Predpomnilnik Android";
+"target.android.caches.note" = "Predpomnilnik gradnje SDK in začasni podatki orodij";
+"target.browsers.headless.name" = "Brskalniki Playwright / Puppeteer";
+"target.browsers.headless.note" = "Chromium, Firefox in WebKit, preneseni za teste E2E";
+"target.bun.deno.name" = "Predpomnilnik Bun in Deno";
+"target.bun.deno.note" = "Moduli, ki sta jih prenesla Bun in Deno";
+"target.caches.other.name" = "Drugi predpomnilniki aplikacij";
+"target.caches.other.note" = "Vse, kar ostane v ~/Library/Caches in ni zajeto v nobeni vrstici zgoraj";
+"target.carthage.name" = "Predpomnilnik Carthage";
+"target.carthage.note" = "Ogrodja in checkouti Carthage";
+"target.cocoapods.name" = "Predpomnilnik CocoaPods";
+"target.cocoapods.note" = "Preneseni podi in specs";
+"target.docker.logs.name" = "Dnevniki Docker Desktop";
+"target.docker.logs.note" = "Samo dnevniki. Slik in nosilcev se ne dotakne";
+"target.electron.name" = "Predpomnilnik Electron";
+"target.electron.note" = "Binarne datoteke Electron in electron-builder";
+"target.flutter.name" = "Predpomnilnik Flutter / Dart";
+"target.flutter.note" = "~/.pub-cache: paketi s pub.dev";
+"target.go.build.name" = "Predpomnilnik gradnje Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Predpomnilnik modulov Go";
+"target.go.mod.note" = "~/go/pkg/mod. Samo za branje, zato lahko zahteva dovoljenja";
+"target.gradle.caches.name" = "Predpomnilnik Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: odvisnosti in predpomnilnik gradnje vseh projektov";
+"target.gradle.daemon.name" = "Demoni in dnevniki Gradle";
+"target.gradle.daemon.note" = "Dnevniki demonskih procesov";
+"target.gradle.wrapper.name" = "Distribucije Gradle Wrapper";
+"target.gradle.wrapper.note" = "Vsaka različica Gradle, ki jo je prenesel kak projekt (okoli 150 MB vsaka)";
+"target.homebrew.name" = "Predpomnilnik Homebrew";
+"target.homebrew.note" = "Bottles in stari prenosi brew";
+"target.ios.backups.name" = "Varnostne kopije iOS";
+"target.ios.backups.note" = "Kopije iPhona in iPada. Morda so edina kopija, ki jo imate";
+"target.jetbrains.caches.name" = "Predpomnilnik JetBrains / Android Studio";
+"target.jetbrains.caches.note" = "Indeksi in predpomnilniki IntelliJ, Android Studia, PyCharma in drugih";
+"target.jetbrains.logs.name" = "Dnevniki JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "Dnevniki razvojnih okolij";
+"target.kotlin.name" = "Predpomnilnik Kotlin / Konan";
+"target.kotlin.note" = "Artefakti prevajalnikov Kotlin in Kotlin Native";
+"target.maven.name" = "Lokalni repozitorij Maven";
+"target.maven.note" = "~/.m2/repository. Pri naslednji gradnji se prenese v celoti znova";
+"target.npm.name" = "Predpomnilnik npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Predpomnilnik Composer (PHP)";
+"target.php.note" = "Paketi, ki jih je prenesel Composer";
+"target.pnpm.name" = "Shramba pnpm";
+"target.pnpm.note" = "Skupna shramba paketov pnpm";
+"target.python.name" = "Predpomnilnik Python";
+"target.python.note" = "pip, uv, poetry in prevedeni wheels";
+"target.ruby.name" = "Predpomnilnik Ruby";
+"target.ruby.note" = "Dragulji, ki jih je prenesel Bundler";
+"target.rust.name" = "Predpomnilnik Cargo (Rust)";
+"target.rust.note" = "Preneseni crati in checkouti git";
+"target.savedstate.name" = "Shranjeno stanje aplikacij";
+"target.savedstate.note" = "Okna in dokumenti, ki jih aplikacije ob zagonu znova odprejo";
+"target.sim.caches.name" = "Predpomnilnik CoreSimulator";
+"target.sim.caches.note" = "Preneseni izvajalniki in skupni predpomnilnik simulatorjev";
+"target.sim.devicedata.name" = "Začasni podatki simulatorjev";
+"target.sim.devicedata.note" = "Predpomnilniki in /tmp v vsakem simulatorju (nameščene aplikacije ostanejo)";
+"target.swiftpm.name" = "Predpomnilnik Swift Package Manager";
+"target.swiftpm.note" = "Repozitoriji in binarne datoteke odvisnosti SwiftPM";
+"target.trash.name" = "Koš";
+"target.trash.note" = "Trajno izprazni ~/.Trash";
+"target.user.logs.name" = "Uporabniški dnevniki";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Arhivi Xcode";
+"target.xcode.archives.note" = "Gradnje, arhivirane za App Store. Potrebujete jih za simbolizacijo sesutij";
+"target.xcode.caches.name" = "Predpomnilnik Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: indeksi, prenosi in začasni podatki IDE";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Indeksi, vmesne gradnje in ModuleCache iz vseh vaših projektov";
+"target.xcode.devicelogs.name" = "Dnevniki in sesutja naprav";
+"target.xcode.devicelogs.note" = "Dnevniki, preneseni s priklopljenih iPhonov in iPadov";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Simboli za vsako različico iOS, iz katere ste priklopili napravo";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Enako za preostale platforme";
+"target.xcode.previews.name" = "Predogledi Xcode";
+"target.xcode.previews.note" = "Predpomnilnik predogledov SwiftUI";
+"target.yarn.name" = "Predpomnilnik Yarn";
+"target.yarn.note" = "Paketi, ki jih je prenesel Yarn";

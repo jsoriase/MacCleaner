@@ -1,0 +1,152 @@
+/* MacCleaner — hu */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "A kijelölt kategóriák véglegesen törlődnek.";
+"alert.clean.body.trash" = "A kijelölt kategóriák a Kukába kerülnek.";
+"alert.clean.count" = "Kategóriák: %d";
+"alert.clean.delete" = "Törlés";
+"alert.clean.risky" = "„Vigyázz” jelölésűek: %@";
+"alert.clean.title" = "Törlöd ezt: %@?";
+"alert.clean.trash" = "Áthelyezés a Kukába";
+"alert.report.count" = "Megtisztított kategóriák: %d";
+"alert.report.failures" = "Nem sikerült mindent törölni (érintett kategóriák: %d). Ez rendszerint jogosultsági kérdés: adj a MacCleanernek teljes lemez-hozzáférést a Beállítások › Adatvédelem és biztonság menüben.";
+"alert.report.freed" = "Felszabadítva: %@.";
+"alert.report.title" = "A tisztítás befejeződött";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle és JVM";
+"category.langs" = "Egyéb nyelvek";
+"category.node" = "Node és web";
+"category.system" = "Rendszer és appok";
+"category.tools" = "Csomagkezelők";
+"category.xcode" = "Xcode és iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Mégse";
+"common.done" = "Kész";
+
+/* ---- empty ---- */
+"empty.button" = "Átvizsgálás most";
+"empty.subtitle" = "Semmi nincs kijelölve: te döntöd el, mi törlődjön, és előtte megerősíted.";
+"empty.title" = "Vizsgáld át, hogy lásd, mennyi helyet szabadíthatsz fel";
+
+/* ---- footer ---- */
+"footer.clean" = "%@ törlése";
+"footer.hideEmpty" = "Üresek elrejtése";
+"footer.selected" = "Kijelölve: %d";
+"footer.trash" = "Áthelyezés a Kukába";
+"footer.trash.help" = "Lassabb, és a hely foglalt marad, amíg ki nem üríted a Kukát — viszont visszavonható.";
+
+/* ---- group ---- */
+"group.all" = "Mind";
+"group.none" = "Semmi";
+
+/* ---- header ---- */
+"header.notScanned" = "Nincs átvizsgálva";
+"header.reclaimable" = "Felszabadítható hely";
+"header.rescan" = "Átvizsgálás újra";
+"header.scan" = "Átvizsgálás";
+"header.stop" = "Leállítás";
+"header.working" = "Dolgozom…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Dolgokat újra le kell tölteni, vagy hasznos adatokat vesztesz.";
+"risk.caution.label" = "Vigyázz";
+"risk.caution.plural" = "Vigyázz";
+"risk.rebuild.help" = "Biztonságos, de a következő fordítás lassabb lesz.";
+"risk.rebuild.label" = "Újraépül";
+"risk.rebuild.plural" = "Újraépülők";
+"risk.safe.help" = "Maguktól újra létrejönnek, mellékhatás nélkül.";
+"risk.safe.label" = "Biztonságos";
+"risk.safe.plural" = "Biztonságosak";
+
+/* ---- row ---- */
+"row.files" = "Fájlok: %d";
+"row.noPath" = "Ezen a Macen nem található megfelelő útvonal.";
+
+/* ---- select ---- */
+"select.clear" = "Kijelölés törlése";
+"select.mark" = "Kijelölés";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Android gyorsítótár";
+"target.android.caches.note" = "Az SDK fordítási gyorsítótára és az eszközök ideiglenes adatai";
+"target.browsers.headless.name" = "Playwright / Puppeteer böngészők";
+"target.browsers.headless.note" = "E2E-tesztekhez letöltött Chromium, Firefox és WebKit";
+"target.bun.deno.name" = "Bun és Deno gyorsítótár";
+"target.bun.deno.note" = "A Bun és a Deno által letöltött modulok";
+"target.caches.other.name" = "Egyéb app-gyorsítótárak";
+"target.caches.other.note" = "Minden, ami a ~/Library/Caches mappában marad, és amit egyik fenti sor sem fed le";
+"target.carthage.name" = "Carthage gyorsítótár";
+"target.carthage.note" = "Carthage keretrendszerek és checkoutok";
+"target.cocoapods.name" = "CocoaPods gyorsítótár";
+"target.cocoapods.note" = "Letöltött podok és specsek";
+"target.docker.logs.name" = "Docker Desktop naplók";
+"target.docker.logs.note" = "Csak naplók. A képfájlokhoz és kötetekhez nem nyúl";
+"target.electron.name" = "Electron gyorsítótár";
+"target.electron.note" = "Az Electron és az electron-builder binárisai";
+"target.flutter.name" = "Flutter / Dart gyorsítótár";
+"target.flutter.note" = "~/.pub-cache: csomagok a pub.dev oldalról";
+"target.go.build.name" = "Go fordítási gyorsítótár";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Go modul-gyorsítótár";
+"target.go.mod.note" = "~/go/pkg/mod. Csak olvasható: jogosultságot igényelhet";
+"target.gradle.caches.name" = "Gradle gyorsítótár";
+"target.gradle.caches.note" = "~/.gradle/caches: minden projekt függőségei és fordítási gyorsítótára";
+"target.gradle.daemon.name" = "Gradle démonok és naplók";
+"target.gradle.daemon.note" = "A démonfolyamatok naplói";
+"target.gradle.wrapper.name" = "Gradle Wrapper disztribúciók";
+"target.gradle.wrapper.note" = "Minden Gradle-verzió, amit egy projekt letöltött (egyenként kb. 150 MB)";
+"target.homebrew.name" = "Homebrew gyorsítótár";
+"target.homebrew.note" = "Bottle-ök és régi brew-letöltések";
+"target.ios.backups.name" = "iOS biztonsági mentések";
+"target.ios.backups.note" = "iPhone- és iPad-mentések. Lehet, hogy ez az egyetlen másolatod";
+"target.jetbrains.caches.name" = "JetBrains / Android Studio gyorsítótár";
+"target.jetbrains.caches.note" = "Az IntelliJ, Android Studio, PyCharm és társaik indexei és gyorsítótárai";
+"target.jetbrains.logs.name" = "JetBrains / Android Studio naplók";
+"target.jetbrains.logs.note" = "A fejlesztőkörnyezetek naplói";
+"target.kotlin.name" = "Kotlin / Konan gyorsítótár";
+"target.kotlin.note" = "A Kotlin és Kotlin Native fordítók termékei";
+"target.maven.name" = "Helyi Maven tároló";
+"target.maven.note" = "~/.m2/repository. A következő fordításnál teljesen újra letöltődik";
+"target.npm.name" = "npm gyorsítótár";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composer gyorsítótár (PHP)";
+"target.php.note" = "A Composer által letöltött csomagok";
+"target.pnpm.name" = "pnpm tároló";
+"target.pnpm.note" = "A pnpm közös csomagtárolója";
+"target.python.name" = "Python gyorsítótár";
+"target.python.note" = "pip, uv, poetry és lefordított wheelek";
+"target.ruby.name" = "Ruby gyorsítótár";
+"target.ruby.note" = "A Bundler által letöltött gemek";
+"target.rust.name" = "Cargo gyorsítótár (Rust)";
+"target.rust.note" = "Letöltött crate-ek és git checkoutok";
+"target.savedstate.name" = "Mentett appállapot";
+"target.savedstate.note" = "Ablakok és dokumentumok, amelyeket az appok indításkor újra megnyitnak";
+"target.sim.caches.name" = "CoreSimulator gyorsítótár";
+"target.sim.caches.note" = "Letöltött futtatókörnyezetek és a szimulátorok közös gyorsítótára";
+"target.sim.devicedata.name" = "Szimulátorok ideiglenes adatai";
+"target.sim.devicedata.note" = "Gyorsítótárak és /tmp minden szimulátorban (a telepített appok megmaradnak)";
+"target.swiftpm.name" = "Swift Package Manager gyorsítótár";
+"target.swiftpm.note" = "A SwiftPM-függőségek tárolói és binárisai";
+"target.trash.name" = "Kuka";
+"target.trash.note" = "Véglegesen kiüríti a ~/.Trash mappát";
+"target.user.logs.name" = "Felhasználói naplók";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcode archívumok";
+"target.xcode.archives.note" = "Az App Store-hoz archivált fordítások. Az összeomlások szimbolizálásához kellenek";
+"target.xcode.caches.name" = "Xcode gyorsítótár";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: a fejlesztőkörnyezet indexei, letöltései és ideiglenes adatai";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Az összes projekted indexei, köztes fordításai és ModuleCache-e";
+"target.xcode.devicelogs.name" = "Eszköznaplók és összeomlások";
+"target.xcode.devicelogs.note" = "Csatlakoztatott iPhone- és iPad-készülékekről letöltött naplók";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Szimbólumok minden iOS-verzióhoz, amelyről eszközt csatlakoztattál";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Ugyanez a többi platformhoz";
+"target.xcode.previews.name" = "Xcode előnézetek";
+"target.xcode.previews.note" = "A SwiftUI-előnézetek gyorsítótára";
+"target.yarn.name" = "Yarn gyorsítótár";
+"target.yarn.note" = "A Yarn által letöltött csomagok";

@@ -1,0 +1,152 @@
+/* MacCleaner — cs */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Vybrané kategorie budou trvale smazány.";
+"alert.clean.body.trash" = "Vybrané kategorie budou přesunuty do koše.";
+"alert.clean.count" = "Kategorie: %d";
+"alert.clean.delete" = "Smazat";
+"alert.clean.risky" = "Označené jako „Pozor“: %@";
+"alert.clean.title" = "Vyčistit %@?";
+"alert.clean.trash" = "Přesunout do koše";
+"alert.report.count" = "Vyčištěné kategorie: %d";
+"alert.report.failures" = "Nepodařilo se smazat vše (dotčené kategorie: %d). Obvykle jde o oprávnění: udělte MacCleaneru plný přístup k disku v Nastavení › Soukromí a zabezpečení.";
+"alert.report.freed" = "Uvolněno %@.";
+"alert.report.title" = "Čištění dokončeno";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle a JVM";
+"category.langs" = "Další jazyky";
+"category.node" = "Node a web";
+"category.system" = "Systém a aplikace";
+"category.tools" = "Správci balíčků";
+"category.xcode" = "Xcode a iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Zrušit";
+"common.done" = "Hotovo";
+
+/* ---- empty ---- */
+"empty.button" = "Prohledat nyní";
+"empty.subtitle" = "Nic není vybráno: sami určíte, co se smaže, a předem to potvrdíte.";
+"empty.title" = "Prohledejte a zjistěte, kolik místa můžete uvolnit";
+
+/* ---- footer ---- */
+"footer.clean" = "Vyčistit %@";
+"footer.hideEmpty" = "Skrýt prázdné";
+"footer.selected" = "Vybráno: %d";
+"footer.trash" = "Přesunout do koše";
+"footer.trash.help" = "Pomalejší a místo zůstane obsazené, dokud koš nevysypete — zato se to dá vrátit.";
+
+/* ---- group ---- */
+"group.all" = "Vše";
+"group.none" = "Nic";
+
+/* ---- header ---- */
+"header.notScanned" = "Neprohledáno";
+"header.reclaimable" = "Uvolnitelné místo";
+"header.rescan" = "Prohledat znovu";
+"header.scan" = "Prohledat";
+"header.stop" = "Zastavit";
+"header.working" = "Pracuji…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Bude nutné věci znovu stáhnout, jinak přijdete o užitečná data.";
+"risk.caution.label" = "Pozor";
+"risk.caution.plural" = "Pozor";
+"risk.rebuild.help" = "Bezpečné, ale další sestavení potrvá déle.";
+"risk.rebuild.label" = "Obnoví se";
+"risk.rebuild.plural" = "Obnoví se";
+"risk.safe.help" = "Obnoví se samy, bez vedlejších účinků.";
+"risk.safe.label" = "Bezpečné";
+"risk.safe.plural" = "Bezpečné";
+
+/* ---- row ---- */
+"row.files" = "Soubory: %d";
+"row.noPath" = "Na tomto Macu nebyla nalezena žádná odpovídající cesta.";
+
+/* ---- select ---- */
+"select.clear" = "Zrušit výběr";
+"select.mark" = "Vybrat";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Mezipaměť Androidu";
+"target.android.caches.note" = "Mezipaměť sestavení SDK a dočasná data nástrojů";
+"target.browsers.headless.name" = "Prohlížeče Playwrightu / Puppeteeru";
+"target.browsers.headless.note" = "Chromium, Firefox a WebKit stažené pro E2E testy";
+"target.bun.deno.name" = "Mezipaměť Bunu a Dena";
+"target.bun.deno.note" = "Moduly stažené Bunem a Denem";
+"target.caches.other.name" = "Ostatní mezipaměti aplikací";
+"target.caches.other.note" = "Vše, co zbývá v ~/Library/Caches a nepokrývá to žádný řádek výše";
+"target.carthage.name" = "Mezipaměť Carthage";
+"target.carthage.note" = "Frameworky a checkouty Carthage";
+"target.cocoapods.name" = "Mezipaměť CocoaPods";
+"target.cocoapods.note" = "Stažené pody a specs";
+"target.docker.logs.name" = "Protokoly Docker Desktopu";
+"target.docker.logs.note" = "Pouze protokoly. Obrazů ani svazků se to nedotkne";
+"target.electron.name" = "Mezipaměť Electronu";
+"target.electron.note" = "Binárky Electronu a electron-builderu";
+"target.flutter.name" = "Mezipaměť Flutteru / Dartu";
+"target.flutter.note" = "~/.pub-cache: balíčky z pub.dev";
+"target.go.build.name" = "Mezipaměť sestavení Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Mezipaměť modulů Go";
+"target.go.mod.note" = "~/go/pkg/mod. Jen pro čtení, může vyžadovat oprávnění";
+"target.gradle.caches.name" = "Mezipaměť Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: závislosti a mezipaměť sestavení všech projektů";
+"target.gradle.daemon.name" = "Démoni a protokoly Gradle";
+"target.gradle.daemon.note" = "Protokoly procesů démonů";
+"target.gradle.wrapper.name" = "Distribuce Gradle Wrapperu";
+"target.gradle.wrapper.note" = "Každá verze Gradle stažená některým projektem (asi 150 MB každá)";
+"target.homebrew.name" = "Mezipaměť Homebrew";
+"target.homebrew.note" = "Bottles a staré stažené soubory brew";
+"target.ios.backups.name" = "Zálohy iOS";
+"target.ios.backups.note" = "Zálohy iPhonu a iPadu. Můžou být jediná kopie, kterou máte";
+"target.jetbrains.caches.name" = "Mezipaměť JetBrains / Android Studia";
+"target.jetbrains.caches.note" = "Indexy a mezipaměti IntelliJ, Android Studia, PyCharmu a dalších";
+"target.jetbrains.logs.name" = "Protokoly JetBrains / Android Studia";
+"target.jetbrains.logs.note" = "Protokoly vývojových prostředí";
+"target.kotlin.name" = "Mezipaměť Kotlinu / Konanu";
+"target.kotlin.note" = "Artefakty překladačů Kotlin a Kotlin Native";
+"target.maven.name" = "Místní repozitář Mavenu";
+"target.maven.note" = "~/.m2/repository. Při dalším sestavení se stáhne celý znovu";
+"target.npm.name" = "Mezipaměť npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Mezipaměť Composeru (PHP)";
+"target.php.note" = "Balíčky stažené Composerem";
+"target.pnpm.name" = "Úložiště pnpm";
+"target.pnpm.note" = "Sdílené úložiště balíčků pnpm";
+"target.python.name" = "Mezipaměť Pythonu";
+"target.python.note" = "pip, uv, poetry a zkompilované wheels";
+"target.ruby.name" = "Mezipaměť Ruby";
+"target.ruby.note" = "Gemy stažené Bundlerem";
+"target.rust.name" = "Mezipaměť Carga (Rust)";
+"target.rust.note" = "Stažené cratey a checkouty gitu";
+"target.savedstate.name" = "Uložený stav aplikací";
+"target.savedstate.note" = "Okna a dokumenty, které aplikace při spuštění znovu otevřou";
+"target.sim.caches.name" = "Mezipaměť CoreSimulatoru";
+"target.sim.caches.note" = "Stažená běhová prostředí a sdílená mezipaměť simulátorů";
+"target.sim.devicedata.name" = "Dočasná data simulátorů";
+"target.sim.devicedata.note" = "Mezipaměti a /tmp uvnitř každého simulátoru (nainstalované aplikace zůstávají)";
+"target.swiftpm.name" = "Mezipaměť Swift Package Manageru";
+"target.swiftpm.note" = "Repozitáře a binárky závislostí SwiftPM";
+"target.trash.name" = "Koš";
+"target.trash.note" = "Trvale vysype ~/.Trash";
+"target.user.logs.name" = "Protokoly uživatele";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Archivy Xcode";
+"target.xcode.archives.note" = "Sestavení archivovaná pro App Store. Potřebujete je k symbolizaci pádů";
+"target.xcode.caches.name" = "Mezipaměť Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: indexy, stažené soubory a dočasná data IDE";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Indexy, mezisestavení a ModuleCache ze všech vašich projektů";
+"target.xcode.devicelogs.name" = "Protokoly a pády zařízení";
+"target.xcode.devicelogs.note" = "Protokoly stažené z připojených iPhonů a iPadů";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Symboly pro každou verzi iOS, ze které jste připojili zařízení";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Totéž pro ostatní platformy";
+"target.xcode.previews.name" = "Náhledy Xcode";
+"target.xcode.previews.note" = "Mezipaměť náhledů SwiftUI";
+"target.yarn.name" = "Mezipaměť Yarnu";
+"target.yarn.note" = "Balíčky stažené Yarnem";

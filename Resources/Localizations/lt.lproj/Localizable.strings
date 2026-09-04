@@ -1,0 +1,152 @@
+/* MacCleaner — lt */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Pasirinktos kategorijos bus visam laikui ištrintos.";
+"alert.clean.body.trash" = "Pasirinktos kategorijos bus perkeltos į šiukšlinę.";
+"alert.clean.count" = "Kategorijos: %d";
+"alert.clean.delete" = "Ištrinti";
+"alert.clean.risky" = "Pažymėtos „Atsargiai“: %@";
+"alert.clean.title" = "Išvalyti %@?";
+"alert.clean.trash" = "Perkelti į šiukšlinę";
+"alert.report.count" = "Išvalytos kategorijos: %d";
+"alert.report.failures" = "Nepavyko ištrinti visko (paveiktos kategorijos: %d). Paprastai tai leidimų klausimas: suteikite „MacCleaner“ visišką disko prieigą per Nuostatos › Privatumas ir sauga.";
+"alert.report.freed" = "Atlaisvinta %@.";
+"alert.report.title" = "Valymas baigtas";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle ir JVM";
+"category.langs" = "Kitos kalbos";
+"category.node" = "Node ir žiniatinklis";
+"category.system" = "Sistema ir programos";
+"category.tools" = "Paketų tvarkyklės";
+"category.xcode" = "Xcode ir iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Atsisakyti";
+"common.done" = "Atlikta";
+
+/* ---- empty ---- */
+"empty.button" = "Peržiūrėti dabar";
+"empty.subtitle" = "Niekas nepažymėta: jūs patys renkatės, ką ištrinti, ir prieš tai patvirtinate.";
+"empty.title" = "Peržiūrėkite ir pamatysite, kiek vietos galite atlaisvinti";
+
+/* ---- footer ---- */
+"footer.clean" = "Išvalyti %@";
+"footer.hideEmpty" = "Slėpti tuščias";
+"footer.selected" = "Pasirinkta: %d";
+"footer.trash" = "Perkelti į šiukšlinę";
+"footer.trash.help" = "Lėčiau, ir vieta lieka užimta, kol neišvalysite šiukšlinės — bet tai atšaukiama.";
+
+/* ---- group ---- */
+"group.all" = "Viskas";
+"group.none" = "Nieko";
+
+/* ---- header ---- */
+"header.notScanned" = "Neperžiūrėta";
+"header.reclaimable" = "Atlaisvinama vieta";
+"header.rescan" = "Peržiūrėti iš naujo";
+"header.scan" = "Peržiūrėti";
+"header.stop" = "Stabdyti";
+"header.working" = "Dirbama…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Reikės vėl atsisiųsti, arba prarasite naudingus duomenis.";
+"risk.caution.label" = "Atsargiai";
+"risk.caution.plural" = "Atsargiai";
+"risk.rebuild.help" = "Saugu, bet kita kompiliacija truks ilgiau.";
+"risk.rebuild.label" = "Atsikurs";
+"risk.rebuild.plural" = "Atsikuriančios";
+"risk.safe.help" = "Atsikuria pačios, be šalutinių poveikių.";
+"risk.safe.label" = "Saugu";
+"risk.safe.plural" = "Saugios";
+
+/* ---- row ---- */
+"row.files" = "Failai: %d";
+"row.noPath" = "Šiame „Mac“ nerasta nė vieno atitinkančio kelio.";
+
+/* ---- select ---- */
+"select.clear" = "Atžymėti viską";
+"select.mark" = "Pasirinkti";
+
+/* ---- target ---- */
+"target.android.caches.name" = "„Android“ podėlis";
+"target.android.caches.note" = "SDK kompiliavimo podėlis ir laikinieji įrankių duomenys";
+"target.browsers.headless.name" = "„Playwright“ / „Puppeteer“ naršyklės";
+"target.browsers.headless.note" = "„Chromium“, „Firefox“ ir „WebKit“, atsisiųsti E2E testams";
+"target.bun.deno.name" = "„Bun“ ir „Deno“ podėlis";
+"target.bun.deno.note" = "„Bun“ ir „Deno“ atsisiųsti moduliai";
+"target.caches.other.name" = "Kiti programų podėliai";
+"target.caches.other.note" = "Viskas, kas lieka ~/Library/Caches ir ko neapima nė viena eilutė aukščiau";
+"target.carthage.name" = "„Carthage“ podėlis";
+"target.carthage.note" = "„Carthage“ karkasai ir „checkouts“";
+"target.cocoapods.name" = "„CocoaPods“ podėlis";
+"target.cocoapods.note" = "Atsisiųsti „pods“ ir „specs“";
+"target.docker.logs.name" = "„Docker Desktop“ žurnalai";
+"target.docker.logs.note" = "Tik žurnalai. Atvaizdai ir tomai nepaliečiami";
+"target.electron.name" = "„Electron“ podėlis";
+"target.electron.note" = "„Electron“ ir „electron-builder“ dvejetainiai failai";
+"target.flutter.name" = "„Flutter“ / „Dart“ podėlis";
+"target.flutter.note" = "~/.pub-cache: paketai iš pub.dev";
+"target.go.build.name" = "„Go“ kompiliavimo podėlis";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "„Go“ modulių podėlis";
+"target.go.mod.note" = "~/go/pkg/mod. Tik skaitymui: gali prireikti leidimų";
+"target.gradle.caches.name" = "„Gradle“ podėlis";
+"target.gradle.caches.note" = "~/.gradle/caches: visų projektų priklausomybės ir kompiliavimo podėlis";
+"target.gradle.daemon.name" = "„Gradle“ tarnybos ir žurnalai";
+"target.gradle.daemon.note" = "Tarnybinių procesų žurnalai";
+"target.gradle.wrapper.name" = "„Gradle Wrapper“ platinamieji paketai";
+"target.gradle.wrapper.note" = "Kiekviena „Gradle“ versija, kurią atsisiuntė koks nors projektas (po maždaug 150 MB)";
+"target.homebrew.name" = "„Homebrew“ podėlis";
+"target.homebrew.note" = "„Bottles“ ir seni „brew“ atsisiuntimai";
+"target.ios.backups.name" = "iOS atsarginės kopijos";
+"target.ios.backups.note" = "„iPhone“ ir „iPad“ kopijos. Gali būti vienintelė jūsų turima kopija";
+"target.jetbrains.caches.name" = "„JetBrains“ / „Android Studio“ podėlis";
+"target.jetbrains.caches.note" = "„IntelliJ“, „Android Studio“, „PyCharm“ ir kitų indeksai bei podėliai";
+"target.jetbrains.logs.name" = "„JetBrains“ / „Android Studio“ žurnalai";
+"target.jetbrains.logs.note" = "IDE žurnalai";
+"target.kotlin.name" = "„Kotlin“ / „Konan“ podėlis";
+"target.kotlin.note" = "„Kotlin“ ir „Kotlin Native“ kompiliatorių artefaktai";
+"target.maven.name" = "Vietinė „Maven“ saugykla";
+"target.maven.note" = "~/.m2/repository. Kitą kartą kompiliuojant bus atsisiųsta visa iš naujo";
+"target.npm.name" = "„npm“ podėlis";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "„Composer“ podėlis (PHP)";
+"target.php.note" = "„Composer“ atsisiųsti paketai";
+"target.pnpm.name" = "„pnpm“ saugykla";
+"target.pnpm.note" = "Bendra „pnpm“ paketų saugykla";
+"target.python.name" = "„Python“ podėlis";
+"target.python.note" = "pip, uv, poetry ir sukompiliuoti „wheels“";
+"target.ruby.name" = "„Ruby“ podėlis";
+"target.ruby.note" = "„Bundler“ atsisiųsti „gems“";
+"target.rust.name" = "„Cargo“ podėlis („Rust“)";
+"target.rust.note" = "Atsisiųsti „crates“ ir „git checkouts“";
+"target.savedstate.name" = "Įrašyta programų būsena";
+"target.savedstate.note" = "Langai ir dokumentai, kuriuos programos vėl atveria paleidžiamos";
+"target.sim.caches.name" = "„CoreSimulator“ podėlis";
+"target.sim.caches.note" = "Atsisiųstos vykdymo aplinkos ir bendras simuliatorių podėlis";
+"target.sim.devicedata.name" = "Laikinieji simuliatorių duomenys";
+"target.sim.devicedata.note" = "Podėliai ir /tmp kiekviename simuliatoriuje (įdiegtos programos lieka)";
+"target.swiftpm.name" = "„Swift Package Manager“ podėlis";
+"target.swiftpm.note" = "„SwiftPM“ priklausomybių saugyklos ir dvejetainiai failai";
+"target.trash.name" = "Šiukšlinė";
+"target.trash.note" = "Visam laikui išvalo ~/.Trash";
+"target.user.logs.name" = "Naudotojo žurnalai";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "„Xcode“ archyvai";
+"target.xcode.archives.note" = "Kompiliacijos, suarchyvuotos „App Store“. Reikalingos strigtims simbolizuoti";
+"target.xcode.caches.name" = "„Xcode“ podėlis";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: IDE indeksai, atsisiuntimai ir laikinieji duomenys";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Visų jūsų projektų indeksai, tarpinės kompiliacijos ir ModuleCache";
+"target.xcode.devicelogs.name" = "Įrenginių žurnalai ir strigtys";
+"target.xcode.devicelogs.note" = "Žurnalai, parsisiųsti iš prijungtų „iPhone“ ir „iPad“";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Simboliai kiekvienai iOS versijai, iš kurios prijungėte įrenginį";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Tas pats kitoms platformoms";
+"target.xcode.previews.name" = "„Xcode“ peržiūros";
+"target.xcode.previews.note" = "„SwiftUI“ peržiūrų podėlis";
+"target.yarn.name" = "„Yarn“ podėlis";
+"target.yarn.note" = "„Yarn“ atsisiųsti paketai";

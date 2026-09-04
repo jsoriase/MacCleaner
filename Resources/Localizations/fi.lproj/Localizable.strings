@@ -1,0 +1,152 @@
+/* MacCleaner — fi */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Valitut luokat poistetaan pysyvästi.";
+"alert.clean.body.trash" = "Valitut luokat siirretään roskakoriin.";
+"alert.clean.count" = "Luokkia: %d";
+"alert.clean.delete" = "Poista";
+"alert.clean.risky" = "Merkitty ”Varoitus”: %@";
+"alert.clean.title" = "Siivotaanko %@?";
+"alert.clean.trash" = "Siirrä roskakoriin";
+"alert.report.count" = "Siivottuja luokkia: %d";
+"alert.report.failures" = "Kaikkea ei voitu poistaa (koskee luokkia: %d). Yleensä kyse on käyttöoikeuksista: anna MacCleanerille täysi levyoikeus kohdasta Asetukset › Tietosuoja ja turvallisuus.";
+"alert.report.freed" = "Vapautettiin %@.";
+"alert.report.title" = "Siivous valmis";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle ja JVM";
+"category.langs" = "Muut kielet";
+"category.node" = "Node ja web";
+"category.system" = "Järjestelmä ja apit";
+"category.tools" = "Pakettien hallinta";
+"category.xcode" = "Xcode ja iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Kumoa";
+"common.done" = "Valmis";
+
+/* ---- empty ---- */
+"empty.button" = "Tarkista nyt";
+"empty.subtitle" = "Mitään ei ole valittu: sinä päätät mitä poistetaan ja vahvistat sen ennen poistoa.";
+"empty.title" = "Tarkista, paljonko tilaa voit vapauttaa";
+
+/* ---- footer ---- */
+"footer.clean" = "Siivoa %@";
+"footer.hideEmpty" = "Piilota tyhjät";
+"footer.selected" = "Valittuna: %d";
+"footer.trash" = "Siirrä roskakoriin";
+"footer.trash.help" = "Hitaampaa, ja tila pysyy varattuna kunnes tyhjennät roskakorin — mutta sen voi perua.";
+
+/* ---- group ---- */
+"group.all" = "Kaikki";
+"group.none" = "Ei mitään";
+
+/* ---- header ---- */
+"header.notScanned" = "Ei tarkistettu";
+"header.reclaimable" = "Vapautettava tila";
+"header.rescan" = "Tarkista uudelleen";
+"header.scan" = "Tarkista";
+"header.stop" = "Pysäytä";
+"header.working" = "Työskentelee…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Asioita joutuu lataamaan uudelleen, tai menetät hyödyllistä dataa.";
+"risk.caution.label" = "Varoitus";
+"risk.caution.plural" = "Varoitus";
+"risk.rebuild.help" = "Turvallista, mutta seuraava käännös kestää pidempään.";
+"risk.rebuild.label" = "Rakentuu uudelleen";
+"risk.rebuild.plural" = "Uudelleen rakentuvat";
+"risk.safe.help" = "Syntyvät itsestään uudelleen, ilman sivuvaikutuksia.";
+"risk.safe.label" = "Turvallinen";
+"risk.safe.plural" = "Turvalliset";
+
+/* ---- row ---- */
+"row.files" = "Tiedostot: %d";
+"row.noPath" = "Tästä Macista ei löytynyt yhtään vastaavaa polkua.";
+
+/* ---- select ---- */
+"select.clear" = "Poista kaikki valinnat";
+"select.mark" = "Valitse";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Androidin välimuisti";
+"target.android.caches.note" = "SDK:n käännösvälimuisti ja työkalujen väliaikaistiedot";
+"target.browsers.headless.name" = "Playwrightin / Puppeteerin selaimet";
+"target.browsers.headless.note" = "E2E-testejä varten ladatut Chromium, Firefox ja WebKit";
+"target.bun.deno.name" = "Bunin ja Denon välimuisti";
+"target.bun.deno.note" = "Bunin ja Denon lataamat moduulit";
+"target.caches.other.name" = "Muut appien välimuistit";
+"target.caches.other.note" = "Kaikki mitä jää kansioon ~/Library/Caches eikä mikään yllä oleva rivi kata";
+"target.carthage.name" = "Carthagen välimuisti";
+"target.carthage.note" = "Carthagen frameworkit ja checkoutit";
+"target.cocoapods.name" = "CocoaPodsin välimuisti";
+"target.cocoapods.note" = "Ladatut podit ja specsit";
+"target.docker.logs.name" = "Docker Desktopin lokit";
+"target.docker.logs.note" = "Vain lokit. Vedoksiin ja taltioihin ei kosketa";
+"target.electron.name" = "Electronin välimuisti";
+"target.electron.note" = "Electronin ja electron-builderin binäärit";
+"target.flutter.name" = "Flutterin / Dartin välimuisti";
+"target.flutter.note" = "~/.pub-cache: paketit pub.dev-palvelusta";
+"target.go.build.name" = "Gon käännösvälimuisti";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Gon moduulivälimuisti";
+"target.go.mod.note" = "~/go/pkg/mod. Vain luku: voi vaatia käyttöoikeuksia";
+"target.gradle.caches.name" = "Gradlen välimuisti";
+"target.gradle.caches.note" = "~/.gradle/caches: kaikkien projektien riippuvuudet ja käännösvälimuisti";
+"target.gradle.daemon.name" = "Gradlen taustaprosessit ja lokit";
+"target.gradle.daemon.note" = "Taustaprosessien lokit";
+"target.gradle.wrapper.name" = "Gradle Wrapperin jakelupaketit";
+"target.gradle.wrapper.note" = "Jokainen Gradle-versio, jonka jokin projekti on ladannut (noin 150 Mt kukin)";
+"target.homebrew.name" = "Homebrew’n välimuisti";
+"target.homebrew.note" = "Bottlet ja vanhat brew-lataukset";
+"target.ios.backups.name" = "iOS-varmuuskopiot";
+"target.ios.backups.note" = "iPhonen ja iPadin varmuuskopiot. Ne voivat olla ainoa kopiosi";
+"target.jetbrains.caches.name" = "JetBrainsin / Android Studion välimuisti";
+"target.jetbrains.caches.note" = "IntelliJ:n, Android Studion, PyCharmin ja muiden indeksit ja välimuistit";
+"target.jetbrains.logs.name" = "JetBrainsin / Android Studion lokit";
+"target.jetbrains.logs.note" = "Kehitysympäristöjen lokit";
+"target.kotlin.name" = "Kotlinin / Konanin välimuisti";
+"target.kotlin.note" = "Kotlin- ja Kotlin Native -kääntäjien artefaktit";
+"target.maven.name" = "Paikallinen Maven-varasto";
+"target.maven.note" = "~/.m2/repository. Ladataan kokonaan uudelleen seuraavalla käännöksellä";
+"target.npm.name" = "npm:n välimuisti";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composerin välimuisti (PHP)";
+"target.php.note" = "Composerin lataamat paketit";
+"target.pnpm.name" = "pnpm:n varasto";
+"target.pnpm.note" = "pnpm:n yhteinen pakettivarasto";
+"target.python.name" = "Pythonin välimuisti";
+"target.python.note" = "pip, uv, poetry ja käännetyt wheelit";
+"target.ruby.name" = "Rubyn välimuisti";
+"target.ruby.note" = "Bundlerin lataamat gemit";
+"target.rust.name" = "Cargon välimuisti (Rust)";
+"target.rust.note" = "Ladatut cratet ja git-checkoutit";
+"target.savedstate.name" = "Tallennettu appien tila";
+"target.savedstate.note" = "Ikkunat ja dokumentit, jotka apit avaavat uudelleen käynnistyessään";
+"target.sim.caches.name" = "CoreSimulatorin välimuisti";
+"target.sim.caches.note" = "Ladatut suoritusympäristöt ja simulaattoreiden yhteinen välimuisti";
+"target.sim.devicedata.name" = "Simulaattoreiden väliaikaistiedot";
+"target.sim.devicedata.note" = "Välimuistit ja /tmp jokaisen simulaattorin sisällä (asennetut apit säilyvät)";
+"target.swiftpm.name" = "Swift Package Managerin välimuisti";
+"target.swiftpm.note" = "SwiftPM-riippuvuuksien varastot ja binäärit";
+"target.trash.name" = "Roskakori";
+"target.trash.note" = "Tyhjentää ~/.Trash-kansion pysyvästi";
+"target.user.logs.name" = "Käyttäjän lokit";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcoden arkistot";
+"target.xcode.archives.note" = "App Storea varten arkistoidut käännökset. Tarvitset ne kaatumisten symbolisointiin";
+"target.xcode.caches.name" = "Xcoden välimuisti";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: kehitysympäristön indeksit, lataukset ja väliaikaistiedot";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Kaikkien projektiesi indeksit, välivaiheen käännökset ja ModuleCache";
+"target.xcode.devicelogs.name" = "Laitteiden lokit ja kaatumiset";
+"target.xcode.devicelogs.note" = "Liitetyistä iPhoneista ja iPadeista haetut lokit";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Symbolit jokaiselle iOS-versiolle, josta olet liittänyt laitteen";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Sama muille alustoille";
+"target.xcode.previews.name" = "Xcoden esikatselut";
+"target.xcode.previews.note" = "SwiftUI-esikatselujen välimuisti";
+"target.yarn.name" = "Yarnin välimuisti";
+"target.yarn.note" = "Yarnin lataamat paketit";

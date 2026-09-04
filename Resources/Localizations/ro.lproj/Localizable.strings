@@ -1,0 +1,152 @@
+/* MacCleaner — ro */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Categoriile selectate vor fi șterse definitiv.";
+"alert.clean.body.trash" = "Categoriile selectate vor fi mutate la Coș.";
+"alert.clean.count" = "Categorii: %d";
+"alert.clean.delete" = "Șterge";
+"alert.clean.risky" = "Marcate cu „Atenție”: %@";
+"alert.clean.title" = "Curăți %@?";
+"alert.clean.trash" = "Mută la Coș";
+"alert.report.count" = "Categorii curățate: %d";
+"alert.report.failures" = "Nu s-a putut șterge totul (categorii afectate: %d). De obicei este o problemă de permisiuni: acordă-i lui MacCleaner acces complet la disc în Configurări › Confidențialitate și securitate.";
+"alert.report.freed" = "S-au eliberat %@.";
+"alert.report.title" = "Curățare terminată";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle și JVM";
+"category.langs" = "Alte limbaje";
+"category.node" = "Node și web";
+"category.system" = "Sistem și aplicații";
+"category.tools" = "Manageri de pachete";
+"category.xcode" = "Xcode și iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Anulează";
+"common.done" = "Gata";
+
+/* ---- empty ---- */
+"empty.button" = "Analizează acum";
+"empty.subtitle" = "Nimic nu este selectat: tu alegi ce se șterge și confirmi înainte.";
+"empty.title" = "Analizează pentru a vedea cât spațiu poți recupera";
+
+/* ---- footer ---- */
+"footer.clean" = "Curăță %@";
+"footer.hideEmpty" = "Ascunde cele goale";
+"footer.selected" = "Selectate: %d";
+"footer.trash" = "Mută la Coș";
+"footer.trash.help" = "Mai lent, iar spațiul rămâne ocupat până golești Coșul, dar este reversibil.";
+
+/* ---- group ---- */
+"group.all" = "Tot";
+"group.none" = "Nimic";
+
+/* ---- header ---- */
+"header.notScanned" = "Neanalizat";
+"header.reclaimable" = "Spațiu recuperabil";
+"header.rescan" = "Analizează din nou";
+"header.scan" = "Analizează";
+"header.stop" = "Oprește";
+"header.working" = "Se lucrează…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Va trebui să descarci lucruri din nou, sau pierzi date utile.";
+"risk.caution.label" = "Atenție";
+"risk.caution.plural" = "Atenție";
+"risk.rebuild.help" = "Sigure, dar următoarea compilare va fi mai lentă.";
+"risk.rebuild.label" = "Se regenerează";
+"risk.rebuild.plural" = "Se regenerează";
+"risk.safe.help" = "Se regenerează singure, fără efecte secundare.";
+"risk.safe.label" = "Sigur";
+"risk.safe.plural" = "Sigure";
+
+/* ---- row ---- */
+"row.files" = "Fișiere: %d";
+"row.noPath" = "Nu s-a găsit nicio cale pe acest Mac.";
+
+/* ---- select ---- */
+"select.clear" = "Deselectează tot";
+"select.mark" = "Selectează";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Cache Android";
+"target.android.caches.note" = "Build cache-ul SDK-ului și date temporare ale uneltelor";
+"target.browsers.headless.name" = "Browsere Playwright / Puppeteer";
+"target.browsers.headless.note" = "Chromium, Firefox și WebKit descărcate pentru teste E2E";
+"target.bun.deno.name" = "Cache Bun și Deno";
+"target.bun.deno.note" = "Module descărcate de Bun și Deno";
+"target.caches.other.name" = "Alte cache-uri de aplicații";
+"target.caches.other.note" = "Tot ce rămâne în ~/Library/Caches și nu e acoperit de niciun rând de mai sus";
+"target.carthage.name" = "Cache Carthage";
+"target.carthage.note" = "Framework-uri și checkout-uri Carthage";
+"target.cocoapods.name" = "Cache CocoaPods";
+"target.cocoapods.note" = "Pod-uri descărcate și specs";
+"target.docker.logs.name" = "Jurnale Docker Desktop";
+"target.docker.logs.note" = "Doar jurnale. Nu atinge imagini sau volume";
+"target.electron.name" = "Cache Electron";
+"target.electron.note" = "Binare Electron și electron-builder";
+"target.flutter.name" = "Cache Flutter / Dart";
+"target.flutter.note" = "~/.pub-cache: pachete de pe pub.dev";
+"target.go.build.name" = "Cache de compilare Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Cache de module Go";
+"target.go.mod.note" = "~/go/pkg/mod. Este doar-citire: poate cere permisiuni";
+"target.gradle.caches.name" = "Cache Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: dependențele și build cache-ul tuturor proiectelor";
+"target.gradle.daemon.name" = "Daemoni și jurnale Gradle";
+"target.gradle.daemon.note" = "Jurnalele proceselor daemon";
+"target.gradle.wrapper.name" = "Distribuții Gradle Wrapper";
+"target.gradle.wrapper.note" = "Fiecare versiune de Gradle descărcată de un proiect (~150 MB fiecare)";
+"target.homebrew.name" = "Cache Homebrew";
+"target.homebrew.note" = "Bottles și descărcări vechi ale brew";
+"target.ios.backups.name" = "Copii de siguranță iOS";
+"target.ios.backups.note" = "Copii ale iPhone și iPad. Ar putea fi singura copie pe care o ai";
+"target.jetbrains.caches.name" = "Cache JetBrains / Android Studio";
+"target.jetbrains.caches.note" = "Indexuri și cache-uri din IntelliJ, Android Studio, PyCharm etc.";
+"target.jetbrains.logs.name" = "Jurnale JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "Jurnalele IDE-urilor";
+"target.kotlin.name" = "Cache Kotlin / Konan";
+"target.kotlin.note" = "Artefacte ale compilatoarelor Kotlin și Kotlin Native";
+"target.maven.name" = "Depozit local Maven";
+"target.maven.note" = "~/.m2/repository. Se descarcă integral la următoarea compilare";
+"target.npm.name" = "Cache npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Cache Composer (PHP)";
+"target.php.note" = "Pachete descărcate de Composer";
+"target.pnpm.name" = "Depozit pnpm";
+"target.pnpm.note" = "Depozitul comun de pachete al pnpm";
+"target.python.name" = "Cache Python";
+"target.python.note" = "pip, uv, poetry și wheel-uri compilate";
+"target.ruby.name" = "Cache Ruby";
+"target.ruby.note" = "Gem-uri descărcate de Bundler";
+"target.rust.name" = "Cache Cargo (Rust)";
+"target.rust.note" = "Crate-uri descărcate și checkout-uri git";
+"target.savedstate.name" = "Starea salvată a aplicațiilor";
+"target.savedstate.note" = "Ferestre și documente pe care aplicațiile le redeschid la pornire";
+"target.sim.caches.name" = "Cache CoreSimulator";
+"target.sim.caches.note" = "Runtime-uri descărcate și cache-ul comun al simulatoarelor";
+"target.sim.devicedata.name" = "Date temporare ale simulatoarelor";
+"target.sim.devicedata.note" = "Cache și /tmp din fiecare simulator (aplicațiile instalate rămân)";
+"target.swiftpm.name" = "Cache Swift Package Manager";
+"target.swiftpm.note" = "Depozite și binare ale dependențelor SwiftPM";
+"target.trash.name" = "Coș";
+"target.trash.note" = "Golește ~/.Trash definitiv";
+"target.user.logs.name" = "Jurnalele utilizatorului";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Arhive Xcode";
+"target.xcode.archives.note" = "Compilări arhivate pentru App Store. Îți trebuie ca să simbolizezi erorile";
+"target.xcode.caches.name" = "Cache Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: indexuri, descărcări și date temporare ale IDE-ului";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Indexuri, compilări intermediare și ModuleCache din toate proiectele tale";
+"target.xcode.devicelogs.name" = "Jurnale și erori de dispozitiv";
+"target.xcode.devicelogs.note" = "Jurnale descărcate de pe iPhone-uri și iPad-uri conectate";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Simboluri pentru fiecare versiune de iOS din care ai conectat un dispozitiv";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "La fel, pentru celelalte platforme";
+"target.xcode.previews.name" = "Previzualizări Xcode";
+"target.xcode.previews.note" = "Cache pentru previzualizările SwiftUI";
+"target.yarn.name" = "Cache Yarn";
+"target.yarn.note" = "Pachete descărcate de Yarn";

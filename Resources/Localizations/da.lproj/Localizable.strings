@@ -1,0 +1,152 @@
+/* MacCleaner — da */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "De valgte kategorier slettes permanent.";
+"alert.clean.body.trash" = "De valgte kategorier flyttes til papirkurven.";
+"alert.clean.count" = "Kategorier: %d";
+"alert.clean.delete" = "Slet";
+"alert.clean.risky" = "Markeret som “Pas på”: %@";
+"alert.clean.title" = "Ryd %@?";
+"alert.clean.trash" = "Flyt til papirkurv";
+"alert.report.count" = "Ryddede kategorier: %d";
+"alert.report.failures" = "Ikke alt kunne slettes (berørte kategorier: %d). Det skyldes normalt rettigheder: giv MacCleaner fuld diskadgang under Systemindstillinger › Anonymitet og sikkerhed.";
+"alert.report.freed" = "Frigjorde %@.";
+"alert.report.title" = "Oprydningen er færdig";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle og JVM";
+"category.langs" = "Andre sprog";
+"category.node" = "Node og web";
+"category.system" = "System og apps";
+"category.tools" = "Pakkeadministratorer";
+"category.xcode" = "Xcode og iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Annuller";
+"common.done" = "Færdig";
+
+/* ---- empty ---- */
+"empty.button" = "Scan nu";
+"empty.subtitle" = "Intet er valgt: du bestemmer, hvad der slettes, og bekræfter først.";
+"empty.title" = "Scan for at se, hvor meget plads du kan frigøre";
+
+/* ---- footer ---- */
+"footer.clean" = "Ryd %@";
+"footer.hideEmpty" = "Skjul tomme";
+"footer.selected" = "Valgte: %d";
+"footer.trash" = "Flyt til papirkurv";
+"footer.trash.help" = "Langsommere, og pladsen er optaget, indtil du tømmer papirkurven — men det kan fortrydes.";
+
+/* ---- group ---- */
+"group.all" = "Alle";
+"group.none" = "Ingen";
+
+/* ---- header ---- */
+"header.notScanned" = "Ikke scannet";
+"header.reclaimable" = "Plads der kan frigøres";
+"header.rescan" = "Scan igen";
+"header.scan" = "Scan";
+"header.stop" = "Stop";
+"header.working" = "Arbejder…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Ting skal hentes igen, ellers mister du nyttige data.";
+"risk.caution.label" = "Pas på";
+"risk.caution.plural" = "Pas på";
+"risk.rebuild.help" = "Sikkert, men næste build tager længere tid.";
+"risk.rebuild.label" = "Gendannes";
+"risk.rebuild.plural" = "Gendannes";
+"risk.safe.help" = "Bliver oprettet igen af sig selv, uden bivirkninger.";
+"risk.safe.label" = "Sikkert";
+"risk.safe.plural" = "Sikre";
+
+/* ---- row ---- */
+"row.files" = "Filer: %d";
+"row.noPath" = "Der blev ikke fundet nogen matchende sti på denne Mac.";
+
+/* ---- select ---- */
+"select.clear" = "Fravælg alle";
+"select.mark" = "Vælg";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Android-cache";
+"target.android.caches.note" = "SDK’ets buildcache og midlertidige data fra værktøjerne";
+"target.browsers.headless.name" = "Playwright-/Puppeteer-browsere";
+"target.browsers.headless.note" = "Chromium, Firefox og WebKit hentet til E2E-test";
+"target.bun.deno.name" = "Bun- og Deno-cache";
+"target.bun.deno.note" = "Moduler hentet af Bun og Deno";
+"target.caches.other.name" = "Andre app-caches";
+"target.caches.other.note" = "Alt der er tilbage i ~/Library/Caches, og som ingen række ovenfor dækker";
+"target.carthage.name" = "Carthage-cache";
+"target.carthage.note" = "Carthage-frameworks og -checkouts";
+"target.cocoapods.name" = "CocoaPods-cache";
+"target.cocoapods.note" = "Hentede pods og specs";
+"target.docker.logs.name" = "Docker Desktop-logfiler";
+"target.docker.logs.note" = "Kun logfiler. Images og volumener røres ikke";
+"target.electron.name" = "Electron-cache";
+"target.electron.note" = "Binære filer til Electron og electron-builder";
+"target.flutter.name" = "Flutter-/Dart-cache";
+"target.flutter.note" = "~/.pub-cache: pakker fra pub.dev";
+"target.go.build.name" = "Go-buildcache";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Go-modulcache";
+"target.go.mod.note" = "~/go/pkg/mod. Skrivebeskyttet, så det kan kræve rettigheder";
+"target.gradle.caches.name" = "Gradle-cache";
+"target.gradle.caches.note" = "~/.gradle/caches: afhængigheder og buildcache for alle projekter";
+"target.gradle.daemon.name" = "Gradle-dæmoner og logfiler";
+"target.gradle.daemon.note" = "Logfiler fra dæmonprocesserne";
+"target.gradle.wrapper.name" = "Gradle Wrapper-distributioner";
+"target.gradle.wrapper.note" = "Hver Gradle-version, et projekt har hentet (~150 MB pr. stk.)";
+"target.homebrew.name" = "Homebrew-cache";
+"target.homebrew.note" = "Bottles og gamle brew-hentninger";
+"target.ios.backups.name" = "iOS-sikkerhedskopier";
+"target.ios.backups.note" = "Sikkerhedskopier af iPhone og iPad. Måske din eneste kopi";
+"target.jetbrains.caches.name" = "JetBrains-/Android Studio-cache";
+"target.jetbrains.caches.note" = "Indeks og caches fra IntelliJ, Android Studio, PyCharm m.fl.";
+"target.jetbrains.logs.name" = "JetBrains-/Android Studio-logfiler";
+"target.jetbrains.logs.note" = "Logfiler fra udviklingsmiljøerne";
+"target.kotlin.name" = "Kotlin-/Konan-cache";
+"target.kotlin.note" = "Artefakter fra Kotlin- og Kotlin Native-oversætterne";
+"target.maven.name" = "Lokalt Maven-arkiv";
+"target.maven.note" = "~/.m2/repository. Hentes helt forfra ved næste build";
+"target.npm.name" = "npm-cache";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composer-cache (PHP)";
+"target.php.note" = "Pakker hentet af Composer";
+"target.pnpm.name" = "pnpm-lager";
+"target.pnpm.note" = "pnpm’s fælles pakkelager";
+"target.python.name" = "Python-cache";
+"target.python.note" = "pip, uv, poetry og oversatte wheels";
+"target.ruby.name" = "Ruby-cache";
+"target.ruby.note" = "Gems hentet af Bundler";
+"target.rust.name" = "Cargo-cache (Rust)";
+"target.rust.note" = "Hentede crates og git-checkouts";
+"target.savedstate.name" = "Gemt apptilstand";
+"target.savedstate.note" = "Vinduer og dokumenter, som apps åbner igen ved start";
+"target.sim.caches.name" = "CoreSimulator-cache";
+"target.sim.caches.note" = "Hentede runtimes og simulatorernes fælles cache";
+"target.sim.devicedata.name" = "Midlertidige simulatordata";
+"target.sim.devicedata.note" = "Caches og /tmp inde i hver simulator (installerede apps bevares)";
+"target.swiftpm.name" = "Swift Package Manager-cache";
+"target.swiftpm.note" = "Arkiver og binære filer til SwiftPM-afhængigheder";
+"target.trash.name" = "Papirkurv";
+"target.trash.note" = "Tømmer ~/.Trash permanent";
+"target.user.logs.name" = "Brugerlogfiler";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcode-arkiver";
+"target.xcode.archives.note" = "Builds arkiveret til App Store. Du skal bruge dem til at symbolisere nedbrud";
+"target.xcode.caches.name" = "Xcode-cache";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: indeks, hentede filer og midlertidige IDE-data";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Indeks, mellemliggende builds og ModuleCache fra alle dine projekter";
+"target.xcode.devicelogs.name" = "Enhedslogfiler og nedbrud";
+"target.xcode.devicelogs.note" = "Logfiler hentet fra tilsluttede iPhones og iPads";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Symboler for hver iOS-version, du har tilsluttet en enhed fra";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Det samme for de øvrige platforme";
+"target.xcode.previews.name" = "Xcode-forhåndsvisninger";
+"target.xcode.previews.note" = "Cache til SwiftUI-forhåndsvisninger";
+"target.yarn.name" = "Yarn-cache";
+"target.yarn.note" = "Pakker hentet af Yarn";

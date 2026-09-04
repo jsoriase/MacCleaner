@@ -1,0 +1,152 @@
+/* MacCleaner — ga */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Scriosfar na catagóirí roghnaithe go buan.";
+"alert.clean.body.trash" = "Bogfar na catagóirí roghnaithe go dtí an Bruscar.";
+"alert.clean.count" = "Catagóirí: %d";
+"alert.clean.delete" = "Scrios";
+"alert.clean.risky" = "Marcáilte mar “Aire”: %@";
+"alert.clean.title" = "%@ a ghlanadh?";
+"alert.clean.trash" = "Bog go dtí an Bruscar";
+"alert.report.count" = "Catagóirí glanta: %d";
+"alert.report.failures" = "Níorbh fhéidir gach rud a scriosadh (catagóirí i gceist: %d). De ghnáth is ceist cheadanna í: tabhair Rochtain Iomlán ar an Diosca do MacCleaner i Socruithe › Príobháideachas agus Slándáil.";
+"alert.report.freed" = "Saoradh %@.";
+"alert.report.title" = "Glanadh críochnaithe";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle agus JVM";
+"category.langs" = "Teangacha eile";
+"category.node" = "Node agus an gréasán";
+"category.system" = "Córas agus aipeanna";
+"category.tools" = "Bainisteoirí pacáistí";
+"category.xcode" = "Xcode agus iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Cealaigh";
+"common.done" = "Déanta";
+
+/* ---- empty ---- */
+"empty.button" = "Scan anois";
+"empty.subtitle" = "Níl aon rud roghnaithe: roghnaíonn tú féin cad a scriostar, agus deimhníonn tú é roimh ré.";
+"empty.title" = "Scan chun a fheiceáil cé mhéad spás is féidir leat a fháil ar ais";
+
+/* ---- footer ---- */
+"footer.clean" = "Glan %@";
+"footer.hideEmpty" = "Folaigh na cinn fholmha";
+"footer.selected" = "Roghnaithe: %d";
+"footer.trash" = "Bog go dtí an Bruscar";
+"footer.trash.help" = "Níos moille, agus fanann an spás in úsáid go dtí go bhfolmhaítear an Bruscar — ach is féidir é a chur ar ceal.";
+
+/* ---- group ---- */
+"group.all" = "Gach rud";
+"group.none" = "Faic";
+
+/* ---- header ---- */
+"header.notScanned" = "Gan scanadh";
+"header.reclaimable" = "Spás inaisghabhála";
+"header.rescan" = "Scan arís";
+"header.scan" = "Scan";
+"header.stop" = "Stop";
+"header.working" = "Ag obair…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Beidh ort rudaí a íoslódáil arís, nó caillfidh tú sonraí úsáideacha.";
+"risk.caution.label" = "Aire";
+"risk.caution.plural" = "Aire";
+"risk.rebuild.help" = "Sábháilte, ach beidh an chéad tógáil eile níos moille.";
+"risk.rebuild.label" = "Atógtar é";
+"risk.rebuild.plural" = "Atógtar iad";
+"risk.safe.help" = "Cruthaítear as an nua iad astu féin, gan fo-iarmhairtí.";
+"risk.safe.label" = "Sábháilte";
+"risk.safe.plural" = "Sábháilte";
+
+/* ---- row ---- */
+"row.files" = "Comhaid: %d";
+"row.noPath" = "Níor aimsíodh aon chonair chomhoiriúnach ar an Mac seo.";
+
+/* ---- select ---- */
+"select.clear" = "Díroghnaigh gach rud";
+"select.mark" = "Roghnaigh";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Taisce Android";
+"target.android.caches.note" = "Taisce tógála an SDK agus sonraí sealadacha na n-uirlisí";
+"target.browsers.headless.name" = "Brabhsálaithe Playwright / Puppeteer";
+"target.browsers.headless.note" = "Chromium, Firefox agus WebKit a íoslódáladh do thástálacha E2E";
+"target.bun.deno.name" = "Taisce Bun agus Deno";
+"target.bun.deno.note" = "Modúil a d’íoslódáil Bun agus Deno";
+"target.caches.other.name" = "Taiscí aipeanna eile";
+"target.caches.other.note" = "Gach a fhanann in ~/Library/Caches nach gclúdaíonn aon líne thuas";
+"target.carthage.name" = "Taisce Carthage";
+"target.carthage.note" = "Creataí agus checkouts Carthage";
+"target.cocoapods.name" = "Taisce CocoaPods";
+"target.cocoapods.note" = "Pods agus specs íoslódáilte";
+"target.docker.logs.name" = "Logaí Docker Desktop";
+"target.docker.logs.note" = "Logaí amháin. Ní bhaintear le híomhánna ná imleabhair";
+"target.electron.name" = "Taisce Electron";
+"target.electron.note" = "Dénártha Electron agus electron-builder";
+"target.flutter.name" = "Taisce Flutter / Dart";
+"target.flutter.note" = "~/.pub-cache: pacáistí ó pub.dev";
+"target.go.build.name" = "Taisce tógála Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Taisce modúl Go";
+"target.go.mod.note" = "~/go/pkg/mod. Inléite amháin: seans go dteastóidh ceadanna";
+"target.gradle.caches.name" = "Taisce Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: spleáchais agus taisce tógála na dtionscadal go léir";
+"target.gradle.daemon.name" = "Deamhain agus logaí Gradle";
+"target.gradle.daemon.note" = "Logaí na bpróiseas deamhain";
+"target.gradle.wrapper.name" = "Dáiltí Gradle Wrapper";
+"target.gradle.wrapper.note" = "Gach leagan de Gradle a d’íoslódáil tionscadal (thart ar 150 MB an ceann)";
+"target.homebrew.name" = "Taisce Homebrew";
+"target.homebrew.note" = "Bottles agus seaníoslódálacha brew";
+"target.ios.backups.name" = "Cúltacaí iOS";
+"target.ios.backups.note" = "Cúltacaí iPhone agus iPad. B’fhéidir gurb é an t-aon chóip atá agat";
+"target.jetbrains.caches.name" = "Taisce JetBrains / Android Studio";
+"target.jetbrains.caches.note" = "Innéacsanna agus taiscí ó IntelliJ, Android Studio, PyCharm agus eile";
+"target.jetbrains.logs.name" = "Logaí JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "Logaí na dtimpeallachtaí forbartha";
+"target.kotlin.name" = "Taisce Kotlin / Konan";
+"target.kotlin.note" = "Déantáin ó thiomsaitheoirí Kotlin agus Kotlin Native";
+"target.maven.name" = "Stór Maven áitiúil";
+"target.maven.note" = "~/.m2/repository. Íoslódálfar ina iomláine arís ag an gcéad tógáil eile";
+"target.npm.name" = "Taisce npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Taisce Composer (PHP)";
+"target.php.note" = "Pacáistí a d’íoslódáil Composer";
+"target.pnpm.name" = "Stór pnpm";
+"target.pnpm.note" = "Stór pacáistí roinnte pnpm";
+"target.python.name" = "Taisce Python";
+"target.python.note" = "pip, uv, poetry agus wheels tiomsaithe";
+"target.ruby.name" = "Taisce Ruby";
+"target.ruby.note" = "Gems a d’íoslódáil Bundler";
+"target.rust.name" = "Taisce Cargo (Rust)";
+"target.rust.note" = "Crates íoslódáilte agus checkouts git";
+"target.savedstate.name" = "Staid shábháilte na n-aipeanna";
+"target.savedstate.note" = "Fuinneoga agus cáipéisí a athosclaíonn aipeanna ag am tosaithe";
+"target.sim.caches.name" = "Taisce CoreSimulator";
+"target.sim.caches.note" = "Amanna rite íoslódáilte agus taisce roinnte na n-insamhlóirí";
+"target.sim.devicedata.name" = "Sonraí sealadacha na n-insamhlóirí";
+"target.sim.devicedata.note" = "Taiscí agus /tmp laistigh de gach insamhlóir (fanann na haipeanna suiteáilte)";
+"target.swiftpm.name" = "Taisce Swift Package Manager";
+"target.swiftpm.note" = "Stórtha agus dénártha spleáchas SwiftPM";
+"target.trash.name" = "Bruscar";
+"target.trash.note" = "Folmhaíonn sé ~/.Trash go buan";
+"target.user.logs.name" = "Logaí an úsáideora";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Cartlanna Xcode";
+"target.xcode.archives.note" = "Tógálacha cartlannaithe don App Store. Teastaíonn siad chun tuairteanna a shiombalú";
+"target.xcode.caches.name" = "Taisce Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: innéacsanna, íoslódálacha agus sonraí sealadacha an IDE";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Innéacsanna, tógálacha idirmheánacha agus ModuleCache ó do thionscadail go léir";
+"target.xcode.devicelogs.name" = "Logaí agus tuairteanna gléasanna";
+"target.xcode.devicelogs.note" = "Logaí a tarraingíodh ó iPhone agus iPad ceangailte";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Siombailí do gach leagan iOS ar cheangail tú gléas uaidh";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "An rud céanna do na hardáin eile";
+"target.xcode.previews.name" = "Réamhamhairc Xcode";
+"target.xcode.previews.note" = "Taisce do réamhamhairc SwiftUI";
+"target.yarn.name" = "Taisce Yarn";
+"target.yarn.note" = "Pacáistí a d’íoslódáil Yarn";

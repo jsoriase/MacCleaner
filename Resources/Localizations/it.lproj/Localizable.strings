@@ -1,0 +1,152 @@
+/* MacCleaner — it */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Le categorie selezionate verranno eliminate definitivamente.";
+"alert.clean.body.trash" = "Le categorie selezionate verranno spostate nel Cestino.";
+"alert.clean.count" = "Categorie: %d";
+"alert.clean.delete" = "Elimina";
+"alert.clean.risky" = "Contrassegnate come «Attenzione»: %@";
+"alert.clean.title" = "Pulire %@?";
+"alert.clean.trash" = "Sposta nel Cestino";
+"alert.report.count" = "Categorie pulite: %d";
+"alert.report.failures" = "Non è stato possibile eliminare tutto (categorie interessate: %d). Di solito è una questione di permessi: concedi a MacCleaner l’accesso completo al disco in Impostazioni › Privacy e sicurezza.";
+"alert.report.freed" = "Liberati %@.";
+"alert.report.title" = "Pulizia completata";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle e JVM";
+"category.langs" = "Altri linguaggi";
+"category.node" = "Node e web";
+"category.system" = "Sistema e app";
+"category.tools" = "Gestori di pacchetti";
+"category.xcode" = "Xcode e iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Annulla";
+"common.done" = "Fatto";
+
+/* ---- empty ---- */
+"empty.button" = "Analizza ora";
+"empty.subtitle" = "Non è selezionato nulla: scegli tu cosa eliminare e confermi prima.";
+"empty.title" = "Analizza per vedere quanto spazio puoi recuperare";
+
+/* ---- footer ---- */
+"footer.clean" = "Pulisci %@";
+"footer.hideEmpty" = "Nascondi vuote";
+"footer.selected" = "Selezionate: %d";
+"footer.trash" = "Sposta nel Cestino";
+"footer.trash.help" = "Più lento e lo spazio resta occupato finché non svuoti il Cestino, ma è reversibile.";
+
+/* ---- group ---- */
+"group.all" = "Tutto";
+"group.none" = "Nessuno";
+
+/* ---- header ---- */
+"header.notScanned" = "Non analizzato";
+"header.reclaimable" = "Spazio recuperabile";
+"header.rescan" = "Analizza di nuovo";
+"header.scan" = "Analizza";
+"header.stop" = "Interrompi";
+"header.working" = "In corso…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Dovrai riscaricare qualcosa, o perdi dati utili.";
+"risk.caution.label" = "Attenzione";
+"risk.caution.plural" = "Attenzione";
+"risk.rebuild.help" = "Sicure, ma la prossima compilazione sarà più lenta.";
+"risk.rebuild.label" = "Si rigenera";
+"risk.rebuild.plural" = "Si rigenerano";
+"risk.safe.help" = "Si rigenerano da sole, senza effetti collaterali.";
+"risk.safe.label" = "Sicuro";
+"risk.safe.plural" = "Sicure";
+
+/* ---- row ---- */
+"row.files" = "File: %d";
+"row.noPath" = "Nessun percorso corrispondente trovato su questo Mac.";
+
+/* ---- select ---- */
+"select.clear" = "Deseleziona tutto";
+"select.mark" = "Seleziona";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Cache di Android";
+"target.android.caches.note" = "Build cache dell’SDK e dati temporanei degli strumenti";
+"target.browsers.headless.name" = "Browser di Playwright / Puppeteer";
+"target.browsers.headless.note" = "Chromium, Firefox e WebKit scaricati per i test E2E";
+"target.bun.deno.name" = "Cache di Bun e Deno";
+"target.bun.deno.note" = "Moduli scaricati da Bun e Deno";
+"target.caches.other.name" = "Altre cache di applicazioni";
+"target.caches.other.note" = "Tutto ciò che resta in ~/Library/Caches e che nessuna riga sopra copre";
+"target.carthage.name" = "Cache di Carthage";
+"target.carthage.note" = "Framework e checkout di Carthage";
+"target.cocoapods.name" = "Cache di CocoaPods";
+"target.cocoapods.note" = "Pod scaricati e specs";
+"target.docker.logs.name" = "Log di Docker Desktop";
+"target.docker.logs.note" = "Solo log. Immagini e volumi non vengono toccati";
+"target.electron.name" = "Cache di Electron";
+"target.electron.note" = "Binari di Electron e electron-builder";
+"target.flutter.name" = "Cache di Flutter / Dart";
+"target.flutter.note" = "~/.pub-cache: pacchetti di pub.dev";
+"target.go.build.name" = "Cache di compilazione di Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Cache dei moduli di Go";
+"target.go.mod.note" = "~/go/pkg/mod. È in sola lettura: potrebbe richiedere permessi";
+"target.gradle.caches.name" = "Cache di Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: dipendenze e build cache di tutti i progetti";
+"target.gradle.daemon.name" = "Daemon e log di Gradle";
+"target.gradle.daemon.note" = "Log dei processi daemon";
+"target.gradle.wrapper.name" = "Distribuzioni di Gradle Wrapper";
+"target.gradle.wrapper.note" = "Ogni versione di Gradle scaricata da un progetto (~150 MB ciascuna)";
+"target.homebrew.name" = "Cache di Homebrew";
+"target.homebrew.note" = "Bottle e vecchi download di brew";
+"target.ios.backups.name" = "Backup di iOS";
+"target.ios.backups.note" = "Backup di iPhone e iPad. Potrebbero essere la tua unica copia";
+"target.jetbrains.caches.name" = "Cache di JetBrains / Android Studio";
+"target.jetbrains.caches.note" = "Indici e cache di IntelliJ, Android Studio, PyCharm e simili";
+"target.jetbrains.logs.name" = "Log di JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "Log degli IDE";
+"target.kotlin.name" = "Cache di Kotlin / Konan";
+"target.kotlin.note" = "Artefatti dei compilatori Kotlin e Kotlin Native";
+"target.maven.name" = "Repository Maven locale";
+"target.maven.note" = "~/.m2/repository. Verrà riscaricato per intero alla prossima build";
+"target.npm.name" = "Cache di npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Cache di Composer (PHP)";
+"target.php.note" = "Pacchetti scaricati da Composer";
+"target.pnpm.name" = "Store di pnpm";
+"target.pnpm.note" = "Store di pacchetti condiviso di pnpm";
+"target.python.name" = "Cache di Python";
+"target.python.note" = "pip, uv, poetry e wheel compilate";
+"target.ruby.name" = "Cache di Ruby";
+"target.ruby.note" = "Gem scaricate da Bundler";
+"target.rust.name" = "Cache di Cargo (Rust)";
+"target.rust.note" = "Crate scaricate e checkout git";
+"target.savedstate.name" = "Stato salvato delle app";
+"target.savedstate.note" = "Finestre e documenti che le app riaprono all’avvio";
+"target.sim.caches.name" = "Cache di CoreSimulator";
+"target.sim.caches.note" = "Runtime scaricati e cache condivisa dei simulatori";
+"target.sim.devicedata.name" = "Dati temporanei dei simulatori";
+"target.sim.devicedata.note" = "Cache e /tmp dentro ogni simulatore (le app installate restano)";
+"target.swiftpm.name" = "Cache di Swift Package Manager";
+"target.swiftpm.note" = "Repository e binari delle dipendenze SwiftPM";
+"target.trash.name" = "Cestino";
+"target.trash.note" = "Svuota ~/.Trash definitivamente";
+"target.user.logs.name" = "Log dell’utente";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Archivi Xcode";
+"target.xcode.archives.note" = "Build archiviate per l’App Store. Servono per simbolizzare i crash";
+"target.xcode.caches.name" = "Cache di Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: indici, download e dati temporanei dell’IDE";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Indici, build intermedie e ModuleCache di tutti i tuoi progetti";
+"target.xcode.devicelogs.name" = "Log e crash dei dispositivi";
+"target.xcode.devicelogs.note" = "Log scaricati da iPhone e iPad collegati";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Simboli di ogni versione di iOS da cui hai collegato un dispositivo";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Lo stesso, per le altre piattaforme";
+"target.xcode.previews.name" = "Anteprime di Xcode";
+"target.xcode.previews.note" = "Cache delle anteprime SwiftUI";
+"target.yarn.name" = "Cache di Yarn";
+"target.yarn.note" = "Pacchetti scaricati da Yarn";

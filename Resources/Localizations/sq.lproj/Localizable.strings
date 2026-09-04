@@ -1,0 +1,152 @@
+/* MacCleaner — sq */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Kategoritë e përzgjedhura do të fshihen përgjithmonë.";
+"alert.clean.body.trash" = "Kategoritë e përzgjedhura do të zhvendosen te Koshi.";
+"alert.clean.count" = "Kategori: %d";
+"alert.clean.delete" = "Fshi";
+"alert.clean.risky" = "Të shënuara si «Kujdes»: %@";
+"alert.clean.title" = "Të pastrohet %@?";
+"alert.clean.trash" = "Zhvendos te Koshi";
+"alert.report.count" = "Kategori të pastruara: %d";
+"alert.report.failures" = "Nuk u fshi gjithçka (kategori të prekura: %d). Zakonisht është çështje lejesh: jepi MacCleaner qasje të plotë në disk te Cilësimet › Privatësia dhe siguria.";
+"alert.report.freed" = "U liruan %@.";
+"alert.report.title" = "Pastrimi përfundoi";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle dhe JVM";
+"category.langs" = "Gjuhë të tjera";
+"category.node" = "Node dhe web";
+"category.system" = "Sistemi dhe aplikacionet";
+"category.tools" = "Menaxherë paketash";
+"category.xcode" = "Xcode dhe iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Anulo";
+"common.done" = "U krye";
+
+/* ---- empty ---- */
+"empty.button" = "Skano tani";
+"empty.subtitle" = "Asgjë nuk është e përzgjedhur: ti vendos çfarë fshihet dhe e konfirmon paraprakisht.";
+"empty.title" = "Skano për të parë sa hapësirë mund të rikuperosh";
+
+/* ---- footer ---- */
+"footer.clean" = "Pastro %@";
+"footer.hideEmpty" = "Fshih të zbrazëtat";
+"footer.selected" = "Të përzgjedhura: %d";
+"footer.trash" = "Zhvendos te Koshi";
+"footer.trash.help" = "Më i ngadaltë dhe hapësira mbetet e zënë derisa ta zbrazësh Koshin — por është i kthyeshëm.";
+
+/* ---- group ---- */
+"group.all" = "Të gjitha";
+"group.none" = "Asnjë";
+
+/* ---- header ---- */
+"header.notScanned" = "E paskanuar";
+"header.reclaimable" = "Hapësirë e rikuperueshme";
+"header.rescan" = "Skano sërish";
+"header.scan" = "Skano";
+"header.stop" = "Ndalo";
+"header.working" = "Duke punuar…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Do të duhet t’i shkarkosh sërish, ose humbet të dhëna të dobishme.";
+"risk.caution.label" = "Kujdes";
+"risk.caution.plural" = "Kujdes";
+"risk.rebuild.help" = "E sigurt, por kompilimi i radhës do të jetë më i ngadaltë.";
+"risk.rebuild.label" = "Rikrijohet";
+"risk.rebuild.plural" = "Rikrijohen";
+"risk.safe.help" = "Rikrijohen vetë, pa efekte anësore.";
+"risk.safe.label" = "E sigurt";
+"risk.safe.plural" = "Të sigurta";
+
+/* ---- row ---- */
+"row.files" = "Skedarë: %d";
+"row.noPath" = "Nuk u gjet asnjë shteg përkatës në këtë Mac.";
+
+/* ---- select ---- */
+"select.clear" = "Hiq të gjitha përzgjedhjet";
+"select.mark" = "Përzgjidh";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Cache e Android";
+"target.android.caches.note" = "Cache e kompilimit të SDK-së dhe të dhëna të përkohshme të mjeteve";
+"target.browsers.headless.name" = "Shfletuesit e Playwright / Puppeteer";
+"target.browsers.headless.note" = "Chromium, Firefox dhe WebKit të shkarkuar për teste E2E";
+"target.bun.deno.name" = "Cache e Bun dhe Deno";
+"target.bun.deno.note" = "Module të shkarkuara nga Bun dhe Deno";
+"target.caches.other.name" = "Cache të tjera aplikacionesh";
+"target.caches.other.note" = "Gjithçka që mbetet në ~/Library/Caches dhe nuk mbulohet nga asnjë rresht më sipër";
+"target.carthage.name" = "Cache e Carthage";
+"target.carthage.note" = "Framework-ët dhe checkout-et e Carthage";
+"target.cocoapods.name" = "Cache e CocoaPods";
+"target.cocoapods.note" = "Pod-e dhe specs të shkarkuara";
+"target.docker.logs.name" = "Regjistrat e Docker Desktop";
+"target.docker.logs.note" = "Vetëm regjistra. Imazhet dhe volumet nuk preken";
+"target.electron.name" = "Cache e Electron";
+"target.electron.note" = "Skedarë binarë të Electron dhe electron-builder";
+"target.flutter.name" = "Cache e Flutter / Dart";
+"target.flutter.note" = "~/.pub-cache: paketa nga pub.dev";
+"target.go.build.name" = "Cache e kompilimit të Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Cache e moduleve të Go";
+"target.go.mod.note" = "~/go/pkg/mod. Vetëm për lexim: mund të kërkojë leje";
+"target.gradle.caches.name" = "Cache e Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: varësitë dhe cache e kompilimit të të gjitha projekteve";
+"target.gradle.daemon.name" = "Demonët dhe regjistrat e Gradle";
+"target.gradle.daemon.note" = "Regjistrat e proceseve demon";
+"target.gradle.wrapper.name" = "Shpërndarjet e Gradle Wrapper";
+"target.gradle.wrapper.note" = "Çdo version i Gradle i shkarkuar nga një projekt (rreth 150 MB secili)";
+"target.homebrew.name" = "Cache e Homebrew";
+"target.homebrew.note" = "Bottles dhe shkarkime të vjetra të brew";
+"target.ios.backups.name" = "Kopjet rezervë të iOS";
+"target.ios.backups.note" = "Kopje të iPhone dhe iPad. Mund të jenë e vetmja kopje që ke";
+"target.jetbrains.caches.name" = "Cache e JetBrains / Android Studio";
+"target.jetbrains.caches.note" = "Indekse dhe cache të IntelliJ, Android Studio, PyCharm e të tjerëve";
+"target.jetbrains.logs.name" = "Regjistrat e JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "Regjistrat e mjediseve të zhvillimit";
+"target.kotlin.name" = "Cache e Kotlin / Konan";
+"target.kotlin.note" = "Artefaktet e kompiluesve Kotlin dhe Kotlin Native";
+"target.maven.name" = "Depoja lokale e Maven";
+"target.maven.note" = "~/.m2/repository. Shkarkohet i plotë sërish në kompilimin e radhës";
+"target.npm.name" = "Cache e npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Cache e Composer (PHP)";
+"target.php.note" = "Paketa të shkarkuara nga Composer";
+"target.pnpm.name" = "Depoja e pnpm";
+"target.pnpm.note" = "Depoja e përbashkët e paketave e pnpm";
+"target.python.name" = "Cache e Python";
+"target.python.note" = "pip, uv, poetry dhe wheels të kompiluara";
+"target.ruby.name" = "Cache e Ruby";
+"target.ruby.note" = "Gem-e të shkarkuara nga Bundler";
+"target.rust.name" = "Cache e Cargo (Rust)";
+"target.rust.note" = "Crate-e të shkarkuara dhe checkout-e git";
+"target.savedstate.name" = "Gjendja e ruajtur e aplikacioneve";
+"target.savedstate.note" = "Dritare dhe dokumente që aplikacionet i rihapin në nisje";
+"target.sim.caches.name" = "Cache e CoreSimulator";
+"target.sim.caches.note" = "Ambientet e ekzekutimit të shkarkuara dhe cache e përbashkët e simulatorëve";
+"target.sim.devicedata.name" = "Të dhëna të përkohshme të simulatorëve";
+"target.sim.devicedata.note" = "Cache dhe /tmp brenda çdo simulatori (aplikacionet e instaluara mbeten)";
+"target.swiftpm.name" = "Cache e Swift Package Manager";
+"target.swiftpm.note" = "Depot dhe skedarët binarë të varësive SwiftPM";
+"target.trash.name" = "Koshi";
+"target.trash.note" = "Zbraz ~/.Trash përgjithmonë";
+"target.user.logs.name" = "Regjistrat e përdoruesit";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Arkivat e Xcode";
+"target.xcode.archives.note" = "Kompilime të arkivuara për App Store. Të duhen për të simbolizuar rrëzimet";
+"target.xcode.caches.name" = "Cache e Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: indekset, shkarkimet dhe të dhënat e përkohshme të IDE-së";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Indekset, kompilimet e ndërmjetme dhe ModuleCache nga të gjitha projektet e tua";
+"target.xcode.devicelogs.name" = "Regjistrat dhe rrëzimet e pajisjeve";
+"target.xcode.devicelogs.note" = "Regjistra të marrë nga iPhone dhe iPad të lidhur";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Simbolet për çdo version të iOS nga i cili ke lidhur një pajisje";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "E njëjta gjë për platformat e tjera";
+"target.xcode.previews.name" = "Parapamjet e Xcode";
+"target.xcode.previews.note" = "Cache e parapamjeve të SwiftUI";
+"target.yarn.name" = "Cache e Yarn";
+"target.yarn.note" = "Paketa të shkarkuara nga Yarn";

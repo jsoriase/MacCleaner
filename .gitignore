@@ -1,0 +1,15 @@
+# Artefactos de compilación
+.build/
+MacCleaner.app/
+*.dSYM/
+
+# SwiftPM
+.swiftpm/
+Package.resolved
+
+# macOS
+.DS_Store
+
+# Xcode, por si alguien abre el paquete con él
+*.xcuserstate
+xcuserdata/

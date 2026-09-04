@@ -1,0 +1,153 @@
+/* MacCleaner — hi */
+/* Generado desde las tablas de traduccion. Una clave por linea. */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "चयनित श्रेणियाँ स्थायी रूप से हटा दी जाएँगी।";
+"alert.clean.body.trash" = "चयनित श्रेणियाँ ट्रैश में ले जाई जाएँगी।";
+"alert.clean.count" = "श्रेणियाँ: %d";
+"alert.clean.delete" = "हटाएँ";
+"alert.clean.risky" = "“सावधानी” चिह्नित: %@";
+"alert.clean.title" = "%@ साफ़ करें?";
+"alert.clean.trash" = "ट्रैश में ले जाएँ";
+"alert.report.count" = "साफ़ की गई श्रेणियाँ: %d";
+"alert.report.failures" = "कुछ आइटम हटाए नहीं जा सके (प्रभावित श्रेणियाँ: %d)। आमतौर पर यह अनुमति की समस्या है: सेटिंग्स › गोपनीयता और सुरक्षा में MacCleaner को फ़ुल डिस्क ऐक्सेस दें।";
+"alert.report.freed" = "%@ खाली हुआ।";
+"alert.report.title" = "सफ़ाई पूरी हुई";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle और JVM";
+"category.langs" = "अन्य भाषाएँ";
+"category.node" = "Node और वेब";
+"category.system" = "सिस्टम और ऐप्स";
+"category.tools" = "पैकेज मैनेजर";
+"category.xcode" = "Xcode और iOS";
+
+/* ---- common ---- */
+"common.cancel" = "रद्द करें";
+"common.done" = "पूर्ण";
+
+/* ---- empty ---- */
+"empty.button" = "अभी स्कैन करें";
+"empty.subtitle" = "कुछ भी चयनित नहीं है: आप तय करते हैं क्या हटाना है, और पहले पुष्टि करते हैं।";
+"empty.title" = "स्कैन करें और देखें कितनी जगह वापस मिल सकती है";
+
+/* ---- footer ---- */
+"footer.clean" = "%@ साफ़ करें";
+"footer.hideEmpty" = "खाली छिपाएँ";
+"footer.selected" = "चयनित: %d";
+"footer.trash" = "ट्रैश में ले जाएँ";
+"footer.trash.help" = "धीमा है और ट्रैश खाली करने तक जगह घिरी रहती है, लेकिन वापस लिया जा सकता है।";
+
+/* ---- group ---- */
+"group.all" = "सभी";
+"group.none" = "कोई नहीं";
+
+/* ---- header ---- */
+"header.notScanned" = "स्कैन नहीं किया गया";
+"header.reclaimable" = "पुनः प्राप्त करने योग्य स्थान";
+"header.rescan" = "फिर से स्कैन करें";
+"header.scan" = "स्कैन करें";
+"header.stop" = "रोकें";
+"header.working" = "कार्य जारी है…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "चीज़ें दोबारा डाउनलोड करनी होंगी, या उपयोगी डेटा चला जाएगा।";
+"risk.caution.label" = "सावधानी";
+"risk.caution.plural" = "सावधानी";
+"risk.rebuild.help" = "सुरक्षित, लेकिन अगला बिल्ड धीमा होगा।";
+"risk.rebuild.label" = "पुनर्निर्मित";
+"risk.rebuild.plural" = "पुनर्निर्मित";
+"risk.safe.help" = "अपने आप फिर बन जाती हैं, कोई दुष्प्रभाव नहीं।";
+"risk.safe.label" = "सुरक्षित";
+"risk.safe.plural" = "सुरक्षित";
+
+/* ---- row ---- */
+"row.files" = "फ़ाइलें: %d";
+"row.noPath" = "इस Mac पर कोई मिलता-जुलता पथ नहीं मिला।";
+
+/* ---- select ---- */
+"select.clear" = "सभी अचयनित करें";
+"select.mark" = "चुनें";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Android कैश";
+"target.android.caches.note" = "SDK बिल्ड कैश और टूल्स का अस्थायी डेटा";
+"target.browsers.headless.name" = "Playwright / Puppeteer ब्राउज़र";
+"target.browsers.headless.note" = "E2E टेस्ट के लिए डाउनलोड किए गए Chromium, Firefox और WebKit";
+"target.bun.deno.name" = "Bun और Deno कैश";
+"target.bun.deno.note" = "Bun और Deno द्वारा डाउनलोड किए गए मॉड्यूल";
+"target.caches.other.name" = "अन्य ऐप कैश";
+"target.caches.other.note" = "~/Library/Caches में बचा वह सब जो ऊपर की किसी पंक्ति में नहीं आता";
+"target.carthage.name" = "Carthage कैश";
+"target.carthage.note" = "Carthage के फ़्रेमवर्क और checkouts";
+"target.cocoapods.name" = "CocoaPods कैश";
+"target.cocoapods.note" = "डाउनलोड किए गए pods और specs";
+"target.docker.logs.name" = "Docker Desktop लॉग";
+"target.docker.logs.note" = "केवल लॉग। इमेज और वॉल्यूम अछूते रहते हैं";
+"target.electron.name" = "Electron कैश";
+"target.electron.note" = "Electron और electron-builder की बाइनरी";
+"target.flutter.name" = "Flutter / Dart कैश";
+"target.flutter.note" = "~/.pub-cache: pub.dev के पैकेज";
+"target.go.build.name" = "Go बिल्ड कैश";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Go मॉड्यूल कैश";
+"target.go.mod.note" = "~/go/pkg/mod। केवल-पढ़ने योग्य, अतिरिक्त अनुमति लग सकती है";
+"target.gradle.caches.name" = "Gradle कैश";
+"target.gradle.caches.note" = "~/.gradle/caches: सभी प्रोजेक्ट की निर्भरताएँ और बिल्ड कैश";
+"target.gradle.daemon.name" = "Gradle डेमॉन और लॉग";
+"target.gradle.daemon.note" = "डेमॉन प्रक्रियाओं के लॉग";
+"target.gradle.wrapper.name" = "Gradle Wrapper वितरण";
+"target.gradle.wrapper.note" = "किसी प्रोजेक्ट द्वारा डाउनलोड किया गया हर Gradle संस्करण (लगभग 150 MB प्रत्येक)";
+"target.homebrew.name" = "Homebrew कैश";
+"target.homebrew.note" = "bottles और brew के पुराने डाउनलोड";
+"target.ios.backups.name" = "iOS बैकअप";
+"target.ios.backups.note" = "iPhone और iPad के बैकअप। यही आपकी एकमात्र प्रति हो सकती है";
+"target.jetbrains.caches.name" = "JetBrains / Android Studio कैश";
+"target.jetbrains.caches.note" = "IntelliJ, Android Studio, PyCharm आदि के इंडेक्स और कैश";
+"target.jetbrains.logs.name" = "JetBrains / Android Studio लॉग";
+"target.jetbrains.logs.note" = "इन IDE के लॉग";
+"target.kotlin.name" = "Kotlin / Konan कैश";
+"target.kotlin.note" = "Kotlin और Kotlin Native कंपाइलर के आर्टिफ़ैक्ट";
+"target.maven.name" = "स्थानीय Maven रिपॉज़िटरी";
+"target.maven.note" = "~/.m2/repository। अगले बिल्ड में पूरा फिर से डाउनलोड होगा";
+"target.npm.name" = "npm कैश";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composer कैश (PHP)";
+"target.php.note" = "Composer द्वारा डाउनलोड किए गए पैकेज";
+"target.pnpm.name" = "pnpm स्टोर";
+"target.pnpm.note" = "pnpm का साझा पैकेज स्टोर";
+"target.python.name" = "Python कैश";
+"target.python.note" = "pip, uv, poetry और कंपाइल की गई wheels";
+"target.ruby.name" = "Ruby कैश";
+"target.ruby.note" = "Bundler द्वारा डाउनलोड किए गए gems";
+"target.rust.name" = "Cargo कैश (Rust)";
+"target.rust.note" = "डाउनलोड किए गए crates और git checkouts";
+"target.savedstate.name" = "सहेजी गई ऐप स्थिति";
+"target.savedstate.note" = "वे विंडो और दस्तावेज़ जो ऐप्स शुरू होने पर फिर खोलते हैं";
+"target.sim.caches.name" = "CoreSimulator कैश";
+"target.sim.caches.note" = "डाउनलोड किए गए रनटाइम और सिम्युलेटर का साझा कैश";
+"target.sim.devicedata.name" = "सिम्युलेटर का अस्थायी डेटा";
+"target.sim.devicedata.note" = "हर सिम्युलेटर के अंदर का कैश और /tmp (इंस्टॉल किए ऐप्स नहीं हटते)";
+"target.swiftpm.name" = "Swift Package Manager कैश";
+"target.swiftpm.note" = "SwiftPM निर्भरताओं की रिपॉज़िटरी और बाइनरी";
+"target.trash.name" = "ट्रैश";
+"target.trash.note" = "~/.Trash को स्थायी रूप से खाली करता है";
+"target.user.logs.name" = "उपयोगकर्ता लॉग";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcode Archives";
+"target.xcode.archives.note" = "App Store के लिए संग्रहित बिल्ड। क्रैश सिंबॉलिकेट करने के लिए ज़रूरी";
+"target.xcode.caches.name" = "Xcode कैश";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: IDE के इंडेक्स, डाउनलोड और अस्थायी डेटा";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "आपके सभी प्रोजेक्ट के इंडेक्स, इंटरमीडिएट बिल्ड और ModuleCache";
+"target.xcode.devicelogs.name" = "डिवाइस लॉग और क्रैश";
+"target.xcode.devicelogs.note" = "जुड़े हुए iPhone और iPad से लिए गए लॉग";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "हर उस iOS संस्करण के सिंबल जिससे आपने डिवाइस जोड़ा है";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "बाकी प्लेटफ़ॉर्म के लिए वही";
+"target.xcode.previews.name" = "Xcode Previews";
+"target.xcode.previews.note" = "SwiftUI प्रीव्यू का कैश";
+"target.yarn.name" = "Yarn कैश";
+"target.yarn.note" = "Yarn द्वारा डाउनलोड किए गए पैकेज";

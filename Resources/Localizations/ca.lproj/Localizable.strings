@@ -1,0 +1,152 @@
+/* MacCleaner — ca */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Les categories seleccionades s’esborraran de manera permanent.";
+"alert.clean.body.trash" = "Les categories seleccionades es mouran a la Paperera.";
+"alert.clean.count" = "Categories: %d";
+"alert.clean.delete" = "Esborra";
+"alert.clean.risky" = "Marcades com a «Compte»: %@";
+"alert.clean.title" = "Voleu netejar %@?";
+"alert.clean.trash" = "Mou a la Paperera";
+"alert.report.count" = "Categories netejades: %d";
+"alert.report.failures" = "No s’ha pogut esborrar tot (categories afectades: %d). Sol ser qüestió de permisos: dona accés complet al disc a MacCleaner a Configuració › Privadesa i seguretat.";
+"alert.report.freed" = "Alliberats %@.";
+"alert.report.title" = "Neteja acabada";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle i JVM";
+"category.langs" = "Altres llenguatges";
+"category.node" = "Node i web";
+"category.system" = "Sistema i apps";
+"category.tools" = "Gestors de paquets";
+"category.xcode" = "Xcode i iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Cancel·la";
+"common.done" = "Fet";
+
+/* ---- empty ---- */
+"empty.button" = "Analitza ara";
+"empty.subtitle" = "No hi ha res marcat: tu tries què esborrar i ho confirmes abans.";
+"empty.title" = "Analitza per veure quant espai pots recuperar";
+
+/* ---- footer ---- */
+"footer.clean" = "Neteja %@";
+"footer.hideEmpty" = "Amaga les buides";
+"footer.selected" = "Seleccionades: %d";
+"footer.trash" = "Mou a la Paperera";
+"footer.trash.help" = "Més lent i l’espai continua ocupat fins que buides la Paperera, però és reversible.";
+
+/* ---- group ---- */
+"group.all" = "Tot";
+"group.none" = "Res";
+
+/* ---- header ---- */
+"header.notScanned" = "Sense analitzar";
+"header.reclaimable" = "Espai recuperable";
+"header.rescan" = "Torna a analitzar";
+"header.scan" = "Analitza";
+"header.stop" = "Atura";
+"header.working" = "Treballant…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Hauràs de tornar a baixar coses, o perds dades útils.";
+"risk.caution.label" = "Compte";
+"risk.caution.plural" = "Compte";
+"risk.rebuild.help" = "Segures, però la compilació següent anirà més lenta.";
+"risk.rebuild.label" = "Es regenera";
+"risk.rebuild.plural" = "Es regeneren";
+"risk.safe.help" = "Es regeneren soles, sense efectes secundaris.";
+"risk.safe.label" = "Segur";
+"risk.safe.plural" = "Segures";
+
+/* ---- row ---- */
+"row.files" = "Fitxers: %d";
+"row.noPath" = "No s’ha trobat cap camí en aquest Mac.";
+
+/* ---- select ---- */
+"select.clear" = "Desmarca-ho tot";
+"select.mark" = "Marca";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Memòria cau d’Android";
+"target.android.caches.note" = "Build cache de l’SDK i dades temporals de les eines";
+"target.browsers.headless.name" = "Navegadors de Playwright / Puppeteer";
+"target.browsers.headless.note" = "Chromium, Firefox i WebKit baixats per a proves E2E";
+"target.bun.deno.name" = "Memòria cau de Bun i Deno";
+"target.bun.deno.note" = "Mòduls baixats per Bun i Deno";
+"target.caches.other.name" = "Altres memòries cau d’aplicacions";
+"target.caches.other.note" = "Tot el que queda a ~/Library/Caches i que cap fila anterior no cobreix";
+"target.carthage.name" = "Memòria cau de Carthage";
+"target.carthage.note" = "Frameworks i checkouts de Carthage";
+"target.cocoapods.name" = "Memòria cau de CocoaPods";
+"target.cocoapods.note" = "Pods baixats i specs";
+"target.docker.logs.name" = "Registres de Docker Desktop";
+"target.docker.logs.note" = "Només registres. No toca imatges ni volums";
+"target.electron.name" = "Memòria cau d’Electron";
+"target.electron.note" = "Binaris d’Electron i electron-builder";
+"target.flutter.name" = "Memòria cau de Flutter / Dart";
+"target.flutter.note" = "~/.pub-cache: paquets de pub.dev";
+"target.go.build.name" = "Memòria cau de compilació de Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Memòria cau de mòduls de Go";
+"target.go.mod.note" = "~/go/pkg/mod. És de només lectura: pot requerir permisos";
+"target.gradle.caches.name" = "Memòria cau de Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: dependències i build cache de tots els projectes";
+"target.gradle.daemon.name" = "Dimonis i registres de Gradle";
+"target.gradle.daemon.note" = "Registres dels processos dimoni";
+"target.gradle.wrapper.name" = "Distribucions del Gradle Wrapper";
+"target.gradle.wrapper.note" = "Cada versió de Gradle baixada per un projecte (~150 MB cadascuna)";
+"target.homebrew.name" = "Memòria cau de Homebrew";
+"target.homebrew.note" = "Bottles i baixades antigues de brew";
+"target.ios.backups.name" = "Còpies de seguretat d’iOS";
+"target.ios.backups.note" = "Còpies d’iPhone i iPad. Poden ser l’única còpia que tens";
+"target.jetbrains.caches.name" = "Memòria cau de JetBrains / Android Studio";
+"target.jetbrains.caches.note" = "Índexs i memòries cau d’IntelliJ, Android Studio, PyCharm, etc.";
+"target.jetbrains.logs.name" = "Registres de JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "Registres dels IDE";
+"target.kotlin.name" = "Memòria cau de Kotlin / Konan";
+"target.kotlin.note" = "Artefactes dels compiladors de Kotlin i Kotlin Native";
+"target.maven.name" = "Repositori local de Maven";
+"target.maven.note" = "~/.m2/repository. Es torna a baixar sencer a la compilació següent";
+"target.npm.name" = "Memòria cau d’npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Memòria cau de Composer (PHP)";
+"target.php.note" = "Paquets baixats per Composer";
+"target.pnpm.name" = "Magatzem de pnpm";
+"target.pnpm.note" = "Magatzem de paquets compartit de pnpm";
+"target.python.name" = "Memòria cau de Python";
+"target.python.note" = "pip, uv, poetry i wheels compilades";
+"target.ruby.name" = "Memòria cau de Ruby";
+"target.ruby.note" = "Gemmes baixades per Bundler";
+"target.rust.name" = "Memòria cau de Cargo (Rust)";
+"target.rust.note" = "Crates baixades i checkouts de git";
+"target.savedstate.name" = "Estat desat de les aplicacions";
+"target.savedstate.note" = "Finestres i documents que les apps reobren en iniciar-se";
+"target.sim.caches.name" = "Memòria cau de CoreSimulator";
+"target.sim.caches.note" = "Runtimes baixats i memòria cau compartida dels simuladors";
+"target.sim.devicedata.name" = "Dades temporals dels simuladors";
+"target.sim.devicedata.note" = "Memòries cau i /tmp dins de cada simulador (les apps instal·lades es conserven)";
+"target.swiftpm.name" = "Memòria cau de Swift Package Manager";
+"target.swiftpm.note" = "Repositoris i binaris de dependències SwiftPM";
+"target.trash.name" = "Paperera";
+"target.trash.note" = "Buida ~/.Trash de manera permanent";
+"target.user.logs.name" = "Registres de l’usuari";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Arxius de Xcode";
+"target.xcode.archives.note" = "Compilacions arxivades per a l’App Store. Et calen per simbolitzar errors";
+"target.xcode.caches.name" = "Memòria cau de Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: índexs, baixades i dades temporals de l’IDE";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Índexs, compilacions intermèdies i ModuleCache de tots els teus projectes";
+"target.xcode.devicelogs.name" = "Registres i errors de dispositiu";
+"target.xcode.devicelogs.note" = "Registres baixats d’iPhones i iPads connectats";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Símbols de cada versió d’iOS des de la qual has connectat un dispositiu";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "El mateix per a la resta de plataformes";
+"target.xcode.previews.name" = "Previsualitzacions de Xcode";
+"target.xcode.previews.note" = "Memòria cau de les previsualitzacions de SwiftUI";
+"target.yarn.name" = "Memòria cau de Yarn";
+"target.yarn.note" = "Paquets baixats per Yarn";

@@ -1,0 +1,153 @@
+/* MacCleaner — ru */
+/* Generado desde las tablas de traduccion. Una clave por linea. */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Выбранные категории будут удалены безвозвратно.";
+"alert.clean.body.trash" = "Выбранные категории будут перемещены в корзину.";
+"alert.clean.count" = "Категорий: %d";
+"alert.clean.delete" = "Удалить";
+"alert.clean.risky" = "Отмечены как «Осторожно»: %@";
+"alert.clean.title" = "Очистить %@?";
+"alert.clean.trash" = "Переместить в корзину";
+"alert.report.count" = "Очищено категорий: %d";
+"alert.report.failures" = "Некоторые объекты не удалось удалить (затронуто категорий: %d). Обычно это вопрос прав доступа: предоставьте MacCleaner полный доступ к диску в «Настройки › Конфиденциальность и безопасность».";
+"alert.report.freed" = "Освобождено %@.";
+"alert.report.title" = "Очистка завершена";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle и JVM";
+"category.langs" = "Другие языки";
+"category.node" = "Node и веб";
+"category.system" = "Система и приложения";
+"category.tools" = "Менеджеры пакетов";
+"category.xcode" = "Xcode и iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Отмена";
+"common.done" = "Готово";
+
+/* ---- empty ---- */
+"empty.button" = "Сканировать сейчас";
+"empty.subtitle" = "Ничего не выбрано: вы сами решаете, что удалить, и подтверждаете перед этим.";
+"empty.title" = "Просканируйте, чтобы узнать, сколько места можно освободить";
+
+/* ---- footer ---- */
+"footer.clean" = "Очистить %@";
+"footer.hideEmpty" = "Скрыть пустые";
+"footer.selected" = "Выбрано: %d";
+"footer.trash" = "Переместить в корзину";
+"footer.trash.help" = "Медленнее, и место остаётся занятым до очистки корзины, зато обратимо.";
+
+/* ---- group ---- */
+"group.all" = "Все";
+"group.none" = "Ничего";
+
+/* ---- header ---- */
+"header.notScanned" = "Не просканировано";
+"header.reclaimable" = "Освобождаемое место";
+"header.rescan" = "Сканировать снова";
+"header.scan" = "Сканировать";
+"header.stop" = "Остановить";
+"header.working" = "Обработка…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Придётся скачивать заново, либо вы потеряете полезные данные.";
+"risk.caution.label" = "Осторожно";
+"risk.caution.plural" = "Осторожно";
+"risk.rebuild.help" = "Безопасно, но следующая сборка будет медленнее.";
+"risk.rebuild.label" = "Пересоздастся";
+"risk.rebuild.plural" = "Пересоздаваемые";
+"risk.safe.help" = "Восстанавливаются сами, без побочных эффектов.";
+"risk.safe.label" = "Безопасно";
+"risk.safe.plural" = "Безопасные";
+
+/* ---- row ---- */
+"row.files" = "Файлов: %d";
+"row.noPath" = "На этом Mac не найдено ни одного подходящего пути.";
+
+/* ---- select ---- */
+"select.clear" = "Снять всё";
+"select.mark" = "Выбрать";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Кэш Android";
+"target.android.caches.note" = "Кэш сборки SDK и временные данные инструментов";
+"target.browsers.headless.name" = "Браузеры Playwright / Puppeteer";
+"target.browsers.headless.note" = "Chromium, Firefox и WebKit, скачанные для E2E-тестов";
+"target.bun.deno.name" = "Кэш Bun и Deno";
+"target.bun.deno.note" = "Модули, скачанные Bun и Deno";
+"target.caches.other.name" = "Прочие кэши приложений";
+"target.caches.other.note" = "Всё, что осталось в ~/Library/Caches и не покрыто строками выше";
+"target.carthage.name" = "Кэш Carthage";
+"target.carthage.note" = "Фреймворки и checkout-ы Carthage";
+"target.cocoapods.name" = "Кэш CocoaPods";
+"target.cocoapods.note" = "Скачанные поды и спеки";
+"target.docker.logs.name" = "Логи Docker Desktop";
+"target.docker.logs.note" = "Только логи. Образы и тома не затрагиваются";
+"target.electron.name" = "Кэш Electron";
+"target.electron.note" = "Бинарники Electron и electron-builder";
+"target.flutter.name" = "Кэш Flutter / Dart";
+"target.flutter.note" = "~/.pub-cache: пакеты с pub.dev";
+"target.go.build.name" = "Кэш сборки Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Кэш модулей Go";
+"target.go.mod.note" = "~/go/pkg/mod. Только для чтения — могут потребоваться права";
+"target.gradle.caches.name" = "Кэш Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: зависимости и кэш сборки всех проектов";
+"target.gradle.daemon.name" = "Демоны и логи Gradle";
+"target.gradle.daemon.note" = "Логи процессов-демонов";
+"target.gradle.wrapper.name" = "Дистрибутивы Gradle Wrapper";
+"target.gradle.wrapper.note" = "Каждая версия Gradle, скачанная проектом (около 150 МБ каждая)";
+"target.homebrew.name" = "Кэш Homebrew";
+"target.homebrew.note" = "Bottle-ы и старые загрузки brew";
+"target.ios.backups.name" = "Резервные копии iOS";
+"target.ios.backups.note" = "Резервные копии iPhone и iPad. Возможно, это ваша единственная копия";
+"target.jetbrains.caches.name" = "Кэш JetBrains / Android Studio";
+"target.jetbrains.caches.note" = "Индексы и кэши IntelliJ, Android Studio, PyCharm и других";
+"target.jetbrains.logs.name" = "Логи JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "Логи этих IDE";
+"target.kotlin.name" = "Кэш Kotlin / Konan";
+"target.kotlin.note" = "Артефакты компиляторов Kotlin и Kotlin Native";
+"target.maven.name" = "Локальный репозиторий Maven";
+"target.maven.note" = "~/.m2/repository. При следующей сборке скачается целиком заново";
+"target.npm.name" = "Кэш npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Кэш Composer (PHP)";
+"target.php.note" = "Пакеты, скачанные Composer";
+"target.pnpm.name" = "Хранилище pnpm";
+"target.pnpm.note" = "Общее хранилище пакетов pnpm";
+"target.python.name" = "Кэш Python";
+"target.python.note" = "pip, uv, poetry и собранные wheel-ы";
+"target.ruby.name" = "Кэш Ruby";
+"target.ruby.note" = "Гемы, скачанные Bundler";
+"target.rust.name" = "Кэш Cargo (Rust)";
+"target.rust.note" = "Скачанные crate-ы и git-checkout-ы";
+"target.savedstate.name" = "Сохранённое состояние программ";
+"target.savedstate.note" = "Окна и документы, которые приложения открывают при запуске";
+"target.sim.caches.name" = "Кэш CoreSimulator";
+"target.sim.caches.note" = "Загруженные среды выполнения и общий кэш симуляторов";
+"target.sim.devicedata.name" = "Временные данные симуляторов";
+"target.sim.devicedata.note" = "Кэши и /tmp внутри каждого симулятора (установленные приложения сохраняются)";
+"target.swiftpm.name" = "Кэш Swift Package Manager";
+"target.swiftpm.note" = "Репозитории и бинарники зависимостей SwiftPM";
+"target.trash.name" = "Корзина";
+"target.trash.note" = "Безвозвратно очищает ~/.Trash";
+"target.user.logs.name" = "Логи пользователя";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Архивы Xcode";
+"target.xcode.archives.note" = "Сборки, заархивированные для App Store. Нужны для символикации сбоев";
+"target.xcode.caches.name" = "Кэш Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: индексы, загрузки и временные данные IDE";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Индексы, промежуточные сборки и ModuleCache всех ваших проектов";
+"target.xcode.devicelogs.name" = "Логи и сбои устройств";
+"target.xcode.devicelogs.note" = "Логи, скачанные с подключённых iPhone и iPad";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Символы для каждой версии iOS, с которой вы подключали устройство";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "То же самое для остальных платформ";
+"target.xcode.previews.name" = "Xcode Previews";
+"target.xcode.previews.note" = "Кэш предпросмотров SwiftUI";
+"target.yarn.name" = "Кэш Yarn";
+"target.yarn.note" = "Пакеты, скачанные Yarn";

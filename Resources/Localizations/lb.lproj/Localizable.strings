@@ -1,0 +1,152 @@
+/* MacCleaner — lb */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Déi ausgewielte Kategorien ginn definitiv geläscht.";
+"alert.clean.body.trash" = "Déi ausgewielte Kategorien ginn an de Poubelle geréckelt.";
+"alert.clean.count" = "Kategorien: %d";
+"alert.clean.delete" = "Läschen";
+"alert.clean.risky" = "Als „Oppassen“ markéiert: %@";
+"alert.clean.title" = "%@ botzen?";
+"alert.clean.trash" = "An de Poubelle réckelen";
+"alert.report.count" = "Gebotzte Kategorien: %d";
+"alert.report.failures" = "Net alles konnt geläscht ginn (betraff Kategorien: %d). Meeschtens ass et eng Fro vun de Rechter: gëff MacCleaner de vollen Disquenzougrëff an den Astellungen › Privatsphär a Sécherheet.";
+"alert.report.freed" = "%@ fräigemaach.";
+"alert.report.title" = "Botzen ofgeschloss";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle a JVM";
+"category.langs" = "Aner Sproochen";
+"category.node" = "Node a Web";
+"category.system" = "System an Apps";
+"category.tools" = "Package-Manager";
+"category.xcode" = "Xcode an iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Ofbriechen";
+"common.done" = "Fäerdeg";
+
+/* ---- empty ---- */
+"empty.button" = "Elo analyséieren";
+"empty.subtitle" = "Näischt ass ausgewielt: du entscheeds, wat geläscht gëtt, a bestätegs virdrun.";
+"empty.title" = "Analyséier fir ze gesinn, wéi vill Späicher du fräi kriss";
+
+/* ---- footer ---- */
+"footer.clean" = "%@ botzen";
+"footer.hideEmpty" = "Eidel verstoppen";
+"footer.selected" = "Ausgewielt: %d";
+"footer.trash" = "An de Poubelle réckelen";
+"footer.trash.help" = "Méi lues, an de Späicher bleift belaacht bis de Poubelle geleert gëtt — mee ëmkéierbar.";
+
+/* ---- group ---- */
+"group.all" = "Alles";
+"group.none" = "Näischt";
+
+/* ---- header ---- */
+"header.notScanned" = "Net analyséiert";
+"header.reclaimable" = "Fräimaachbare Späicher";
+"header.rescan" = "Nach eng Kéier analyséieren";
+"header.scan" = "Analyséieren";
+"header.stop" = "Stoppen";
+"header.working" = "Schafft…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Saache musse nei erofgelueden ginn, soss verléiers du nëtzlech Donnéeën.";
+"risk.caution.label" = "Oppassen";
+"risk.caution.plural" = "Oppassen";
+"risk.rebuild.help" = "Sécher, mee de nächste Build dauert méi laang.";
+"risk.rebuild.label" = "Gëtt nei opgebaut";
+"risk.rebuild.plural" = "Ginn nei opgebaut";
+"risk.safe.help" = "Ginn vun eleng nei ugeluecht, ouni Niewewierkungen.";
+"risk.safe.label" = "Sécher";
+"risk.safe.plural" = "Sécher";
+
+/* ---- row ---- */
+"row.files" = "Fichieren: %d";
+"row.noPath" = "Op dësem Mac gouf kee passende Wee fonnt.";
+
+/* ---- select ---- */
+"select.clear" = "Alles ofwielen";
+"select.mark" = "Auswielen";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Android-Cache";
+"target.android.caches.note" = "Build-Cache vum SDK an temporär Donnéeë vun den Ustrumenter";
+"target.browsers.headless.name" = "Playwright-/Puppeteer-Browser";
+"target.browsers.headless.note" = "Chromium, Firefox a WebKit, erofgelueden fir E2E-Tester";
+"target.bun.deno.name" = "Bun- an Deno-Cache";
+"target.bun.deno.note" = "Modulen, déi Bun an Deno erofgelueden hunn";
+"target.caches.other.name" = "Aner App-Cachen";
+"target.caches.other.note" = "Alles wat an ~/Library/Caches iwwreg bleift a vu kenger Zeil hei uewen ofgedeckt gëtt";
+"target.carthage.name" = "Carthage-Cache";
+"target.carthage.note" = "Carthage-Frameworken a -Checkouten";
+"target.cocoapods.name" = "CocoaPods-Cache";
+"target.cocoapods.note" = "Erofgelueden Pods a Specs";
+"target.docker.logs.name" = "Docker-Desktop-Logbicher";
+"target.docker.logs.note" = "Nëmme Logbicher. Images a Volumen ginn net ugerëmt";
+"target.electron.name" = "Electron-Cache";
+"target.electron.note" = "Binäre vun Electron an electron-builder";
+"target.flutter.name" = "Flutter-/Dart-Cache";
+"target.flutter.note" = "~/.pub-cache: Packagen vu pub.dev";
+"target.go.build.name" = "Go-Build-Cache";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Go-Modul-Cache";
+"target.go.mod.note" = "~/go/pkg/mod. Nëmme liesbar: ka Rechter erfuerderen";
+"target.gradle.caches.name" = "Gradle-Cache";
+"target.gradle.caches.note" = "~/.gradle/caches: Ofhängegkeeten a Build-Cache vun alle Projeten";
+"target.gradle.daemon.name" = "Gradle-Daemonen a Logbicher";
+"target.gradle.daemon.note" = "Logbicher vun den Daemon-Prozesser";
+"target.gradle.wrapper.name" = "Gradle-Wrapper-Verdeelungen";
+"target.gradle.wrapper.note" = "All Gradle-Versioun, déi e Projet erofgelueden huet (ronn 150 MB pro Stéck)";
+"target.homebrew.name" = "Homebrew-Cache";
+"target.homebrew.note" = "Bottles a al brew-Downloads";
+"target.ios.backups.name" = "iOS-Backupen";
+"target.ios.backups.note" = "Backupe vum iPhone an iPad. Kéinte déi eenzeg Kopie sinn, déi s du hues";
+"target.jetbrains.caches.name" = "JetBrains-/Android-Studio-Cache";
+"target.jetbrains.caches.note" = "Indexen a Cachen vun IntelliJ, Android Studio, PyCharm an anerer";
+"target.jetbrains.logs.name" = "JetBrains-/Android-Studio-Logbicher";
+"target.jetbrains.logs.note" = "Logbicher vun den IDEen";
+"target.kotlin.name" = "Kotlin-/Konan-Cache";
+"target.kotlin.note" = "Artefakte vun de Kotlin- a Kotlin-Native-Compileren";
+"target.maven.name" = "Lokaalt Maven-Repository";
+"target.maven.note" = "~/.m2/repository. Gëtt beim nächste Build komplett nei erofgelueden";
+"target.npm.name" = "npm-Cache";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composer-Cache (PHP)";
+"target.php.note" = "Packagen, déi de Composer erofgelueden huet";
+"target.pnpm.name" = "pnpm-Store";
+"target.pnpm.note" = "Gemeinsame Package-Store vu pnpm";
+"target.python.name" = "Python-Cache";
+"target.python.note" = "pip, uv, poetry a kompiléiert Wheels";
+"target.ruby.name" = "Ruby-Cache";
+"target.ruby.note" = "Gems, déi de Bundler erofgelueden huet";
+"target.rust.name" = "Cargo-Cache (Rust)";
+"target.rust.note" = "Erofgelueden Crates a Git-Checkouten";
+"target.savedstate.name" = "Gespäichert App-Zoustand";
+"target.savedstate.note" = "Fënsteren an Dokumenter, déi Apps beim Start erëm opmaachen";
+"target.sim.caches.name" = "CoreSimulator-Cache";
+"target.sim.caches.note" = "Erofgelueden Runtimen an de gemeinsame Cache vun de Simulateuren";
+"target.sim.devicedata.name" = "Temporär Simulateursdonnéeën";
+"target.sim.devicedata.note" = "Cachen an /tmp an all Simulateur (installéiert Apps bleiwen)";
+"target.swiftpm.name" = "Swift-Package-Manager-Cache";
+"target.swiftpm.note" = "Repositoryen a Binäre vun de SwiftPM-Ofhängegkeeten";
+"target.trash.name" = "Poubelle";
+"target.trash.note" = "Eidelt ~/.Trash definitiv";
+"target.user.logs.name" = "Benotzer-Logbicher";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcode-Archiven";
+"target.xcode.archives.note" = "Builden, déi fir den App Store archivéiert goufen. Néideg fir Crashen ze symboliséieren";
+"target.xcode.caches.name" = "Xcode-Cache";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: Indexen, Downloads an temporär IDE-Donnéeën";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Indexen, Zwëschebuilden a ModuleCache vun all dénge Projeten";
+"target.xcode.devicelogs.name" = "Apparate-Logbicher a Crashen";
+"target.xcode.devicelogs.note" = "Logbicher vun ugeschlossenen iPhonen an iPaden gezunn";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Symboler fir all iOS-Versioun, vun där s du en Apparat ugeschloss hues";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Datselwecht fir déi aner Plattformen";
+"target.xcode.previews.name" = "Xcode-Virschauen";
+"target.xcode.previews.note" = "Cache fir d’SwiftUI-Virschauen";
+"target.yarn.name" = "Yarn-Cache";
+"target.yarn.note" = "Packagen, déi Yarn erofgelueden huet";

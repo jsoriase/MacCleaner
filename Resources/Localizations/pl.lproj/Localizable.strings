@@ -1,0 +1,152 @@
+/* MacCleaner — pl */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Zaznaczone kategorie zostaną trwale usunięte.";
+"alert.clean.body.trash" = "Zaznaczone kategorie zostaną przeniesione do Kosza.";
+"alert.clean.count" = "Kategorie: %d";
+"alert.clean.delete" = "Usuń";
+"alert.clean.risky" = "Oznaczone jako „Ostrożnie”: %@";
+"alert.clean.title" = "Wyczyścić %@?";
+"alert.clean.trash" = "Przenieś do Kosza";
+"alert.report.count" = "Wyczyszczone kategorie: %d";
+"alert.report.failures" = "Nie udało się usunąć wszystkiego (kategorie, których to dotyczy: %d). Zwykle to kwestia uprawnień: przyznaj MacCleanerowi pełny dostęp do dysku w Ustawieniach › Prywatność i ochrona.";
+"alert.report.freed" = "Zwolniono %@.";
+"alert.report.title" = "Czyszczenie zakończone";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle i JVM";
+"category.langs" = "Inne języki";
+"category.node" = "Node i web";
+"category.system" = "System i aplikacje";
+"category.tools" = "Menedżery pakietów";
+"category.xcode" = "Xcode i iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Anuluj";
+"common.done" = "Gotowe";
+
+/* ---- empty ---- */
+"empty.button" = "Skanuj teraz";
+"empty.subtitle" = "Nic nie jest zaznaczone: sam wybierasz, co usunąć, i potwierdzasz przed usunięciem.";
+"empty.title" = "Przeskanuj, aby zobaczyć, ile miejsca możesz odzyskać";
+
+/* ---- footer ---- */
+"footer.clean" = "Wyczyść %@";
+"footer.hideEmpty" = "Ukryj puste";
+"footer.selected" = "Zaznaczone: %d";
+"footer.trash" = "Przenieś do Kosza";
+"footer.trash.help" = "Wolniej, a miejsce pozostaje zajęte do opróżnienia Kosza — ale można to cofnąć.";
+
+/* ---- group ---- */
+"group.all" = "Wszystko";
+"group.none" = "Nic";
+
+/* ---- header ---- */
+"header.notScanned" = "Nie przeskanowano";
+"header.reclaimable" = "Miejsce do odzyskania";
+"header.rescan" = "Skanuj ponownie";
+"header.scan" = "Skanuj";
+"header.stop" = "Zatrzymaj";
+"header.working" = "Pracuję…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Trzeba będzie pobrać rzeczy ponownie albo stracisz przydatne dane.";
+"risk.caution.label" = "Ostrożnie";
+"risk.caution.plural" = "Ostrożnie";
+"risk.rebuild.help" = "Bezpieczne, ale następna kompilacja potrwa dłużej.";
+"risk.rebuild.label" = "Odtworzy się";
+"risk.rebuild.plural" = "Odtwarzalne";
+"risk.safe.help" = "Odtwarzają się same, bez skutków ubocznych.";
+"risk.safe.label" = "Bezpieczne";
+"risk.safe.plural" = "Bezpieczne";
+
+/* ---- row ---- */
+"row.files" = "Pliki: %d";
+"row.noPath" = "Nie znaleziono pasującej ścieżki na tym Macu.";
+
+/* ---- select ---- */
+"select.clear" = "Odznacz wszystko";
+"select.mark" = "Zaznacz";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Pamięć podręczna Androida";
+"target.android.caches.note" = "Pamięć podręczna kompilacji SDK i dane tymczasowe narzędzi";
+"target.browsers.headless.name" = "Przeglądarki Playwright / Puppeteer";
+"target.browsers.headless.note" = "Chromium, Firefox i WebKit pobrane do testów E2E";
+"target.bun.deno.name" = "Pamięć podręczna Bun i Deno";
+"target.bun.deno.note" = "Moduły pobrane przez Bun i Deno";
+"target.caches.other.name" = "Inne pamięci podręczne aplikacji";
+"target.caches.other.note" = "Wszystko, co zostaje w ~/Library/Caches i czego nie obejmuje żaden wiersz powyżej";
+"target.carthage.name" = "Pamięć podręczna Carthage";
+"target.carthage.note" = "Frameworki i checkouty Carthage";
+"target.cocoapods.name" = "Pamięć podręczna CocoaPods";
+"target.cocoapods.note" = "Pobrane pody i specs";
+"target.docker.logs.name" = "Dzienniki Docker Desktop";
+"target.docker.logs.note" = "Tylko dzienniki. Obrazy i wolumeny pozostają nietknięte";
+"target.electron.name" = "Pamięć podręczna Electrona";
+"target.electron.note" = "Pliki binarne Electrona i electron-buildera";
+"target.flutter.name" = "Pamięć podręczna Flutter / Dart";
+"target.flutter.note" = "~/.pub-cache: pakiety z pub.dev";
+"target.go.build.name" = "Pamięć podręczna kompilacji Go";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Pamięć podręczna modułów Go";
+"target.go.mod.note" = "~/go/pkg/mod. Tylko do odczytu, więc mogą być potrzebne uprawnienia";
+"target.gradle.caches.name" = "Pamięć podręczna Gradle";
+"target.gradle.caches.note" = "~/.gradle/caches: zależności i pamięć podręczna kompilacji wszystkich projektów";
+"target.gradle.daemon.name" = "Demony i dzienniki Gradle";
+"target.gradle.daemon.note" = "Dzienniki procesów demonów";
+"target.gradle.wrapper.name" = "Dystrybucje Gradle Wrapper";
+"target.gradle.wrapper.note" = "Każda wersja Gradle pobrana przez projekt (po około 150 MB)";
+"target.homebrew.name" = "Pamięć podręczna Homebrew";
+"target.homebrew.note" = "Bottles i stare pobrania brew";
+"target.ios.backups.name" = "Kopie zapasowe iOS";
+"target.ios.backups.note" = "Kopie iPhone’a i iPada. Mogą być jedyną kopią, jaką masz";
+"target.jetbrains.caches.name" = "Pamięć podręczna JetBrains / Android Studio";
+"target.jetbrains.caches.note" = "Indeksy i pamięci podręczne IntelliJ, Android Studio, PyCharm i innych";
+"target.jetbrains.logs.name" = "Dzienniki JetBrains / Android Studio";
+"target.jetbrains.logs.note" = "Dzienniki środowisk IDE";
+"target.kotlin.name" = "Pamięć podręczna Kotlin / Konan";
+"target.kotlin.note" = "Artefakty kompilatorów Kotlin i Kotlin Native";
+"target.maven.name" = "Lokalne repozytorium Maven";
+"target.maven.note" = "~/.m2/repository. Przy następnej kompilacji pobierze się w całości od nowa";
+"target.npm.name" = "Pamięć podręczna npm";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Pamięć podręczna Composera (PHP)";
+"target.php.note" = "Pakiety pobrane przez Composera";
+"target.pnpm.name" = "Magazyn pnpm";
+"target.pnpm.note" = "Wspólny magazyn pakietów pnpm";
+"target.python.name" = "Pamięć podręczna Pythona";
+"target.python.note" = "pip, uv, poetry i skompilowane wheels";
+"target.ruby.name" = "Pamięć podręczna Ruby";
+"target.ruby.note" = "Gemy pobrane przez Bundlera";
+"target.rust.name" = "Pamięć podręczna Cargo (Rust)";
+"target.rust.note" = "Pobrane crate’y i checkouty gita";
+"target.savedstate.name" = "Zapisany stan aplikacji";
+"target.savedstate.note" = "Okna i dokumenty, które aplikacje otwierają ponownie przy starcie";
+"target.sim.caches.name" = "Pamięć podręczna CoreSimulator";
+"target.sim.caches.note" = "Pobrane środowiska uruchomieniowe i wspólna pamięć podręczna symulatorów";
+"target.sim.devicedata.name" = "Dane tymczasowe symulatorów";
+"target.sim.devicedata.note" = "Pamięci podręczne i /tmp w każdym symulatorze (zainstalowane aplikacje zostają)";
+"target.swiftpm.name" = "Pamięć podręczna Swift Package Manager";
+"target.swiftpm.note" = "Repozytoria i pliki binarne zależności SwiftPM";
+"target.trash.name" = "Kosz";
+"target.trash.note" = "Trwale opróżnia ~/.Trash";
+"target.user.logs.name" = "Dzienniki użytkownika";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Archiwa Xcode";
+"target.xcode.archives.note" = "Kompilacje zarchiwizowane dla App Store. Potrzebne do symbolizowania awarii";
+"target.xcode.caches.name" = "Pamięć podręczna Xcode";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: indeksy, pobrania i dane tymczasowe IDE";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Indeksy, kompilacje pośrednie i ModuleCache ze wszystkich twoich projektów";
+"target.xcode.devicelogs.name" = "Dzienniki i awarie urządzeń";
+"target.xcode.devicelogs.note" = "Dzienniki pobrane z podłączonych iPhone’ów i iPadów";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Symbole każdej wersji iOS, z której podłączałeś urządzenie";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "To samo dla pozostałych platform";
+"target.xcode.previews.name" = "Podglądy Xcode";
+"target.xcode.previews.note" = "Pamięć podręczna podglądów SwiftUI";
+"target.yarn.name" = "Pamięć podręczna Yarn";
+"target.yarn.note" = "Pakiety pobrane przez Yarn";

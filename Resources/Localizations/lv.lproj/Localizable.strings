@@ -1,0 +1,152 @@
+/* MacCleaner — lv */
+
+
+/* ---- alert ---- */
+"alert.clean.body.delete" = "Atlasītās kategorijas tiks neatgriezeniski dzēstas.";
+"alert.clean.body.trash" = "Atlasītās kategorijas tiks pārvietotas uz miskasti.";
+"alert.clean.count" = "Kategorijas: %d";
+"alert.clean.delete" = "Dzēst";
+"alert.clean.risky" = "Atzīmētas kā “Uzmanīgi”: %@";
+"alert.clean.title" = "Iztīrīt %@?";
+"alert.clean.trash" = "Pārvietot uz miskasti";
+"alert.report.count" = "Iztīrītās kategorijas: %d";
+"alert.report.failures" = "Neizdevās izdzēst visu (skartās kategorijas: %d). Parasti tas ir atļauju jautājums: piešķiriet MacCleaner pilnu piekļuvi diskam sadaļā Iestatījumi › Privātums un drošība.";
+"alert.report.freed" = "Atbrīvoti %@.";
+"alert.report.title" = "Tīrīšana pabeigta";
+
+/* ---- category ---- */
+"category.jvm" = "Android, Gradle un JVM";
+"category.langs" = "Citas valodas";
+"category.node" = "Node un tīmeklis";
+"category.system" = "Sistēma un lietotnes";
+"category.tools" = "Pakotņu pārvaldnieki";
+"category.xcode" = "Xcode un iOS";
+
+/* ---- common ---- */
+"common.cancel" = "Atcelt";
+"common.done" = "Gatavs";
+
+/* ---- empty ---- */
+"empty.button" = "Skenēt tagad";
+"empty.subtitle" = "Nekas nav atlasīts: jūs pats izvēlaties, ko dzēst, un pirms tam apstiprināt.";
+"empty.title" = "Skenējiet, lai redzētu, cik daudz vietas varat atgūt";
+
+/* ---- footer ---- */
+"footer.clean" = "Iztīrīt %@";
+"footer.hideEmpty" = "Slēpt tukšās";
+"footer.selected" = "Atlasītas: %d";
+"footer.trash" = "Pārvietot uz miskasti";
+"footer.trash.help" = "Lēnāk, un vieta paliek aizņemta, līdz iztukšosiet miskasti — toties to var atsaukt.";
+
+/* ---- group ---- */
+"group.all" = "Viss";
+"group.none" = "Nekas";
+
+/* ---- header ---- */
+"header.notScanned" = "Nav skenēts";
+"header.reclaimable" = "Atgūstamā vieta";
+"header.rescan" = "Skenēt vēlreiz";
+"header.scan" = "Skenēt";
+"header.stop" = "Apturēt";
+"header.working" = "Notiek darbs…";
+
+/* ---- risk ---- */
+"risk.caution.help" = "Lietas būs jālejupielādē no jauna, citādi zaudēsiet noderīgus datus.";
+"risk.caution.label" = "Uzmanīgi";
+"risk.caution.plural" = "Uzmanīgi";
+"risk.rebuild.help" = "Droši, bet nākamā būvēšana būs lēnāka.";
+"risk.rebuild.label" = "Atjaunosies";
+"risk.rebuild.plural" = "Atjaunojamās";
+"risk.safe.help" = "Atjaunojas pašas, bez blakusparādībām.";
+"risk.safe.label" = "Droši";
+"risk.safe.plural" = "Drošās";
+
+/* ---- row ---- */
+"row.files" = "Faili: %d";
+"row.noPath" = "Šajā Mac datorā netika atrasts neviens atbilstošs ceļš.";
+
+/* ---- select ---- */
+"select.clear" = "Noņemt atlasi";
+"select.mark" = "Atlasīt";
+
+/* ---- target ---- */
+"target.android.caches.name" = "Android kešatmiņa";
+"target.android.caches.note" = "SDK būvēšanas kešatmiņa un rīku pagaidu dati";
+"target.browsers.headless.name" = "Playwright / Puppeteer pārlūki";
+"target.browsers.headless.note" = "Chromium, Firefox un WebKit, kas lejupielādēti E2E testiem";
+"target.bun.deno.name" = "Bun un Deno kešatmiņa";
+"target.bun.deno.note" = "Bun un Deno lejupielādētie moduļi";
+"target.caches.other.name" = "Citas lietotņu kešatmiņas";
+"target.caches.other.note" = "Viss, kas paliek ~/Library/Caches un ko neaptver neviena rinda augstāk";
+"target.carthage.name" = "Carthage kešatmiņa";
+"target.carthage.note" = "Carthage ietvari un checkouts";
+"target.cocoapods.name" = "CocoaPods kešatmiņa";
+"target.cocoapods.note" = "Lejupielādētie pods un specs";
+"target.docker.logs.name" = "Docker Desktop žurnāli";
+"target.docker.logs.note" = "Tikai žurnāli. Attēli un sējumi netiek aiztikti";
+"target.electron.name" = "Electron kešatmiņa";
+"target.electron.note" = "Electron un electron-builder binārie faili";
+"target.flutter.name" = "Flutter / Dart kešatmiņa";
+"target.flutter.note" = "~/.pub-cache: pakotnes no pub.dev";
+"target.go.build.name" = "Go būvēšanas kešatmiņa";
+"target.go.build.note" = "~/Library/Caches/go-build";
+"target.go.mod.name" = "Go moduļu kešatmiņa";
+"target.go.mod.note" = "~/go/pkg/mod. Tikai lasāms: var būt vajadzīgas atļaujas";
+"target.gradle.caches.name" = "Gradle kešatmiņa";
+"target.gradle.caches.note" = "~/.gradle/caches: visu projektu atkarības un būvēšanas kešatmiņa";
+"target.gradle.daemon.name" = "Gradle dēmoni un žurnāli";
+"target.gradle.daemon.note" = "Dēmonu procesu žurnāli";
+"target.gradle.wrapper.name" = "Gradle Wrapper distributīvi";
+"target.gradle.wrapper.note" = "Katra Gradle versija, ko lejupielādējis kāds projekts (ap 150 MB katra)";
+"target.homebrew.name" = "Homebrew kešatmiņa";
+"target.homebrew.note" = "Bottles un vecās brew lejupielādes";
+"target.ios.backups.name" = "iOS dublējumkopijas";
+"target.ios.backups.note" = "iPhone un iPad kopijas. Tā var būt vienīgā kopija, kas jums ir";
+"target.jetbrains.caches.name" = "JetBrains / Android Studio kešatmiņa";
+"target.jetbrains.caches.note" = "IntelliJ, Android Studio, PyCharm un citu indeksi un kešatmiņas";
+"target.jetbrains.logs.name" = "JetBrains / Android Studio žurnāli";
+"target.jetbrains.logs.note" = "Izstrādes vižu žurnāli";
+"target.kotlin.name" = "Kotlin / Konan kešatmiņa";
+"target.kotlin.note" = "Kotlin un Kotlin Native kompilatoru artefakti";
+"target.maven.name" = "Vietējā Maven krātuve";
+"target.maven.note" = "~/.m2/repository. Nākamajā būvēšanā tiks lejupielādēta pilnībā no jauna";
+"target.npm.name" = "npm kešatmiņa";
+"target.npm.note" = "~/.npm/_cacache";
+"target.php.name" = "Composer kešatmiņa (PHP)";
+"target.php.note" = "Composer lejupielādētās pakotnes";
+"target.pnpm.name" = "pnpm krātuve";
+"target.pnpm.note" = "pnpm koplietotā pakotņu krātuve";
+"target.python.name" = "Python kešatmiņa";
+"target.python.note" = "pip, uv, poetry un kompilētie wheels";
+"target.ruby.name" = "Ruby kešatmiņa";
+"target.ruby.note" = "Bundler lejupielādētie gems";
+"target.rust.name" = "Cargo kešatmiņa (Rust)";
+"target.rust.note" = "Lejupielādētie crates un git checkouts";
+"target.savedstate.name" = "Saglabātais lietotņu stāvoklis";
+"target.savedstate.note" = "Logi un dokumenti, ko lietotnes atkal atver, startējot";
+"target.sim.caches.name" = "CoreSimulator kešatmiņa";
+"target.sim.caches.note" = "Lejupielādētās izpildvides un simulatoru koplietotā kešatmiņa";
+"target.sim.devicedata.name" = "Simulatoru pagaidu dati";
+"target.sim.devicedata.note" = "Kešatmiņas un /tmp katrā simulatorā (instalētās lietotnes paliek)";
+"target.swiftpm.name" = "Swift Package Manager kešatmiņa";
+"target.swiftpm.note" = "SwiftPM atkarību krātuves un binārie faili";
+"target.trash.name" = "Miskaste";
+"target.trash.note" = "Neatgriezeniski iztukšo ~/.Trash";
+"target.user.logs.name" = "Lietotāja žurnāli";
+"target.user.logs.note" = "~/Library/Logs";
+"target.xcode.archives.name" = "Xcode arhīvi";
+"target.xcode.archives.note" = "App Store arhivētie būvējumi. Tie vajadzīgi avāriju simbolizēšanai";
+"target.xcode.caches.name" = "Xcode kešatmiņa";
+"target.xcode.caches.note" = "com.apple.dt.Xcode: IDE indeksi, lejupielādes un pagaidu dati";
+"target.xcode.deriveddata.name" = "Xcode DerivedData";
+"target.xcode.deriveddata.note" = "Visu jūsu projektu indeksi, starpbūvējumi un ModuleCache";
+"target.xcode.devicelogs.name" = "Ierīču žurnāli un avārijas";
+"target.xcode.devicelogs.note" = "Žurnāli, kas lejupielādēti no pievienotajiem iPhone un iPad";
+"target.xcode.devicesupport.name" = "iOS DeviceSupport";
+"target.xcode.devicesupport.note" = "Simboli katrai iOS versijai, no kuras esat pievienojis ierīci";
+"target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
+"target.xcode.devicesupport.other.note" = "Tas pats pārējām platformām";
+"target.xcode.previews.name" = "Xcode priekšskatījumi";
+"target.xcode.previews.note" = "SwiftUI priekšskatījumu kešatmiņa";
+"target.yarn.name" = "Yarn kešatmiņa";
+"target.yarn.note" = "Yarn lejupielādētās pakotnes";
