@@ -26,6 +26,17 @@ final class FileSystemTests: XCTestCase {
         try Data(repeating: 0x41, count: bytes).write(to: URL(fileURLWithPath: full))
     }
 
+    /// Fija la fecha de modificacion de una ruta, para poder probar la
+    /// antiguedad sin esperar meses.
+    private func backdate(_ relative: String, days: Double) throws {
+        let full = relative.isEmpty
+            ? sandbox!
+            : (sandbox as NSString).appendingPathComponent(relative)
+        try FileManager.default.setAttributes(
+            [.modificationDate: Date().addingTimeInterval(-days * 24 * 60 * 60)],
+            ofItemAtPath: full)
+    }
+
     // MARK: - Medicion
 
     func testMideTamanoYNumeroDeArchivos() throws {
@@ -37,6 +48,58 @@ final class FileSystemTests: XCTestCase {
         XCTAssertEqual(usage.files, 3)
         // Bloques asignados: al menos los 12 KB de contenido.
         XCTAssertGreaterThanOrEqual(usage.bytes, 12 * 1024)
+    }
+
+    // MARK: - Antiguedad
+
+    /// El mtime sale del mismo `stat` que ya trae `fts`, asi que medir la edad
+    /// no cuesta un segundo recorrido.
+    func testSeQuedaConLaEscrituraMasRecienteDelArbol() throws {
+        try write("viejo/a.bin", bytes: 1024)
+        try write("viejo/b.bin", bytes: 1024)
+        try backdate("viejo/a.bin", days: 400)
+        try backdate("viejo/b.bin", days: 200)
+        try backdate("viejo", days: 400)
+
+        let usage = FileSystem.usage(of: sandbox + "/viejo")
+        let date = try XCTUnwrap(usage.modified)
+        let days = Date().timeIntervalSince(date) / 86400
+        XCTAssertEqual(days, 200, accuracy: 1, "gana el fichero mas reciente")
+        XCTAssertTrue(FileSystem.isStale(date), "medio ano sin tocar")
+    }
+
+    func testUnFicheroSueltoLlevaSuPropiaFecha() throws {
+        try write("solo.bin", bytes: 512)
+        try backdate("solo.bin", days: 30)
+
+        let usage = FileSystem.usage(of: sandbox + "/solo.bin")
+        let date = try XCTUnwrap(usage.modified)
+        XCTAssertEqual(Date().timeIntervalSince(date) / 86400, 30, accuracy: 1)
+        XCTAssertFalse(FileSystem.isStale(date), "un mes todavia es reciente")
+    }
+
+    func testAlSumarGanaLaFechaMasReciente() {
+        let viejo = FileSystem.Usage(bytes: 10, files: 1, newest: 1_000)
+        let nuevo = FileSystem.Usage(bytes: 20, files: 2, newest: 9_000)
+        let total = viejo + nuevo
+
+        XCTAssertEqual(total.bytes, 30)
+        XCTAssertEqual(total.files, 3)
+        XCTAssertEqual(total.newest, 9_000)
+    }
+
+    func testSinMedirNadaNoHayFecha() {
+        XCTAssertNil(FileSystem.Usage().modified)
+        XCTAssertNil(FileSystem.usage(of: sandbox + "/no-existe").modified)
+    }
+
+    // MARK: - Volumen
+
+    func testElVolumenDelHomeSeLee() throws {
+        let volume = try XCTUnwrap(FileSystem.homeVolume())
+        XCTAssertGreaterThan(volume.total, 0)
+        XCTAssertGreaterThanOrEqual(volume.free, 0)
+        XCTAssertLessThanOrEqual(volume.free, volume.total)
     }
 
     func testCarpetaInexistenteMideCero() {

@@ -43,6 +43,7 @@
 "group.none" = "Asnjë";
 
 /* ---- header ---- */
+"header.free" = "%@ të lira nga %@";
 "header.notScanned" = "E paskanuar";
 "header.reclaimable" = "Hapësirë e rikuperueshme";
 "header.rescan" = "Skano sërish";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Skedarë: %d";
 "row.noPath" = "Nuk u gjet asnjë shteg përkatës në këtë Mac.";
+"row.reveal" = "Shfaq në Finder";
 
 /* ---- select ---- */
 "select.clear" = "Hiq të gjitha përzgjedhjet";

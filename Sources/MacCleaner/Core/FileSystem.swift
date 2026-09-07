@@ -71,9 +71,21 @@ enum FileSystem {
     struct Usage: Sendable {
         var bytes: Int64 = 0
         var files: Int = 0
+        /// `st_mtime` mas reciente de todo el arbol, en segundos desde 1970.
+        /// 0 significa que no se ha medido nada.
+        var newest: time_t = 0
 
         static func + (lhs: Usage, rhs: Usage) -> Usage {
-            Usage(bytes: lhs.bytes + rhs.bytes, files: lhs.files + rhs.files)
+            Usage(bytes: lhs.bytes + rhs.bytes,
+                  files: lhs.files + rhs.files,
+                  newest: max(lhs.newest, rhs.newest))
+        }
+
+        /// Ultima vez que algo escribio aqui dentro. Es escritura, no lectura:
+        /// macOS monta con `noatime`, asi que el acceso no deja rastro. Para una
+        /// cache sirve igual, porque la herramienta que la usa tambien la escribe.
+        var modified: Date? {
+            newest > 0 ? Date(timeIntervalSince1970: TimeInterval(newest)) : nil
         }
     }
 
@@ -84,7 +96,9 @@ enum FileSystem {
         guard lstat(path, &info) == 0 else { return Usage() }
 
         if (info.st_mode & S_IFMT) != S_IFDIR {
-            return Usage(bytes: Int64(info.st_blocks) * 512, files: 1)
+            return Usage(bytes: Int64(info.st_blocks) * 512,
+                         files: 1,
+                         newest: info.st_mtimespec.tv_sec)
         }
 
         var usage = Usage()
@@ -103,15 +117,39 @@ enum FileSystem {
             if let st = entry.pointee.fts_statp {
                 if kind == FTS_D {
                     usage.bytes += Int64(st.pointee.st_blocks) * 512
+                    usage.newest = max(usage.newest, st.pointee.st_mtimespec.tv_sec)
                 } else if kind == FTS_F || kind == FTS_SL || kind == FTS_SLNONE || kind == FTS_DEFAULT {
                     usage.bytes += Int64(st.pointee.st_blocks) * 512
                     usage.files += 1
+                    usage.newest = max(usage.newest, st.pointee.st_mtimespec.tv_sec)
                 }
             }
             seen += 1
             if seen & 0x3FF == 0 && isCancelled() { break }
         }
         return usage
+    }
+
+    // MARK: - Volumen
+
+    struct Volume: Sendable, Equatable {
+        var free: Int64
+        var total: Int64
+    }
+
+    /// Espacio del disco donde vive el home. Se pregunta por la capacidad
+    /// "para uso importante": es la que macOS liberaria de verdad si hiciera
+    /// falta, y coincide con la que ensena Finder.
+    static func homeVolume() -> Volume? {
+        let url = URL(fileURLWithPath: NSHomeDirectory())
+        guard let values = try? url.resourceValues(forKeys: [
+            .volumeAvailableCapacityForImportantUsageKey,
+            .volumeTotalCapacityKey,
+        ]),
+            let free = values.volumeAvailableCapacityForImportantUsage,
+            let total = values.volumeTotalCapacity
+        else { return nil }
+        return Volume(free: free, total: Int64(total))
     }
 
     // MARK: - Borrado
@@ -149,6 +187,34 @@ enum FileSystem {
 
     static func humanBytes(_ bytes: Int64) -> String {
         bytes <= 0 ? "—" : formatter.string(fromByteCount: bytes)
+    }
+
+    /// "hace 14 meses". Lo traduce Foundation, asi que sale en el idioma del
+    /// usuario sin pasar por nuestro catalogo. El idioma se toma del que el
+    /// bundle haya elegido, igual que `appLayoutDirection`, para que forzar
+    /// `-AppleLanguages` cambie tambien las fechas.
+    private static let ageFormatter: RelativeDateTimeFormatter = {
+        let f = RelativeDateTimeFormatter()
+        f.unitsStyle = .full
+        f.locale = Locale(identifier: Bundle.main.preferredLocalizations.first ?? "en")
+        return f
+    }()
+
+    static func humanAge(_ date: Date, relativeTo now: Date = Date()) -> String {
+        ageFormatter.localizedString(for: date, relativeTo: now)
+    }
+
+    /// Fecha completa para el tooltip.
+    static func humanDate(_ date: Date) -> String {
+        date.formatted(date: .abbreviated, time: .shortened)
+    }
+
+    /// Medio ano sin escribir nada. A partir de aqui la fila se marca en ambar:
+    /// es la senal de "esto ya no lo usas", que es justo lo que hay que borrar.
+    static let staleInterval: TimeInterval = 180 * 24 * 60 * 60
+
+    static func isStale(_ date: Date, relativeTo now: Date = Date()) -> Bool {
+        now.timeIntervalSince(date) > staleInterval
     }
 
     /// Acorta rutas largas para la UI: `/Users/x/Library/...` -> `~/Library/...`

@@ -43,6 +43,7 @@
 "group.none" = "Ingen";
 
 /* ---- header ---- */
+"header.free" = "%@ ledig af %@";
 "header.notScanned" = "Ikke scannet";
 "header.reclaimable" = "Plads der kan frigøres";
 "header.rescan" = "Scan igen";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Filer: %d";
 "row.noPath" = "Der blev ikke fundet nogen matchende sti på denne Mac.";
+"row.reveal" = "Vis i Finder";
 
 /* ---- select ---- */
 "select.clear" = "Fravælg alle";

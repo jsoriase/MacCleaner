@@ -116,6 +116,18 @@ struct ContentView: View {
                     .font(.system(size: 30, weight: .semibold, design: .rounded))
                     .contentTransition(.numericText())
                     .animation(.default, value: engine.foundBytes)
+
+                // Sin esto, "12 GB recuperables" no responde a la pregunta que
+                // trae el usuario, que es si le llega el disco.
+                if let volume = engine.volume {
+                    Text(L("header.free",
+                           FileSystem.humanBytes(volume.free),
+                           FileSystem.humanBytes(volume.total)))
+                        .font(.system(size: 11))
+                        .foregroundStyle(.secondary)
+                        .contentTransition(.numericText())
+                        .animation(.default, value: volume.free)
+                }
             }
 
             Spacer()

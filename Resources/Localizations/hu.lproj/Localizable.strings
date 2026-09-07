@@ -43,6 +43,7 @@
 "group.none" = "Semmi";
 
 /* ---- header ---- */
+"header.free" = "%@ szabad, összesen %@";
 "header.notScanned" = "Nincs átvizsgálva";
 "header.reclaimable" = "Felszabadítható hely";
 "header.rescan" = "Átvizsgálás újra";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Fájlok: %d";
 "row.noPath" = "Ezen a Macen nem található megfelelő útvonal.";
+"row.reveal" = "Megjelenítés a Finderben";
 
 /* ---- select ---- */
 "select.clear" = "Kijelölés törlése";

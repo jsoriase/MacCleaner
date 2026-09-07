@@ -44,6 +44,7 @@
 "group.none" = "None";
 
 /* ---- header ---- */
+"header.free" = "%@ free of %@";
 "header.notScanned" = "Not scanned";
 "header.reclaimable" = "Reclaimable space";
 "header.rescan" = "Scan again";
@@ -65,6 +66,7 @@
 /* ---- row ---- */
 "row.files" = "Files: %d";
 "row.noPath" = "No matching path found on this Mac.";
+"row.reveal" = "Show in Finder";
 
 /* ---- select ---- */
 "select.clear" = "Clear all";

@@ -44,6 +44,7 @@
 "group.none" = "Nada";
 
 /* ---- header ---- */
+"header.free" = "%@ livres de %@";
 "header.notScanned" = "Não analisado";
 "header.reclaimable" = "Espaço recuperável";
 "header.rescan" = "Analisar de novo";
@@ -65,6 +66,7 @@
 /* ---- row ---- */
 "row.files" = "Arquivos: %d";
 "row.noPath" = "Nenhum caminho correspondente encontrado neste Mac.";
+"row.reveal" = "Mostrar no Finder";
 
 /* ---- select ---- */
 "select.clear" = "Desmarcar tudo";

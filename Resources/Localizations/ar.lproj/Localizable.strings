@@ -44,6 +44,7 @@
 "group.none" = "لا شيء";
 
 /* ---- header ---- */
+"header.free" = "%@ متاح من أصل %@";
 "header.notScanned" = "لم يتم الفحص";
 "header.reclaimable" = "المساحة القابلة للاسترداد";
 "header.rescan" = "إعادة الفحص";
@@ -65,6 +66,7 @@
 /* ---- row ---- */
 "row.files" = "الملفات: %d";
 "row.noPath" = "لم يتم العثور على أي مسار مطابق على هذا الـ Mac.";
+"row.reveal" = "إظهار في الباحث";
 
 /* ---- select ---- */
 "select.clear" = "إلغاء تحديد الكل";

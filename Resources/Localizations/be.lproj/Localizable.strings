@@ -43,6 +43,7 @@
 "group.none" = "Нічога";
 
 /* ---- header ---- */
+"header.free" = "%@ вольна з %@";
 "header.notScanned" = "Не прасканавана";
 "header.reclaimable" = "Месца, якое можна вызваліць";
 "header.rescan" = "Сканаваць зноў";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Файлы: %d";
 "row.noPath" = "На гэтым Mac не знойдзена ніводнага адпаведнага шляху.";
+"row.reveal" = "Паказаць у Finder";
 
 /* ---- select ---- */
 "select.clear" = "Зняць адзнакі";

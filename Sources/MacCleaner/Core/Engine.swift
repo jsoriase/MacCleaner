@@ -18,6 +18,13 @@ struct SubItem: Identifiable, Sendable {
     var selected = false
 
     var id: String { path }
+
+    /// Medio ano sin que nadie escriba aqui. Es la senal de que esta version,
+    /// ese proyecto o aquella app ya no estan en uso.
+    var isStale: Bool {
+        guard let date = usage.modified else { return false }
+        return FileSystem.isStale(date)
+    }
 }
 
 enum CheckState {
@@ -58,9 +65,12 @@ struct Row: Identifiable {
 
     /// Rutas que se borrarian ahora mismo, segun lo que este marcado.
     var victims: (paths: [String], scope: Scope) {
-        hasItems
-            ? (items.filter(\.selected).map(\.path), .item)
-            : (paths, target.scope)
+        guard hasItems else { return (paths, target.scope) }
+        let chosen = items.filter(\.selected).map(\.path)
+        // Con .children el item es un hijo del target y se borra entero; con
+        // .paths el item es el target mismo, asi que se respeta su scope para
+        // no convertir un "vaciar" en un "borrar la carpeta".
+        return (chosen, target.expansion == .paths ? target.scope : .item)
     }
 }
 
@@ -76,6 +86,9 @@ final class Engine: ObservableObject {
     @Published private(set) var lastReport: Report?
     @Published var useTrash = false
     @Published var hideEmpty = true
+    /// Espacio del disco donde vive el home. Se refresca al arrancar y despues
+    /// de cada limpieza, para ver como sube el hueco libre.
+    @Published private(set) var volume: FileSystem.Volume?
 
     struct Report {
         var freed: Int64
@@ -97,6 +110,11 @@ final class Engine: ObservableObject {
         }
         rows = Catalog.targets.map { Row(target: $0, selected: false) }
         useTrash = store.bool(forKey: "useTrash")
+        volume = FileSystem.homeVolume()
+    }
+
+    func refreshVolume() {
+        volume = FileSystem.homeVolume()
     }
 
     // MARK: - Derivados para la UI
@@ -260,7 +278,7 @@ final class Engine: ObservableObject {
         // 2. Medir tamanos en paralelo. Es trabajo de disco, no de CPU:
         //    unos pocos hilos saturan el SSD y mantienen la RAM plana.
         let pending = rows.filter { !$0.paths.isEmpty }
-            .map { ($0.id, $0.paths, $0.target.expandable) }
+            .map { ($0.id, $0.paths, $0.target.expansion) }
         let total = max(pending.count, 1)
         var done = 0
         let lanes = min(6, max(2, ProcessInfo.processInfo.activeProcessorCount / 2))
@@ -269,11 +287,11 @@ final class Engine: ObservableObject {
             var iterator = pending.makeIterator()
 
             func addNext() {
-                guard let (id, paths, expandable) = iterator.next() else { return }
+                guard let (id, paths, expansion) = iterator.next() else { return }
                 group.addTask(priority: .userInitiated) {
-                    // Las filas desplegables se miden subcarpeta a subcarpeta:
-                    // el mismo recorrido, pero guardando el desglose.
-                    guard expandable else {
+                    // Las filas desplegables se miden trozo a trozo: el mismo
+                    // recorrido de siempre, pero guardando el desglose.
+                    guard expansion != .none else {
                         var sum = FileSystem.Usage()
                         for path in paths {
                             if Task.isCancelled { break }
@@ -282,15 +300,18 @@ final class Engine: ObservableObject {
                         return (id, sum, [])
                     }
 
+                    let pieces = expansion == .paths
+                        ? paths
+                        : paths.flatMap { FileSystem.children(of: $0) }
+
                     var items: [SubItem] = []
-                    for parent in paths {
-                        for child in FileSystem.children(of: parent) {
-                            if Task.isCancelled { break }
-                            let usage = FileSystem.usage(of: child) { Task.isCancelled }
-                            items.append(SubItem(path: child,
-                                                 name: (child as NSString).lastPathComponent,
-                                                 usage: usage))
-                        }
+                    items.reserveCapacity(pieces.count)
+                    for piece in pieces {
+                        if Task.isCancelled { break }
+                        let usage = FileSystem.usage(of: piece) { Task.isCancelled }
+                        items.append(SubItem(path: piece,
+                                             name: (piece as NSString).lastPathComponent,
+                                             usage: usage))
                     }
                     items.sort { $0.usage.bytes > $1.usage.bytes }
                     let sum = items.reduce(FileSystem.Usage()) { $0 + $1.usage }
@@ -364,6 +385,7 @@ final class Engine: ObservableObject {
             self.lastReport = Report(freed: freed, cleaned: cleaned, failures: failures)
             self.isCleaning = false
             self.currentStep = ""
+            self.refreshVolume()
         }
     }
 

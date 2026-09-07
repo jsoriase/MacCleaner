@@ -44,6 +44,7 @@
 "group.none" = "全不选";
 
 /* ---- header ---- */
+"header.free" = "可用 %@，共 %@";
 "header.notScanned" = "尚未扫描";
 "header.reclaimable" = "可释放空间";
 "header.rescan" = "重新扫描";
@@ -65,6 +66,7 @@
 /* ---- row ---- */
 "row.files" = "文件：%d";
 "row.noPath" = "在这台 Mac 上没有找到对应的路径。";
+"row.reveal" = "在访达中显示";
 
 /* ---- select ---- */
 "select.clear" = "全部取消";

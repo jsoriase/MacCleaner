@@ -43,6 +43,7 @@
 "group.none" = "Hiçbiri";
 
 /* ---- header ---- */
+"header.free" = "%@ boş, toplam %@";
 "header.notScanned" = "Taranmadı";
 "header.reclaimable" = "Geri kazanılabilir alan";
 "header.rescan" = "Yeniden tara";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Dosya: %d";
 "row.noPath" = "Bu Mac’te eşleşen bir yol bulunamadı.";
+"row.reveal" = "Finder'da Göster";
 
 /* ---- select ---- */
 "select.clear" = "Tüm seçimi kaldır";

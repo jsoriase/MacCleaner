@@ -26,6 +26,42 @@ La selección **no se recuerda entre sesiones**: cada vez que abres la app
 empiezas de cero, para que borrar sea siempre una decisión deliberada y no algo
 heredado de la vez anterior.
 
+## Lo que ves de cada fila
+
+La cabecera lleva, además del total recuperable, lo que le queda al disco
+(`6,5 GB libres de 245 GB`). Sin ese segundo número el primero no responde a la
+pregunta que trae a nadie a abrir la app.
+
+Ocho filas se despliegan y miden cada trozo por separado, porque el total junto
+no basta para decidir:
+
+| Fila | Se parte en |
+|---|---|
+| Caché de Gradle, Distribuciones del Wrapper | versión de Gradle |
+| Xcode DerivedData | proyecto |
+| iOS DeviceSupport | versión de iOS |
+| Xcode Archives | fecha de archivado |
+| Cachés y registros de JetBrains | versión del IDE |
+| Otras cachés de aplicaciones | app |
+
+Hay dos maneras de partir una fila y la diferencia importa al borrar. Con
+`.children` el trozo es un hijo del target y se borra entero: una versión de
+Gradle se va con todo. Con `.paths` los trozos son las rutas que ya separó el
+comodín del patrón, así que el trozo *es* el target y se respeta su `scope`:
+`~/Library/Caches/com.loquesea` se vacía, no se borra.
+
+Cada subcarpeta lleva su tamaño y cuándo se escribió por última vez (`hace 14
+horas`, `hace 3 meses`). Pasado medio año sin tocarse, la fecha sale en ámbar:
+es la señal de que esa versión, ese proyecto o aquella app ya no están en uso, y
+suele decidir más que el tamaño. El dato sale del mismo `stat` que `fts` ya hace
+para medir, así que no cuesta un segundo recorrido, y lo traduce Foundation en
+lugar de nuestro catálogo. Es fecha de escritura, no de lectura: macOS monta con
+`noatime` y leer no deja rastro, pero para una caché vale igual, porque la
+herramienta que la usa también la escribe.
+
+Con el clic derecho, `Mostrar en el Finder` abre la ruta de la fila. Antes de
+borrar algo marcado como «Cuidado», lo normal es querer mirarlo primero.
+
 ## Idiomas
 
 La app se traduce a **43 idiomas** y toma el del sistema automáticamente, con

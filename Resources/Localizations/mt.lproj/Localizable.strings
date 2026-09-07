@@ -43,6 +43,7 @@
 "group.none" = "Xejn";
 
 /* ---- header ---- */
+"header.free" = "%@ liberi minn %@";
 "header.notScanned" = "Mhux skennjat";
 "header.reclaimable" = "Spazju li jista’ jinkiseb lura";
 "header.rescan" = "Skennja mill-ġdid";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Fajls: %d";
 "row.noPath" = "Ma nstab l-ebda passaġġ li jaqbel f’dan il-Mac.";
+"row.reveal" = "Uri fil-Finder";
 
 /* ---- select ---- */
 "select.clear" = "Neħħi kollox";

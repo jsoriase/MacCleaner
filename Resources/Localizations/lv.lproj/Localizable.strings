@@ -43,6 +43,7 @@
 "group.none" = "Nekas";
 
 /* ---- header ---- */
+"header.free" = "%@ brīvi no %@";
 "header.notScanned" = "Nav skenēts";
 "header.reclaimable" = "Atgūstamā vieta";
 "header.rescan" = "Skenēt vēlreiz";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Faili: %d";
 "row.noPath" = "Šajā Mac datorā netika atrasts neviens atbilstošs ceļš.";
+"row.reveal" = "Rādīt Finder";
 
 /* ---- select ---- */
 "select.clear" = "Noņemt atlasi";

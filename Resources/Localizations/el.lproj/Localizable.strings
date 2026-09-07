@@ -43,6 +43,7 @@
 "group.none" = "Κανένα";
 
 /* ---- header ---- */
+"header.free" = "%@ ελεύθερα από %@";
 "header.notScanned" = "Χωρίς σάρωση";
 "header.reclaimable" = "Χώρος που μπορεί να ελευθερωθεί";
 "header.rescan" = "Νέα σάρωση";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Αρχεία: %d";
 "row.noPath" = "Δεν βρέθηκε καμία αντίστοιχη διαδρομή σε αυτό το Mac.";
+"row.reveal" = "Εμφάνιση στο Finder";
 
 /* ---- select ---- */
 "select.clear" = "Καθαρισμός επιλογής";

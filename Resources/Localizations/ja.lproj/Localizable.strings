@@ -44,6 +44,7 @@
 "group.none" = "なし";
 
 /* ---- header ---- */
+"header.free" = "空き %@ / 合計 %@";
 "header.notScanned" = "未スキャン";
 "header.reclaimable" = "解放可能な容量";
 "header.rescan" = "再スキャン";
@@ -65,6 +66,7 @@
 /* ---- row ---- */
 "row.files" = "ファイル: %d";
 "row.noPath" = "この Mac に該当するパスは見つかりませんでした。";
+"row.reveal" = "Finder に表示";
 
 /* ---- select ---- */
 "select.clear" = "すべて解除";

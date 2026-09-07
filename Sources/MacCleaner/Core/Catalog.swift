@@ -21,6 +21,16 @@ enum Scope: Equatable {
     case item       // borra la ruta entera
 }
 
+/// Como se parte una fila en subcarpetas medibles por separado.
+enum Expansion {
+    case none
+    /// Los hijos de cada ruta. `~/.gradle/caches` -> una fila por version.
+    case children
+    /// Las propias rutas que ha expandido el patron. `~/Library/Caches/*` ->
+    /// una fila por app. Se usa cuando el glob ya recorta por donde interesa.
+    case paths
+}
+
 struct Target: Identifiable {
     let id: String
     let group: Category
@@ -29,9 +39,12 @@ struct Target: Identifiable {
     let patterns: [String]
     /// Si es true, se descartan las rutas ya cubiertas por otros targets.
     var isCatchAll: Bool = false
-    /// Si es true, la fila se despliega y cada subcarpeta se mide y se marca
-    /// por separado. Util cuando el contenido esta partido por version.
-    var expandable: Bool = false
+    /// Si no es `.none`, la fila se despliega y cada subcarpeta se mide y se
+    /// marca por separado. Util cuando el contenido esta partido por version,
+    /// por proyecto o por app.
+    var expansion: Expansion = .none
+
+    var expandable: Bool { expansion != .none }
 
     /// El texto visible se deriva del id, asi que no puede desincronizarse
     /// de las traducciones: `target.gradle.caches.name` y `.note`.
@@ -65,11 +78,13 @@ enum Catalog {
 
         Target(id: "xcode.deriveddata",
                group: .xcode, risk: .rebuild, scope: .contents,
-               patterns: ["~/Library/Developer/Xcode/DerivedData"]),
+               patterns: ["~/Library/Developer/Xcode/DerivedData"],
+               expansion: .children),
 
         Target(id: "xcode.devicesupport",
                group: .xcode, risk: .safe, scope: .contents,
-               patterns: ["~/Library/Developer/Xcode/iOS DeviceSupport"]),
+               patterns: ["~/Library/Developer/Xcode/iOS DeviceSupport"],
+               expansion: .children),
 
         Target(id: "xcode.devicesupport.other",
                group: .xcode, risk: .safe, scope: .contents,
@@ -101,7 +116,8 @@ enum Catalog {
 
         Target(id: "xcode.archives",
                group: .xcode, risk: .caution, scope: .contents,
-               patterns: ["~/Library/Developer/Xcode/Archives"]),
+               patterns: ["~/Library/Developer/Xcode/Archives"],
+               expansion: .children),
 
         Target(id: "swiftpm",
                group: .xcode, risk: .rebuild, scope: .contents,
@@ -121,7 +137,7 @@ enum Catalog {
         Target(id: "gradle.caches",
                group: .jvm, risk: .rebuild, scope: .contents,
                patterns: ["~/.gradle/caches"],
-               expandable: true),
+               expansion: .children),
 
         Target(id: "gradle.daemon",
                group: .jvm, risk: .safe, scope: .contents,
@@ -130,7 +146,7 @@ enum Catalog {
         Target(id: "gradle.wrapper",
                group: .jvm, risk: .caution, scope: .contents,
                patterns: ["~/.gradle/wrapper/dists"],
-               expandable: true),
+               expansion: .children),
 
         Target(id: "android.caches",
                group: .jvm, risk: .rebuild, scope: .contents,
@@ -140,12 +156,14 @@ enum Catalog {
         Target(id: "jetbrains.caches",
                group: .jvm, risk: .rebuild, scope: .contents,
                patterns: ["~/Library/Caches/JetBrains/*",
-                          "~/Library/Caches/Google/AndroidStudio*"]),
+                          "~/Library/Caches/Google/AndroidStudio*"],
+               expansion: .paths),
 
         Target(id: "jetbrains.logs",
                group: .jvm, risk: .safe, scope: .contents,
                patterns: ["~/Library/Logs/JetBrains/*",
-                          "~/Library/Logs/Google/AndroidStudio*"]),
+                          "~/Library/Logs/Google/AndroidStudio*"],
+               expansion: .paths),
 
         Target(id: "maven",
                group: .jvm, risk: .caution, scope: .contents,
@@ -244,7 +262,8 @@ enum Catalog {
         Target(id: "caches.other",
                group: .system, risk: .caution, scope: .contents,
                patterns: ["~/Library/Caches/*"],
-               isCatchAll: true),
+               isCatchAll: true,
+               expansion: .paths),
     ]
 
     static func targets(in group: Category) -> [Target] {

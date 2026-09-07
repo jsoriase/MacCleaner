@@ -43,6 +43,7 @@
 "group.none" = "Nič";
 
 /* ---- header ---- */
+"header.free" = "%@ voľných z %@";
 "header.notScanned" = "Nepreskenované";
 "header.reclaimable" = "Uvoľniteľné miesto";
 "header.rescan" = "Skenovať znova";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Súbory: %d";
 "row.noPath" = "Na tomto Macu sa nenašla žiadna zodpovedajúca cesta.";
+"row.reveal" = "Zobraziť vo Finderi";
 
 /* ---- select ---- */
 "select.clear" = "Zrušiť výber";

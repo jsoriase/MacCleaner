@@ -43,6 +43,7 @@
 "group.none" = "Ekkert";
 
 /* ---- header ---- */
+"header.free" = "%@ laus af %@";
 "header.notScanned" = "Ekki skannað";
 "header.reclaimable" = "Pláss sem má losa";
 "header.rescan" = "Skanna aftur";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Skrár: %d";
 "row.noPath" = "Engin samsvarandi slóð fannst á þessari Mac-tölvu.";
+"row.reveal" = "Sýna í Finder";
 
 /* ---- select ---- */
 "select.clear" = "Afvelja allt";

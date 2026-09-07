@@ -43,6 +43,7 @@
 "group.none" = "Näischt";
 
 /* ---- header ---- */
+"header.free" = "%@ fräi vun %@";
 "header.notScanned" = "Net analyséiert";
 "header.reclaimable" = "Fräimaachbare Späicher";
 "header.rescan" = "Nach eng Kéier analyséieren";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Fichieren: %d";
 "row.noPath" = "Op dësem Mac gouf kee passende Wee fonnt.";
+"row.reveal" = "Am Finder weisen";
 
 /* ---- select ---- */
 "select.clear" = "Alles ofwielen";

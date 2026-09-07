@@ -43,6 +43,7 @@
 "group.none" = "Ezer ez";
 
 /* ---- header ---- */
+"header.free" = "%@ libre, guztira %@";
 "header.notScanned" = "Aztertu gabe";
 "header.reclaimable" = "Berreskura daitekeen lekua";
 "header.rescan" = "Aztertu berriro";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Fitxategiak: %d";
 "row.noPath" = "Ez da bat datorren bide-izenik aurkitu Mac honetan.";
+"row.reveal" = "Erakutsi Finder-en";
 
 /* ---- select ---- */
 "select.clear" = "Kendu hautapen guztiak";

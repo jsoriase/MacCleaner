@@ -43,6 +43,7 @@
 "group.none" = "Нищо";
 
 /* ---- header ---- */
+"header.free" = "%@ свободни от %@";
 "header.notScanned" = "Не е сканирано";
 "header.reclaimable" = "Място за освобождаване";
 "header.rescan" = "Сканирай отново";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Файлове: %d";
 "row.noPath" = "На този Mac не е намерен съответстващ път.";
+"row.reveal" = "Показване във Finder";
 
 /* ---- select ---- */
 "select.clear" = "Изчисти избора";

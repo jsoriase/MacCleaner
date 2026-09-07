@@ -43,6 +43,7 @@
 "group.none" = "Geen";
 
 /* ---- header ---- */
+"header.free" = "%@ vrij van %@";
 "header.notScanned" = "Niet gescand";
 "header.reclaimable" = "Terug te winnen ruimte";
 "header.rescan" = "Scan opnieuw";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Bestanden: %d";
 "row.noPath" = "Geen bijbehorend pad gevonden op deze Mac.";
+"row.reveal" = "Toon in Finder";
 
 /* ---- select ---- */
 "select.clear" = "Alles deselecteren";

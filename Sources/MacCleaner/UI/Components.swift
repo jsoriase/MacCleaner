@@ -1,4 +1,17 @@
 import SwiftUI
+import AppKit
+
+// MARK: - Finder
+
+/// Abre Finder con las rutas ya seleccionadas. Se filtran las que ya no existen:
+/// revelar una ruta borrada abre una ventana vacia sin explicar por que.
+func revealInFinder(_ paths: [String]) {
+    let urls = paths
+        .filter { FileManager.default.fileExists(atPath: $0) }
+        .map { URL(fileURLWithPath: $0) }
+    guard !urls.isEmpty else { return }
+    NSWorkspace.shared.activateFileViewerSelecting(urls)
+}
 
 // MARK: - Cabecera de categoria
 
@@ -122,7 +135,14 @@ struct TargetRow: View {
             trailing
         }
         .padding(.vertical, 3)
+        .contentShape(Rectangle())
         .help(helpText)
+        .contextMenu {
+            // Antes de borrar algo marcado como "Cuidado", lo normal es querer
+            // mirarlo primero.
+            Button(L("row.reveal")) { revealInFinder(row.paths) }
+                .disabled(row.paths.isEmpty)
+        }
     }
 
     @ViewBuilder
@@ -179,6 +199,15 @@ struct SubItemRow: View {
                 .font(.system(size: 12, design: .monospaced))
                 .foregroundStyle(item.usage.bytes == 0 ? .secondary : .primary)
 
+            // Lo que de verdad decide si esta version sobra no es su tamano,
+            // sino cuanto lleva sin tocarse.
+            if let date = item.usage.modified {
+                Text(FileSystem.humanAge(date))
+                    .font(.system(size: 10))
+                    .foregroundStyle(item.isStale ? Color.orange : Color.secondary)
+                    .lineLimit(1)
+            }
+
             Spacer(minLength: 12)
 
             VStack(alignment: .trailing, spacing: 0) {
@@ -193,7 +222,19 @@ struct SubItemRow: View {
             .frame(minWidth: 76, alignment: .trailing)
         }
         .padding(.vertical, 1)
-        .help(FileSystem.prettyPath(item.path))
+        .contentShape(Rectangle())
+        .help(helpText)
+        .contextMenu {
+            Button(L("row.reveal")) { revealInFinder([item.path]) }
+        }
+    }
+
+    private var helpText: String {
+        var text = FileSystem.prettyPath(item.path)
+        if let date = item.usage.modified {
+            text += "\n" + FileSystem.humanDate(date)
+        }
+        return text
     }
 }
 

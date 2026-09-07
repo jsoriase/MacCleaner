@@ -43,6 +43,7 @@
 "group.none" = "Res";
 
 /* ---- header ---- */
+"header.free" = "%@ lliures de %@";
 "header.notScanned" = "Sense analitzar";
 "header.reclaimable" = "Espai recuperable";
 "header.rescan" = "Torna a analitzar";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Fitxers: %d";
 "row.noPath" = "No s’ha trobat cap camí en aquest Mac.";
+"row.reveal" = "Mostra al Finder";
 
 /* ---- select ---- */
 "select.clear" = "Desmarca-ho tot";

@@ -43,6 +43,7 @@
 "group.none" = "Nieko";
 
 /* ---- header ---- */
+"header.free" = "%@ laisva iš %@";
 "header.notScanned" = "Neperžiūrėta";
 "header.reclaimable" = "Atlaisvinama vieta";
 "header.rescan" = "Peržiūrėti iš naujo";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Failai: %d";
 "row.noPath" = "Šiame „Mac“ nerasta nė vieno atitinkančio kelio.";
+"row.reveal" = "Rodyti Finder";
 
 /* ---- select ---- */
 "select.clear" = "Atžymėti viską";

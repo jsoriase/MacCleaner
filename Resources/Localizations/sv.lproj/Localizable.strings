@@ -43,6 +43,7 @@
 "group.none" = "Inga";
 
 /* ---- header ---- */
+"header.free" = "%@ ledigt av %@";
 "header.notScanned" = "Inte genomsökt";
 "header.reclaimable" = "Utrymme att frigöra";
 "header.rescan" = "Sök igen";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Filer: %d";
 "row.noPath" = "Ingen matchande sökväg hittades på den här Macen.";
+"row.reveal" = "Visa i Finder";
 
 /* ---- select ---- */
 "select.clear" = "Avmarkera alla";

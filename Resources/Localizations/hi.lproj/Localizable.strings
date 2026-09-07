@@ -44,6 +44,7 @@
 "group.none" = "कोई नहीं";
 
 /* ---- header ---- */
+"header.free" = "%@ खाली, कुल %@";
 "header.notScanned" = "स्कैन नहीं किया गया";
 "header.reclaimable" = "पुनः प्राप्त करने योग्य स्थान";
 "header.rescan" = "फिर से स्कैन करें";
@@ -65,6 +66,7 @@
 /* ---- row ---- */
 "row.files" = "फ़ाइलें: %d";
 "row.noPath" = "इस Mac पर कोई मिलता-जुलता पथ नहीं मिला।";
+"row.reveal" = "Finder में दिखाएँ";
 
 /* ---- select ---- */
 "select.clear" = "सभी अचयनित करें";

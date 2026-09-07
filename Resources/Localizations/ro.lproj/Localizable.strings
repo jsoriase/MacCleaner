@@ -43,6 +43,7 @@
 "group.none" = "Nimic";
 
 /* ---- header ---- */
+"header.free" = "%@ liberi din %@";
 "header.notScanned" = "Neanalizat";
 "header.reclaimable" = "Spațiu recuperabil";
 "header.rescan" = "Analizează din nou";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Fișiere: %d";
 "row.noPath" = "Nu s-a găsit nicio cale pe acest Mac.";
+"row.reveal" = "Afișează în Finder";
 
 /* ---- select ---- */
 "select.clear" = "Deselectează tot";

@@ -43,6 +43,7 @@
 "group.none" = "Faic";
 
 /* ---- header ---- */
+"header.free" = "%@ saor as %@";
 "header.notScanned" = "Gan scanadh";
 "header.reclaimable" = "Spás inaisghabhála";
 "header.rescan" = "Scan arís";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Comhaid: %d";
 "row.noPath" = "Níor aimsíodh aon chonair chomhoiriúnach ar an Mac seo.";
+"row.reveal" = "Taispeáin i Finder";
 
 /* ---- select ---- */
 "select.clear" = "Díroghnaigh gach rud";

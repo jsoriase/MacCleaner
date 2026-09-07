@@ -7,10 +7,10 @@ final class SubItemTests: XCTestCase {
 
     private func makeRow(_ items: [(String, Int64, Bool)],
                          selected: Bool = false,
-                         expandable: Bool = true) -> Row {
+                         expansion: Expansion = .children) -> Row {
         let target = Target(id: "gradle.caches",
                             group: .jvm, risk: .rebuild, scope: .contents,
-                            patterns: ["~/.gradle/caches"], expandable: expandable)
+                            patterns: ["~/.gradle/caches"], expansion: expansion)
         var row = Row(target: target, selected: selected)
         row.paths = [NSHomeDirectory() + "/.gradle/caches"]
         row.items = items.map { name, bytes, on in
@@ -50,7 +50,7 @@ final class SubItemTests: XCTestCase {
     }
 
     func testUnaFilaNormalCuentaSuTotalSiEstaMarcada() {
-        var row = makeRow([], selected: true, expandable: false)
+        var row = makeRow([], selected: true, expansion: .none)
         row.usage = FileSystem.Usage(bytes: 1234, files: 9)
         XCTAssertFalse(row.hasItems)
         XCTAssertEqual(row.selectedBytes, 1234)
@@ -70,7 +70,7 @@ final class SubItemTests: XCTestCase {
     }
 
     func testUnaFilaNormalSigueBorrandoSuContenido() {
-        var row = makeRow([], selected: true, expandable: false)
+        var row = makeRow([], selected: true, expansion: .none)
         row.usage = FileSystem.Usage(bytes: 10, files: 1)
         let (paths, scope) = row.victims
 
@@ -90,9 +90,16 @@ final class SubItemTests: XCTestCase {
 
     // MARK: - Catalogo
 
-    func testSoloLasFilasDeGradleSeDespliegan() {
-        let expandables = Catalog.targets.filter(\.expandable).map(\.id)
-        XCTAssertEqual(Set(expandables), ["gradle.caches", "gradle.wrapper"])
+    /// Lista explicita a proposito: desplegar una fila cambia lo que se borra,
+    /// asi que anadir una tiene que ser una decision, no un descuido.
+    func testSoloSeDesplieganLasFilasPrevistas() {
+        let byChildren = Catalog.targets.filter { $0.expansion == .children }.map(\.id)
+        XCTAssertEqual(Set(byChildren), ["gradle.caches", "gradle.wrapper",
+                                         "xcode.deriveddata", "xcode.devicesupport",
+                                         "xcode.archives"])
+
+        let byPaths = Catalog.targets.filter { $0.expansion == .paths }.map(\.id)
+        XCTAssertEqual(Set(byPaths), ["jetbrains.caches", "jetbrains.logs", "caches.other"])
     }
 
     func testLasFilasDesplegablesBorranPorContenido() {
@@ -101,5 +108,58 @@ final class SubItemTests: XCTestCase {
         for target in Catalog.targets where target.expandable {
             XCTAssertEqual(target.scope, .contents, target.id)
         }
+    }
+
+    /// Toda fila en modo .paths tiene que llevar comodin: sin el, el patron
+    /// apunta a una sola carpeta y el desglose seria una fila con un solo hijo.
+    func testLasFilasPorRutaExpandenUnComodin() {
+        for target in Catalog.targets where target.expansion == .paths {
+            XCTAssertTrue(target.patterns.allSatisfy { $0.contains("*") }, target.id)
+        }
+    }
+
+    // MARK: - Modo .paths
+
+    /// En .children el item es un hijo del target y se borra entero; en .paths
+    /// el item es el target mismo, y vaciarlo no es lo mismo que borrarlo.
+    func testEnModoPorRutaSeRespetaElScopeDelTarget() {
+        let target = Target(id: "caches.other",
+                            group: .system, risk: .caution, scope: .contents,
+                            patterns: ["~/Library/Caches/*"],
+                            isCatchAll: true, expansion: .paths)
+        var row = Row(target: target, selected: false)
+        let cache = NSHomeDirectory() + "/Library/Caches/com.ejemplo.app"
+        row.paths = [cache]
+        row.items = [SubItem(path: cache, name: "com.ejemplo.app",
+                             usage: FileSystem.Usage(bytes: 900, files: 3), selected: true)]
+
+        let (paths, scope) = row.victims
+        XCTAssertEqual(scope, .contents, "la carpeta de la app se vacia, no se borra")
+        XCTAssertEqual(paths, [cache])
+    }
+
+    // MARK: - Antiguedad
+
+    private func item(daysAgo: Double) -> SubItem {
+        let when = Date().addingTimeInterval(-daysAgo * 24 * 60 * 60)
+        return SubItem(path: NSHomeDirectory() + "/.gradle/caches/9.1.0",
+                       name: "9.1.0",
+                       usage: FileSystem.Usage(bytes: 1, files: 1,
+                                               newest: time_t(when.timeIntervalSince1970)))
+    }
+
+    func testUnaSubcarpetaSinTocarEnAnoYMedioSeMarcaComoVieja() {
+        XCTAssertTrue(item(daysAgo: 540).isStale)
+    }
+
+    func testUnaSubcarpetaDeLaSemanaPasadaNoSeMarca() {
+        XCTAssertFalse(item(daysAgo: 7).isStale)
+    }
+
+    func testSinFechaNoSeMarcaNada() {
+        var blank = item(daysAgo: 540)
+        blank.usage.newest = 0
+        XCTAssertNil(blank.usage.modified)
+        XCTAssertFalse(blank.isStale, "sin dato no se acusa a nadie de vieja")
     }
 }

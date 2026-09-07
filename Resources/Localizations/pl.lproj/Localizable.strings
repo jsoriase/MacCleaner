@@ -43,6 +43,7 @@
 "group.none" = "Nic";
 
 /* ---- header ---- */
+"header.free" = "%@ wolne z %@";
 "header.notScanned" = "Nie przeskanowano";
 "header.reclaimable" = "Miejsce do odzyskania";
 "header.rescan" = "Skanuj ponownie";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Pliki: %d";
 "row.noPath" = "Nie znaleziono pasującej ścieżki na tym Macu.";
+"row.reveal" = "Pokaż w Finderze";
 
 /* ---- select ---- */
 "select.clear" = "Odznacz wszystko";

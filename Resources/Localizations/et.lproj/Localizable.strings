@@ -43,6 +43,7 @@
 "group.none" = "Mitte midagi";
 
 /* ---- header ---- */
+"header.free" = "%@ vaba, kokku %@";
 "header.notScanned" = "Skannimata";
 "header.reclaimable" = "Vabastatav ruum";
 "header.rescan" = "Skanni uuesti";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Failid: %d";
 "row.noPath" = "Sellest Macist ei leitud ühtegi sobivat teed.";
+"row.reveal" = "Näita Finderis";
 
 /* ---- select ---- */
 "select.clear" = "Tühista valik";

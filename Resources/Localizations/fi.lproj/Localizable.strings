@@ -43,6 +43,7 @@
 "group.none" = "Ei mitään";
 
 /* ---- header ---- */
+"header.free" = "%@ vapaana, yhteensä %@";
 "header.notScanned" = "Ei tarkistettu";
 "header.reclaimable" = "Vapautettava tila";
 "header.rescan" = "Tarkista uudelleen";
@@ -64,6 +65,7 @@
 /* ---- row ---- */
 "row.files" = "Tiedostot: %d";
 "row.noPath" = "Tästä Macista ei löytynyt yhtään vastaavaa polkua.";
+"row.reveal" = "Näytä Finderissä";
 
 /* ---- select ---- */
 "select.clear" = "Poista kaikki valinnat";
