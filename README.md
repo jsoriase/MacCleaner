@@ -1,5 +1,7 @@
 # MacCleaner
 
+<img src="art/logo512.png" width="128" alt="MacCleaner logo">
+
 Limpiador de cachés de desarrollo para macOS. Nativo, sin dependencias, 1 MB.
 
 ![Swift](https://img.shields.io/badge/Swift-6-orange) ![macOS](https://img.shields.io/badge/macOS-13%2B-blue)
