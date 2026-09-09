@@ -13,11 +13,15 @@
 "alert.report.failures" = "Net alles konnt geläscht ginn (betraff Kategorien: %d). Meeschtens ass et eng Fro vun de Rechter: gëff MacCleaner de vollen Disquenzougrëff an den Astellungen › Privatsphär a Sécherheet.";
 "alert.report.freed" = "%@ fräigemaach.";
 "alert.report.title" = "Botzen ofgeschloss";
+"alert.report.trashed" = "%@ an de Poubelle geréckelt. De Plaz gëtt beim Eidelmaachen fräi.";
 
 /* ---- category ---- */
+"category.ai" = "KI-Geschirr";
+"category.browsers" = "Browseren";
 "category.jvm" = "Android, Gradle a JVM";
 "category.langs" = "Aner Sproochen";
 "category.node" = "Node a Web";
+"category.projects" = "Projeten";
 "category.system" = "System an Apps";
 "category.tools" = "Package-Manager";
 "category.xcode" = "Xcode an iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Elo analyséieren";
 "empty.subtitle" = "Näischt ass ausgewielt: du entscheeds, wat geläscht gëtt, a bestätegs virdrun.";
 "empty.title" = "Analyséier fir ze gesinn, wéi vill Späicher du fräi kriss";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ ass net installéiert, oder MacCleaner fënnt et net.";
 
 /* ---- footer ---- */
 "footer.clean" = "%@ botzen";
@@ -72,10 +79,34 @@
 "select.mark" = "Auswielen";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Caches vun Code-Assistenten";
+"target.ai.caches.note" = "Temporär Fichieren vu Claude, Codex, Cursor an OpenCode";
+"target.ai.models.name" = "Erofgelueden KI-Modeller";
+"target.ai.models.note" = "Gewiichter vun Ollama, Hugging Face a LM Studio: e puer GB pro Stéck";
+"target.ai.vmbundles.name" = "Virtuell Maschinne vun Assistenten";
+"target.ai.vmbundles.note" = "Disk-Images, déi Claude erofluet fir Code auszeféieren";
+"target.ai.worktrees.name" = "Aarbechtsbeem vun Agenten";
+"target.ai.worktrees.note" = "Kopie vun dénge Projeten, déi Agenten an ~/.codex/worktrees loossen";
+"target.android.avd.name" = "Android-Emulatoren";
+"target.android.avd.note" = "All AVD hält säin Disk a säi Status; du muss en nei uleeën";
 "target.android.caches.name" = "Android-Cache";
 "target.android.caches.note" = "Build-Cache vum SDK an temporär Donnéeë vun den Ustrumenter";
+"target.android.systemimages.name" = "Android-Systembiller";
+"target.android.systemimages.note" = "Vum SDK Manager erofgelueden, ee pro API-Versioun";
+"target.browsers.cache.name" = "Browser-Caches";
+"target.browsers.cache.note" = "Säiten, Biller a Shader vu Chrome, Brave, Edge, Chromium a Firefox";
+"target.browsers.cookies.name" = "Cookien";
+"target.browsers.cookies.note" = "Mellt dech iwwerall of a brauch bal näischt";
 "target.browsers.headless.name" = "Playwright-/Puppeteer-Browser";
 "target.browsers.headless.note" = "Chromium, Firefox a WebKit, erofgelueden fir E2E-Tester";
+"target.browsers.history.name" = "Browser-Historique";
+"target.browsers.history.note" = "Besichte Säiten a meescht benotzte Säiten. Kënnt net zréck";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Offline-Donnéeë vu Web-Apps; gi beim Besuch nei gelueden";
+"target.browsers.storage.name" = "Späicher vun de Säiten";
+"target.browsers.storage.note" = "Local Storage an IndexedDB; e puer Säite froen nei no der Umeldung";
+"target.browsers.updater.name" = "Updater-Cache";
+"target.browsers.updater.note" = "Scho installéiert Browser-Updates";
 "target.bun.deno.name" = "Bun- an Deno-Cache";
 "target.bun.deno.note" = "Modulen, déi Bun an Deno erofgelueden hunn";
 "target.caches.other.name" = "Aner App-Cachen";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Carthage-Frameworken a -Checkouten";
 "target.cocoapods.name" = "CocoaPods-Cache";
 "target.cocoapods.note" = "Erofgelueden Pods a Specs";
+"target.containers.caches.name" = "Caches vu Sandbox-Apps";
+"target.containers.caches.note" = "All Sandbox-App hält hir eege Kopie an hirem Container";
+"target.docker.disk.name" = "Disk vun der Docker-VM";
+"target.docker.disk.note" = "Gëtt mat docker system prune fräi. Deng Images a Volumen bleiwen";
 "target.docker.logs.name" = "Docker-Desktop-Logbicher";
 "target.docker.logs.note" = "Nëmme Logbicher. Images a Volumen ginn net ugerëmt";
+"target.electron.appsupport.name" = "Caches vun Electron-Apps";
+"target.electron.appsupport.note" = "Cache, Code Cache a GPUCache ausserhalb vun ~/Library/Caches";
 "target.electron.name" = "Electron-Cache";
 "target.electron.note" = "Binäre vun Electron an electron-builder";
 "target.flutter.name" = "Flutter-/Dart-Cache";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "All Gradle-Versioun, déi e Projet erofgelueden huet (ronn 150 MB pro Stéck)";
 "target.homebrew.name" = "Homebrew-Cache";
 "target.homebrew.note" = "Bottles a al brew-Downloads";
-"target.ios.backups.name" = "iOS-Backupen";
-"target.ios.backups.note" = "Backupe vum iPhone an iPad. Kéinte déi eenzeg Kopie sinn, déi s du hues";
+"target.installers.old.name" = "Erofgelueden Installateuren";
+"target.installers.old.note" = "Updates a Pakéiter, déi scho installéiert sinn";
 "target.jetbrains.caches.name" = "JetBrains-/Android-Studio-Cache";
 "target.jetbrains.caches.note" = "Indexen a Cachen vun IntelliJ, Android Studio, PyCharm an anerer";
 "target.jetbrains.logs.name" = "JetBrains-/Android-Studio-Logbicher";
@@ -118,6 +155,10 @@
 "target.php.note" = "Packagen, déi de Composer erofgelueden huet";
 "target.pnpm.name" = "pnpm-Store";
 "target.pnpm.note" = "Gemeinsame Package-Store vu pnpm";
+"target.projects.builds.name" = "Build-Resultater";
+"target.projects.builds.note" = "build, target, .next an DerivedData. De nächste Build mécht se nei";
+"target.projects.deps.name" = "Ofhängegkeete vu Projeten";
+"target.projects.deps.note" = "node_modules, Pods, .venv a vendor. Däi Paketmanager hëlt se zréck";
 "target.python.name" = "Python-Cache";
 "target.python.note" = "pip, uv, poetry a kompiléiert Wheels";
 "target.ruby.name" = "Ruby-Cache";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Fënsteren an Dokumenter, déi Apps beim Start erëm opmaachen";
 "target.sim.caches.name" = "CoreSimulator-Cache";
 "target.sim.caches.note" = "Erofgelueden Runtimen an de gemeinsame Cache vun de Simulateuren";
-"target.sim.devicedata.name" = "Temporär Simulateursdonnéeën";
-"target.sim.devicedata.note" = "Cachen an /tmp an all Simulateur (installéiert Apps bleiwen)";
+"target.sim.devices.name" = "Installéiert Simulatoren";
+"target.sim.devices.note" = "Ginn mat simctl geläscht, sou datt Xcode kee Geescht behält";
 "target.swiftpm.name" = "Swift-Package-Manager-Cache";
 "target.swiftpm.note" = "Repositoryen a Binäre vun de SwiftPM-Ofhängegkeeten";
 "target.trash.name" = "Poubelle";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Symboler fir all iOS-Versioun, vun där s du en Apparat ugeschloss hues";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Datselwecht fir déi aner Plattformen";
+"target.xcode.doccache.name" = "Erofgelueden Xcode-Dokumentatioun";
+"target.xcode.doccache.note" = "Xcode luet se nei erof wann s du se opmaachs";
 "target.xcode.previews.name" = "Xcode-Virschauen";
 "target.xcode.previews.note" = "Cache fir d’SwiftUI-Virschauen";
 "target.yarn.name" = "Yarn-Cache";
 "target.yarn.note" = "Packagen, déi Yarn erofgelueden huet";
+
+/* ---- why ---- */
+"why.dataLoss" = "Dat gehéiert dir a läit néierens soss: eemol geläscht, ass et fort.";
+"why.recreate" = "Du muss et vun Hand nei uleeën, a säin aktuellen Zoustand kënnt net zréck.";
+"why.redownload" = "Muss beim nächste Mol nees erofgeluede ginn.";
+"why.regenerates" = "Gëtt beim nächste Mol vun eleng nei ugeluecht, ouni datt s du et mierks.";
+"why.signOut" = "Du gëss op de Säiten ofgemellt déi et benotzen a muss dech nei umellen.";
+"why.slowerBuild" = "Et geet näischt verluer, mä de nächste Build brauch méi laang fir et nei ze maachen.";
+"why.toolDecides" = "D’Geschir läscht selwer, also entscheet et wat genau verschwënnt.";
+"why.unknown" = "Sammelkëscht: hei landet wat keng aner Rei benannt huet. Kuck ier s du läschs.";

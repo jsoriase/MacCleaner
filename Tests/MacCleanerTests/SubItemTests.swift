@@ -96,16 +96,24 @@ final class SubItemTests: XCTestCase {
         let byChildren = Catalog.targets.filter { $0.expansion == .children }.map(\.id)
         XCTAssertEqual(Set(byChildren), ["gradle.caches", "gradle.wrapper",
                                          "xcode.deriveddata", "xcode.devicesupport",
-                                         "xcode.archives"])
+                                         "xcode.archives", "ai.worktrees",
+                                         "ai.vmbundles", "ai.models", "android.avd"])
 
         let byPaths = Catalog.targets.filter { $0.expansion == .paths }.map(\.id)
-        XCTAssertEqual(Set(byPaths), ["jetbrains.caches", "jetbrains.logs", "caches.other"])
+        XCTAssertEqual(Set(byPaths), ["jetbrains.caches", "jetbrains.logs", "caches.other",
+                                      "electron.appsupport", "containers.caches",
+                                      "sim.devices", "projects.deps", "projects.builds",
+                                      "android.systemimages"])
     }
 
     func testLasFilasDesplegablesBorranPorContenido() {
         // Sus hijos son justo las victimas de un borrado .contents, asi que el
-        // desglose y el borrado normal tienen que coincidir.
-        for target in Catalog.targets where target.expandable {
+        // desglose y el borrado normal tienen que coincidir. Quedan fuera dos
+        // casos: las filas que recupera una herramienta, donde no borramos
+        // nosotros, y las de barrido, donde cada ruta encontrada es un
+        // `node_modules` entero y vaciarlo no tendria sentido.
+        for target in Catalog.targets
+        where target.expandable && target.reclaim == nil && !target.isSweep {
             XCTAssertEqual(target.scope, .contents, target.id)
         }
     }
@@ -113,7 +121,9 @@ final class SubItemTests: XCTestCase {
     /// Toda fila en modo .paths tiene que llevar comodin: sin el, el patron
     /// apunta a una sola carpeta y el desglose seria una fila con un solo hijo.
     func testLasFilasPorRutaExpandenUnComodin() {
-        for target in Catalog.targets where target.expansion == .paths {
+        // Las de barrido no: sus rutas no salen de un comodin, sino de recorrer
+        // las carpetas de codigo buscando por nombre.
+        for target in Catalog.targets where target.expansion == .paths && !target.isSweep {
             XCTAssertTrue(target.patterns.allSatisfy { $0.contains("*") }, target.id)
         }
     }
@@ -161,5 +171,55 @@ final class SubItemTests: XCTestCase {
         blank.usage.newest = 0
         XCTAssertNil(blank.usage.modified)
         XCTAssertFalse(blank.isStale, "sin dato no se acusa a nadie de vieja")
+    }
+}
+
+/// El nivel de riesgo dice cuanto cuidado hay que tener; la consecuencia dice
+/// por que. Si las dos no cuadran, el distintivo miente al pasar el raton.
+final class ConsequenceTests: XCTestCase {
+
+    func testTodaFilaSeguraSeRehaceSola() {
+        for target in Catalog.targets where target.risk == .safe {
+            XCTAssertEqual(target.why, .regenerates, target.id)
+        }
+    }
+
+    /// Al reves tambien: nada que se rehaga solo puede estar etiquetado de otra
+    /// forma, o el boton de «Seguras» se estaria dejando filas fuera.
+    func testSoloLasFilasSegurasSeRehacenSolas() {
+        for target in Catalog.targets where target.why == .regenerates {
+            XCTAssertEqual(target.risk, .safe, target.id)
+        }
+    }
+
+    func testLoQueSeRegeneraNoSePierde() {
+        let esperadas: Set<Consequence> = [.slowerBuild, .redownload]
+        for target in Catalog.targets where target.risk == .rebuild {
+            XCTAssertTrue(esperadas.contains(target.why),
+                          "\(target.id) promete regenerarse y dice \(target.why.rawValue)")
+        }
+    }
+
+    /// Una fila de «Cuidado» no puede consolar diciendo que solo tardara mas.
+    func testCuidadoNuncaEsSoloUnaCompilacionMasLenta() {
+        for target in Catalog.targets where target.risk == .caution {
+            XCTAssertNotEqual(target.why, .slowerBuild, target.id)
+            XCTAssertNotEqual(target.why, .regenerates, target.id)
+        }
+    }
+
+    /// Si borra otro programa, hay que decirlo: es la unica consecuencia que no
+    /// depende de lo que decidamos nosotros.
+    func testSiBorraOtroProgramaLaFilaLoDice() {
+        for target in Catalog.targets {
+            XCTAssertEqual(target.reclaim != nil, target.why == .toolDecides, target.id)
+        }
+    }
+
+    func testCadaConsecuenciaTieneTexto() {
+        for why in [Consequence.regenerates, .slowerBuild, .redownload, .recreate,
+                    .dataLoss, .signOut, .toolDecides, .unknown] {
+            XCTAssertFalse(why.text.isEmpty, why.rawValue)
+        }
     }
 }

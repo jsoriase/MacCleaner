@@ -14,11 +14,15 @@
 "alert.report.failures" = "一部の項目を削除できませんでした（対象カテゴリ: %d）。多くの場合は権限の問題です。「システム設定 › プライバシーとセキュリティ」で MacCleaner にフルディスクアクセスを許可してください。";
 "alert.report.freed" = "%@ を解放しました。";
 "alert.report.title" = "クリーンアップ完了";
+"alert.report.trashed" = "%@ をゴミ箱に移動しました。空にすると容量が解放されます。";
 
 /* ---- category ---- */
+"category.ai" = "AIツール";
+"category.browsers" = "ブラウザ";
 "category.jvm" = "Android・Gradle・JVM";
 "category.langs" = "その他の言語";
 "category.node" = "Node と Web";
+"category.projects" = "プロジェクト";
 "category.system" = "システムとApp";
 "category.tools" = "パッケージマネージャ";
 "category.xcode" = "Xcode と iOS";
@@ -31,6 +35,9 @@
 "empty.button" = "今すぐスキャン";
 "empty.subtitle" = "何も選択されていません。削除する対象はあなたが選び、実行前に確認します。";
 "empty.title" = "スキャンして、どれだけ容量を空けられるか確認しましょう";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ がインストールされていないか、MacCleaner から見つかりません。";
 
 /* ---- footer ---- */
 "footer.clean" = "%@ を削除";
@@ -73,10 +80,34 @@
 "select.mark" = "選択";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "コーディングアシスタントのキャッシュ";
+"target.ai.caches.note" = "Claude、Codex、Cursor、OpenCode の一時ファイル";
+"target.ai.models.name" = "ダウンロード済みのAIモデル";
+"target.ai.models.note" = "Ollama、Hugging Face、LM Studio の重み。1つで数ギガバイト";
+"target.ai.vmbundles.name" = "アシスタントの仮想マシン";
+"target.ai.vmbundles.note" = "Claude がコード実行のためにダウンロードするディスクイメージ";
+"target.ai.worktrees.name" = "エージェントの作業ツリー";
+"target.ai.worktrees.note" = "エージェントが ~/.codex/worktrees に残したプロジェクトの複製";
+"target.android.avd.name" = "Androidエミュレータ";
+"target.android.avd.note" = "AVDごとにディスクと状態を持ちます。作り直しが必要です";
 "target.android.caches.name" = "Android のキャッシュ";
 "target.android.caches.note" = "SDK のビルドキャッシュとツールの一時データ";
+"target.android.systemimages.name" = "Androidシステムイメージ";
+"target.android.systemimages.note" = "SDK Managerがダウンロードします。APIバージョンごとに1つ";
+"target.browsers.cache.name" = "ブラウザのキャッシュ";
+"target.browsers.cache.note" = "Chrome、Brave、Edge、Chromium、Firefox のページ、画像、シェーダ";
+"target.browsers.cookies.name" = "Cookie";
+"target.browsers.cookies.note" = "すべてのサイトからログアウトします。容量はほとんど減りません";
 "target.browsers.headless.name" = "Playwright / Puppeteer のブラウザ";
 "target.browsers.headless.note" = "E2E テスト用にダウンロードした Chromium、Firefox、WebKit";
+"target.browsers.history.name" = "閲覧履歴";
+"target.browsers.history.note" = "訪れたサイトとよく使うページ。元には戻りません";
+"target.browsers.serviceworkers.name" = "Service Worker";
+"target.browsers.serviceworkers.note" = "オフライン用のウェブアプリのデータ。訪問時に再取得されます";
+"target.browsers.storage.name" = "サイトのストレージ";
+"target.browsers.storage.note" = "Local Storage と IndexedDB。一部のサイトで再ログインが必要になります";
+"target.browsers.updater.name" = "アップデータのキャッシュ";
+"target.browsers.updater.note" = "すでに適用済みのブラウザ更新";
 "target.bun.deno.name" = "Bun と Deno のキャッシュ";
 "target.bun.deno.note" = "Bun と Deno がダウンロードしたモジュール";
 "target.caches.other.name" = "その他のAppキャッシュ";
@@ -85,8 +116,14 @@
 "target.carthage.note" = "Carthage のフレームワークとチェックアウト";
 "target.cocoapods.name" = "CocoaPods のキャッシュ";
 "target.cocoapods.note" = "ダウンロード済みの pod と spec";
+"target.containers.caches.name" = "サンドボックスアプリのキャッシュ";
+"target.containers.caches.note" = "サンドボックスの各アプリはコンテナ内に自分専用の複製を持ちます";
+"target.docker.disk.name" = "Docker仮想マシンのディスク";
+"target.docker.disk.note" = "docker system prune で解放されます。イメージとボリュームは残ります";
 "target.docker.logs.name" = "Docker Desktop のログ";
 "target.docker.logs.note" = "ログのみ。イメージとボリュームには触れません";
+"target.electron.appsupport.name" = "Electronアプリのキャッシュ";
+"target.electron.appsupport.note" = "~/Library/Caches の外にある Cache、Code Cache、GPUCache";
 "target.electron.name" = "Electron のキャッシュ";
 "target.electron.note" = "Electron と electron-builder のバイナリ";
 "target.flutter.name" = "Flutter / Dart のキャッシュ";
@@ -103,8 +140,8 @@
 "target.gradle.wrapper.note" = "プロジェクトごとにダウンロードされた Gradle の各バージョン（1 つ約 150 MB）";
 "target.homebrew.name" = "Homebrew のキャッシュ";
 "target.homebrew.note" = "bottle と brew の古いダウンロード";
-"target.ios.backups.name" = "iOS のバックアップ";
-"target.ios.backups.note" = "iPhone・iPad のバックアップ。これが唯一の控えかもしれません";
+"target.installers.old.name" = "ダウンロード済みのインストーラ";
+"target.installers.old.note" = "すでにインストール済みのアップデートとパッケージ";
 "target.jetbrains.caches.name" = "JetBrains / Android Studio のキャッシュ";
 "target.jetbrains.caches.note" = "IntelliJ、Android Studio、PyCharm などのインデックスとキャッシュ";
 "target.jetbrains.logs.name" = "JetBrains / Android Studio のログ";
@@ -119,6 +156,10 @@
 "target.php.note" = "Composer がダウンロードしたパッケージ";
 "target.pnpm.name" = "pnpm ストア";
 "target.pnpm.note" = "pnpm の共有パッケージストア";
+"target.projects.builds.name" = "ビルド成果物";
+"target.projects.builds.note" = "build、target、.next、DerivedData。次のビルドで作り直されます";
+"target.projects.deps.name" = "プロジェクトの依存関係";
+"target.projects.deps.note" = "node_modules、Pods、.venv、vendor。パッケージマネージャが再取得します";
 "target.python.name" = "Python のキャッシュ";
 "target.python.note" = "pip、uv、poetry とビルド済み wheel";
 "target.ruby.name" = "Ruby のキャッシュ";
@@ -129,8 +170,8 @@
 "target.savedstate.note" = "App の起動時に再度開かれるウインドウと書類";
 "target.sim.caches.name" = "CoreSimulator のキャッシュ";
 "target.sim.caches.note" = "ダウンロード済みランタイムとシミュレータの共有キャッシュ";
-"target.sim.devicedata.name" = "シミュレータの一時データ";
-"target.sim.devicedata.note" = "各シミュレータ内のキャッシュと /tmp（インストール済みAppは残ります）";
+"target.sim.devices.name" = "インストール済みのシミュレータ";
+"target.sim.devices.note" = "simctl で削除します。Xcode に幽霊デバイスが残りません";
 "target.swiftpm.name" = "Swift Package Manager のキャッシュ";
 "target.swiftpm.note" = "SwiftPM 依存関係のリポジトリとバイナリ";
 "target.trash.name" = "ゴミ箱";
@@ -149,7 +190,19 @@
 "target.xcode.devicesupport.note" = "デバイスを接続した各 iOS バージョンのシンボル";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "他のプラットフォームについても同様";
+"target.xcode.doccache.name" = "ダウンロード済みのXcodeドキュメント";
+"target.xcode.doccache.note" = "開いたときにXcodeが再びダウンロードします";
 "target.xcode.previews.name" = "Xcode プレビュー";
 "target.xcode.previews.note" = "SwiftUI プレビューのキャッシュ";
 "target.yarn.name" = "Yarn のキャッシュ";
 "target.yarn.note" = "Yarn がダウンロードしたパッケージ";
+
+/* ---- why ---- */
+"why.dataLoss" = "これはあなたのもので、ほかにコピーはありません。消せばそれきりです。";
+"why.recreate" = "手作業で作り直すことになり、いまの状態は戻りません。";
+"why.redownload" = "次に必要になったとき、もう一度ダウンロードすることになります。";
+"why.regenerates" = "次に必要になったとき勝手に作り直されます。気づくこともありません。";
+"why.signOut" = "これを使っているサイトからログアウトし、入り直すことになります。";
+"why.slowerBuild" = "失うものはありませんが、次のビルドは作り直すぶんだけ長くかかります。";
+"why.toolDecides" = "削除するのはツール自身なので、何が消えるかはツールが決めます。";
+"why.unknown" = "なんでも入れ：ほかのどの行も名前を付けなかったものがここに落ちます。消す前に確認を。";

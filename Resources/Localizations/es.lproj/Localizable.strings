@@ -14,11 +14,15 @@
 "alert.report.failures" = "No se pudo borrar todo (categorías afectadas: %d). Suele ser por permisos: concede Acceso total al disco a MacCleaner en Ajustes › Privacidad y seguridad.";
 "alert.report.freed" = "Liberados %@.";
 "alert.report.title" = "Limpieza terminada";
+"alert.report.trashed" = "Movidos %@ a la Papelera. El espacio se libera al vaciarla.";
 
 /* ---- category ---- */
+"category.ai" = "Herramientas de IA";
+"category.browsers" = "Navegadores";
 "category.jvm" = "Android, Gradle y JVM";
 "category.langs" = "Otros lenguajes";
 "category.node" = "Node y web";
+"category.projects" = "Proyectos";
 "category.system" = "Sistema y apps";
 "category.tools" = "Gestores de paquetes";
 "category.xcode" = "Xcode e iOS";
@@ -31,6 +35,9 @@
 "empty.button" = "Analizar ahora";
 "empty.subtitle" = "Nada viene marcado: eliges tú qué borrar y lo confirmas antes.";
 "empty.title" = "Analiza para ver cuánto espacio puedes recuperar";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ no está instalado, o MacCleaner no lo encuentra.";
 
 /* ---- footer ---- */
 "footer.clean" = "Limpiar %@";
@@ -73,10 +80,34 @@
 "select.mark" = "Marcar";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Cachés de asistentes de código";
+"target.ai.caches.note" = "Archivos temporales de Claude, Codex, Cursor y OpenCode";
+"target.ai.models.name" = "Modelos de IA descargados";
+"target.ai.models.note" = "Pesos de Ollama, Hugging Face y LM Studio: gigabytes cada uno";
+"target.ai.vmbundles.name" = "Máquinas virtuales de asistentes";
+"target.ai.vmbundles.note" = "Imágenes de disco que descarga Claude para ejecutar código";
+"target.ai.worktrees.name" = "Árboles de trabajo de agentes";
+"target.ai.worktrees.note" = "Copias de tus proyectos que dejan los agentes en ~/.codex/worktrees";
+"target.android.avd.name" = "Emuladores de Android";
+"target.android.avd.note" = "Cada AVD guarda su disco y su estado; hay que volver a crearlo";
 "target.android.caches.name" = "Caché de Android";
 "target.android.caches.note" = "Build cache del SDK y datos temporales de las herramientas";
+"target.android.systemimages.name" = "Imágenes de sistema de Android";
+"target.android.systemimages.note" = "Las descarga el SDK Manager, una por versión de API";
+"target.browsers.cache.name" = "Caché de los navegadores";
+"target.browsers.cache.note" = "Páginas, imágenes y shaders de Chrome, Brave, Edge, Chromium y Firefox";
+"target.browsers.cookies.name" = "Cookies";
+"target.browsers.cookies.note" = "Cierra la sesión en todos los sitios, y no ocupa casi nada";
 "target.browsers.headless.name" = "Navegadores de Playwright / Puppeteer";
 "target.browsers.headless.note" = "Chromium, Firefox y WebKit descargados para tests E2E";
+"target.browsers.history.name" = "Historial de navegación";
+"target.browsers.history.note" = "Sitios visitados y páginas más usadas. No se recupera";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Datos de apps web sin conexión; se descargan otra vez al visitarlas";
+"target.browsers.storage.name" = "Almacenamiento de los sitios";
+"target.browsers.storage.note" = "Local Storage e IndexedDB; algunos sitios pedirán iniciar sesión";
+"target.browsers.updater.name" = "Caché del actualizador";
+"target.browsers.updater.note" = "Descargas de actualizaciones del navegador ya instaladas";
 "target.bun.deno.name" = "Caché de Bun y Deno";
 "target.bun.deno.note" = "Módulos descargados por Bun y Deno";
 "target.caches.other.name" = "Otras cachés de aplicaciones";
@@ -85,8 +116,14 @@
 "target.carthage.note" = "Frameworks y checkouts de Carthage";
 "target.cocoapods.name" = "Caché de CocoaPods";
 "target.cocoapods.note" = "Pods descargados y specs";
+"target.containers.caches.name" = "Cachés de apps en sandbox";
+"target.containers.caches.note" = "Cada app en sandbox guarda su copia dentro de su contenedor";
+"target.docker.disk.name" = "Disco de la máquina virtual de Docker";
+"target.docker.disk.note" = "Se libera con docker system prune. Tus imágenes y volúmenes se conservan";
 "target.docker.logs.name" = "Registros de Docker Desktop";
 "target.docker.logs.note" = "Solo registros. No toca imágenes ni volúmenes";
+"target.electron.appsupport.name" = "Cachés de apps Electron";
+"target.electron.appsupport.note" = "Cache, Code Cache y GPUCache que viven fuera de ~/Library/Caches";
 "target.electron.name" = "Caché de Electron";
 "target.electron.note" = "Binarios de Electron y electron-builder";
 "target.flutter.name" = "Caché de Flutter / Dart";
@@ -103,8 +140,8 @@
 "target.gradle.wrapper.note" = "Cada versión de Gradle descargada por un proyecto (~150 MB cada una)";
 "target.homebrew.name" = "Caché de Homebrew";
 "target.homebrew.note" = "Bottles y descargas antiguas de brew";
-"target.ios.backups.name" = "Copias de seguridad de iOS";
-"target.ios.backups.note" = "Copias de iPhone y iPad. Pueden ser la única copia que tienes";
+"target.installers.old.name" = "Instaladores descargados";
+"target.installers.old.note" = "Actualizaciones y paquetes que ya están instalados";
 "target.jetbrains.caches.name" = "Caché de JetBrains / Android Studio";
 "target.jetbrains.caches.note" = "Índices y cachés de IntelliJ, Android Studio, PyCharm, etc.";
 "target.jetbrains.logs.name" = "Registros de JetBrains / Android Studio";
@@ -119,6 +156,10 @@
 "target.php.note" = "Paquetes descargados por Composer";
 "target.pnpm.name" = "Almacén de pnpm";
 "target.pnpm.note" = "Almacén de paquetes compartido de pnpm";
+"target.projects.builds.name" = "Salidas de compilación";
+"target.projects.builds.note" = "build, target, .next y DerivedData. La siguiente compilación los rehace";
+"target.projects.deps.name" = "Dependencias de proyectos";
+"target.projects.deps.note" = "node_modules, Pods, .venv y vendor. Su gestor de paquetes las vuelve a traer";
 "target.python.name" = "Caché de Python";
 "target.python.note" = "pip, uv, poetry y wheels compiladas";
 "target.ruby.name" = "Caché de Ruby";
@@ -129,8 +170,8 @@
 "target.savedstate.note" = "Ventanas y documentos que las apps reabren al arrancar";
 "target.sim.caches.name" = "Caché de CoreSimulator";
 "target.sim.caches.note" = "Runtimes descargados y caché compartida de los simuladores";
-"target.sim.devicedata.name" = "Datos temporales de simuladores";
-"target.sim.devicedata.note" = "Cachés y /tmp dentro de cada simulador (no borra las apps instaladas)";
+"target.sim.devices.name" = "Simuladores instalados";
+"target.sim.devices.note" = "Se borran con simctl para que Xcode no se quede con un fantasma";
 "target.swiftpm.name" = "Caché de Swift Package Manager";
 "target.swiftpm.note" = "Repositorios y binarios de dependencias SwiftPM";
 "target.trash.name" = "Papelera";
@@ -149,7 +190,19 @@
 "target.xcode.devicesupport.note" = "Símbolos de cada versión de iOS a la que has conectado un dispositivo";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Lo mismo para el resto de plataformas";
+"target.xcode.doccache.name" = "Documentación descargada de Xcode";
+"target.xcode.doccache.note" = "Xcode la vuelve a descargar cuando la abres";
 "target.xcode.previews.name" = "Xcode Previews";
 "target.xcode.previews.note" = "Caché de las vistas previas de SwiftUI";
 "target.yarn.name" = "Caché de Yarn";
 "target.yarn.note" = "Paquetes descargados por Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "Esto es tuyo y no hay copia en ningún otro sitio: si lo borras, se fue.";
+"why.recreate" = "Tendrás que volver a crearlo a mano, y su estado actual no vuelve.";
+"why.redownload" = "Habrá que volver a descargarlo la próxima vez que algo lo necesite.";
+"why.regenerates" = "Se vuelve a crear sola la próxima vez que haga falta, y no vas a notarlo.";
+"why.signOut" = "Cerrarás la sesión en los sitios que lo usen y tendrás que volver a entrar.";
+"why.slowerBuild" = "No se pierde nada, pero la siguiente compilación tardará más mientras lo rehace.";
+"why.toolDecides" = "Lo borra la propia herramienta, así que qué desaparece exactamente lo decide ella.";
+"why.unknown" = "Cajón de sastre: aquí cae lo que ninguna otra fila ha nombrado. Mira antes de borrar.";

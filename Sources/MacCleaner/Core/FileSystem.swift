@@ -56,11 +56,18 @@ enum FileSystem {
         NSHomeDirectory() + "/Downloads",
     ]
 
+    /// Un identificador protegido cubre tambien los suyos: `com.apple.Safari`
+    /// protege a `com.apple.Safari.SafeBrowsing`. Sin esto, una cache hermana
+    /// se colaba en el cajon de sastre y acabaria borrandose sin nombre propio
+    /// el dia que alguien le diera Acceso total al disco a la app.
+    private static func isProtectedName(_ name: String) -> Bool {
+        protectedNames.contains(name)
+            || protectedNames.contains { name.hasPrefix($0 + ".") }
+    }
+
     static func isProtected(_ path: String) -> Bool {
-        let name = (path as NSString).lastPathComponent
-        if protectedNames.contains(name) { return true }
         // Tambien cubre subcarpetas: .../com.apple.Music/algo
-        for component in (path as NSString).pathComponents where protectedNames.contains(component) {
+        for component in (path as NSString).pathComponents where isProtectedName(component) {
             return true
         }
         return protectedPrefixes.contains { path == $0 || path.hasPrefix($0 + "/") }
@@ -102,6 +109,12 @@ enum FileSystem {
         }
 
         var usage = Usage()
+        // Un fichero con varios nombres ocupa disco una vez, no una por nombre.
+        // Solo se apuntan los inodos con mas de un enlace, que son un punado:
+        // asi la memoria sigue plana aunque el arbol tenga medio millon de
+        // ficheros. Es lo mismo que hace `du`, y sin ello un almacen de pnpm
+        // —que es enlaces duros de principio a fin— se cuenta varias veces.
+        var countedLinks = Set<UInt64>()
         let duplicated = strdup(path)
         defer { free(duplicated) }
         var argv: [UnsafeMutablePointer<CChar>?] = [duplicated, nil]
@@ -119,9 +132,15 @@ enum FileSystem {
                     usage.bytes += Int64(st.pointee.st_blocks) * 512
                     usage.newest = max(usage.newest, st.pointee.st_mtimespec.tv_sec)
                 } else if kind == FTS_F || kind == FTS_SL || kind == FTS_SLNONE || kind == FTS_DEFAULT {
-                    usage.bytes += Int64(st.pointee.st_blocks) * 512
+                    // `files` cuenta entradas, que es lo que se ve en el Finder;
+                    // `bytes` cuenta disco, que es lo que se recupera.
                     usage.files += 1
                     usage.newest = max(usage.newest, st.pointee.st_mtimespec.tv_sec)
+                    let repeated = st.pointee.st_nlink > 1
+                        && !countedLinks.insert(UInt64(st.pointee.st_ino)).inserted
+                    if !repeated {
+                        usage.bytes += Int64(st.pointee.st_blocks) * 512
+                    }
                 }
             }
             seen += 1
@@ -215,6 +234,109 @@ enum FileSystem {
 
     static func isStale(_ date: Date, relativeTo now: Date = Date()) -> Bool {
         now.timeIntervalSince(date) > staleInterval
+    }
+
+    // MARK: - Artefactos de proyecto
+
+    /// Busca carpetas de artefactos por nombre dentro de las carpetas de codigo.
+    ///
+    /// A diferencia del resto del catalogo, aqui la ruta no se sabe de antemano:
+    /// depende de donde tenga cada uno el codigo. Se recorre con `fts`, igual
+    /// que al medir, pero sin bajar: en cuanto una carpeta hace match se anota
+    /// y se poda. Eso es lo que hace el recorrido barato, porque nadie llega a
+    /// entrar en un `node_modules`.
+    ///
+    /// `pruning` es la lista entera de artefactos y `collecting` la parte que
+    /// recoge esta fila. Se podan todos aunque solo se recojan algunos: sin eso
+    /// un `build` dentro de un `node_modules` acabaria contado dos veces.
+    static func artifactFolders(collecting: [String],
+                                pruning: [String],
+                                under roots: [String],
+                                maxDepth: Int = 8) -> [String] {
+        var found: [String] = []
+        var seen = Set<String>()
+
+        for root in roots {
+            let duplicated = strdup(root)
+            defer { free(duplicated) }
+            var argv: [UnsafeMutablePointer<CChar>?] = [duplicated, nil]
+
+            guard let stream = fts_open(&argv, FTS_PHYSICAL | FTS_NOCHDIR | FTS_XDEV, nil)
+            else { continue }
+            defer { fts_close(stream) }
+
+            while let entry = fts_read(stream) {
+                guard Int32(entry.pointee.fts_info) == FTS_D,
+                      let raw = entry.pointee.fts_path
+                else { continue }
+
+                let level = Int(entry.pointee.fts_level)
+                guard level > 0 else { continue }   // la raiz no es un artefacto
+
+                let path = String(cString: raw)
+                let name = (path as NSString).lastPathComponent
+
+                if matchesArtifact(name, pruning) {
+                    fts_set(stream, entry, FTS_SKIP)
+                    if matchesArtifact(name, collecting), seen.insert(path).inserted {
+                        found.append(path)
+                    }
+                    continue
+                }
+                // Ni .git ni ningun otro escondite: ahi no hay artefactos y el
+                // recorrido se dispara. Los que empiezan por punto y si lo son
+                // (.build, .venv) ya han salido por la rama de arriba.
+                if name.hasPrefix(".") || level >= maxDepth {
+                    fts_set(stream, entry, FTS_SKIP)
+                }
+            }
+        }
+        return found
+    }
+
+    /// Un asterisco final vale como prefijo: `cmake-build-*`. No hace falta mas.
+    static func matchesArtifact(_ name: String, _ patterns: [String]) -> Bool {
+        patterns.contains { pattern in
+            pattern.hasSuffix("*")
+                ? name.hasPrefix(String(pattern.dropLast()))
+                : name == pattern
+        }
+    }
+
+    // MARK: - Simuladores
+
+    /// Un simulador es una carpeta con su `device.plist` dentro. En `Devices/`
+    /// vive tambien `device_set.plist`, que es el registro de todos ellos y no
+    /// se borra: sin esta comprobacion sale como si fuera un dispositivo mas.
+    static func isSimulatorDevice(_ path: String) -> Bool {
+        isDirectory(path)
+            && FileManager.default.fileExists(
+                atPath: (path as NSString).appendingPathComponent("device.plist"))
+    }
+
+    /// Nombre legible de un simulador a partir de su carpeta.
+    ///
+    /// La carpeta se llama como el UDID, que no le dice nada a nadie. El nombre
+    /// y el sistema estan en `device.plist`, al lado. Devuelve nil si el plist
+    /// no esta: entonces la fila se queda con el UDID, que es mejor que mentir.
+    static func simulatorName(of path: String) -> String? {
+        let plist = (path as NSString).appendingPathComponent("device.plist")
+        guard let device = NSDictionary(contentsOfFile: plist),
+              let name = device["name"] as? String, !name.isEmpty
+        else { return nil }
+
+        guard let runtime = device["runtime"] as? String,
+              let short = simulatorRuntimeName(runtime)
+        else { return name }
+        return "\(name) · \(short)"
+    }
+
+    /// `com.apple.CoreSimulator.SimRuntime.iOS-26-5` -> `iOS 26.5`.
+    static func simulatorRuntimeName(_ identifier: String) -> String? {
+        guard let last = identifier.split(separator: ".").last else { return nil }
+        let parts = last.split(separator: "-")
+        guard parts.count >= 2 else { return nil }
+        return "\(parts[0]) " + parts.dropFirst().joined(separator: ".")
     }
 
     /// Acorta rutas largas para la UI: `/Users/x/Library/...` -> `~/Library/...`

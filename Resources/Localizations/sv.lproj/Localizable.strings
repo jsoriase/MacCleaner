@@ -13,11 +13,15 @@
 "alert.report.failures" = "Allt kunde inte raderas (berörda kategorier: %d). Oftast handlar det om behörigheter: ge MacCleaner fullständig diskåtkomst i Systeminställningar › Integritet och säkerhet.";
 "alert.report.freed" = "Frigjorde %@.";
 "alert.report.title" = "Rensningen är klar";
+"alert.report.trashed" = "Flyttade %@ till Papperskorgen. Utrymmet frigörs när du tömmer den.";
 
 /* ---- category ---- */
+"category.ai" = "AI-verktyg";
+"category.browsers" = "Webbläsare";
 "category.jvm" = "Android, Gradle och JVM";
 "category.langs" = "Andra språk";
 "category.node" = "Node och webb";
+"category.projects" = "Projekt";
 "category.system" = "System och appar";
 "category.tools" = "Pakethanterare";
 "category.xcode" = "Xcode och iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Sök igenom nu";
 "empty.subtitle" = "Inget är markerat: du väljer vad som ska tas bort och bekräftar innan.";
 "empty.title" = "Sök igenom för att se hur mycket utrymme du kan frigöra";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ är inte installerat, eller så hittar MacCleaner det inte.";
 
 /* ---- footer ---- */
 "footer.clean" = "Rensa %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Markera";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Cacher från kodassistenter";
+"target.ai.caches.note" = "Tillfälliga filer från Claude, Codex, Cursor och OpenCode";
+"target.ai.models.name" = "Hämtade AI-modeller";
+"target.ai.models.note" = "Vikter från Ollama, Hugging Face och LM Studio: gigabyte styck";
+"target.ai.vmbundles.name" = "Assistenternas virtuella maskiner";
+"target.ai.vmbundles.note" = "Skivavbilder som Claude hämtar för att köra kod";
+"target.ai.worktrees.name" = "Agenternas arbetsträd";
+"target.ai.worktrees.note" = "Kopior av dina projekt som agenter lämnar i ~/.codex/worktrees";
+"target.android.avd.name" = "Android-emulatorer";
+"target.android.avd.note" = "Varje AVD sparar sin disk och sitt tillstånd; du måste skapa den igen";
 "target.android.caches.name" = "Android-cache";
 "target.android.caches.note" = "SDK:ns byggcache och tillfälliga verktygsdata";
+"target.android.systemimages.name" = "Android-systemavbilder";
+"target.android.systemimages.note" = "Hämtas av SDK Manager, en per API-version";
+"target.browsers.cache.name" = "Webbläsarnas cache";
+"target.browsers.cache.note" = "Sidor, bilder och shaders från Chrome, Brave, Edge, Chromium och Firefox";
+"target.browsers.cookies.name" = "Kakor";
+"target.browsers.cookies.note" = "Loggar ut dig överallt och tar nästan ingen plats";
 "target.browsers.headless.name" = "Playwright-/Puppeteer-webbläsare";
 "target.browsers.headless.note" = "Chromium, Firefox och WebKit hämtade för E2E-tester";
+"target.browsers.history.name" = "Webbhistorik";
+"target.browsers.history.note" = "Besökta sajter och mest använda sidor. Kommer inte tillbaka";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Offlinedata från webbappar; hämtas igen när du besöker dem";
+"target.browsers.storage.name" = "Webbplatslagring";
+"target.browsers.storage.note" = "Local Storage och IndexedDB; vissa sajter ber dig logga in igen";
+"target.browsers.updater.name" = "Uppdaterarens cache";
+"target.browsers.updater.note" = "Redan installerade webbläsaruppdateringar";
 "target.bun.deno.name" = "Bun- och Deno-cache";
 "target.bun.deno.note" = "Moduler hämtade av Bun och Deno";
 "target.caches.other.name" = "Övriga appcacher";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Carthage-ramverk och checkouts";
 "target.cocoapods.name" = "CocoaPods-cache";
 "target.cocoapods.note" = "Hämtade pods och specs";
+"target.containers.caches.name" = "Cacher från sandlådeappar";
+"target.containers.caches.note" = "Varje sandlådeapp har sin egen kopia i sin container";
+"target.docker.disk.name" = "Disk för Dockers virtuella maskin";
+"target.docker.disk.note" = "Frigörs med docker system prune. Dina avbilder och volymer behålls";
 "target.docker.logs.name" = "Docker Desktop-loggar";
 "target.docker.logs.note" = "Endast loggar. Avbildningar och volymer rörs inte";
+"target.electron.appsupport.name" = "Cacher från Electron-appar";
+"target.electron.appsupport.note" = "Cache, Code Cache och GPUCache utanför ~/Library/Caches";
 "target.electron.name" = "Electron-cache";
 "target.electron.note" = "Binärer för Electron och electron-builder";
 "target.flutter.name" = "Flutter-/Dart-cache";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Varje Gradle-version som ett projekt har hämtat (~150 MB styck)";
 "target.homebrew.name" = "Homebrew-cache";
 "target.homebrew.note" = "Bottles och gamla brew-hämtningar";
-"target.ios.backups.name" = "iOS-säkerhetskopior";
-"target.ios.backups.note" = "Säkerhetskopior av iPhone och iPad. Kan vara din enda kopia";
+"target.installers.old.name" = "Hämtade installationsprogram";
+"target.installers.old.note" = "Uppdateringar och paket som redan är installerade";
 "target.jetbrains.caches.name" = "JetBrains-/Android Studio-cache";
 "target.jetbrains.caches.note" = "Index och cacher från IntelliJ, Android Studio, PyCharm med flera";
 "target.jetbrains.logs.name" = "JetBrains-/Android Studio-loggar";
@@ -118,6 +155,10 @@
 "target.php.note" = "Paket hämtade av Composer";
 "target.pnpm.name" = "pnpm-lager";
 "target.pnpm.note" = "pnpm:s delade paketlager";
+"target.projects.builds.name" = "Byggresultat";
+"target.projects.builds.note" = "build, target, .next och DerivedData. Nästa bygge gör om dem";
+"target.projects.deps.name" = "Projektberoenden";
+"target.projects.deps.note" = "node_modules, Pods, .venv och vendor. Din pakethanterare hämtar dem igen";
 "target.python.name" = "Python-cache";
 "target.python.note" = "pip, uv, poetry och kompilerade wheels";
 "target.ruby.name" = "Ruby-cache";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Fönster och dokument som appar återöppnar vid start";
 "target.sim.caches.name" = "CoreSimulator-cache";
 "target.sim.caches.note" = "Hämtade runtime-miljöer och simulatorernas delade cache";
-"target.sim.devicedata.name" = "Tillfälliga simulatordata";
-"target.sim.devicedata.note" = "Cacher och /tmp inuti varje simulator (installerade appar behålls)";
+"target.sim.devices.name" = "Installerade simulatorer";
+"target.sim.devices.note" = "Tas bort med simctl så att Xcode inte behåller ett spöke";
 "target.swiftpm.name" = "Swift Package Manager-cache";
 "target.swiftpm.note" = "Arkiv och binärer för SwiftPM-beroenden";
 "target.trash.name" = "Papperskorgen";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Symboler för varje iOS-version du har anslutit en enhet från";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Detsamma för övriga plattformar";
+"target.xcode.doccache.name" = "Hämtad Xcode-dokumentation";
+"target.xcode.doccache.note" = "Xcode hämtar den igen när du öppnar den";
 "target.xcode.previews.name" = "Xcode-förhandsvisningar";
 "target.xcode.previews.note" = "Cache för SwiftUI-förhandsvisningar";
 "target.yarn.name" = "Yarn-cache";
 "target.yarn.note" = "Paket hämtade av Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "Det här är ditt och finns inte kopierat någon annanstans: raderat är borta.";
+"why.recreate" = "Du får skapa det för hand igen, och dess nuvarande tillstånd kommer inte tillbaka.";
+"why.redownload" = "Måste hämtas igen nästa gång något behöver det.";
+"why.regenerates" = "Skapas om av sig själv nästa gång den behövs, utan att du märker något.";
+"why.signOut" = "Du loggas ut från sajterna som använder det och måste logga in igen.";
+"why.slowerBuild" = "Inget går förlorat, men nästa bygge tar längre tid medan det görs om.";
+"why.toolDecides" = "Verktyget raderar självt, så vad som exakt försvinner bestämmer det.";
+"why.unknown" = "Skräplåda: här hamnar det som ingen annan rad har namngett. Titta innan du raderar.";

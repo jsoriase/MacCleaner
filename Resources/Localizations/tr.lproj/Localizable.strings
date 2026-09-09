@@ -13,11 +13,15 @@
 "alert.report.failures" = "Her şey silinemedi (etkilenen kategori: %d). Genellikle izin meselesidir: Ayarlar › Gizlilik ve Güvenlik bölümünden MacCleaner’a Tam Disk Erişimi verin.";
 "alert.report.freed" = "%@ boşaltıldı.";
 "alert.report.title" = "Temizlik tamamlandı";
+"alert.report.trashed" = "%@ Çöp Kutusuna taşındı. Yer, kutuyu boşaltınca açılır.";
 
 /* ---- category ---- */
+"category.ai" = "YZ araçları";
+"category.browsers" = "Tarayıcılar";
 "category.jvm" = "Android, Gradle ve JVM";
 "category.langs" = "Diğer diller";
 "category.node" = "Node ve web";
+"category.projects" = "Projeler";
 "category.system" = "Sistem ve uygulamalar";
 "category.tools" = "Paket yöneticileri";
 "category.xcode" = "Xcode ve iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Şimdi tara";
 "empty.subtitle" = "Hiçbir şey seçili değil: neyin sileceğine sen karar verir, öncesinde onaylarsın.";
 "empty.title" = "Ne kadar alan kazanabileceğini görmek için tara";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ kurulu değil ya da MacCleaner onu bulamıyor.";
 
 /* ---- footer ---- */
 "footer.clean" = "%@ temizle";
@@ -72,10 +79,34 @@
 "select.mark" = "Seç";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Kod asistanlarının önbellekleri";
+"target.ai.caches.note" = "Claude, Codex, Cursor ve OpenCode geçici dosyaları";
+"target.ai.models.name" = "İndirilen YZ modelleri";
+"target.ai.models.note" = "Ollama, Hugging Face ve LM Studio ağırlıkları: her biri gigabaytlarca";
+"target.ai.vmbundles.name" = "Asistanların sanal makineleri";
+"target.ai.vmbundles.note" = "Claude’un kod çalıştırmak için indirdiği disk kalıpları";
+"target.ai.worktrees.name" = "Aracıların çalışma ağaçları";
+"target.ai.worktrees.note" = "Aracıların ~/.codex/worktrees içinde bıraktığı proje kopyaların";
+"target.android.avd.name" = "Android öykünücüleri";
+"target.android.avd.note" = "Her AVD kendi diskini ve durumunu tutar; yeniden oluşturman gerekir";
 "target.android.caches.name" = "Android önbelleği";
 "target.android.caches.note" = "SDK’nın derleme önbelleği ve araçların geçici verileri";
+"target.android.systemimages.name" = "Android sistem imajları";
+"target.android.systemimages.note" = "SDK Manager indirir, her API sürümü için bir tane";
+"target.browsers.cache.name" = "Tarayıcı önbellekleri";
+"target.browsers.cache.note" = "Chrome, Brave, Edge, Chromium ve Firefox sayfaları, görselleri ve shaderları";
+"target.browsers.cookies.name" = "Çerezler";
+"target.browsers.cookies.note" = "Seni her siteden çıkarır ve neredeyse hiç yer kaplamaz";
 "target.browsers.headless.name" = "Playwright / Puppeteer tarayıcıları";
 "target.browsers.headless.note" = "E2E testleri için indirilen Chromium, Firefox ve WebKit";
+"target.browsers.history.name" = "Gezinme geçmişi";
+"target.browsers.history.note" = "Ziyaret edilen siteler ve en çok kullanılan sayfalar. Geri gelmez";
+"target.browsers.serviceworkers.name" = "Service Worker’lar";
+"target.browsers.serviceworkers.note" = "Çevrimdışı web uygulaması verileri; ziyaret ettiğinde yeniden iner";
+"target.browsers.storage.name" = "Site depolaması";
+"target.browsers.storage.note" = "Local Storage ve IndexedDB; bazı siteler yeniden giriş isteyecek";
+"target.browsers.updater.name" = "Güncelleyici önbelleği";
+"target.browsers.updater.note" = "Zaten kurulmuş tarayıcı güncellemeleri";
 "target.bun.deno.name" = "Bun ve Deno önbelleği";
 "target.bun.deno.note" = "Bun ve Deno’nun indirdiği modüller";
 "target.caches.other.name" = "Diğer uygulama önbellekleri";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Carthage çatıları ve checkout’ları";
 "target.cocoapods.name" = "CocoaPods önbelleği";
 "target.cocoapods.note" = "İndirilen pod’lar ve spec’ler";
+"target.containers.caches.name" = "Kum havuzu uygulamalarının önbellekleri";
+"target.containers.caches.note" = "Her kum havuzu uygulaması kendi kopyasını kabında tutar";
+"target.docker.disk.name" = "Docker sanal makinesinin diski";
+"target.docker.disk.note" = "docker system prune ile boşalır. İmajların ve birimlerin korunur";
 "target.docker.logs.name" = "Docker Desktop günlükleri";
 "target.docker.logs.note" = "Yalnızca günlükler. İmajlara ve birimlere dokunulmaz";
+"target.electron.appsupport.name" = "Electron uygulamalarının önbellekleri";
+"target.electron.appsupport.note" = "~/Library/Caches dışında kalan Cache, Code Cache ve GPUCache";
 "target.electron.name" = "Electron önbelleği";
 "target.electron.note" = "Electron ve electron-builder ikili dosyaları";
 "target.flutter.name" = "Flutter / Dart önbelleği";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Bir projenin indirdiği her Gradle sürümü (her biri yaklaşık 150 MB)";
 "target.homebrew.name" = "Homebrew önbelleği";
 "target.homebrew.note" = "Bottle’lar ve eski brew indirmeleri";
-"target.ios.backups.name" = "iOS yedeklemeleri";
-"target.ios.backups.note" = "iPhone ve iPad yedekleri. Elindeki tek kopya olabilir";
+"target.installers.old.name" = "İndirilen kurulum dosyaları";
+"target.installers.old.note" = "Zaten kurulmuş güncellemeler ve paketler";
 "target.jetbrains.caches.name" = "JetBrains / Android Studio önbelleği";
 "target.jetbrains.caches.note" = "IntelliJ, Android Studio, PyCharm ve benzerlerinin dizinleri ve önbellekleri";
 "target.jetbrains.logs.name" = "JetBrains / Android Studio günlükleri";
@@ -118,6 +155,10 @@
 "target.php.note" = "Composer’ın indirdiği paketler";
 "target.pnpm.name" = "pnpm deposu";
 "target.pnpm.note" = "pnpm’in ortak paket deposu";
+"target.projects.builds.name" = "Derleme çıktıları";
+"target.projects.builds.note" = "build, target, .next ve DerivedData. Sonraki derleme onları yeniden üretir";
+"target.projects.deps.name" = "Proje bağımlılıkları";
+"target.projects.deps.note" = "node_modules, Pods, .venv ve vendor. Paket yöneticin onları geri getirir";
 "target.python.name" = "Python önbelleği";
 "target.python.note" = "pip, uv, poetry ve derlenmiş wheel’ler";
 "target.ruby.name" = "Ruby önbelleği";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Uygulamaların açılışta yeniden açtığı pencereler ve belgeler";
 "target.sim.caches.name" = "CoreSimulator önbelleği";
 "target.sim.caches.note" = "İndirilen çalışma zamanları ve benzeticilerin ortak önbelleği";
-"target.sim.devicedata.name" = "Benzeticilerin geçici verileri";
-"target.sim.devicedata.note" = "Her benzeticinin içindeki önbellekler ve /tmp (kurulu uygulamalar kalır)";
+"target.sim.devices.name" = "Kurulu simülatörler";
+"target.sim.devices.note" = "simctl ile silinir, böylece Xcode hayalet aygıtla kalmaz";
 "target.swiftpm.name" = "Swift Package Manager önbelleği";
 "target.swiftpm.note" = "SwiftPM bağımlılıklarının depoları ve ikili dosyaları";
 "target.trash.name" = "Çöp Sepeti";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Aygıt bağladığın her iOS sürümü için semboller";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Diğer platformlar için aynısı";
+"target.xcode.doccache.name" = "İndirilmiş Xcode belgeleri";
+"target.xcode.doccache.note" = "Xcode açtığında yeniden indirir";
 "target.xcode.previews.name" = "Xcode önizlemeleri";
 "target.xcode.previews.note" = "SwiftUI önizlemelerinin önbelleği";
 "target.yarn.name" = "Yarn önbelleği";
 "target.yarn.note" = "Yarn’ın indirdiği paketler";
+
+/* ---- why ---- */
+"why.dataLoss" = "Bu senin ve başka hiçbir yerde kopyası yok: silindi mi gitti.";
+"why.recreate" = "Elle yeniden oluşturman gerekecek ve şu anki durumu geri gelmez.";
+"why.redownload" = "Bir dahaki sefere bir şey ona ihtiyaç duyduğunda yeniden indirilmesi gerekir.";
+"why.regenerates" = "Bir dahaki sefere kendi kendine oluşur, fark bile etmezsin.";
+"why.signOut" = "Onu kullanan sitelerden çıkış yaparsın ve yeniden giriş yapman gerekir.";
+"why.slowerBuild" = "Hiçbir şey kaybolmaz ama sonraki derleme yeniden üretirken daha uzun sürer.";
+"why.toolDecides" = "Silen aracın kendisi, yani tam olarak neyin kaybolacağına o karar verir.";
+"why.unknown" = "Karma çekmece: başka hiçbir satırın adlandırmadığı şey buraya düşer. Silmeden önce bak.";

@@ -14,11 +14,15 @@
 "alert.report.failures" = "Some items could not be deleted (categories affected: %d). This is usually a permissions issue: grant MacCleaner Full Disk Access in Settings › Privacy & Security.";
 "alert.report.freed" = "Freed %@.";
 "alert.report.title" = "Cleanup finished";
+"alert.report.trashed" = "Moved %@ to the Trash. The space is freed when you empty it.";
 
 /* ---- category ---- */
+"category.ai" = "AI tools";
+"category.browsers" = "Browsers";
 "category.jvm" = "Android, Gradle & JVM";
 "category.langs" = "Other languages";
 "category.node" = "Node & web";
+"category.projects" = "Projects";
 "category.system" = "System & apps";
 "category.tools" = "Package managers";
 "category.xcode" = "Xcode & iOS";
@@ -31,6 +35,9 @@
 "empty.button" = "Scan now";
 "empty.subtitle" = "Nothing is selected: you choose what to delete, and confirm before anything happens.";
 "empty.title" = "Scan to see how much space you can reclaim";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ isn’t installed, or MacCleaner can’t find it.";
 
 /* ---- footer ---- */
 "footer.clean" = "Clean %@";
@@ -73,10 +80,34 @@
 "select.mark" = "Select";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Coding assistant caches";
+"target.ai.caches.note" = "Temporary files from Claude, Codex, Cursor and OpenCode";
+"target.ai.models.name" = "Downloaded AI models";
+"target.ai.models.note" = "Ollama, Hugging Face and LM Studio weights — gigabytes each";
+"target.ai.vmbundles.name" = "Assistant virtual machines";
+"target.ai.vmbundles.note" = "Disk images that Claude downloads to run code on your Mac";
+"target.ai.worktrees.name" = "Agent worktrees";
+"target.ai.worktrees.note" = "Copies of your projects left behind by coding agents in ~/.codex/worktrees";
+"target.android.avd.name" = "Android emulators";
+"target.android.avd.note" = "Each AVD keeps its disk and its state; you have to create it again";
 "target.android.caches.name" = "Android cache";
 "target.android.caches.note" = "SDK build cache and temporary tooling data";
+"target.android.systemimages.name" = "Android system images";
+"target.android.systemimages.note" = "Downloaded by the SDK Manager, one per API level";
+"target.browsers.cache.name" = "Browser caches";
+"target.browsers.cache.note" = "Pages, images and shaders from Chrome, Brave, Edge, Chromium and Firefox";
+"target.browsers.cookies.name" = "Cookies";
+"target.browsers.cookies.note" = "Signs you out of every site, and takes up almost nothing";
 "target.browsers.headless.name" = "Playwright / Puppeteer browsers";
 "target.browsers.headless.note" = "Chromium, Firefox and WebKit downloaded for E2E tests";
+"target.browsers.history.name" = "Browsing history";
+"target.browsers.history.note" = "Visited sites and most used pages. It does not come back";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Offline web app data; sites download it again when you visit them";
+"target.browsers.storage.name" = "Site storage";
+"target.browsers.storage.note" = "Local Storage and IndexedDB; some sites will ask you to sign in again";
+"target.browsers.updater.name" = "Updater cache";
+"target.browsers.updater.note" = "Browser update downloads that are already installed";
 "target.bun.deno.name" = "Bun and Deno cache";
 "target.bun.deno.note" = "Modules downloaded by Bun and Deno";
 "target.caches.other.name" = "Other application caches";
@@ -85,8 +116,14 @@
 "target.carthage.note" = "Carthage frameworks and checkouts";
 "target.cocoapods.name" = "CocoaPods cache";
 "target.cocoapods.note" = "Downloaded pods and specs";
+"target.containers.caches.name" = "Sandboxed app caches";
+"target.containers.caches.note" = "Every sandboxed app keeps its own copy inside its container";
+"target.docker.disk.name" = "Docker virtual machine disk";
+"target.docker.disk.note" = "Freed with docker system prune. Your images and volumes are kept";
 "target.docker.logs.name" = "Docker Desktop logs";
 "target.docker.logs.note" = "Logs only. Images and volumes are untouched";
+"target.electron.appsupport.name" = "Electron app caches";
+"target.electron.appsupport.note" = "Cache, Code Cache and GPUCache that live outside ~/Library/Caches";
 "target.electron.name" = "Electron cache";
 "target.electron.note" = "Electron and electron-builder binaries";
 "target.flutter.name" = "Flutter / Dart cache";
@@ -103,8 +140,8 @@
 "target.gradle.wrapper.note" = "Every Gradle version downloaded by a project (~150 MB each)";
 "target.homebrew.name" = "Homebrew cache";
 "target.homebrew.note" = "Bottles and old brew downloads";
-"target.ios.backups.name" = "iOS backups";
-"target.ios.backups.note" = "iPhone and iPad backups. They may be the only copy you have";
+"target.installers.old.name" = "Downloaded installers";
+"target.installers.old.note" = "Updates and packages that are already installed";
 "target.jetbrains.caches.name" = "JetBrains / Android Studio cache";
 "target.jetbrains.caches.note" = "Indexes and caches from IntelliJ, Android Studio, PyCharm and friends";
 "target.jetbrains.logs.name" = "JetBrains / Android Studio logs";
@@ -119,6 +156,10 @@
 "target.php.note" = "Packages downloaded by Composer";
 "target.pnpm.name" = "pnpm store";
 "target.pnpm.note" = "pnpm’s shared package store";
+"target.projects.builds.name" = "Build output";
+"target.projects.builds.note" = "build, target, .next and DerivedData. The next build makes them again";
+"target.projects.deps.name" = "Project dependencies";
+"target.projects.deps.note" = "node_modules, Pods, .venv and vendor. Your package manager brings them back";
 "target.python.name" = "Python cache";
 "target.python.note" = "pip, uv, poetry and compiled wheels";
 "target.ruby.name" = "Ruby cache";
@@ -129,8 +170,8 @@
 "target.savedstate.note" = "Windows and documents that apps reopen on launch";
 "target.sim.caches.name" = "CoreSimulator cache";
 "target.sim.caches.note" = "Downloaded runtimes and the simulators’ shared cache";
-"target.sim.devicedata.name" = "Simulator temporary data";
-"target.sim.devicedata.note" = "Caches and /tmp inside each simulator (installed apps are kept)";
+"target.sim.devices.name" = "Installed simulators";
+"target.sim.devices.note" = "Removed with simctl so Xcode doesn’t keep a ghost device";
 "target.swiftpm.name" = "Swift Package Manager cache";
 "target.swiftpm.note" = "Repositories and binaries of SwiftPM dependencies";
 "target.trash.name" = "Trash";
@@ -149,7 +190,19 @@
 "target.xcode.devicesupport.note" = "Symbols for every iOS version you have connected a device from";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "The same, for the remaining platforms";
+"target.xcode.doccache.name" = "Downloaded Xcode documentation";
+"target.xcode.doccache.note" = "Xcode downloads it again when you open it";
 "target.xcode.previews.name" = "Xcode Previews";
 "target.xcode.previews.note" = "Cache for SwiftUI previews";
 "target.yarn.name" = "Yarn cache";
 "target.yarn.note" = "Packages downloaded by Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "This is yours and there is no copy anywhere else: once deleted, it is gone.";
+"why.recreate" = "You will have to create it again by hand, and its current state does not come back.";
+"why.redownload" = "It has to be downloaded again the next time something needs it.";
+"why.regenerates" = "It builds itself again next time it is needed, and you will not notice.";
+"why.signOut" = "You will be signed out of the sites that use it and will have to log in again.";
+"why.slowerBuild" = "Nothing is lost, but the next build will take longer while it is made again.";
+"why.toolDecides" = "The tool itself does the deleting, so exactly what disappears is up to it.";
+"why.unknown" = "A catch-all: whatever no other row has named lands here. Look before deleting.";

@@ -14,11 +14,15 @@
 "alert.report.failures" = "कुछ आइटम हटाए नहीं जा सके (प्रभावित श्रेणियाँ: %d)। आमतौर पर यह अनुमति की समस्या है: सेटिंग्स › गोपनीयता और सुरक्षा में MacCleaner को फ़ुल डिस्क ऐक्सेस दें।";
 "alert.report.freed" = "%@ खाली हुआ।";
 "alert.report.title" = "सफ़ाई पूरी हुई";
+"alert.report.trashed" = "%@ रद्दी में ले जाए गए। जगह रद्दी खाली करने पर मिलती है।";
 
 /* ---- category ---- */
+"category.ai" = "एआई उपकरण";
+"category.browsers" = "ब्राउज़र";
 "category.jvm" = "Android, Gradle और JVM";
 "category.langs" = "अन्य भाषाएँ";
 "category.node" = "Node और वेब";
+"category.projects" = "परियोजनाएँ";
 "category.system" = "सिस्टम और ऐप्स";
 "category.tools" = "पैकेज मैनेजर";
 "category.xcode" = "Xcode और iOS";
@@ -31,6 +35,9 @@
 "empty.button" = "अभी स्कैन करें";
 "empty.subtitle" = "कुछ भी चयनित नहीं है: आप तय करते हैं क्या हटाना है, और पहले पुष्टि करते हैं।";
 "empty.title" = "स्कैन करें और देखें कितनी जगह वापस मिल सकती है";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ स्थापित नहीं है, या MacCleaner उसे नहीं ढूँढ़ पाता।";
 
 /* ---- footer ---- */
 "footer.clean" = "%@ साफ़ करें";
@@ -73,10 +80,34 @@
 "select.mark" = "चुनें";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "कोड सहायकों की कैश";
+"target.ai.caches.note" = "Claude, Codex, Cursor और OpenCode की अस्थायी फ़ाइलें";
+"target.ai.models.name" = "डाउनलोड किए गए एआई मॉडल";
+"target.ai.models.note" = "Ollama, Hugging Face और LM Studio के वेट: हर एक कई गीगाबाइट";
+"target.ai.vmbundles.name" = "सहायकों की वर्चुअल मशीनें";
+"target.ai.vmbundles.note" = "डिस्क छवियाँ जो Claude कोड चलाने के लिए डाउनलोड करता है";
+"target.ai.worktrees.name" = "एजेंटों के कार्यवृक्ष";
+"target.ai.worktrees.note" = "आपकी परियोजनाओं की प्रतियाँ जो एजेंट ~/.codex/worktrees में छोड़ते हैं";
+"target.android.avd.name" = "Android एमुलेटर";
+"target.android.avd.note" = "हर AVD अपनी डिस्क और स्थिति रखता है; उसे दोबारा बनाना पड़ेगा";
 "target.android.caches.name" = "Android कैश";
 "target.android.caches.note" = "SDK बिल्ड कैश और टूल्स का अस्थायी डेटा";
+"target.android.systemimages.name" = "Android सिस्टम इमेज";
+"target.android.systemimages.note" = "SDK Manager इन्हें डाउनलोड करता है, हर API संस्करण के लिए एक";
+"target.browsers.cache.name" = "ब्राउज़रों की कैश";
+"target.browsers.cache.note" = "Chrome, Brave, Edge, Chromium और Firefox के पेज, चित्र और शेडर";
+"target.browsers.cookies.name" = "कुकीज़";
+"target.browsers.cookies.note" = "हर साइट से लॉगआउट कर देती हैं, और जगह लगभग नहीं लेतीं";
 "target.browsers.headless.name" = "Playwright / Puppeteer ब्राउज़र";
 "target.browsers.headless.note" = "E2E टेस्ट के लिए डाउनलोड किए गए Chromium, Firefox और WebKit";
+"target.browsers.history.name" = "ब्राउज़िंग इतिहास";
+"target.browsers.history.note" = "देखी गई साइटें और सबसे ज़्यादा खुलने वाले पेज। वापस नहीं आता";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "ऑफ़लाइन वेब ऐप डेटा; साइट खोलने पर फिर डाउनलोड हो जाता है";
+"target.browsers.storage.name" = "साइटों का स्टोरेज";
+"target.browsers.storage.note" = "Local Storage और IndexedDB; कुछ साइटें दोबारा लॉगिन माँगेंगी";
+"target.browsers.updater.name" = "अपडेटर की कैश";
+"target.browsers.updater.note" = "पहले से इंस्टॉल हो चुके ब्राउज़र अपडेट";
 "target.bun.deno.name" = "Bun और Deno कैश";
 "target.bun.deno.note" = "Bun और Deno द्वारा डाउनलोड किए गए मॉड्यूल";
 "target.caches.other.name" = "अन्य ऐप कैश";
@@ -85,8 +116,14 @@
 "target.carthage.note" = "Carthage के फ़्रेमवर्क और checkouts";
 "target.cocoapods.name" = "CocoaPods कैश";
 "target.cocoapods.note" = "डाउनलोड किए गए pods और specs";
+"target.containers.caches.name" = "सैंडबॉक्स ऐप्स की कैश";
+"target.containers.caches.note" = "हर सैंडबॉक्स ऐप अपनी प्रति अपने कंटेनर में रखता है";
+"target.docker.disk.name" = "Docker की वर्चुअल मशीन की डिस्क";
+"target.docker.disk.note" = "docker system prune से खाली होती है। आपकी इमेज और वॉल्यूम बने रहते हैं";
 "target.docker.logs.name" = "Docker Desktop लॉग";
 "target.docker.logs.note" = "केवल लॉग। इमेज और वॉल्यूम अछूते रहते हैं";
+"target.electron.appsupport.name" = "Electron ऐप्स की कैश";
+"target.electron.appsupport.note" = "~/Library/Caches के बाहर रहने वाले Cache, Code Cache और GPUCache";
 "target.electron.name" = "Electron कैश";
 "target.electron.note" = "Electron और electron-builder की बाइनरी";
 "target.flutter.name" = "Flutter / Dart कैश";
@@ -103,8 +140,8 @@
 "target.gradle.wrapper.note" = "किसी प्रोजेक्ट द्वारा डाउनलोड किया गया हर Gradle संस्करण (लगभग 150 MB प्रत्येक)";
 "target.homebrew.name" = "Homebrew कैश";
 "target.homebrew.note" = "bottles और brew के पुराने डाउनलोड";
-"target.ios.backups.name" = "iOS बैकअप";
-"target.ios.backups.note" = "iPhone और iPad के बैकअप। यही आपकी एकमात्र प्रति हो सकती है";
+"target.installers.old.name" = "डाउनलोड किए गए इंस्टॉलर";
+"target.installers.old.note" = "अपडेट और पैकेज जो पहले से स्थापित हैं";
 "target.jetbrains.caches.name" = "JetBrains / Android Studio कैश";
 "target.jetbrains.caches.note" = "IntelliJ, Android Studio, PyCharm आदि के इंडेक्स और कैश";
 "target.jetbrains.logs.name" = "JetBrains / Android Studio लॉग";
@@ -119,6 +156,10 @@
 "target.php.note" = "Composer द्वारा डाउनलोड किए गए पैकेज";
 "target.pnpm.name" = "pnpm स्टोर";
 "target.pnpm.note" = "pnpm का साझा पैकेज स्टोर";
+"target.projects.builds.name" = "बिल्ड के परिणाम";
+"target.projects.builds.note" = "build, target, .next और DerivedData। अगला बिल्ड इन्हें फिर बना देता है";
+"target.projects.deps.name" = "परियोजनाओं की निर्भरताएँ";
+"target.projects.deps.note" = "node_modules, Pods, .venv और vendor। पैकेज प्रबंधक इन्हें फिर ले आता है";
 "target.python.name" = "Python कैश";
 "target.python.note" = "pip, uv, poetry और कंपाइल की गई wheels";
 "target.ruby.name" = "Ruby कैश";
@@ -129,8 +170,8 @@
 "target.savedstate.note" = "वे विंडो और दस्तावेज़ जो ऐप्स शुरू होने पर फिर खोलते हैं";
 "target.sim.caches.name" = "CoreSimulator कैश";
 "target.sim.caches.note" = "डाउनलोड किए गए रनटाइम और सिम्युलेटर का साझा कैश";
-"target.sim.devicedata.name" = "सिम्युलेटर का अस्थायी डेटा";
-"target.sim.devicedata.note" = "हर सिम्युलेटर के अंदर का कैश और /tmp (इंस्टॉल किए ऐप्स नहीं हटते)";
+"target.sim.devices.name" = "स्थापित सिम्युलेटर";
+"target.sim.devices.note" = "simctl से हटाए जाते हैं ताकि Xcode के पास भूत उपकरण न रहे";
 "target.swiftpm.name" = "Swift Package Manager कैश";
 "target.swiftpm.note" = "SwiftPM निर्भरताओं की रिपॉज़िटरी और बाइनरी";
 "target.trash.name" = "ट्रैश";
@@ -149,7 +190,19 @@
 "target.xcode.devicesupport.note" = "हर उस iOS संस्करण के सिंबल जिससे आपने डिवाइस जोड़ा है";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "बाकी प्लेटफ़ॉर्म के लिए वही";
+"target.xcode.doccache.name" = "डाउनलोड किया गया Xcode दस्तावेज़";
+"target.xcode.doccache.note" = "खोलने पर Xcode इसे फिर डाउनलोड कर लेता है";
 "target.xcode.previews.name" = "Xcode Previews";
 "target.xcode.previews.note" = "SwiftUI प्रीव्यू का कैश";
 "target.yarn.name" = "Yarn कैश";
 "target.yarn.note" = "Yarn द्वारा डाउनलोड किए गए पैकेज";
+
+/* ---- why ---- */
+"why.dataLoss" = "यह आपका है और कहीं और इसकी कोई प्रति नहीं: मिटा तो गया।";
+"why.recreate" = "इसे हाथ से दोबारा बनाना पड़ेगा, और इसकी मौजूदा स्थिति वापस नहीं आती।";
+"why.redownload" = "अगली बार जब किसी को इसकी ज़रूरत होगी, इसे फिर डाउनलोड करना पड़ेगा।";
+"why.regenerates" = "अगली बार अपने आप बन जाती है, और आपको पता भी नहीं चलेगा।";
+"why.signOut" = "इसका उपयोग करने वाली साइटों से लॉगआउट हो जाएँगे और फिर लॉगिन करना पड़ेगा।";
+"why.slowerBuild" = "कुछ नहीं खोता, पर अगला बिल्ड इसे दोबारा बनाते हुए ज़्यादा समय लेगा।";
+"why.toolDecides" = "मिटाता खुद टूल है, इसलिए ठीक क्या ग़ायब होगा यह वही तय करता है।";
+"why.unknown" = "सब कुछ का दराज़: यहाँ वह गिरता है जिसे किसी और पंक्ति ने नाम नहीं दिया। मिटाने से पहले देखें।";

@@ -13,11 +13,15 @@
 "alert.report.failures" = "Kõike ei õnnestunud kustutada (mõjutatud kategooriaid: %d). Tavaliselt on tegu õigustega: anna MacCleanerile täielik kettaligipääs jaotises Sätted › Privaatsus ja turvalisus.";
 "alert.report.freed" = "Vabastati %@.";
 "alert.report.title" = "Puhastamine lõpetatud";
+"alert.report.trashed" = "%@ teisaldati prügikasti. Ruum vabaneb selle tühjendamisel.";
 
 /* ---- category ---- */
+"category.ai" = "Tehisintellekti tööriistad";
+"category.browsers" = "Brauserid";
 "category.jvm" = "Android, Gradle ja JVM";
 "category.langs" = "Muud keeled";
 "category.node" = "Node ja veeb";
+"category.projects" = "Projektid";
 "category.system" = "Süsteem ja rakendused";
 "category.tools" = "Paketihaldurid";
 "category.xcode" = "Xcode ja iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Skanni kohe";
 "empty.subtitle" = "Midagi pole valitud: sina otsustad, mida kustutada, ja kinnitad enne seda.";
 "empty.title" = "Skanni, et näha, kui palju ruumi saad vabastada";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ pole paigaldatud või MacCleaner ei leia seda.";
 
 /* ---- footer ---- */
 "footer.clean" = "Puhasta %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Vali";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Koodiassistentide vahemälud";
+"target.ai.caches.note" = "Ajutised failid: Claude, Codex, Cursor ja OpenCode";
+"target.ai.models.name" = "Alla laaditud TI-mudelid";
+"target.ai.models.note" = "Ollama, Hugging Face ja LM Studio kaalud: igaüks gigabaite";
+"target.ai.vmbundles.name" = "Assistentide virtuaalmasinad";
+"target.ai.vmbundles.note" = "Kettatõmmised, mida Claude koodi käivitamiseks alla laadib";
+"target.ai.worktrees.name" = "Agentide tööpuud";
+"target.ai.worktrees.note" = "Sinu projektide koopiad, mille agendid jätavad kausta ~/.codex/worktrees";
+"target.android.avd.name" = "Androidi emulaatorid";
+"target.android.avd.note" = "Iga AVD hoiab oma ketast ja olekut; pead selle uuesti looma";
 "target.android.caches.name" = "Androidi vahemälu";
 "target.android.caches.note" = "SDK ehitusvahemälu ja tööriistade ajutised andmed";
+"target.android.systemimages.name" = "Androidi süsteemitõmmised";
+"target.android.systemimages.note" = "Laadib alla SDK Manager, üks iga API versiooni kohta";
+"target.browsers.cache.name" = "Brauserite vahemälu";
+"target.browsers.cache.note" = "Chrome’i, Brave’i, Edge’i, Chromiumi ja Firefoxi lehed, pildid ja varjundid";
+"target.browsers.cookies.name" = "Küpsised";
+"target.browsers.cookies.note" = "Logib su kõikjalt välja ega võta peaaegu ruumi";
 "target.browsers.headless.name" = "Playwrighti / Puppeteeri brauserid";
 "target.browsers.headless.note" = "E2E-testide jaoks alla laaditud Chromium, Firefox ja WebKit";
+"target.browsers.history.name" = "Sirvimisajalugu";
+"target.browsers.history.note" = "Külastatud saidid ja enim kasutatud lehed. Ei tule tagasi";
+"target.browsers.serviceworkers.name" = "Service Workerid";
+"target.browsers.serviceworkers.note" = "Veebirakenduste võrguühenduseta andmed; laaditakse külastamisel uuesti";
+"target.browsers.storage.name" = "Saitide salvestusruum";
+"target.browsers.storage.note" = "Local Storage ja IndexedDB; mõni sait palub uuesti sisse logida";
+"target.browsers.updater.name" = "Uuendaja vahemälu";
+"target.browsers.updater.note" = "Juba paigaldatud brauseriuuendused";
 "target.bun.deno.name" = "Buni ja Deno vahemälu";
 "target.bun.deno.note" = "Buni ja Deno alla laaditud moodulid";
 "target.caches.other.name" = "Muud rakenduste vahemälud";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Carthage’i raamistikud ja checkoutid";
 "target.cocoapods.name" = "CocoaPodsi vahemälu";
 "target.cocoapods.note" = "Allalaaditud podid ja specid";
+"target.containers.caches.name" = "Liivakastirakenduste vahemälud";
+"target.containers.caches.note" = "Iga liivakastirakendus hoiab oma koopiat oma konteineris";
+"target.docker.disk.name" = "Dockeri virtuaalmasina ketas";
+"target.docker.disk.note" = "Vabaneb käsuga docker system prune. Sinu tõmmised ja köited säilivad";
 "target.docker.logs.name" = "Docker Desktopi logid";
 "target.docker.logs.note" = "Ainult logid. Tõmmiseid ja köiteid ei puudutata";
+"target.electron.appsupport.name" = "Electroni rakenduste vahemälud";
+"target.electron.appsupport.note" = "Cache, Code Cache ja GPUCache väljaspool kausta ~/Library/Caches";
 "target.electron.name" = "Electroni vahemälu";
 "target.electron.note" = "Electroni ja electron-builderi binaarfailid";
 "target.flutter.name" = "Flutteri / Darti vahemälu";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Iga Gradle’i versioon, mille mõni projekt on alla laadinud (umbes 150 MB tükk)";
 "target.homebrew.name" = "Homebrew’ vahemälu";
 "target.homebrew.note" = "Bottle’id ja vanad brew’ allalaadimised";
-"target.ios.backups.name" = "iOS-i varukoopiad";
-"target.ios.backups.note" = "iPhone’i ja iPadi koopiad. Võivad olla ainus koopia, mis sul on";
+"target.installers.old.name" = "Alla laaditud paigaldusprogrammid";
+"target.installers.old.note" = "Uuendused ja paketid, mis on juba paigaldatud";
 "target.jetbrains.caches.name" = "JetBrainsi / Android Studio vahemälu";
 "target.jetbrains.caches.note" = "IntelliJ, Android Studio, PyCharmi ja teiste indeksid ja vahemälud";
 "target.jetbrains.logs.name" = "JetBrainsi / Android Studio logid";
@@ -118,6 +155,10 @@
 "target.php.note" = "Composeri alla laaditud paketid";
 "target.pnpm.name" = "pnpm-i hoidla";
 "target.pnpm.note" = "pnpm-i ühine paketihoidla";
+"target.projects.builds.name" = "Ehituse väljundid";
+"target.projects.builds.note" = "build, target, .next ja DerivedData. Järgmine ehitus loob need uuesti";
+"target.projects.deps.name" = "Projektide sõltuvused";
+"target.projects.deps.note" = "node_modules, Pods, .venv ja vendor. Paketihaldur toob need tagasi";
 "target.python.name" = "Pythoni vahemälu";
 "target.python.note" = "pip, uv, poetry ja kompileeritud wheelid";
 "target.ruby.name" = "Ruby vahemälu";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Aknad ja dokumendid, mille rakendused käivitumisel uuesti avavad";
 "target.sim.caches.name" = "CoreSimulatori vahemälu";
 "target.sim.caches.note" = "Allalaaditud käituskeskkonnad ja simulaatorite ühine vahemälu";
-"target.sim.devicedata.name" = "Simulaatorite ajutised andmed";
-"target.sim.devicedata.note" = "Vahemälud ja /tmp igas simulaatoris (paigaldatud rakendused jäävad alles)";
+"target.sim.devices.name" = "Paigaldatud simulaatorid";
+"target.sim.devices.note" = "Eemaldatakse simctl abil, et Xcode ei jääks tontliku seadmega";
 "target.swiftpm.name" = "Swift Package Manageri vahemälu";
 "target.swiftpm.note" = "SwiftPM-i sõltuvuste hoidlad ja binaarfailid";
 "target.trash.name" = "Prügikast";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Sümbolid iga iOS-i versiooni kohta, millest oled seadme ühendanud";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Sama ülejäänud platvormide puhul";
+"target.xcode.doccache.name" = "Alla laaditud Xcode’i dokumentatsioon";
+"target.xcode.doccache.note" = "Xcode laadib selle avamisel uuesti";
 "target.xcode.previews.name" = "Xcode’i eelvaated";
 "target.xcode.previews.note" = "SwiftUI eelvaadete vahemälu";
 "target.yarn.name" = "Yarni vahemälu";
 "target.yarn.note" = "Yarni alla laaditud paketid";
+
+/* ---- why ---- */
+"why.dataLoss" = "See on sinu oma ja koopiat pole kusagil mujal: kustutatuna on läinud.";
+"why.recreate" = "Pead selle käsitsi uuesti looma ja praegune olek ei tule tagasi.";
+"why.redownload" = "Tuleb uuesti alla laadida, kui midagi seda järgmisel korral vajab.";
+"why.regenerates" = "Tekib järgmisel korral ise uuesti ja sa ei märkagi seda.";
+"why.signOut" = "Sind logitakse välja saitidelt, mis seda kasutavad, ja pead uuesti sisse logima.";
+"why.slowerBuild" = "Midagi ei kao, aga järgmine ehitus võtab kauem aega, kuni see uuesti tehakse.";
+"why.toolDecides" = "Kustutab tööriist ise, seega mis täpselt kaob, otsustab tema.";
+"why.unknown" = "Kogumiskoht: siia satub see, mida ükski teine rida pole nimetanud. Vaata enne kustutamist.";

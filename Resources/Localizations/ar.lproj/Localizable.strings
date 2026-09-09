@@ -14,11 +14,15 @@
 "alert.report.failures" = "تعذّر حذف بعض العناصر (الفئات المتأثرة: %d). عادةً ما يكون السبب هو الأذونات: امنح MacCleaner إذن الوصول الكامل للقرص من الإعدادات › الخصوصية والأمان.";
 "alert.report.freed" = "تم تحرير %@.";
 "alert.report.title" = "اكتمل التنظيف";
+"alert.report.trashed" = "تم نقل %@ إلى سلة المهملات. تُحرَّر المساحة عند إفراغها.";
 
 /* ---- category ---- */
+"category.ai" = "أدوات الذكاء الاصطناعي";
+"category.browsers" = "المتصفحات";
 "category.jvm" = "Android وGradle وJVM";
 "category.langs" = "لغات أخرى";
 "category.node" = "Node والويب";
+"category.projects" = "المشاريع";
 "category.system" = "النظام والتطبيقات";
 "category.tools" = "مديرو الحزم";
 "category.xcode" = "Xcode و iOS";
@@ -31,6 +35,9 @@
 "empty.button" = "افحص الآن";
 "empty.subtitle" = "لا شيء محدد مسبقًا: أنت تختار ما سيُحذف وتؤكده قبل التنفيذ.";
 "empty.title" = "افحص لترى حجم المساحة التي يمكنك استردادها";
+
+/* ---- error ---- */
+"error.tool.missing" = "‏%@ غير مثبَّت، أو أن MacCleaner لا يعثر عليه.";
 
 /* ---- footer ---- */
 "footer.clean" = "تنظيف %@";
@@ -73,10 +80,34 @@
 "select.mark" = "تحديد";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "ذواكر مساعدي البرمجة";
+"target.ai.caches.note" = "ملفات مؤقتة من Claude و Codex و Cursor و OpenCode";
+"target.ai.models.name" = "نماذج ذكاء اصطناعي منزَّلة";
+"target.ai.models.note" = "أوزان Ollama و Hugging Face و LM Studio: عدة غيغابايت لكل منها";
+"target.ai.vmbundles.name" = "الأجهزة الافتراضية للمساعدين";
+"target.ai.vmbundles.note" = "صور أقراص ينزّلها Claude لتشغيل الشيفرة";
+"target.ai.worktrees.name" = "أشجار عمل الوكلاء";
+"target.ai.worktrees.note" = "نسخ من مشاريعك يتركها الوكلاء في ‎~/.codex/worktrees";
+"target.android.avd.name" = "محاكيات Android";
+"target.android.avd.note" = "كل AVD يحتفظ بقرصه وحالته، وعليك إنشاؤه من جديد";
 "target.android.caches.name" = "ذاكرة Android المؤقتة";
 "target.android.caches.note" = "ذاكرة بناء SDK المؤقتة وبيانات الأدوات المؤقتة";
+"target.android.systemimages.name" = "صور نظام Android";
+"target.android.systemimages.note" = "ينزّلها SDK Manager، واحدة لكل إصدار من الواجهة";
+"target.browsers.cache.name" = "ذواكر المتصفحات";
+"target.browsers.cache.note" = "صفحات وصور ومظللات من Chrome و Brave و Edge و Chromium و Firefox";
+"target.browsers.cookies.name" = "ملفات تعريف الارتباط";
+"target.browsers.cookies.note" = "يخرجك من كل المواقع، ولا يشغل شيئًا يُذكر";
 "target.browsers.headless.name" = "متصفحات Playwright / Puppeteer";
 "target.browsers.headless.note" = "متصفحات Chromium وFirefox وWebKit المُنزَّلة لاختبارات E2E";
+"target.browsers.history.name" = "سجل التصفح";
+"target.browsers.history.note" = "المواقع التي زرتها وأكثر الصفحات استخدامًا. لا يعود";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "بيانات تطبيقات الويب دون اتصال، وتُنزَّل من جديد عند زيارتها";
+"target.browsers.storage.name" = "تخزين المواقع";
+"target.browsers.storage.note" = "Local Storage و IndexedDB، وبعض المواقع ستطلب تسجيل الدخول مجددًا";
+"target.browsers.updater.name" = "ذاكرة المحدِّث";
+"target.browsers.updater.note" = "تحديثات المتصفح المثبَّتة بالفعل";
 "target.bun.deno.name" = "ذاكرة Bun وDeno المؤقتة";
 "target.bun.deno.note" = "الوحدات التي نزّلها Bun وDeno";
 "target.caches.other.name" = "ذاكرات التطبيقات المؤقتة الأخرى";
@@ -85,8 +116,14 @@
 "target.carthage.note" = "أُطر Carthage ونُسخ الفحص";
 "target.cocoapods.name" = "ذاكرة CocoaPods المؤقتة";
 "target.cocoapods.note" = "حزم pods المُنزَّلة وملفات specs";
+"target.containers.caches.name" = "ذواكر التطبيقات المعزولة";
+"target.containers.caches.note" = "كل تطبيق معزول يحتفظ بنسخته داخل حاويته";
+"target.docker.disk.name" = "قرص جهاز Docker الافتراضي";
+"target.docker.disk.note" = "يُفرَّغ بأمر docker system prune. وتبقى صورك ووحدات التخزين لديك";
 "target.docker.logs.name" = "سجلات Docker Desktop";
 "target.docker.logs.note" = "السجلات فقط. لا تُمَس الصور ولا وحدات التخزين";
+"target.electron.appsupport.name" = "ذواكر تطبيقات Electron";
+"target.electron.appsupport.note" = "‏Cache و Code Cache و GPUCache خارج ‎~/Library/Caches";
 "target.electron.name" = "ذاكرة Electron المؤقتة";
 "target.electron.note" = "ثنائيات Electron وelectron-builder";
 "target.flutter.name" = "ذاكرة Flutter / Dart المؤقتة";
@@ -103,8 +140,8 @@
 "target.gradle.wrapper.note" = "كل إصدار Gradle نزّله مشروع ما (نحو 150 ميغابايت لكلٍّ منها)";
 "target.homebrew.name" = "ذاكرة Homebrew المؤقتة";
 "target.homebrew.note" = "ملفات bottles وتنزيلات brew القديمة";
-"target.ios.backups.name" = "نسخ iOS الاحتياطية";
-"target.ios.backups.note" = "نسخ iPhone وiPad الاحتياطية. قد تكون النسخة الوحيدة لديك";
+"target.installers.old.name" = "مثبِّتات منزَّلة";
+"target.installers.old.note" = "تحديثات وحزم مثبَّتة بالفعل";
 "target.jetbrains.caches.name" = "ذاكرة JetBrains / Android Studio المؤقتة";
 "target.jetbrains.caches.note" = "فهارس وذاكرات مؤقتة لـ IntelliJ وAndroid Studio وPyCharm وغيرها";
 "target.jetbrains.logs.name" = "سجلات JetBrains / Android Studio";
@@ -119,6 +156,10 @@
 "target.php.note" = "الحزم التي نزّلها Composer";
 "target.pnpm.name" = "مخزن pnpm";
 "target.pnpm.note" = "مخزن الحزم المشترك لـ pnpm";
+"target.projects.builds.name" = "مخرجات البناء";
+"target.projects.builds.note" = "build و target و .next و DerivedData. البناء التالي يعيد إنشاءها";
+"target.projects.deps.name" = "اعتماديات المشاريع";
+"target.projects.deps.note" = "node_modules و Pods و .venv و vendor. مدير الحزم يعيدها من جديد";
 "target.python.name" = "ذاكرة Python المؤقتة";
 "target.python.note" = "pip وuv وpoetry وملفات wheel المُصرَّفة";
 "target.ruby.name" = "ذاكرة Ruby المؤقتة";
@@ -129,8 +170,8 @@
 "target.savedstate.note" = "النوافذ والمستندات التي تعيد التطبيقات فتحها عند التشغيل";
 "target.sim.caches.name" = "ذاكرة CoreSimulator المؤقتة";
 "target.sim.caches.note" = "أوقات التشغيل المُنزَّلة والذاكرة المؤقتة المشتركة للمحاكيات";
-"target.sim.devicedata.name" = "البيانات المؤقتة للمحاكيات";
-"target.sim.devicedata.note" = "الذاكرات المؤقتة و/tmp داخل كل محاكٍ (لا تُحذف التطبيقات المثبتة)";
+"target.sim.devices.name" = "المحاكيات المثبَّتة";
+"target.sim.devices.note" = "تُحذف عبر simctl كي لا يبقى لدى Xcode جهاز شبح";
 "target.swiftpm.name" = "ذاكرة Swift Package Manager المؤقتة";
 "target.swiftpm.note" = "مستودعات وثنائيات اعتماديات SwiftPM";
 "target.trash.name" = "المهملات";
@@ -149,7 +190,19 @@
 "target.xcode.devicesupport.note" = "رموز كل إصدار iOS وصّلت منه جهازًا";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "الشيء نفسه لبقية المنصات";
+"target.xcode.doccache.name" = "توثيق Xcode المنزَّل";
+"target.xcode.doccache.note" = "ينزّله Xcode من جديد عند فتحه";
 "target.xcode.previews.name" = "معاينات Xcode";
 "target.xcode.previews.note" = "ذاكرة معاينات SwiftUI المؤقتة";
 "target.yarn.name" = "ذاكرة Yarn المؤقتة";
 "target.yarn.note" = "الحزم التي نزّلها Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "هذا ملكك ولا توجد نسخة في أي مكان آخر: إن حذفته فقد ذهب.";
+"why.recreate" = "سيتعين عليك إنشاؤه يدويًا من جديد، وحالته الحالية لا تعود.";
+"why.redownload" = "سيلزم تنزيله من جديد في المرة القادمة التي يحتاجه فيها شيء ما.";
+"why.regenerates" = "يُنشأ من جديد وحده في المرة القادمة، ولن تلاحظ شيئًا.";
+"why.signOut" = "ستخرج من المواقع التي تستخدمه وسيلزمك تسجيل الدخول من جديد.";
+"why.slowerBuild" = "لا يضيع شيء، لكن البناء التالي سيستغرق وقتًا أطول ريثما يعيد إنشاءه.";
+"why.toolDecides" = "الأداة نفسها هي التي تحذف، فما الذي يختفي بالضبط تقرره هي.";
+"why.unknown" = "درج لكل شيء: هنا يقع ما لم يسمّه أي صف آخر. انظر قبل الحذف.";

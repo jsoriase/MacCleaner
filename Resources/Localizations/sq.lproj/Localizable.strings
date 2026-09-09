@@ -13,11 +13,15 @@
 "alert.report.failures" = "Nuk u fshi gjithçka (kategori të prekura: %d). Zakonisht është çështje lejesh: jepi MacCleaner qasje të plotë në disk te Cilësimet › Privatësia dhe siguria.";
 "alert.report.freed" = "U liruan %@.";
 "alert.report.title" = "Pastrimi përfundoi";
+"alert.report.trashed" = "%@ u zhvendosën te Koshi. Hapësira lirohet kur ta zbrazësh.";
 
 /* ---- category ---- */
+"category.ai" = "Mjete IA";
+"category.browsers" = "Shfletuesit";
 "category.jvm" = "Android, Gradle dhe JVM";
 "category.langs" = "Gjuhë të tjera";
 "category.node" = "Node dhe web";
+"category.projects" = "Projektet";
 "category.system" = "Sistemi dhe aplikacionet";
 "category.tools" = "Menaxherë paketash";
 "category.xcode" = "Xcode dhe iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Skano tani";
 "empty.subtitle" = "Asgjë nuk është e përzgjedhur: ti vendos çfarë fshihet dhe e konfirmon paraprakisht.";
 "empty.title" = "Skano për të parë sa hapësirë mund të rikuperosh";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ nuk është i instaluar, ose MacCleaner nuk e gjen.";
 
 /* ---- footer ---- */
 "footer.clean" = "Pastro %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Përzgjidh";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Cache-t e asistentëve të kodit";
+"target.ai.caches.note" = "Skedarë të përkohshëm nga Claude, Codex, Cursor dhe OpenCode";
+"target.ai.models.name" = "Modele IA të shkarkuara";
+"target.ai.models.note" = "Pesha nga Ollama, Hugging Face dhe LM Studio: nga disa GB secila";
+"target.ai.vmbundles.name" = "Makinat virtuale të asistentëve";
+"target.ai.vmbundles.note" = "Imazhe disku që Claude shkarkon për të ekzekutuar kod";
+"target.ai.worktrees.name" = "Pemët e punës së agjentëve";
+"target.ai.worktrees.note" = "Kopje të projekteve të tua që agjentët lënë në ~/.codex/worktrees";
+"target.android.avd.name" = "Emulatorë Android";
+"target.android.avd.note" = "Çdo AVD ruan diskun dhe gjendjen e vet; duhet ta krijosh sërish";
 "target.android.caches.name" = "Cache e Android";
 "target.android.caches.note" = "Cache e kompilimit të SDK-së dhe të dhëna të përkohshme të mjeteve";
+"target.android.systemimages.name" = "Imazhe sistemi Android";
+"target.android.systemimages.note" = "I shkarkon SDK Manager, një për çdo version API";
+"target.browsers.cache.name" = "Cache-t e shfletuesve";
+"target.browsers.cache.note" = "Faqe, imazhe dhe shader nga Chrome, Brave, Edge, Chromium dhe Firefox";
+"target.browsers.cookies.name" = "Cookies";
+"target.browsers.cookies.note" = "Të nxjerr nga të gjitha faqet dhe zë thuajse asgjë";
 "target.browsers.headless.name" = "Shfletuesit e Playwright / Puppeteer";
 "target.browsers.headless.note" = "Chromium, Firefox dhe WebKit të shkarkuar për teste E2E";
+"target.browsers.history.name" = "Historiku i shfletimit";
+"target.browsers.history.note" = "Faqet e vizituara dhe më të përdorurat. Nuk kthehet";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Të dhëna offline të apeve web; shkarkohen sërish kur i viziton";
+"target.browsers.storage.name" = "Ruajtja e faqeve";
+"target.browsers.storage.note" = "Local Storage dhe IndexedDB; disa faqe do të kërkojnë hyrje sërish";
+"target.browsers.updater.name" = "Cache i përditësuesit";
+"target.browsers.updater.note" = "Shkarkime përditësimesh të shfletuesit tashmë të instaluara";
 "target.bun.deno.name" = "Cache e Bun dhe Deno";
 "target.bun.deno.note" = "Module të shkarkuara nga Bun dhe Deno";
 "target.caches.other.name" = "Cache të tjera aplikacionesh";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Framework-ët dhe checkout-et e Carthage";
 "target.cocoapods.name" = "Cache e CocoaPods";
 "target.cocoapods.note" = "Pod-e dhe specs të shkarkuara";
+"target.containers.caches.name" = "Cache-t e aplikacioneve të izoluara";
+"target.containers.caches.note" = "Çdo aplikacion i izoluar mban kopjen e vet brenda kontejnerit";
+"target.docker.disk.name" = "Disku i makinës virtuale të Docker";
+"target.docker.disk.note" = "Lirohet me docker system prune. Imazhet dhe volumet e tua ruhen";
 "target.docker.logs.name" = "Regjistrat e Docker Desktop";
 "target.docker.logs.note" = "Vetëm regjistra. Imazhet dhe volumet nuk preken";
+"target.electron.appsupport.name" = "Cache-t e aplikacioneve Electron";
+"target.electron.appsupport.note" = "Cache, Code Cache dhe GPUCache jashtë ~/Library/Caches";
 "target.electron.name" = "Cache e Electron";
 "target.electron.note" = "Skedarë binarë të Electron dhe electron-builder";
 "target.flutter.name" = "Cache e Flutter / Dart";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Çdo version i Gradle i shkarkuar nga një projekt (rreth 150 MB secili)";
 "target.homebrew.name" = "Cache e Homebrew";
 "target.homebrew.note" = "Bottles dhe shkarkime të vjetra të brew";
-"target.ios.backups.name" = "Kopjet rezervë të iOS";
-"target.ios.backups.note" = "Kopje të iPhone dhe iPad. Mund të jenë e vetmja kopje që ke";
+"target.installers.old.name" = "Instalues të shkarkuar";
+"target.installers.old.note" = "Përditësime dhe paketa që janë instaluar tashmë";
 "target.jetbrains.caches.name" = "Cache e JetBrains / Android Studio";
 "target.jetbrains.caches.note" = "Indekse dhe cache të IntelliJ, Android Studio, PyCharm e të tjerëve";
 "target.jetbrains.logs.name" = "Regjistrat e JetBrains / Android Studio";
@@ -118,6 +155,10 @@
 "target.php.note" = "Paketa të shkarkuara nga Composer";
 "target.pnpm.name" = "Depoja e pnpm";
 "target.pnpm.note" = "Depoja e përbashkët e paketave e pnpm";
+"target.projects.builds.name" = "Daljet e ndërtimit";
+"target.projects.builds.note" = "build, target, .next dhe DerivedData. Ndërtimi tjetër i bën sërish";
+"target.projects.deps.name" = "Varësitë e projekteve";
+"target.projects.deps.note" = "node_modules, Pods, .venv dhe vendor. Menaxheri i paketave i sjell prapë";
 "target.python.name" = "Cache e Python";
 "target.python.note" = "pip, uv, poetry dhe wheels të kompiluara";
 "target.ruby.name" = "Cache e Ruby";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Dritare dhe dokumente që aplikacionet i rihapin në nisje";
 "target.sim.caches.name" = "Cache e CoreSimulator";
 "target.sim.caches.note" = "Ambientet e ekzekutimit të shkarkuara dhe cache e përbashkët e simulatorëve";
-"target.sim.devicedata.name" = "Të dhëna të përkohshme të simulatorëve";
-"target.sim.devicedata.note" = "Cache dhe /tmp brenda çdo simulatori (aplikacionet e instaluara mbeten)";
+"target.sim.devices.name" = "Simulatorë të instaluar";
+"target.sim.devices.note" = "Fshihen me simctl që Xcode të mos mbetet me një pajisje fantazmë";
 "target.swiftpm.name" = "Cache e Swift Package Manager";
 "target.swiftpm.note" = "Depot dhe skedarët binarë të varësive SwiftPM";
 "target.trash.name" = "Koshi";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Simbolet për çdo version të iOS nga i cili ke lidhur një pajisje";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "E njëjta gjë për platformat e tjera";
+"target.xcode.doccache.name" = "Dokumentacion Xcode i shkarkuar";
+"target.xcode.doccache.note" = "Xcode e shkarkon sërish kur e hap";
 "target.xcode.previews.name" = "Parapamjet e Xcode";
 "target.xcode.previews.note" = "Cache e parapamjeve të SwiftUI";
 "target.yarn.name" = "Cache e Yarn";
 "target.yarn.note" = "Paketa të shkarkuara nga Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "Kjo është e jotja dhe s’ka kopje askund tjetër: sapo e fshin, iku.";
+"why.recreate" = "Do të duhet ta krijosh sërish me dorë, dhe gjendja e tij aktuale nuk kthehet.";
+"why.redownload" = "Do të duhet të shkarkohet sërish herën tjetër që dikush e kërkon.";
+"why.regenerates" = "Krijohet vetë herën tjetër që duhet, dhe nuk do ta vësh re.";
+"why.signOut" = "Do të dalësh nga faqet që e përdorin dhe do të duhet të hysh sërish.";
+"why.slowerBuild" = "Nuk humbet asgjë, por ndërtimi tjetër do të zgjasë më shumë ndërsa e ribën.";
+"why.toolDecides" = "Fshin vetë mjeti, prandaj çfarë zhduket saktësisht e vendos ai.";
+"why.unknown" = "Sirtar për gjithçka: këtu bie ajo që asnjë rresht tjetër nuk e ka emërtuar. Shiko para se të fshish.";

@@ -13,11 +13,15 @@
 "alert.report.failures" = "Nie udało się usunąć wszystkiego (kategorie, których to dotyczy: %d). Zwykle to kwestia uprawnień: przyznaj MacCleanerowi pełny dostęp do dysku w Ustawieniach › Prywatność i ochrona.";
 "alert.report.freed" = "Zwolniono %@.";
 "alert.report.title" = "Czyszczenie zakończone";
+"alert.report.trashed" = "Przeniesiono %@ do Kosza. Miejsce zwolni się po jego opróżnieniu.";
 
 /* ---- category ---- */
+"category.ai" = "Narzędzia SI";
+"category.browsers" = "Przeglądarki";
 "category.jvm" = "Android, Gradle i JVM";
 "category.langs" = "Inne języki";
 "category.node" = "Node i web";
+"category.projects" = "Projekty";
 "category.system" = "System i aplikacje";
 "category.tools" = "Menedżery pakietów";
 "category.xcode" = "Xcode i iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Skanuj teraz";
 "empty.subtitle" = "Nic nie jest zaznaczone: sam wybierasz, co usunąć, i potwierdzasz przed usunięciem.";
 "empty.title" = "Przeskanuj, aby zobaczyć, ile miejsca możesz odzyskać";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ nie jest zainstalowany albo MacCleaner go nie znajduje.";
 
 /* ---- footer ---- */
 "footer.clean" = "Wyczyść %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Zaznacz";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Pamięci podręczne asystentów kodu";
+"target.ai.caches.note" = "Pliki tymczasowe z Claude, Codex, Cursor i OpenCode";
+"target.ai.models.name" = "Pobrane modele SI";
+"target.ai.models.note" = "Wagi Ollama, Hugging Face i LM Studio: po kilka gigabajtów";
+"target.ai.vmbundles.name" = "Maszyny wirtualne asystentów";
+"target.ai.vmbundles.note" = "Obrazy dysku, które Claude pobiera, aby uruchamiać kod";
+"target.ai.worktrees.name" = "Drzewa robocze agentów";
+"target.ai.worktrees.note" = "Kopie twoich projektów zostawiane przez agentów w ~/.codex/worktrees";
+"target.android.avd.name" = "Emulatory Androida";
+"target.android.avd.note" = "Każdy AVD trzyma swój dysk i stan; trzeba go utworzyć od nowa";
 "target.android.caches.name" = "Pamięć podręczna Androida";
 "target.android.caches.note" = "Pamięć podręczna kompilacji SDK i dane tymczasowe narzędzi";
+"target.android.systemimages.name" = "Obrazy systemu Androida";
+"target.android.systemimages.note" = "Pobiera je SDK Manager, po jednym na wersję API";
+"target.browsers.cache.name" = "Pamięci podręczne przeglądarek";
+"target.browsers.cache.note" = "Strony, obrazy i shadery z Chrome, Brave, Edge, Chromium i Firefox";
+"target.browsers.cookies.name" = "Ciasteczka";
+"target.browsers.cookies.note" = "Wyloguje cię ze wszystkich witryn i prawie nic nie zajmuje";
 "target.browsers.headless.name" = "Przeglądarki Playwright / Puppeteer";
 "target.browsers.headless.note" = "Chromium, Firefox i WebKit pobrane do testów E2E";
+"target.browsers.history.name" = "Historia przeglądania";
+"target.browsers.history.note" = "Odwiedzone witryny i najczęstsze strony. Nie wraca";
+"target.browsers.serviceworkers.name" = "Service Workery";
+"target.browsers.serviceworkers.note" = "Dane aplikacji webowych offline; pobiorą się znowu przy odwiedzinach";
+"target.browsers.storage.name" = "Magazyn witryn";
+"target.browsers.storage.note" = "Local Storage i IndexedDB; część witryn poprosi o ponowne logowanie";
+"target.browsers.updater.name" = "Pamięć aktualizatora";
+"target.browsers.updater.note" = "Pobrane aktualizacje przeglądarki, już zainstalowane";
 "target.bun.deno.name" = "Pamięć podręczna Bun i Deno";
 "target.bun.deno.note" = "Moduły pobrane przez Bun i Deno";
 "target.caches.other.name" = "Inne pamięci podręczne aplikacji";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Frameworki i checkouty Carthage";
 "target.cocoapods.name" = "Pamięć podręczna CocoaPods";
 "target.cocoapods.note" = "Pobrane pody i specs";
+"target.containers.caches.name" = "Pamięci podręczne aplikacji w piaskownicy";
+"target.containers.caches.note" = "Każda aplikacja w piaskownicy trzyma swoją kopię w kontenerze";
+"target.docker.disk.name" = "Dysk maszyny wirtualnej Dockera";
+"target.docker.disk.note" = "Zwalnia go docker system prune. Twoje obrazy i wolumeny zostają";
 "target.docker.logs.name" = "Dzienniki Docker Desktop";
 "target.docker.logs.note" = "Tylko dzienniki. Obrazy i wolumeny pozostają nietknięte";
+"target.electron.appsupport.name" = "Pamięci podręczne aplikacji Electron";
+"target.electron.appsupport.note" = "Cache, Code Cache i GPUCache spoza ~/Library/Caches";
 "target.electron.name" = "Pamięć podręczna Electrona";
 "target.electron.note" = "Pliki binarne Electrona i electron-buildera";
 "target.flutter.name" = "Pamięć podręczna Flutter / Dart";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Każda wersja Gradle pobrana przez projekt (po około 150 MB)";
 "target.homebrew.name" = "Pamięć podręczna Homebrew";
 "target.homebrew.note" = "Bottles i stare pobrania brew";
-"target.ios.backups.name" = "Kopie zapasowe iOS";
-"target.ios.backups.note" = "Kopie iPhone’a i iPada. Mogą być jedyną kopią, jaką masz";
+"target.installers.old.name" = "Pobrane instalatory";
+"target.installers.old.note" = "Aktualizacje i pakiety, które są już zainstalowane";
 "target.jetbrains.caches.name" = "Pamięć podręczna JetBrains / Android Studio";
 "target.jetbrains.caches.note" = "Indeksy i pamięci podręczne IntelliJ, Android Studio, PyCharm i innych";
 "target.jetbrains.logs.name" = "Dzienniki JetBrains / Android Studio";
@@ -118,6 +155,10 @@
 "target.php.note" = "Pakiety pobrane przez Composera";
 "target.pnpm.name" = "Magazyn pnpm";
 "target.pnpm.note" = "Wspólny magazyn pakietów pnpm";
+"target.projects.builds.name" = "Wyniki kompilacji";
+"target.projects.builds.note" = "build, target, .next i DerivedData. Następna kompilacja zrobi je znowu";
+"target.projects.deps.name" = "Zależności projektów";
+"target.projects.deps.note" = "node_modules, Pods, .venv i vendor. Menedżer pakietów przywróci je";
 "target.python.name" = "Pamięć podręczna Pythona";
 "target.python.note" = "pip, uv, poetry i skompilowane wheels";
 "target.ruby.name" = "Pamięć podręczna Ruby";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Okna i dokumenty, które aplikacje otwierają ponownie przy starcie";
 "target.sim.caches.name" = "Pamięć podręczna CoreSimulator";
 "target.sim.caches.note" = "Pobrane środowiska uruchomieniowe i wspólna pamięć podręczna symulatorów";
-"target.sim.devicedata.name" = "Dane tymczasowe symulatorów";
-"target.sim.devicedata.note" = "Pamięci podręczne i /tmp w każdym symulatorze (zainstalowane aplikacje zostają)";
+"target.sim.devices.name" = "Zainstalowane symulatory";
+"target.sim.devices.note" = "Usuwane przez simctl, żeby Xcode nie został z duchem urządzenia";
 "target.swiftpm.name" = "Pamięć podręczna Swift Package Manager";
 "target.swiftpm.note" = "Repozytoria i pliki binarne zależności SwiftPM";
 "target.trash.name" = "Kosz";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Symbole każdej wersji iOS, z której podłączałeś urządzenie";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "To samo dla pozostałych platform";
+"target.xcode.doccache.name" = "Pobrana dokumentacja Xcode";
+"target.xcode.doccache.note" = "Xcode pobierze ją znowu przy otwarciu";
 "target.xcode.previews.name" = "Podglądy Xcode";
 "target.xcode.previews.note" = "Pamięć podręczna podglądów SwiftUI";
 "target.yarn.name" = "Pamięć podręczna Yarn";
 "target.yarn.note" = "Pakiety pobrane przez Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "To twoje i nigdzie indziej nie ma kopii: raz usunięte, znika.";
+"why.recreate" = "Będziesz musiał utworzyć to ręcznie od nowa, a obecny stan nie wraca.";
+"why.redownload" = "Trzeba będzie pobrać to znowu, gdy coś tego zażąda.";
+"why.regenerates" = "Powstanie sama następnym razem, kiedy będzie potrzebna, i nie zauważysz.";
+"why.signOut" = "Wylogujesz się z witryn, które tego używają, i będziesz musiał zalogować się znowu.";
+"why.slowerBuild" = "Nic nie ginie, ale następna kompilacja potrwa dłużej, póki tego nie odtworzy.";
+"why.toolDecides" = "Kasuje samo narzędzie, więc co dokładnie znika, decyduje ono.";
+"why.unknown" = "Zbiornik na resztę: tu trafia to, czego nie nazwał żaden inny wiersz. Zajrzyj przed usunięciem.";

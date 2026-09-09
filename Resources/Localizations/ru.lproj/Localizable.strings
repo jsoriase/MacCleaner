@@ -14,11 +14,15 @@
 "alert.report.failures" = "Некоторые объекты не удалось удалить (затронуто категорий: %d). Обычно это вопрос прав доступа: предоставьте MacCleaner полный доступ к диску в «Настройки › Конфиденциальность и безопасность».";
 "alert.report.freed" = "Освобождено %@.";
 "alert.report.title" = "Очистка завершена";
+"alert.report.trashed" = "%@ перемещено в Корзину. Место освободится после её очистки.";
 
 /* ---- category ---- */
+"category.ai" = "Инструменты ИИ";
+"category.browsers" = "Браузеры";
 "category.jvm" = "Android, Gradle и JVM";
 "category.langs" = "Другие языки";
 "category.node" = "Node и веб";
+"category.projects" = "Проекты";
 "category.system" = "Система и приложения";
 "category.tools" = "Менеджеры пакетов";
 "category.xcode" = "Xcode и iOS";
@@ -31,6 +35,9 @@
 "empty.button" = "Сканировать сейчас";
 "empty.subtitle" = "Ничего не выбрано: вы сами решаете, что удалить, и подтверждаете перед этим.";
 "empty.title" = "Просканируйте, чтобы узнать, сколько места можно освободить";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ не установлен, или MacCleaner его не находит.";
 
 /* ---- footer ---- */
 "footer.clean" = "Очистить %@";
@@ -73,10 +80,34 @@
 "select.mark" = "Выбрать";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Кэши помощников по коду";
+"target.ai.caches.note" = "Временные файлы Claude, Codex, Cursor и OpenCode";
+"target.ai.models.name" = "Скачанные модели ИИ";
+"target.ai.models.note" = "Веса Ollama, Hugging Face и LM Studio: по несколько гигабайт";
+"target.ai.vmbundles.name" = "Виртуальные машины ассистентов";
+"target.ai.vmbundles.note" = "Образы дисков, которые Claude скачивает для запуска кода";
+"target.ai.worktrees.name" = "Рабочие деревья агентов";
+"target.ai.worktrees.note" = "Копии твоих проектов, которые агенты оставляют в ~/.codex/worktrees";
+"target.android.avd.name" = "Эмуляторы Android";
+"target.android.avd.note" = "Каждый AVD хранит свой диск и состояние; его придётся создать заново";
 "target.android.caches.name" = "Кэш Android";
 "target.android.caches.note" = "Кэш сборки SDK и временные данные инструментов";
+"target.android.systemimages.name" = "Системные образы Android";
+"target.android.systemimages.note" = "Их скачивает SDK Manager, по одному на версию API";
+"target.browsers.cache.name" = "Кэш браузеров";
+"target.browsers.cache.note" = "Страницы, изображения и шейдеры Chrome, Brave, Edge, Chromium и Firefox";
+"target.browsers.cookies.name" = "Куки";
+"target.browsers.cookies.note" = "Выйдешь со всех сайтов, а места они почти не занимают";
 "target.browsers.headless.name" = "Браузеры Playwright / Puppeteer";
 "target.browsers.headless.note" = "Chromium, Firefox и WebKit, скачанные для E2E-тестов";
+"target.browsers.history.name" = "История просмотров";
+"target.browsers.history.note" = "Посещённые сайты и часто открываемые страницы. Не вернётся";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Офлайн-данные веб-приложений; загрузятся снова при посещении";
+"target.browsers.storage.name" = "Хранилище сайтов";
+"target.browsers.storage.note" = "Local Storage и IndexedDB; часть сайтов попросит войти заново";
+"target.browsers.updater.name" = "Кэш обновлений";
+"target.browsers.updater.note" = "Уже установленные обновления браузера";
 "target.bun.deno.name" = "Кэш Bun и Deno";
 "target.bun.deno.note" = "Модули, скачанные Bun и Deno";
 "target.caches.other.name" = "Прочие кэши приложений";
@@ -85,8 +116,14 @@
 "target.carthage.note" = "Фреймворки и checkout-ы Carthage";
 "target.cocoapods.name" = "Кэш CocoaPods";
 "target.cocoapods.note" = "Скачанные поды и спеки";
+"target.containers.caches.name" = "Кэши изолированных приложений";
+"target.containers.caches.note" = "Каждое изолированное приложение хранит свою копию в контейнере";
+"target.docker.disk.name" = "Диск виртуальной машины Docker";
+"target.docker.disk.note" = "Освобождается командой docker system prune. Образы и тома сохраняются";
 "target.docker.logs.name" = "Логи Docker Desktop";
 "target.docker.logs.note" = "Только логи. Образы и тома не затрагиваются";
+"target.electron.appsupport.name" = "Кэши приложений Electron";
+"target.electron.appsupport.note" = "Cache, Code Cache и GPUCache за пределами ~/Library/Caches";
 "target.electron.name" = "Кэш Electron";
 "target.electron.note" = "Бинарники Electron и electron-builder";
 "target.flutter.name" = "Кэш Flutter / Dart";
@@ -103,8 +140,8 @@
 "target.gradle.wrapper.note" = "Каждая версия Gradle, скачанная проектом (около 150 МБ каждая)";
 "target.homebrew.name" = "Кэш Homebrew";
 "target.homebrew.note" = "Bottle-ы и старые загрузки brew";
-"target.ios.backups.name" = "Резервные копии iOS";
-"target.ios.backups.note" = "Резервные копии iPhone и iPad. Возможно, это ваша единственная копия";
+"target.installers.old.name" = "Скачанные установщики";
+"target.installers.old.note" = "Обновления и пакеты, которые уже установлены";
 "target.jetbrains.caches.name" = "Кэш JetBrains / Android Studio";
 "target.jetbrains.caches.note" = "Индексы и кэши IntelliJ, Android Studio, PyCharm и других";
 "target.jetbrains.logs.name" = "Логи JetBrains / Android Studio";
@@ -119,6 +156,10 @@
 "target.php.note" = "Пакеты, скачанные Composer";
 "target.pnpm.name" = "Хранилище pnpm";
 "target.pnpm.note" = "Общее хранилище пакетов pnpm";
+"target.projects.builds.name" = "Результаты сборки";
+"target.projects.builds.note" = "build, target, .next и DerivedData. Следующая сборка создаст их заново";
+"target.projects.deps.name" = "Зависимости проектов";
+"target.projects.deps.note" = "node_modules, Pods, .venv и vendor. Менеджер пакетов вернёт их обратно";
 "target.python.name" = "Кэш Python";
 "target.python.note" = "pip, uv, poetry и собранные wheel-ы";
 "target.ruby.name" = "Кэш Ruby";
@@ -129,8 +170,8 @@
 "target.savedstate.note" = "Окна и документы, которые приложения открывают при запуске";
 "target.sim.caches.name" = "Кэш CoreSimulator";
 "target.sim.caches.note" = "Загруженные среды выполнения и общий кэш симуляторов";
-"target.sim.devicedata.name" = "Временные данные симуляторов";
-"target.sim.devicedata.note" = "Кэши и /tmp внутри каждого симулятора (установленные приложения сохраняются)";
+"target.sim.devices.name" = "Установленные симуляторы";
+"target.sim.devices.note" = "Удаляются через simctl, чтобы у Xcode не осталось призрака";
 "target.swiftpm.name" = "Кэш Swift Package Manager";
 "target.swiftpm.note" = "Репозитории и бинарники зависимостей SwiftPM";
 "target.trash.name" = "Корзина";
@@ -149,7 +190,19 @@
 "target.xcode.devicesupport.note" = "Символы для каждой версии iOS, с которой вы подключали устройство";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "То же самое для остальных платформ";
+"target.xcode.doccache.name" = "Скачанная документация Xcode";
+"target.xcode.doccache.note" = "Xcode скачает её снова при открытии";
 "target.xcode.previews.name" = "Xcode Previews";
 "target.xcode.previews.note" = "Кэш предпросмотров SwiftUI";
 "target.yarn.name" = "Кэш Yarn";
 "target.yarn.note" = "Пакеты, скачанные Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "Это твоё, и копии больше нигде нет: удалил — и всё.";
+"why.recreate" = "Придётся создать заново вручную, а нынешнее состояние не вернётся.";
+"why.redownload" = "Придётся скачать снова, когда что-нибудь этого потребует.";
+"why.regenerates" = "В следующий раз создастся сама, и ты этого не заметишь.";
+"why.signOut" = "Ты выйдешь с сайтов, которые это используют, и придётся войти заново.";
+"why.slowerBuild" = "Ничего не теряется, но следующая сборка займёт больше времени, пока делает заново.";
+"why.toolDecides" = "Удаляет сам инструмент, так что что именно исчезнет, решает он.";
+"why.unknown" = "Ящик для всего: сюда попадает то, что не назвала ни одна другая строка. Посмотри перед удалением.";

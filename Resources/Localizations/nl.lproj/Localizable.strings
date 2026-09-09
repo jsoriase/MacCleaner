@@ -13,11 +13,15 @@
 "alert.report.failures" = "Niet alles kon worden verwijderd (betrokken categorieën: %d). Meestal is dit een kwestie van rechten: geef MacCleaner volledige schijftoegang via Instellingen › Privacy en beveiliging.";
 "alert.report.freed" = "%@ vrijgemaakt.";
 "alert.report.title" = "Opruimen voltooid";
+"alert.report.trashed" = "%@ naar de Prullenmand verplaatst. De ruimte komt vrij bij legen.";
 
 /* ---- category ---- */
+"category.ai" = "AI-hulpmiddelen";
+"category.browsers" = "Browsers";
 "category.jvm" = "Android, Gradle en JVM";
 "category.langs" = "Andere talen";
 "category.node" = "Node en web";
+"category.projects" = "Projecten";
 "category.system" = "Systeem en apps";
 "category.tools" = "Pakketbeheerders";
 "category.xcode" = "Xcode en iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Scan nu";
 "empty.subtitle" = "Er is niets geselecteerd: jij kiest wat er weg mag en bevestigt vooraf.";
 "empty.title" = "Scan om te zien hoeveel ruimte je kunt terugwinnen";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ is niet geïnstalleerd, of MacCleaner kan het niet vinden.";
 
 /* ---- footer ---- */
 "footer.clean" = "Ruim %@ op";
@@ -72,10 +79,34 @@
 "select.mark" = "Selecteer";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Caches van codeassistenten";
+"target.ai.caches.note" = "Tijdelijke bestanden van Claude, Codex, Cursor en OpenCode";
+"target.ai.models.name" = "Gedownloade AI-modellen";
+"target.ai.models.note" = "Gewichten van Ollama, Hugging Face en LM Studio: gigabytes per stuk";
+"target.ai.vmbundles.name" = "Virtuele machines van assistenten";
+"target.ai.vmbundles.note" = "Schijfkopieën die Claude downloadt om code uit te voeren";
+"target.ai.worktrees.name" = "Werkmappen van agents";
+"target.ai.worktrees.note" = "Kopieën van je projecten die agents achterlaten in ~/.codex/worktrees";
+"target.android.avd.name" = "Android-emulators";
+"target.android.avd.note" = "Elke AVD bewaart zijn schijf en toestand; je moet hem opnieuw maken";
 "target.android.caches.name" = "Android-cache";
 "target.android.caches.note" = "Buildcache van de SDK en tijdelijke gegevens van de tools";
+"target.android.systemimages.name" = "Android-systeemimages";
+"target.android.systemimages.note" = "Gedownload door de SDK Manager, één per API-versie";
+"target.browsers.cache.name" = "Browsercaches";
+"target.browsers.cache.note" = "Pagina’s, afbeeldingen en shaders van Chrome, Brave, Edge, Chromium en Firefox";
+"target.browsers.cookies.name" = "Cookies";
+"target.browsers.cookies.note" = "Logt je overal uit en neemt bijna niets in beslag";
 "target.browsers.headless.name" = "Playwright- / Puppeteer-browsers";
 "target.browsers.headless.note" = "Chromium, Firefox en WebKit gedownload voor E2E-tests";
+"target.browsers.history.name" = "Browsegeschiedenis";
+"target.browsers.history.note" = "Bezochte sites en meestgebruikte pagina’s. Komt niet terug";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Offline webapp-gegevens; worden opnieuw geladen als je de site bezoekt";
+"target.browsers.storage.name" = "Site-opslag";
+"target.browsers.storage.note" = "Local Storage en IndexedDB; sommige sites vragen opnieuw om inloggen";
+"target.browsers.updater.name" = "Updatercache";
+"target.browsers.updater.note" = "Al geïnstalleerde browserupdates";
 "target.bun.deno.name" = "Bun- en Deno-cache";
 "target.bun.deno.note" = "Door Bun en Deno gedownloade modules";
 "target.caches.other.name" = "Overige app-caches";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Carthage-frameworks en -checkouts";
 "target.cocoapods.name" = "CocoaPods-cache";
 "target.cocoapods.note" = "Gedownloade pods en specs";
+"target.containers.caches.name" = "Caches van sandbox-apps";
+"target.containers.caches.note" = "Elke sandbox-app bewaart zijn eigen kopie in zijn container";
+"target.docker.disk.name" = "Schijf van de Docker-VM";
+"target.docker.disk.note" = "Wordt vrijgemaakt met docker system prune. Je images en volumes blijven";
 "target.docker.logs.name" = "Docker Desktop-logboeken";
 "target.docker.logs.note" = "Alleen logboeken. Images en volumes blijven onaangeroerd";
+"target.electron.appsupport.name" = "Caches van Electron-apps";
+"target.electron.appsupport.note" = "Cache, Code Cache en GPUCache buiten ~/Library/Caches";
 "target.electron.name" = "Electron-cache";
 "target.electron.note" = "Binaries van Electron en electron-builder";
 "target.flutter.name" = "Flutter- / Dart-cache";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Elke Gradle-versie die een project heeft gedownload (~150 MB per stuk)";
 "target.homebrew.name" = "Homebrew-cache";
 "target.homebrew.note" = "Bottles en oude brew-downloads";
-"target.ios.backups.name" = "iOS-reservekopieën";
-"target.ios.backups.note" = "Reservekopieën van iPhone en iPad. Mogelijk je enige kopie";
+"target.installers.old.name" = "Gedownloade installatieprogramma’s";
+"target.installers.old.note" = "Updates en pakketten die al geïnstalleerd zijn";
 "target.jetbrains.caches.name" = "JetBrains- / Android Studio-cache";
 "target.jetbrains.caches.note" = "Indexen en caches van IntelliJ, Android Studio, PyCharm en dergelijke";
 "target.jetbrains.logs.name" = "JetBrains- / Android Studio-logboeken";
@@ -118,6 +155,10 @@
 "target.php.note" = "Door Composer gedownloade pakketten";
 "target.pnpm.name" = "pnpm-store";
 "target.pnpm.note" = "Gedeelde pakketopslag van pnpm";
+"target.projects.builds.name" = "Build-uitvoer";
+"target.projects.builds.note" = "build, target, .next en DerivedData. De volgende build maakt ze opnieuw";
+"target.projects.deps.name" = "Projectafhankelijkheden";
+"target.projects.deps.note" = "node_modules, Pods, .venv en vendor. Je pakketbeheerder haalt ze terug";
 "target.python.name" = "Python-cache";
 "target.python.note" = "pip, uv, poetry en gecompileerde wheels";
 "target.ruby.name" = "Ruby-cache";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Vensters en documenten die apps bij het starten heropenen";
 "target.sim.caches.name" = "CoreSimulator-cache";
 "target.sim.caches.note" = "Gedownloade runtimes en de gedeelde cache van de simulators";
-"target.sim.devicedata.name" = "Tijdelijke simulatorgegevens";
-"target.sim.devicedata.note" = "Caches en /tmp in elke simulator (geïnstalleerde apps blijven staan)";
+"target.sim.devices.name" = "Geïnstalleerde simulators";
+"target.sim.devices.note" = "Verwijderd met simctl, zodat Xcode geen spook overhoudt";
 "target.swiftpm.name" = "Swift Package Manager-cache";
 "target.swiftpm.note" = "Repositories en binaries van SwiftPM-afhankelijkheden";
 "target.trash.name" = "Prullenmand";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Symbolen voor elke iOS-versie waarvan je een apparaat hebt aangesloten";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Hetzelfde, voor de overige platforms";
+"target.xcode.doccache.name" = "Gedownloade Xcode-documentatie";
+"target.xcode.doccache.note" = "Xcode downloadt die opnieuw als je hem opent";
 "target.xcode.previews.name" = "Xcode-voorvertoningen";
 "target.xcode.previews.note" = "Cache voor SwiftUI-voorvertoningen";
 "target.yarn.name" = "Yarn-cache";
 "target.yarn.note" = "Door Yarn gedownloade pakketten";
+
+/* ---- why ---- */
+"why.dataLoss" = "Dit is van jou en er is nergens een kopie: eenmaal gewist, is het weg.";
+"why.recreate" = "Je moet het met de hand opnieuw maken, en de huidige toestand komt niet terug.";
+"why.redownload" = "Moet opnieuw worden gedownload zodra iets het weer nodig heeft.";
+"why.regenerates" = "Wordt de volgende keer vanzelf opnieuw aangemaakt, zonder dat je het merkt.";
+"why.signOut" = "Je wordt uitgelogd op de sites die het gebruiken en moet opnieuw inloggen.";
+"why.slowerBuild" = "Er gaat niets verloren, maar de volgende build duurt langer terwijl hij het opnieuw maakt.";
+"why.toolDecides" = "Het gereedschap wist zelf, dus wat er precies verdwijnt bepaalt het.";
+"why.unknown" = "Verzamelbak: hier belandt wat geen andere regel heeft benoemd. Kijk voor je wist.";

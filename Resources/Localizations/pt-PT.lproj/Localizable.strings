@@ -13,11 +13,15 @@
 "alert.report.failures" = "Não foi possível apagar tudo (categorias afetadas: %d). Normalmente é uma questão de permissões: conceda ao MacCleaner acesso total ao disco em Definições › Privacidade e Segurança.";
 "alert.report.freed" = "Libertados %@.";
 "alert.report.title" = "Limpeza concluída";
+"alert.report.trashed" = "Movidos %@ para o Lixo. O espaço liberta-se ao esvaziá-lo.";
 
 /* ---- category ---- */
+"category.ai" = "Ferramentas de IA";
+"category.browsers" = "Navegadores";
 "category.jvm" = "Android, Gradle e JVM";
 "category.langs" = "Outras linguagens";
 "category.node" = "Node e web";
+"category.projects" = "Projetos";
 "category.system" = "Sistema e apps";
 "category.tools" = "Gestores de pacotes";
 "category.xcode" = "Xcode e iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Analisar agora";
 "empty.subtitle" = "Nada vem selecionado: é você que escolhe o que apagar e confirma antes.";
 "empty.title" = "Analise para ver quanto espaço pode recuperar";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ não está instalado, ou o MacCleaner não o encontra.";
 
 /* ---- footer ---- */
 "footer.clean" = "Limpar %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Selecionar";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Caches de assistentes de código";
+"target.ai.caches.note" = "Ficheiros temporários do Claude, Codex, Cursor e OpenCode";
+"target.ai.models.name" = "Modelos de IA transferidos";
+"target.ai.models.note" = "Pesos de Ollama, Hugging Face e LM Studio: gigabytes cada um";
+"target.ai.vmbundles.name" = "Máquinas virtuais de assistentes";
+"target.ai.vmbundles.note" = "Imagens de disco que o Claude transfere para executar código";
+"target.ai.worktrees.name" = "Árvores de trabalho de agentes";
+"target.ai.worktrees.note" = "Cópias dos teus projetos que os agentes deixam em ~/.codex/worktrees";
+"target.android.avd.name" = "Emuladores de Android";
+"target.android.avd.note" = "Cada AVD guarda o seu disco e o seu estado; tens de o criar outra vez";
 "target.android.caches.name" = "Cache do Android";
 "target.android.caches.note" = "Build cache do SDK e dados temporários das ferramentas";
+"target.android.systemimages.name" = "Imagens de sistema do Android";
+"target.android.systemimages.note" = "Transferidas pelo SDK Manager, uma por versão da API";
+"target.browsers.cache.name" = "Cache dos navegadores";
+"target.browsers.cache.note" = "Páginas, imagens e shaders do Chrome, Brave, Edge, Chromium e Firefox";
+"target.browsers.cookies.name" = "Cookies";
+"target.browsers.cookies.note" = "Termina a sessão em todos os sites, e quase não ocupa nada";
 "target.browsers.headless.name" = "Navegadores do Playwright / Puppeteer";
 "target.browsers.headless.note" = "Chromium, Firefox e WebKit transferidos para testes E2E";
+"target.browsers.history.name" = "Histórico de navegação";
+"target.browsers.history.note" = "Sites visitados e páginas mais usadas. Não se recupera";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Dados de apps web offline; voltam a ser transferidos ao visitá-las";
+"target.browsers.storage.name" = "Armazenamento dos sites";
+"target.browsers.storage.note" = "Local Storage e IndexedDB; alguns sites vão pedir para iniciar sessão";
+"target.browsers.updater.name" = "Cache do atualizador";
+"target.browsers.updater.note" = "Transferências de atualizações do navegador já instaladas";
 "target.bun.deno.name" = "Cache do Bun e do Deno";
 "target.bun.deno.note" = "Módulos transferidos pelo Bun e pelo Deno";
 "target.caches.other.name" = "Outras caches de aplicações";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Frameworks e checkouts do Carthage";
 "target.cocoapods.name" = "Cache do CocoaPods";
 "target.cocoapods.note" = "Pods transferidos e specs";
+"target.containers.caches.name" = "Caches de apps em sandbox";
+"target.containers.caches.note" = "Cada app em sandbox guarda a sua cópia dentro do contentor";
+"target.docker.disk.name" = "Disco da máquina virtual do Docker";
+"target.docker.disk.note" = "Liberta-se com docker system prune. As imagens e os volumes são mantidos";
 "target.docker.logs.name" = "Registos do Docker Desktop";
 "target.docker.logs.note" = "Apenas registos. Não mexe em imagens nem volumes";
+"target.electron.appsupport.name" = "Caches de apps Electron";
+"target.electron.appsupport.note" = "Cache, Code Cache e GPUCache que vivem fora de ~/Library/Caches";
 "target.electron.name" = "Cache do Electron";
 "target.electron.note" = "Binários do Electron e do electron-builder";
 "target.flutter.name" = "Cache do Flutter / Dart";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Cada versão do Gradle transferida por um projeto (~150 MB cada)";
 "target.homebrew.name" = "Cache do Homebrew";
 "target.homebrew.note" = "Bottles e transferências antigas do brew";
-"target.ios.backups.name" = "Cópias de segurança do iOS";
-"target.ios.backups.note" = "Cópias de iPhone e iPad. Podem ser a única cópia que tem";
+"target.installers.old.name" = "Instaladores transferidos";
+"target.installers.old.note" = "Atualizações e pacotes que já estão instalados";
 "target.jetbrains.caches.name" = "Cache do JetBrains / Android Studio";
 "target.jetbrains.caches.note" = "Índices e caches do IntelliJ, Android Studio, PyCharm, etc.";
 "target.jetbrains.logs.name" = "Registos do JetBrains / Android Studio";
@@ -118,6 +155,10 @@
 "target.php.note" = "Pacotes transferidos pelo Composer";
 "target.pnpm.name" = "Store do pnpm";
 "target.pnpm.note" = "Store de pacotes partilhado do pnpm";
+"target.projects.builds.name" = "Saídas de compilação";
+"target.projects.builds.note" = "build, target, .next e DerivedData. A próxima compilação refá-los";
+"target.projects.deps.name" = "Dependências de projetos";
+"target.projects.deps.note" = "node_modules, Pods, .venv e vendor. O gestor de pacotes traz-nas de volta";
 "target.python.name" = "Cache do Python";
 "target.python.note" = "pip, uv, poetry e wheels compiladas";
 "target.ruby.name" = "Cache do Ruby";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Janelas e documentos que as apps reabrem ao arrancar";
 "target.sim.caches.name" = "Cache do CoreSimulator";
 "target.sim.caches.note" = "Runtimes transferidos e cache partilhada dos simuladores";
-"target.sim.devicedata.name" = "Dados temporários dos simuladores";
-"target.sim.devicedata.note" = "Caches e /tmp dentro de cada simulador (as apps instaladas mantêm-se)";
+"target.sim.devices.name" = "Simuladores instalados";
+"target.sim.devices.note" = "Apagados com simctl para o Xcode não ficar com um fantasma";
 "target.swiftpm.name" = "Cache do Swift Package Manager";
 "target.swiftpm.note" = "Repositórios e binários das dependências SwiftPM";
 "target.trash.name" = "Lixo";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Símbolos de cada versão do iOS a partir da qual ligou um dispositivo";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "O mesmo para as restantes plataformas";
+"target.xcode.doccache.name" = "Documentação transferida do Xcode";
+"target.xcode.doccache.note" = "O Xcode volta a transferi-la quando a abres";
 "target.xcode.previews.name" = "Pré-visualizações do Xcode";
 "target.xcode.previews.note" = "Cache das pré-visualizações do SwiftUI";
 "target.yarn.name" = "Cache do Yarn";
 "target.yarn.note" = "Pacotes transferidos pelo Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "Isto é teu e não há cópia em mais lado nenhum: se apagares, foi-se.";
+"why.recreate" = "Vais ter de o criar outra vez à mão, e o seu estado atual não volta.";
+"why.redownload" = "Terá de ser transferido outra vez da próxima vez que algo precisar dele.";
+"why.regenerates" = "Volta a criar-se sozinha da próxima vez que for precisa, e não vais notar.";
+"why.signOut" = "Vais terminar a sessão nos sites que o usem e terás de entrar de novo.";
+"why.slowerBuild" = "Não se perde nada, mas a próxima compilação vai demorar mais enquanto refaz.";
+"why.toolDecides" = "É a própria ferramenta que apaga, por isso o que desaparece exatamente decide ela.";
+"why.unknown" = "Gaveta de tudo: aqui cai o que nenhuma outra linha nomeou. Olha antes de apagar.";

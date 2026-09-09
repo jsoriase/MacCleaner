@@ -2,195 +2,159 @@
 
 <img src="art/logo512.png" width="128" alt="MacCleaner logo">
 
-Limpiador de cachés de desarrollo para macOS. Nativo, sin dependencias, 1 MB.
+Native dev-cache cleaner for macOS. No dependencies, ~1 MB.
 
-![Swift](https://img.shields.io/badge/Swift-6-orange) ![macOS](https://img.shields.io/badge/macOS-13%2B-blue)
+![Swift](https://img.shields.io/badge/Swift-6-orange)
+![macOS](https://img.shields.io/badge/macOS-13%2B-blue)
+![Platform](https://img.shields.io/badge/platform-macOS-lightgrey)
 
-## Qué hace
+MacCleaner finds and measures the caches left behind by developer tools — Xcode, Gradle, Android Studio, npm, Cargo, Homebrew, Docker, and more — and lets you delete what you choose. **58 categories** across 9 groups, including AI-assistant leftovers and build artifacts inside your own projects.
 
-Localiza y mide las cachés que dejan las herramientas de desarrollo —Xcode,
-Gradle, Android Studio, npm, Cargo, Homebrew y unas cuantas más— y te deja
-borrar las que quieras. **40 categorías** repartidas en 6 grupos.
+## Features
 
-## Cómo se usa
+- **Scan-only by default** — analyzing never deletes anything
+- **58 categories in 9 groups**: Xcode, JVM / Android, Node, other languages, AI tools, project artifacts, dev tools, browsers, system
+- **Risk-based selection** — nothing is pre-selected; bulk-select by risk level with live totals
+- **Expandable rows** — 18 categories break down by version, project, app, device, etc., with per-item size and last-modified date
+- **Stale highlighting** — items untouched for 6+ months are flagged in amber
+- **Safety first** — never touches anything outside your home directory, skips TCC-protected paths, moves to Trash by default
+- **Accurate measuring** — counts allocated blocks like `du`, deduplicates hard links, never double-counts a path
+- **Localized in 43 languages**, follows your system language with English fallback
 
-1. **Analizar.** Solo mide, no borra nada.
-2. **Marcar.** Al abrir la app no hay nada seleccionado. Los tres botones de la
-   barra superior marcan de golpe todas las filas de un nivel de riesgo, y son
-   acumulativos: `Seguras` + `Se regeneran` deja las dos tandas marcadas.
-   Cada botón lleva su propio total, así que ves lo que ganas antes de decidir.
-   También puedes marcar filas sueltas, o usar los enlaces `Todo` / `Nada` que
-   aparecen al pasar el ratón sobre una cabecera de grupo.
-3. **Limpiar.** Un diálogo dice exactamente cuánto y qué, y avisa aparte de las
-   categorías marcadas como «Cuidado».
+## Requirements
 
-La selección **no se recuerda entre sesiones**: cada vez que abres la app
-empiezas de cero, para que borrar sea siempre una decisión deliberada y no algo
-heredado de la vez anterior.
+- macOS 13 or later
+- Xcode 15+ / Swift 5.9+ (only to build from source)
 
-## Lo que ves de cada fila
+## Installation
 
-La cabecera lleva, además del total recuperable, lo que le queda al disco
-(`6,5 GB libres de 245 GB`). Sin ese segundo número el primero no responde a la
-pregunta que trae a nadie a abrir la app.
-
-Ocho filas se despliegan y miden cada trozo por separado, porque el total junto
-no basta para decidir:
-
-| Fila | Se parte en |
-|---|---|
-| Caché de Gradle, Distribuciones del Wrapper | versión de Gradle |
-| Xcode DerivedData | proyecto |
-| iOS DeviceSupport | versión de iOS |
-| Xcode Archives | fecha de archivado |
-| Cachés y registros de JetBrains | versión del IDE |
-| Otras cachés de aplicaciones | app |
-
-Hay dos maneras de partir una fila y la diferencia importa al borrar. Con
-`.children` el trozo es un hijo del target y se borra entero: una versión de
-Gradle se va con todo. Con `.paths` los trozos son las rutas que ya separó el
-comodín del patrón, así que el trozo *es* el target y se respeta su `scope`:
-`~/Library/Caches/com.loquesea` se vacía, no se borra.
-
-Cada subcarpeta lleva su tamaño y cuándo se escribió por última vez (`hace 14
-horas`, `hace 3 meses`). Pasado medio año sin tocarse, la fecha sale en ámbar:
-es la señal de que esa versión, ese proyecto o aquella app ya no están en uso, y
-suele decidir más que el tamaño. El dato sale del mismo `stat` que `fts` ya hace
-para medir, así que no cuesta un segundo recorrido, y lo traduce Foundation en
-lugar de nuestro catálogo. Es fecha de escritura, no de lectura: macOS monta con
-`noatime` y leer no deja rastro, pero para una caché vale igual, porque la
-herramienta que la usa también la escribe.
-
-Con el clic derecho, `Mostrar en el Finder` abre la ruta de la fila. Antes de
-borrar algo marcado como «Cuidado», lo normal es querer mirarlo primero.
-
-## Idiomas
-
-La app se traduce a **43 idiomas** y toma el del sistema automáticamente, con
-respaldo en inglés si el tuyo no está. Cubre el idioma principal de cada país
-de Europa, más las lenguas cooficiales de España y los idiomas más hablados del
-mundo.
-
-**Europa:** albanés (`sq`), alemán (`de`), belaruso (`be`), bosnio (`bs`),
-búlgaro (`bg`), croata (`hr`), checo (`cs`), danés (`da`), eslovaco (`sk`),
-esloveno (`sl`), estonio (`et`), finés (`fi`), francés (`fr`), griego (`el`),
-húngaro (`hu`), inglés (`en`), irlandés (`ga`), islandés (`is`), italiano
-(`it`), letón (`lv`), lituano (`lt`), luxemburgués (`lb`), macedonio (`mk`),
-maltés (`mt`), neerlandés (`nl`), noruego bokmål (`nb`), polaco (`pl`),
-portugués de Portugal (`pt-PT`), rumano (`ro`), ruso (`ru`), serbio (`sr`),
-sueco (`sv`), turco (`tr`), ucraniano (`uk`).
-
-**España:** español (`es`), catalán (`ca`), gallego (`gl`), euskera (`eu`).
-
-**Resto del mundo:** árabe (`ar`), chino simplificado (`zh-Hans`), hindi (`hi`),
-japonés (`ja`), portugués de Brasil (`pt-BR`).
-
-Los textos viven en `Resources/Localizations/<idioma>.lproj/Localizable.strings`
-y `build.sh` los copia dentro del `.app`. El nombre y la descripción de cada
-categoría se derivan de su id (`target.gradle.caches.name`), así que no pueden
-desincronizarse del catálogo. Seis claves —nombres propios como
-`Xcode DerivedData` y rutas como `~/.npm/_cacache`— son idénticas en todos los
-idiomas y se rellenan solas.
-
-En árabe la interfaz se refleja de derecha a izquierda. macOS no deduce eso solo
-en SwiftUI, así que la dirección se fija a partir de la localización que el
-bundle elige (ver `appLayoutDirection`).
-
-Para probar un idioma sin cambiar el del sistema:
+### Build from source
 
 ```bash
-open MacCleaner.app --args -AppleLanguages "(ja)"
-```
-
-### Calidad de las traducciones
-
-Están hechas por un modelo de lenguaje, no por hablantes nativos, y el nivel no
-es uniforme. Las lenguas romances y germánicas son sólidas; el maltés, el
-luxemburgués, el irlandés, el euskera y el albanés merecen una revisión antes de
-distribuir la app en serio, sobre todo en las frases que avisan de borrados
-permanentes. El bosnio está derivado del croata con ajustes léxicos, no
-traducido de forma independiente.
-
-Cinco tests protegen las traducciones: que los 43 idiomas tengan exactamente las
-mismas claves, que el `Info.plist` declare justo los que hay en disco, que
-ninguna fila del catálogo se quede sin nombre ni nota, que ningún texto esté
-vacío, y que los marcadores de formato (`%@`, `%d`) coincidan entre idiomas —
-un `%d` convertido en `%@` hace que `String(format:)` lea basura de la pila.
-
-## Compilar
-
-```bash
+git clone https://github.com/jsoriase/MacCleaner.git
+cd MacCleaner
 ./build.sh
 ```
 
-Genera `MacCleaner.app` (universal, arm64 + x86_64). Para instalarlo:
+This produces a universal (`arm64 + x86_64`) `MacCleaner.app` in the project root. To install:
 
 ```bash
 cp -R MacCleaner.app /Applications/
 ```
 
-Al abrirlo por primera vez macOS avisará de que no está firmado por un
-desarrollador identificado: clic derecho › Abrir, o Ajustes › Privacidad y
-seguridad › Abrir igualmente.
+> The app is ad-hoc signed, so on first launch macOS will warn that it is not from an identified developer. Right-click > Open, or allow it in Settings > Privacy & Security.
 
-## Por qué Swift
+## Usage
 
-El requisito era el menor consumo de RAM posible. Medido en este Mac:
+1. **Analyze.** Click Analyze to measure everything. Nothing is deleted.
+2. **Select.** Nothing is selected on launch — every cleanup is an explicit choice.
+   - Use the three toolbar buttons to bulk-select by risk level (`Safe`, `Rebuild`, `Caution`). They stack: `Safe` + `Rebuild` selects both.
+   - Each button shows its own total, so you see the gain before deciding.
+   - Or select individual rows, or hover a group header for `All` / `None`.
+   - Selection is not remembered between launches.
+3. **Clean.** A confirmation dialog shows exactly how much and what will be removed, with a separate warning for `Caution` items.
 
-| | Memoria |
-|---|---|
-| En reposo | **38 MB** |
-| Pico analizando 49 GB / ~500 000 archivos | **75 MB** |
+Other UI details:
 
-Un limpiador equivalente en Electron ronda los 300–400 MB. Swift compila a
-binario nativo y usa las mismas bibliotecas del sistema que ya están cargadas
-en memoria, así que el coste marginal es mínimo.
+- The header shows both reclaimable space and current free space (`6.5 GB free of 245 GB`).
+- Expandable rows show each sub-item with size and relative last-modified date (`3 hours ago`, `3 months ago`).
+- Right-click > **Show in Finder** opens a row's path — useful before deleting `Caution` items.
 
-El recorrido de directorios usa `fts(3)` y `glob(3)` directamente en lugar de
-`FileManager.enumerator`: son C puro, no crean objetos intermedios y mantienen
-la memoria plana sin importar el tamaño del árbol.
+## What it cleans
 
-## Niveles de riesgo
+| Group | Examples |
+| ----- | -------- |
+| Xcode | DerivedData (per project), Archives (per date), DeviceSupport (per iOS version), simulators (per device) |
+| JVM / Android | Gradle caches (per version), wrapper dists, Android emulators (per AVD), system images (per API) |
+| Node | npm, pnpm store, Yarn, Bun caches |
+| Languages | Cargo, Go, Python, Ruby, Maven, etc. |
+| AI tools | Agent worktrees (per branch), assistant VMs, downloaded models |
+| Project artifacts | `node_modules`, `Pods`, `target`, `build`, `.venv` found under `~/Projects`, `~/Code`, `~/dev`, `~/Developer`, `~/src`, `~/GitHub`, `~/Workspace`, `~/repos`, `~/Sites` |
+| Dev tools | JetBrains caches (per IDE version), Homebrew, Docker, Electron / sandboxed app caches (per app) |
+| Browsers | Chromium-family cache, service workers, site storage, history, cookies |
+| System | User caches, logs, Trash |
 
-Cada categoría lleva una etiqueta, y hay un botón por nivel:
+### Risk levels
 
-- **Seguro** — se regenera solo, sin efectos secundarios.
-- **Se regenera** — seguro, pero la siguiente compilación irá más lenta.
-- **Cuidado** — hay que volver a descargar cosas o pierdes datos útiles
-  (Archives de Xcode, repositorio de Maven, copias de iOS, papelera…).
+Every category has one, with a matching bulk-select button:
 
-Los tres niveles cubren el catálogo entero: no hay ninguna fila que quede fuera
-de los botones. Hay un test que lo comprueba.
+- **Safe** — regenerates on its own, no side effects.
+- **Rebuild** — safe, but the next build / launch will be slower.
+- **Caution** — requires re-downloading or loses useful data (Xcode Archives, Maven repo, project dependencies, Trash, …).
 
-## Seguridad
+Hovering a row's badge explains *why* it has that level.
 
-Tres capas, todas cubiertas por tests:
+### Special cases
 
-1. **Fuera del home no se toca nada.** Ni `/`, ni `/System`, ni otros volúmenes.
-2. **Carpetas de primer nivel del home protegidas**: `Library`, `Documents`,
-   `Desktop`, `Downloads`, `Pictures`, `Music`, `Movies`…
-3. **Rutas protegidas por TCC ignoradas por completo** (`com.apple.Music`,
-   `com.apple.Photos`, `MobileSync`…). Con solo *leerlas* macOS lanza un
-   diálogo de permisos que congelaría el análisis, así que MacCleaner ni las
-   mide ni las borra.
+**Project artifacts** live where your code lives, not at a fixed path. Two rows (`Project dependencies`, `Build outputs`) sweep your code folders up to 8 levels deep, skipping hidden directories (except artifacts like `.build`, `.venv`, `.next`) and never descending into a match (so a `build` inside `node_modules` isn't counted twice). Home directory only — external drives and `/Volumes` are excluded.
 
-`Mover a la Papelera` deja el borrado reversible, a cambio de que el espacio
-no se libere hasta vaciarla.
+**Simulators and Docker are delegated to their own tools**, not `rm`:
+
+- Simulators: `xcrun simctl delete <UDID>`
+- Docker: `docker system prune --force` (without `--all` / `--volumes`, so tagged images and database volumes are preserved)
+
+For these two rows space is re-measured after cleanup, and Trash does not apply.
+
+**Browsers:** Chromium browsers (Chrome, Brave, Edge, Chromium, Vivaldi) share a profile layout and are handled per profile. Almost all reclaimable space is cache (~97%); history and cookies are included for privacy, not space. Firefox derivatives share the cache / storage rows, but history is excluded (Firefox stores history and bookmarks in a single `places.sqlite`). Safari is not included — it requires Full Disk Access, which this app deliberately does not request.
+
+## Safety
+
+Three layers, all covered by tests:
+
+1. Nothing outside `$HOME` is ever touched — no `/`, no `/System`, no other volumes.
+2. Top-level home folders (`Library`, `Documents`, `Desktop`, `Downloads`, `Pictures`, …) are protected.
+3. TCC-protected paths (`com.apple.Music`, `com.apple.Photos`, `MobileSync`, …) are ignored entirely — even reading them would trigger a permission prompt and freeze the scan.
+
+Deletion moves to Trash by default (except the two tool-delegated rows, which delete immediately). Freed space is reported as "Moved to Trash", not "Freed", until you empty it.
+
+## How it works
+
+**Performance.** Written in Swift with direct `fts(3)` / `glob(3)` traversal instead of `FileManager.enumerator` — pure C, no intermediate objects, flat memory use:
+
+| State | Memory |
+| ----- | ------ |
+| Idle | ~38 MB |
+| Peak scanning 49 GB / ~500k files | ~75 MB |
+
+A comparable Electron cleaner uses ~300–400 MB.
+
+**Measuring.** Counts allocated blocks like `du`, not logical file size (a sparse `Docker.raw` reporting 228 GB may only occupy 15 GB). Files with multiple hard links (e.g. pnpm stores) are counted once. Overlapping patterns are resolved so no path is counted in two rows, and the header total never over-promises.
+
+Freed space may lag behind deleted bytes for reasons outside the app's control: APFS clones sharing blocks, Trash, local Time Machine snapshots, and APFS returning blocks in the background. The header re-reads free space after cleaning (until two consecutive reads agree) and whenever the app returns to the foreground.
+
+Free space uses Finder's number (`volumeAvailableCapacityForImportantUsage`), including purgeable space — correct for "will I run out of disk?", but it won't rise 1:1 with deletions since some caches already counted as available.
+
+## Localization
+
+The UI follows the system language (English fallback) and covers 43 locales: Europe's primary languages plus Spain's co-official languages and the world's most spoken languages (`sq`, `ar`, `be`, `bg`, `bs`, `ca`, `cs`, `da`, `de`, `el`, `en`, `es`, `et`, `eu`, `fi`, `fr`, `ga`, `gl`, `hi`, `hr`, `hu`, `is`, `it`, `ja`, `lb`, `lt`, `lv`, `mk`, `mt`, `nb`, `nl`, `pl`, `pt-BR`, `pt-PT`, `ro`, `ru`, `sk`, `sl`, `sr`, `sv`, `tr`, `uk`, `zh-Hans`).
+
+Strings live in `Resources/Localizations/<lang>.lproj/Localizable.strings` and category names/descriptions are derived from catalog IDs, so they can't drift out of sync.
+
+To try a language without changing the system one:
+
+```bash
+open MacCleaner.app --args -AppleLanguages "(ja)"
+```
+
+> Translations were produced by a language model, not native speakers. Romance and Germanic languages are solid; Maltese, Luxembourgish, Irish, Basque, and Albanian deserve review before wide distribution.
+
+## Development
+
+```
+Sources/MacCleaner/
+  App/MacCleanerApp.swift    entry point
+  Core/FileSystem.swift      glob, fts, deletion, protected paths
+  Core/Catalog.swift         the 58 categories and their paths
+  Core/Engine.swift          parallel analysis, cleaning, reclaim tracking
+  Core/Tools.swift           simctl / docker execution
+  UI/ContentView.swift       main window
+  UI/Components.swift        rows, headers, badges
+```
+
+Run tests (no dependencies, no network):
 
 ```bash
 swift test
 ```
 
-## Estructura
-
-```
-Sources/MacCleaner/
-  App/MacCleanerApp.swift    punto de entrada
-  Core/FileSystem.swift      glob, fts, borrado, rutas protegidas
-  Core/Catalog.swift         las 40 categorías y sus rutas
-  Core/Engine.swift          análisis en paralelo y limpieza
-  UI/ContentView.swift       ventana principal
-  UI/Components.swift        filas, cabeceras, distintivos
-```
-
-Para añadir una categoría basta con un `Target` más en `Catalog.swift`.
+To add a category, add one more `Target` in `Catalog.swift` — risk level, consequence, and path patterns are required and validated by tests.

@@ -13,11 +13,15 @@
 "alert.report.failures" = "Nem sikerült mindent törölni (érintett kategóriák: %d). Ez rendszerint jogosultsági kérdés: adj a MacCleanernek teljes lemez-hozzáférést a Beállítások › Adatvédelem és biztonság menüben.";
 "alert.report.freed" = "Felszabadítva: %@.";
 "alert.report.title" = "A tisztítás befejeződött";
+"alert.report.trashed" = "%@ a Kukába került. A hely a Kuka ürítésekor szabadul fel.";
 
 /* ---- category ---- */
+"category.ai" = "MI-eszközök";
+"category.browsers" = "Böngészők";
 "category.jvm" = "Android, Gradle és JVM";
 "category.langs" = "Egyéb nyelvek";
 "category.node" = "Node és web";
+"category.projects" = "Projektek";
 "category.system" = "Rendszer és appok";
 "category.tools" = "Csomagkezelők";
 "category.xcode" = "Xcode és iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Átvizsgálás most";
 "empty.subtitle" = "Semmi nincs kijelölve: te döntöd el, mi törlődjön, és előtte megerősíted.";
 "empty.title" = "Vizsgáld át, hogy lásd, mennyi helyet szabadíthatsz fel";
+
+/* ---- error ---- */
+"error.tool.missing" = "A(z) %@ nincs telepítve, vagy a MacCleaner nem találja.";
 
 /* ---- footer ---- */
 "footer.clean" = "%@ törlése";
@@ -72,10 +79,34 @@
 "select.mark" = "Kijelölés";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Kódasszisztensek gyorsítótárai";
+"target.ai.caches.note" = "Ideiglenes fájlok a Claude, Codex, Cursor és OpenCode alkalmazásokból";
+"target.ai.models.name" = "Letöltött MI-modellek";
+"target.ai.models.note" = "Ollama, Hugging Face és LM Studio súlyok: fejenként több GB";
+"target.ai.vmbundles.name" = "Asszisztensek virtuális gépei";
+"target.ai.vmbundles.note" = "Lemezképek, amiket a Claude tölt le kódfuttatáshoz";
+"target.ai.worktrees.name" = "Ügynökök munkafái";
+"target.ai.worktrees.note" = "A projektjeid másolatai, amiket az ügynökök a ~/.codex/worktrees mappában hagynak";
+"target.android.avd.name" = "Android-emulátorok";
+"target.android.avd.note" = "Minden AVD megőrzi a lemezét és az állapotát; újra létre kell hozni";
 "target.android.caches.name" = "Android gyorsítótár";
 "target.android.caches.note" = "Az SDK fordítási gyorsítótára és az eszközök ideiglenes adatai";
+"target.android.systemimages.name" = "Android rendszerképek";
+"target.android.systemimages.note" = "Az SDK Manager tölti le, API-verziónként egyet";
+"target.browsers.cache.name" = "Böngészők gyorsítótára";
+"target.browsers.cache.note" = "A Chrome, Brave, Edge, Chromium és Firefox oldalai, képei és shaderei";
+"target.browsers.cookies.name" = "Sütik";
+"target.browsers.cookies.note" = "Mindenhonnan kiléptet, és szinte semmi helyet nem foglal";
 "target.browsers.headless.name" = "Playwright / Puppeteer böngészők";
 "target.browsers.headless.note" = "E2E-tesztekhez letöltött Chromium, Firefox és WebKit";
+"target.browsers.history.name" = "Böngészési előzmények";
+"target.browsers.history.note" = "Meglátogatott oldalak és leggyakoribb lapok. Nem jön vissza";
+"target.browsers.serviceworkers.name" = "Service Workerek";
+"target.browsers.serviceworkers.note" = "Offline webalkalmazás-adatok; látogatáskor újra letöltődnek";
+"target.browsers.storage.name" = "Webhelyek tárolója";
+"target.browsers.storage.note" = "Local Storage és IndexedDB; néhány oldal újra bejelentkezést kér";
+"target.browsers.updater.name" = "Frissítő gyorsítótára";
+"target.browsers.updater.note" = "Már telepített böngészőfrissítések";
 "target.bun.deno.name" = "Bun és Deno gyorsítótár";
 "target.bun.deno.note" = "A Bun és a Deno által letöltött modulok";
 "target.caches.other.name" = "Egyéb app-gyorsítótárak";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Carthage keretrendszerek és checkoutok";
 "target.cocoapods.name" = "CocoaPods gyorsítótár";
 "target.cocoapods.note" = "Letöltött podok és specsek";
+"target.containers.caches.name" = "Homokozós alkalmazások gyorsítótárai";
+"target.containers.caches.note" = "Minden homokozós alkalmazás a saját tárolójában őrzi a másolatát";
+"target.docker.disk.name" = "A Docker virtuális gépének lemeze";
+"target.docker.disk.note" = "A docker system prune szabadítja fel. A képfájljaid és köteteid megmaradnak";
 "target.docker.logs.name" = "Docker Desktop naplók";
 "target.docker.logs.note" = "Csak naplók. A képfájlokhoz és kötetekhez nem nyúl";
+"target.electron.appsupport.name" = "Electron-alkalmazások gyorsítótárai";
+"target.electron.appsupport.note" = "Cache, Code Cache és GPUCache a ~/Library/Caches mappán kívül";
 "target.electron.name" = "Electron gyorsítótár";
 "target.electron.note" = "Az Electron és az electron-builder binárisai";
 "target.flutter.name" = "Flutter / Dart gyorsítótár";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Minden Gradle-verzió, amit egy projekt letöltött (egyenként kb. 150 MB)";
 "target.homebrew.name" = "Homebrew gyorsítótár";
 "target.homebrew.note" = "Bottle-ök és régi brew-letöltések";
-"target.ios.backups.name" = "iOS biztonsági mentések";
-"target.ios.backups.note" = "iPhone- és iPad-mentések. Lehet, hogy ez az egyetlen másolatod";
+"target.installers.old.name" = "Letöltött telepítők";
+"target.installers.old.note" = "Frissítések és csomagok, amik már telepítve vannak";
 "target.jetbrains.caches.name" = "JetBrains / Android Studio gyorsítótár";
 "target.jetbrains.caches.note" = "Az IntelliJ, Android Studio, PyCharm és társaik indexei és gyorsítótárai";
 "target.jetbrains.logs.name" = "JetBrains / Android Studio naplók";
@@ -118,6 +155,10 @@
 "target.php.note" = "A Composer által letöltött csomagok";
 "target.pnpm.name" = "pnpm tároló";
 "target.pnpm.note" = "A pnpm közös csomagtárolója";
+"target.projects.builds.name" = "Fordítási eredmények";
+"target.projects.builds.note" = "build, target, .next és DerivedData. A következő fordítás újra elkészíti";
+"target.projects.deps.name" = "Projektek függőségei";
+"target.projects.deps.note" = "node_modules, Pods, .venv és vendor. A csomagkezelő visszahozza őket";
 "target.python.name" = "Python gyorsítótár";
 "target.python.note" = "pip, uv, poetry és lefordított wheelek";
 "target.ruby.name" = "Ruby gyorsítótár";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Ablakok és dokumentumok, amelyeket az appok indításkor újra megnyitnak";
 "target.sim.caches.name" = "CoreSimulator gyorsítótár";
 "target.sim.caches.note" = "Letöltött futtatókörnyezetek és a szimulátorok közös gyorsítótára";
-"target.sim.devicedata.name" = "Szimulátorok ideiglenes adatai";
-"target.sim.devicedata.note" = "Gyorsítótárak és /tmp minden szimulátorban (a telepített appok megmaradnak)";
+"target.sim.devices.name" = "Telepített szimulátorok";
+"target.sim.devices.note" = "A simctl törli őket, hogy az Xcode ne maradjon szellemeszközzel";
 "target.swiftpm.name" = "Swift Package Manager gyorsítótár";
 "target.swiftpm.note" = "A SwiftPM-függőségek tárolói és binárisai";
 "target.trash.name" = "Kuka";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Szimbólumok minden iOS-verzióhoz, amelyről eszközt csatlakoztattál";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Ugyanez a többi platformhoz";
+"target.xcode.doccache.name" = "Letöltött Xcode-dokumentáció";
+"target.xcode.doccache.note" = "Az Xcode újra letölti, amikor megnyitod";
 "target.xcode.previews.name" = "Xcode előnézetek";
 "target.xcode.previews.note" = "A SwiftUI-előnézetek gyorsítótára";
 "target.yarn.name" = "Yarn gyorsítótár";
 "target.yarn.note" = "A Yarn által letöltött csomagok";
+
+/* ---- why ---- */
+"why.dataLoss" = "Ez a tiéd, és sehol máshol nincs másolat: ha törlöd, elment.";
+"why.recreate" = "Kézzel kell újra létrehoznod, és a mostani állapota nem jön vissza.";
+"why.redownload" = "Újra le kell tölteni, amikor legközelebb kell valaminek.";
+"why.regenerates" = "Legközelebb magától elkészül, és észre sem veszed.";
+"why.signOut" = "Kiléptet azokról az oldalakról, amelyek használják, és újra be kell jelentkezned.";
+"why.slowerBuild" = "Semmi nem vész el, de a következő fordítás tovább tart, amíg újra elkészíti.";
+"why.toolDecides" = "Maga az eszköz töröl, így pontosan mi tűnik el, azt ő dönti el.";
+"why.unknown" = "Mindenes fiók: ide kerül, amit egyetlen másik sor sem nevezett meg. Nézd meg törlés előtt.";

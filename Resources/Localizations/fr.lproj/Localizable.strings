@@ -14,11 +14,15 @@
 "alert.report.failures" = "Certains éléments n’ont pas pu être supprimés (catégories concernées : %d). C’est généralement un problème d’autorisations : accordez à MacCleaner l’accès complet au disque dans Réglages › Confidentialité et sécurité.";
 "alert.report.freed" = "%@ libérés.";
 "alert.report.title" = "Nettoyage terminé";
+"alert.report.trashed" = "%@ déplacés vers la Corbeille. L’espace est libéré en la vidant.";
 
 /* ---- category ---- */
+"category.ai" = "Outils d’IA";
+"category.browsers" = "Navigateurs";
 "category.jvm" = "Android, Gradle et JVM";
 "category.langs" = "Autres langages";
 "category.node" = "Node et web";
+"category.projects" = "Projets";
 "category.system" = "Système et apps";
 "category.tools" = "Gestionnaires de paquets";
 "category.xcode" = "Xcode et iOS";
@@ -31,6 +35,9 @@
 "empty.button" = "Analyser maintenant";
 "empty.subtitle" = "Rien n’est coché : c’est vous qui choisissez quoi supprimer, et vous confirmez avant.";
 "empty.title" = "Analysez pour voir combien d’espace vous pouvez récupérer";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ n’est pas installé, ou MacCleaner ne le trouve pas.";
 
 /* ---- footer ---- */
 "footer.clean" = "Nettoyer %@";
@@ -73,10 +80,34 @@
 "select.mark" = "Sélectionner";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Caches des assistants de code";
+"target.ai.caches.note" = "Fichiers temporaires de Claude, Codex, Cursor et OpenCode";
+"target.ai.models.name" = "Modèles d’IA téléchargés";
+"target.ai.models.note" = "Poids Ollama, Hugging Face et LM Studio : plusieurs Go chacun";
+"target.ai.vmbundles.name" = "Machines virtuelles des assistants";
+"target.ai.vmbundles.note" = "Images disque que Claude télécharge pour exécuter du code";
+"target.ai.worktrees.name" = "Arbres de travail des agents";
+"target.ai.worktrees.note" = "Copies de vos projets laissées par les agents dans ~/.codex/worktrees";
+"target.android.avd.name" = "Émulateurs Android";
+"target.android.avd.note" = "Chaque AVD garde son disque et son état ; il faut le recréer";
 "target.android.caches.name" = "Cache Android";
 "target.android.caches.note" = "Cache de build du SDK et données temporaires des outils";
+"target.android.systemimages.name" = "Images système Android";
+"target.android.systemimages.note" = "Téléchargées par le SDK Manager, une par version d’API";
+"target.browsers.cache.name" = "Caches des navigateurs";
+"target.browsers.cache.note" = "Pages, images et shaders de Chrome, Brave, Edge, Chromium et Firefox";
+"target.browsers.cookies.name" = "Cookies";
+"target.browsers.cookies.note" = "Vous déconnecte de tous les sites, et ne prend presque rien";
 "target.browsers.headless.name" = "Navigateurs Playwright / Puppeteer";
 "target.browsers.headless.note" = "Chromium, Firefox et WebKit téléchargés pour les tests E2E";
+"target.browsers.history.name" = "Historique de navigation";
+"target.browsers.history.note" = "Sites visités et pages les plus utilisées. Sans retour";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Données des apps web hors ligne ; retéléchargées à la visite";
+"target.browsers.storage.name" = "Stockage des sites";
+"target.browsers.storage.note" = "Local Storage et IndexedDB ; certains sites redemanderont la connexion";
+"target.browsers.updater.name" = "Cache du programme de mise à jour";
+"target.browsers.updater.note" = "Téléchargements de mises à jour déjà installées";
 "target.bun.deno.name" = "Cache Bun et Deno";
 "target.bun.deno.note" = "Modules téléchargés par Bun et Deno";
 "target.caches.other.name" = "Autres caches d’applications";
@@ -85,8 +116,14 @@
 "target.carthage.note" = "Frameworks et checkouts Carthage";
 "target.cocoapods.name" = "Cache de CocoaPods";
 "target.cocoapods.note" = "Pods téléchargés et specs";
+"target.containers.caches.name" = "Caches des apps en bac à sable";
+"target.containers.caches.note" = "Chaque app en bac à sable garde sa copie dans son conteneur";
+"target.docker.disk.name" = "Disque de la machine virtuelle Docker";
+"target.docker.disk.note" = "Libéré avec docker system prune. Vos images et vos volumes sont conservés";
 "target.docker.logs.name" = "Journaux Docker Desktop";
 "target.docker.logs.note" = "Journaux uniquement. Les images et volumes ne sont pas touchés";
+"target.electron.appsupport.name" = "Caches des apps Electron";
+"target.electron.appsupport.note" = "Cache, Code Cache et GPUCache situés hors de ~/Library/Caches";
 "target.electron.name" = "Cache Electron";
 "target.electron.note" = "Binaires Electron et electron-builder";
 "target.flutter.name" = "Cache Flutter / Dart";
@@ -103,8 +140,8 @@
 "target.gradle.wrapper.note" = "Chaque version de Gradle téléchargée par un projet (~150 Mo chacune)";
 "target.homebrew.name" = "Cache Homebrew";
 "target.homebrew.note" = "Bottles et anciens téléchargements de brew";
-"target.ios.backups.name" = "Sauvegardes iOS";
-"target.ios.backups.note" = "Sauvegardes d’iPhone et d’iPad. C’est peut-être votre seule copie";
+"target.installers.old.name" = "Programmes d’installation téléchargés";
+"target.installers.old.note" = "Mises à jour et paquets déjà installés";
 "target.jetbrains.caches.name" = "Cache JetBrains / Android Studio";
 "target.jetbrains.caches.note" = "Index et caches d’IntelliJ, Android Studio, PyCharm, etc.";
 "target.jetbrains.logs.name" = "Journaux JetBrains / Android Studio";
@@ -119,6 +156,10 @@
 "target.php.note" = "Paquets téléchargés par Composer";
 "target.pnpm.name" = "Magasin pnpm";
 "target.pnpm.note" = "Magasin de paquets partagé de pnpm";
+"target.projects.builds.name" = "Sorties de compilation";
+"target.projects.builds.note" = "build, target, .next et DerivedData. La prochaine compilation les refait";
+"target.projects.deps.name" = "Dépendances des projets";
+"target.projects.deps.note" = "node_modules, Pods, .venv et vendor. Votre gestionnaire de paquets les rapporte";
 "target.python.name" = "Cache Python";
 "target.python.note" = "pip, uv, poetry et wheels compilées";
 "target.ruby.name" = "Cache Ruby";
@@ -129,8 +170,8 @@
 "target.savedstate.note" = "Fenêtres et documents que les apps rouvrent au lancement";
 "target.sim.caches.name" = "Cache de CoreSimulator";
 "target.sim.caches.note" = "Runtimes téléchargés et cache partagé des simulateurs";
-"target.sim.devicedata.name" = "Données temporaires des simulateurs";
-"target.sim.devicedata.note" = "Caches et /tmp dans chaque simulateur (les apps installées sont conservées)";
+"target.sim.devices.name" = "Simulateurs installés";
+"target.sim.devices.note" = "Supprimés avec simctl pour que Xcode ne garde pas de fantôme";
 "target.swiftpm.name" = "Cache de Swift Package Manager";
 "target.swiftpm.note" = "Dépôts et binaires des dépendances SwiftPM";
 "target.trash.name" = "Corbeille";
@@ -149,7 +190,19 @@
 "target.xcode.devicesupport.note" = "Symboles de chaque version d’iOS depuis laquelle vous avez connecté un appareil";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Idem, pour les autres plateformes";
+"target.xcode.doccache.name" = "Documentation Xcode téléchargée";
+"target.xcode.doccache.note" = "Xcode la retélécharge quand vous l’ouvrez";
 "target.xcode.previews.name" = "Aperçus Xcode";
 "target.xcode.previews.note" = "Cache des aperçus SwiftUI";
 "target.yarn.name" = "Cache Yarn";
 "target.yarn.note" = "Paquets téléchargés par Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "C’est à vous et il n’y en a de copie nulle part : une fois supprimé, c’est fini.";
+"why.recreate" = "Vous devrez le recréer à la main, et son état actuel ne revient pas.";
+"why.redownload" = "Il faudra le retélécharger la prochaine fois que quelque chose en aura besoin.";
+"why.regenerates" = "Elle se recrée toute seule à la prochaine occasion, sans que vous le remarquiez.";
+"why.signOut" = "Vous serez déconnecté des sites qui l’utilisent et devrez vous reconnecter.";
+"why.slowerBuild" = "Rien n’est perdu, mais la prochaine compilation sera plus longue le temps de la refaire.";
+"why.toolDecides" = "C’est l’outil lui-même qui supprime, donc ce qui disparaît exactement, c’est lui qui décide.";
+"why.unknown" = "Fourre-tout : ici tombe ce qu’aucune autre ligne n’a nommé. Regardez avant de supprimer.";

@@ -114,7 +114,7 @@ struct TargetRow: View {
                     Text(row.target.name)
                         .font(.system(size: 13))
                         .foregroundStyle(row.isEmpty ? .secondary : .primary)
-                    RiskBadge(risk: row.target.risk)
+                    RiskBadge(risk: row.target.risk, why: row.target.why)
                     if row.hasItems {
                         Text("\(row.items.count)")
                             .font(.system(size: 9, weight: .medium))
@@ -195,8 +195,10 @@ struct SubItemRow: View {
                 .toggleStyle(.checkbox)
                 .labelsHidden()
 
-            Text(item.name)
-                .font(.system(size: 12, design: .monospaced))
+            // El monoespaciado ayuda a comparar versiones y rutas; un nombre
+            // de simulador no es ninguna de las dos cosas.
+            Text(item.title)
+                .font(.system(size: 12, design: item.label == nil ? .monospaced : .default))
                 .foregroundStyle(item.usage.bytes == 0 ? .secondary : .primary)
 
             // Lo que de verdad decide si esta version sobra no es su tamano,
@@ -252,6 +254,9 @@ extension Risk {
 
 struct RiskBadge: View {
     let risk: Risk
+    /// Que pasa si borras esta fila en concreto. El distintivo dice cuanto
+    /// cuidado hay que tener; el raton encima dice por que.
+    let why: Consequence
 
     var body: some View {
         Text(risk.label)
@@ -260,6 +265,7 @@ struct RiskBadge: View {
             .padding(.vertical, 1)
             .background(risk.color.opacity(0.15), in: Capsule())
             .foregroundStyle(risk.color)
+            .help(why.text)
     }
 }
 

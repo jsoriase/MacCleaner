@@ -13,11 +13,15 @@
 "alert.report.failures" = "Nepavyko ištrinti visko (paveiktos kategorijos: %d). Paprastai tai leidimų klausimas: suteikite „MacCleaner“ visišką disko prieigą per Nuostatos › Privatumas ir sauga.";
 "alert.report.freed" = "Atlaisvinta %@.";
 "alert.report.title" = "Valymas baigtas";
+"alert.report.trashed" = "%@ perkelta į šiukšlinę. Vieta atlaisvinama ją ištuštinus.";
 
 /* ---- category ---- */
+"category.ai" = "DI įrankiai";
+"category.browsers" = "Naršyklės";
 "category.jvm" = "Android, Gradle ir JVM";
 "category.langs" = "Kitos kalbos";
 "category.node" = "Node ir žiniatinklis";
+"category.projects" = "Projektai";
 "category.system" = "Sistema ir programos";
 "category.tools" = "Paketų tvarkyklės";
 "category.xcode" = "Xcode ir iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Peržiūrėti dabar";
 "empty.subtitle" = "Niekas nepažymėta: jūs patys renkatės, ką ištrinti, ir prieš tai patvirtinate.";
 "empty.title" = "Peržiūrėkite ir pamatysite, kiek vietos galite atlaisvinti";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ neįdiegtas arba MacCleaner jo neranda.";
 
 /* ---- footer ---- */
 "footer.clean" = "Išvalyti %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Pasirinkti";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Kodo asistentų podėliai";
+"target.ai.caches.note" = "Laikinieji Claude, Codex, Cursor ir OpenCode failai";
+"target.ai.models.name" = "Atsisiųsti DI modeliai";
+"target.ai.models.note" = "Ollama, Hugging Face ir LM Studio svoriai: po kelis gigabaitus";
+"target.ai.vmbundles.name" = "Asistentų virtualios mašinos";
+"target.ai.vmbundles.note" = "Disko atvaizdai, kuriuos Claude atsisiunčia kodui vykdyti";
+"target.ai.worktrees.name" = "Agentų darbo medžiai";
+"target.ai.worktrees.note" = "Tavo projektų kopijos, kurias agentai palieka ~/.codex/worktrees";
+"target.android.avd.name" = "Android emuliatoriai";
+"target.android.avd.note" = "Kiekvienas AVD saugo savo diską ir būseną; teks sukurti iš naujo";
 "target.android.caches.name" = "„Android“ podėlis";
 "target.android.caches.note" = "SDK kompiliavimo podėlis ir laikinieji įrankių duomenys";
+"target.android.systemimages.name" = "Android sistemos atvaizdai";
+"target.android.systemimages.note" = "Juos atsisiunčia SDK Manager, po vieną kiekvienai API versijai";
+"target.browsers.cache.name" = "Naršyklių podėliai";
+"target.browsers.cache.note" = "Chrome, Brave, Edge, Chromium ir Firefox puslapiai, paveikslėliai ir šešėliuokliai";
+"target.browsers.cookies.name" = "Slapukai";
+"target.browsers.cookies.note" = "Atjungia tave visur ir beveik neužima vietos";
 "target.browsers.headless.name" = "„Playwright“ / „Puppeteer“ naršyklės";
 "target.browsers.headless.note" = "„Chromium“, „Firefox“ ir „WebKit“, atsisiųsti E2E testams";
+"target.browsers.history.name" = "Naršymo istorija";
+"target.browsers.history.note" = "Aplankytos svetainės ir dažniausi puslapiai. Nebegrįžta";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Neprisijungusių saityno programų duomenys; apsilankius atsisiunčiami vėl";
+"target.browsers.storage.name" = "Svetainių saugykla";
+"target.browsers.storage.note" = "Local Storage ir IndexedDB; kai kurios svetainės paprašys prisijungti";
+"target.browsers.updater.name" = "Naujintuvo podėlis";
+"target.browsers.updater.note" = "Jau įdiegti naršyklės naujiniai";
 "target.bun.deno.name" = "„Bun“ ir „Deno“ podėlis";
 "target.bun.deno.note" = "„Bun“ ir „Deno“ atsisiųsti moduliai";
 "target.caches.other.name" = "Kiti programų podėliai";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "„Carthage“ karkasai ir „checkouts“";
 "target.cocoapods.name" = "„CocoaPods“ podėlis";
 "target.cocoapods.note" = "Atsisiųsti „pods“ ir „specs“";
+"target.containers.caches.name" = "Izoliuotų programų podėliai";
+"target.containers.caches.note" = "Kiekviena izoliuota programa laiko savo kopiją konteineryje";
+"target.docker.disk.name" = "Docker virtualios mašinos diskas";
+"target.docker.disk.note" = "Atlaisvina docker system prune. Tavo atvaizdai ir tomai išsaugomi";
 "target.docker.logs.name" = "„Docker Desktop“ žurnalai";
 "target.docker.logs.note" = "Tik žurnalai. Atvaizdai ir tomai nepaliečiami";
+"target.electron.appsupport.name" = "Electron programų podėliai";
+"target.electron.appsupport.note" = "Cache, Code Cache ir GPUCache už ~/Library/Caches ribų";
 "target.electron.name" = "„Electron“ podėlis";
 "target.electron.note" = "„Electron“ ir „electron-builder“ dvejetainiai failai";
 "target.flutter.name" = "„Flutter“ / „Dart“ podėlis";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Kiekviena „Gradle“ versija, kurią atsisiuntė koks nors projektas (po maždaug 150 MB)";
 "target.homebrew.name" = "„Homebrew“ podėlis";
 "target.homebrew.note" = "„Bottles“ ir seni „brew“ atsisiuntimai";
-"target.ios.backups.name" = "iOS atsarginės kopijos";
-"target.ios.backups.note" = "„iPhone“ ir „iPad“ kopijos. Gali būti vienintelė jūsų turima kopija";
+"target.installers.old.name" = "Atsisiųstos diegimo programos";
+"target.installers.old.note" = "Naujiniai ir paketai, kurie jau įdiegti";
 "target.jetbrains.caches.name" = "„JetBrains“ / „Android Studio“ podėlis";
 "target.jetbrains.caches.note" = "„IntelliJ“, „Android Studio“, „PyCharm“ ir kitų indeksai bei podėliai";
 "target.jetbrains.logs.name" = "„JetBrains“ / „Android Studio“ žurnalai";
@@ -118,6 +155,10 @@
 "target.php.note" = "„Composer“ atsisiųsti paketai";
 "target.pnpm.name" = "„pnpm“ saugykla";
 "target.pnpm.note" = "Bendra „pnpm“ paketų saugykla";
+"target.projects.builds.name" = "Kompiliavimo rezultatai";
+"target.projects.builds.note" = "build, target, .next ir DerivedData. Kitas kompiliavimas juos sukurs vėl";
+"target.projects.deps.name" = "Projektų priklausomybės";
+"target.projects.deps.note" = "node_modules, Pods, .venv ir vendor. Paketų tvarkyklė jas parsiųs vėl";
 "target.python.name" = "„Python“ podėlis";
 "target.python.note" = "pip, uv, poetry ir sukompiliuoti „wheels“";
 "target.ruby.name" = "„Ruby“ podėlis";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Langai ir dokumentai, kuriuos programos vėl atveria paleidžiamos";
 "target.sim.caches.name" = "„CoreSimulator“ podėlis";
 "target.sim.caches.note" = "Atsisiųstos vykdymo aplinkos ir bendras simuliatorių podėlis";
-"target.sim.devicedata.name" = "Laikinieji simuliatorių duomenys";
-"target.sim.devicedata.note" = "Podėliai ir /tmp kiekviename simuliatoriuje (įdiegtos programos lieka)";
+"target.sim.devices.name" = "Įdiegti simuliatoriai";
+"target.sim.devices.note" = "Šalinami su simctl, kad Xcode neliktų vaiduokliško įrenginio";
 "target.swiftpm.name" = "„Swift Package Manager“ podėlis";
 "target.swiftpm.note" = "„SwiftPM“ priklausomybių saugyklos ir dvejetainiai failai";
 "target.trash.name" = "Šiukšlinė";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Simboliai kiekvienai iOS versijai, iš kurios prijungėte įrenginį";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Tas pats kitoms platformoms";
+"target.xcode.doccache.name" = "Atsisiųsta Xcode dokumentacija";
+"target.xcode.doccache.note" = "Xcode ją atsisiųs vėl, kai atidarysi";
 "target.xcode.previews.name" = "„Xcode“ peržiūros";
 "target.xcode.previews.note" = "„SwiftUI“ peržiūrų podėlis";
 "target.yarn.name" = "„Yarn“ podėlis";
 "target.yarn.note" = "„Yarn“ atsisiųsti paketai";
+
+/* ---- why ---- */
+"why.dataLoss" = "Tai tavo ir kopijos nėra niekur kitur: ištrynei — ir viskas.";
+"why.recreate" = "Teks sukurti rankomis iš naujo, o dabartinė būsena negrįžta.";
+"why.redownload" = "Kitą kartą, kai kam nors prireiks, teks atsisiųsti vėl.";
+"why.regenerates" = "Kitą kartą susikurs pati ir to nepastebėsi.";
+"why.signOut" = "Būsi atjungtas nuo svetainių, kurios tai naudoja, ir teks prisijungti vėl.";
+"why.slowerBuild" = "Niekas nedingsta, bet kitas kompiliavimas užtruks ilgiau, kol tai padarys iš naujo.";
+"why.toolDecides" = "Trina pats įrankis, tad ką tiksliai dings, sprendžia jis.";
+"why.unknown" = "Stalčius visam kam: čia patenka tai, ko neįvardijo joks kitas įrašas. Pažiūrėk prieš trindamas.";

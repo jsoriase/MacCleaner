@@ -194,3 +194,85 @@ final class FileSystemTests: XCTestCase {
         XCTAssertGreaterThan(result.failedBytes, 0, "debe medir lo que quedo sin borrar")
     }
 }
+
+/// Medir es la mitad del producto: una cifra inflada convierte «recuperas 60 GB»
+/// en una promesa que el disco no cumple.
+final class MedicionHonestaTests: XCTestCase {
+
+    private var dir: URL!
+
+    override func setUpWithError() throws {
+        dir = FileManager.default.temporaryDirectory
+            .appendingPathComponent("medir-" + UUID().uuidString)
+        try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+    }
+
+    override func tearDownWithError() throws {
+        try? FileManager.default.removeItem(at: dir)
+    }
+
+    /// Un fichero con cuatro nombres ocupa disco una vez. Es justo lo que hace
+    /// un almacen de pnpm, y contarlo cuatro veces multiplica por cuatro la
+    /// cifra que la app promete recuperar.
+    func testUnFicheroConVariosNombresSeCuentaUnaVez() throws {
+        let real = dir.appendingPathComponent("paquete.bin")
+        try Data(count: 4 * 1024 * 1024).write(to: real)
+        let solo = FileSystem.usage(of: dir.path).bytes
+
+        for i in 1...3 {
+            try FileManager.default.linkItem(
+                at: real, to: dir.appendingPathComponent("enlace\(i).bin"))
+        }
+        let conEnlaces = FileSystem.usage(of: dir.path)
+
+        XCTAssertEqual(conEnlaces.bytes, solo, "los enlaces duros no ocupan disco")
+        XCTAssertEqual(conEnlaces.files, 4, "pero si son cuatro entradas")
+    }
+
+    /// Dos ficheros distintos si suman.
+    func testDosFicherosDistintosSuman() throws {
+        try Data(count: 2 * 1024 * 1024).write(to: dir.appendingPathComponent("a.bin"))
+        let uno = FileSystem.usage(of: dir.path).bytes
+        try Data(count: 2 * 1024 * 1024).write(to: dir.appendingPathComponent("b.bin"))
+        let dos = FileSystem.usage(of: dir.path).bytes
+        XCTAssertGreaterThan(dos, uno + 1_000_000)
+    }
+
+    /// Un fichero disperso ocupa sus bloques, no lo que declara. Es lo que
+    /// separa los 15 GB reales del `Docker.raw` de los 228 que dice medir.
+    func testUnFicheroDispersoOcupaLoQueOcupa() throws {
+        let sparse = dir.appendingPathComponent("disperso.img")
+        FileManager.default.createFile(atPath: sparse.path, contents: nil)
+        let handle = try FileHandle(forWritingTo: sparse)
+        try handle.truncate(atOffset: 8 * 1024 * 1024 * 1024)   // 8 GB declarados
+        try handle.close()
+
+        let usage = FileSystem.usage(of: dir.path)
+        XCTAssertLessThan(usage.bytes, 10 * 1024 * 1024,
+                          "sin escribir nada no ocupa nada, por mucho que declare 8 GB")
+    }
+}
+
+/// El total de la cabecera es la suma de las filas: si dos filas apuntan a la
+/// misma ruta, promete el doble de lo que hay.
+final class SolapesTests: XCTestCase {
+
+    func testNingunaRutaSeCuentaEnDosFilas() {
+        let map = Engine.resolve(Catalog.targets)
+        var vistas: [(id: String, path: String)] = []
+        for (id, paths) in map { for path in paths { vistas.append((id, path)) } }
+
+        for i in vistas.indices {
+            for j in vistas.indices where j > i {
+                let a = vistas[i], b = vistas[j]
+                guard a.id != b.id else { continue }
+                let anidadas = a.path == b.path
+                    || a.path.hasPrefix(b.path + "/")
+                    || b.path.hasPrefix(a.path + "/")
+                XCTAssertFalse(anidadas,
+                               "\(a.id) y \(b.id) cuentan lo mismo: "
+                               + "\(FileSystem.prettyPath(a.path)) / \(FileSystem.prettyPath(b.path))")
+            }
+        }
+    }
+}

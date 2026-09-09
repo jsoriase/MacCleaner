@@ -13,11 +13,15 @@
 "alert.report.failures" = "Níorbh fhéidir gach rud a scriosadh (catagóirí i gceist: %d). De ghnáth is ceist cheadanna í: tabhair Rochtain Iomlán ar an Diosca do MacCleaner i Socruithe › Príobháideachas agus Slándáil.";
 "alert.report.freed" = "Saoradh %@.";
 "alert.report.title" = "Glanadh críochnaithe";
+"alert.report.trashed" = "Bogadh %@ go dtí an Bruscar. Saortar an spás nuair a fholmhaítear é.";
 
 /* ---- category ---- */
+"category.ai" = "Uirlisí IS";
+"category.browsers" = "Brabhsálaithe";
 "category.jvm" = "Android, Gradle agus JVM";
 "category.langs" = "Teangacha eile";
 "category.node" = "Node agus an gréasán";
+"category.projects" = "Tionscadail";
 "category.system" = "Córas agus aipeanna";
 "category.tools" = "Bainisteoirí pacáistí";
 "category.xcode" = "Xcode agus iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Scan anois";
 "empty.subtitle" = "Níl aon rud roghnaithe: roghnaíonn tú féin cad a scriostar, agus deimhníonn tú é roimh ré.";
 "empty.title" = "Scan chun a fheiceáil cé mhéad spás is féidir leat a fháil ar ais";
+
+/* ---- error ---- */
+"error.tool.missing" = "Níl %@ suiteáilte, nó ní aimsíonn MacCleaner é.";
 
 /* ---- footer ---- */
 "footer.clean" = "Glan %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Roghnaigh";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Taisce na gcúntóirí cóid";
+"target.ai.caches.note" = "Comhaid shealadacha ó Claude, Codex, Cursor agus OpenCode";
+"target.ai.models.name" = "Múnlaí IS íoslódáilte";
+"target.ai.models.note" = "Meáchain Ollama, Hugging Face agus LM Studio: gigabheart an ceann";
+"target.ai.vmbundles.name" = "Meaisíní fíorúla na gcúntóirí";
+"target.ai.vmbundles.note" = "Íomhánna diosca a íoslódálann Claude chun cód a rith";
+"target.ai.worktrees.name" = "Crainn oibre na ngníomhairí";
+"target.ai.worktrees.note" = "Cóipeanna de do thionscadail a fhágann gníomhairí in ~/.codex/worktrees";
+"target.android.avd.name" = "Aithriseoirí Android";
+"target.android.avd.note" = "Coinníonn gach AVD a dhiosca agus a staid; caithfidh tú é a chruthú arís";
 "target.android.caches.name" = "Taisce Android";
 "target.android.caches.note" = "Taisce tógála an SDK agus sonraí sealadacha na n-uirlisí";
+"target.android.systemimages.name" = "Íomhánna córais Android";
+"target.android.systemimages.note" = "Íoslódálann an SDK Manager iad, ceann in aghaidh gach leagain API";
+"target.browsers.cache.name" = "Taisce na mbrabhsálaithe";
+"target.browsers.cache.note" = "Leathanaigh, íomhánna agus scáthlánna ó Chrome, Brave, Edge, Chromium agus Firefox";
+"target.browsers.cookies.name" = "Fianáin";
+"target.browsers.cookies.note" = "Logálann sé amach as gach suíomh thú, agus is ar éigean a thógann sé spás";
 "target.browsers.headless.name" = "Brabhsálaithe Playwright / Puppeteer";
 "target.browsers.headless.note" = "Chromium, Firefox agus WebKit a íoslódáladh do thástálacha E2E";
+"target.browsers.history.name" = "Stair bhrabhsála";
+"target.browsers.history.note" = "Suíomhanna a tugadh cuairt orthu agus na leathanaigh is coitianta. Ní thagann sé ar ais";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Sonraí as líne aipeanna gréasáin; íoslódálfar arís iad ar chuairt";
+"target.browsers.storage.name" = "Stóras na suíomhanna";
+"target.browsers.storage.note" = "Local Storage agus IndexedDB; iarrfaidh roinnt suíomhanna logáil isteach";
+"target.browsers.updater.name" = "Taisce an nuashonraitheora";
+"target.browsers.updater.note" = "Nuashonruithe brabhsálaí atá suiteáilte cheana";
 "target.bun.deno.name" = "Taisce Bun agus Deno";
 "target.bun.deno.note" = "Modúil a d’íoslódáil Bun agus Deno";
 "target.caches.other.name" = "Taiscí aipeanna eile";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Creataí agus checkouts Carthage";
 "target.cocoapods.name" = "Taisce CocoaPods";
 "target.cocoapods.note" = "Pods agus specs íoslódáilte";
+"target.containers.caches.name" = "Taisce na n-aipeanna bosca gainimh";
+"target.containers.caches.note" = "Coinníonn gach aip bhosca gainimh a cóip féin ina coimeádán";
+"target.docker.disk.name" = "Diosca mheaisín fíorúil Docker";
+"target.docker.disk.note" = "Saorann docker system prune é. Coinnítear do íomhánna agus do thoirteanna";
 "target.docker.logs.name" = "Logaí Docker Desktop";
 "target.docker.logs.note" = "Logaí amháin. Ní bhaintear le híomhánna ná imleabhair";
+"target.electron.appsupport.name" = "Taisce na n-aipeanna Electron";
+"target.electron.appsupport.note" = "Cache, Code Cache agus GPUCache lasmuigh de ~/Library/Caches";
 "target.electron.name" = "Taisce Electron";
 "target.electron.note" = "Dénártha Electron agus electron-builder";
 "target.flutter.name" = "Taisce Flutter / Dart";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Gach leagan de Gradle a d’íoslódáil tionscadal (thart ar 150 MB an ceann)";
 "target.homebrew.name" = "Taisce Homebrew";
 "target.homebrew.note" = "Bottles agus seaníoslódálacha brew";
-"target.ios.backups.name" = "Cúltacaí iOS";
-"target.ios.backups.note" = "Cúltacaí iPhone agus iPad. B’fhéidir gurb é an t-aon chóip atá agat";
+"target.installers.old.name" = "Suiteálaithe íoslódáilte";
+"target.installers.old.note" = "Nuashonruithe agus pacáistí atá suiteáilte cheana";
 "target.jetbrains.caches.name" = "Taisce JetBrains / Android Studio";
 "target.jetbrains.caches.note" = "Innéacsanna agus taiscí ó IntelliJ, Android Studio, PyCharm agus eile";
 "target.jetbrains.logs.name" = "Logaí JetBrains / Android Studio";
@@ -118,6 +155,10 @@
 "target.php.note" = "Pacáistí a d’íoslódáil Composer";
 "target.pnpm.name" = "Stór pnpm";
 "target.pnpm.note" = "Stór pacáistí roinnte pnpm";
+"target.projects.builds.name" = "Torthaí tógála";
+"target.projects.builds.note" = "build, target, .next agus DerivedData. Déanann an chéad tógáil eile arís iad";
+"target.projects.deps.name" = "Spleáchais na dtionscadal";
+"target.projects.deps.note" = "node_modules, Pods, .venv agus vendor. Tugann do bhainisteoir pacáistí ar ais iad";
 "target.python.name" = "Taisce Python";
 "target.python.note" = "pip, uv, poetry agus wheels tiomsaithe";
 "target.ruby.name" = "Taisce Ruby";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Fuinneoga agus cáipéisí a athosclaíonn aipeanna ag am tosaithe";
 "target.sim.caches.name" = "Taisce CoreSimulator";
 "target.sim.caches.note" = "Amanna rite íoslódáilte agus taisce roinnte na n-insamhlóirí";
-"target.sim.devicedata.name" = "Sonraí sealadacha na n-insamhlóirí";
-"target.sim.devicedata.note" = "Taiscí agus /tmp laistigh de gach insamhlóir (fanann na haipeanna suiteáilte)";
+"target.sim.devices.name" = "Insamhlóirí suiteáilte";
+"target.sim.devices.note" = "Scriostar le simctl le nach mbeadh gléas taibhse ag Xcode";
 "target.swiftpm.name" = "Taisce Swift Package Manager";
 "target.swiftpm.note" = "Stórtha agus dénártha spleáchas SwiftPM";
 "target.trash.name" = "Bruscar";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Siombailí do gach leagan iOS ar cheangail tú gléas uaidh";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "An rud céanna do na hardáin eile";
+"target.xcode.doccache.name" = "Doiciméadú Xcode íoslódáilte";
+"target.xcode.doccache.note" = "Íoslódálann Xcode arís é nuair a osclaíonn tú é";
 "target.xcode.previews.name" = "Réamhamhairc Xcode";
 "target.xcode.previews.note" = "Taisce do réamhamhairc SwiftUI";
 "target.yarn.name" = "Taisce Yarn";
 "target.yarn.note" = "Pacáistí a d’íoslódáil Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "Is leatsa é seo agus níl cóip in aon áit eile: nuair a scriostar é, tá sé imithe.";
+"why.recreate" = "Beidh ort é a chruthú arís de láimh, agus ní thagann a staid reatha ar ais.";
+"why.redownload" = "Caithfear é a íoslódáil arís an chéad uair eile a bheidh sé ag teastáil.";
+"why.regenerates" = "Cruthaítear arís é féin an chéad uair eile, agus ní thabharfaidh tú faoi deara é.";
+"why.signOut" = "Logálfar amach thú as na suíomhanna a úsáideann é agus beidh ort logáil isteach arís.";
+"why.slowerBuild" = "Ní chailltear aon rud, ach tógfaidh an chéad tógáil eile níos faide agus é á dhéanamh arís.";
+"why.toolDecides" = "Scriosann an uirlis féin é, mar sin is í a shocraíonn cad a imíonn go baileach.";
+"why.unknown" = "Tarraiceán do gach rud: titeann anseo an rud nár ainmnigh aon líne eile. Féach sula scriosann tú.";

@@ -13,11 +13,15 @@
 "alert.report.failures" = "Kaikkea ei voitu poistaa (koskee luokkia: %d). Yleensä kyse on käyttöoikeuksista: anna MacCleanerille täysi levyoikeus kohdasta Asetukset › Tietosuoja ja turvallisuus.";
 "alert.report.freed" = "Vapautettiin %@.";
 "alert.report.title" = "Siivous valmis";
+"alert.report.trashed" = "Siirretty %@ roskakoriin. Tila vapautuu, kun tyhjennät sen.";
 
 /* ---- category ---- */
+"category.ai" = "Tekoälytyökalut";
+"category.browsers" = "Selaimet";
 "category.jvm" = "Android, Gradle ja JVM";
 "category.langs" = "Muut kielet";
 "category.node" = "Node ja web";
+"category.projects" = "Projektit";
 "category.system" = "Järjestelmä ja apit";
 "category.tools" = "Pakettien hallinta";
 "category.xcode" = "Xcode ja iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Tarkista nyt";
 "empty.subtitle" = "Mitään ei ole valittu: sinä päätät mitä poistetaan ja vahvistat sen ennen poistoa.";
 "empty.title" = "Tarkista, paljonko tilaa voit vapauttaa";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ ei ole asennettu, tai MacCleaner ei löydä sitä.";
 
 /* ---- footer ---- */
 "footer.clean" = "Siivoa %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Valitse";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Koodiavustajien välimuistit";
+"target.ai.caches.note" = "Väliaikaiset tiedostot: Claude, Codex, Cursor ja OpenCode";
+"target.ai.models.name" = "Ladatut tekoälymallit";
+"target.ai.models.note" = "Ollaman, Hugging Facen ja LM Studion painot: gigatavuja kukin";
+"target.ai.vmbundles.name" = "Avustajien virtuaalikoneet";
+"target.ai.vmbundles.note" = "Levykuvat, jotka Claude lataa koodin suorittamiseen";
+"target.ai.worktrees.name" = "Agenttien työpuut";
+"target.ai.worktrees.note" = "Kopiot projekteistasi, jotka agentit jättävät kansioon ~/.codex/worktrees";
+"target.android.avd.name" = "Android-emulaattorit";
+"target.android.avd.note" = "Jokainen AVD säilyttää levynsä ja tilansa; se pitää luoda uudelleen";
 "target.android.caches.name" = "Androidin välimuisti";
 "target.android.caches.note" = "SDK:n käännösvälimuisti ja työkalujen väliaikaistiedot";
+"target.android.systemimages.name" = "Androidin järjestelmäkuvat";
+"target.android.systemimages.note" = "SDK Manager lataa ne, yhden kutakin API-versiota kohti";
+"target.browsers.cache.name" = "Selainten välimuisti";
+"target.browsers.cache.note" = "Chromen, Braven, Edgen, Chromiumin ja Firefoxin sivut, kuvat ja varjostimet";
+"target.browsers.cookies.name" = "Evästeet";
+"target.browsers.cookies.note" = "Kirjaa sinut ulos kaikkialta eikä vie juuri tilaa";
 "target.browsers.headless.name" = "Playwrightin / Puppeteerin selaimet";
 "target.browsers.headless.note" = "E2E-testejä varten ladatut Chromium, Firefox ja WebKit";
+"target.browsers.history.name" = "Selaushistoria";
+"target.browsers.history.note" = "Vieraillut sivustot ja käytetyimmät sivut. Ei palaa";
+"target.browsers.serviceworkers.name" = "Service Workerit";
+"target.browsers.serviceworkers.note" = "Verkkosovellusten offline-data; ladataan uudelleen sivustolla käydessä";
+"target.browsers.storage.name" = "Sivustojen tallennustila";
+"target.browsers.storage.note" = "Local Storage ja IndexedDB; osa sivustoista pyytää kirjautumaan";
+"target.browsers.updater.name" = "Päivittäjän välimuisti";
+"target.browsers.updater.note" = "Jo asennetut selainpäivitykset";
 "target.bun.deno.name" = "Bunin ja Denon välimuisti";
 "target.bun.deno.note" = "Bunin ja Denon lataamat moduulit";
 "target.caches.other.name" = "Muut appien välimuistit";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Carthagen frameworkit ja checkoutit";
 "target.cocoapods.name" = "CocoaPodsin välimuisti";
 "target.cocoapods.note" = "Ladatut podit ja specsit";
+"target.containers.caches.name" = "Hiekkalaatikkosovellusten välimuistit";
+"target.containers.caches.note" = "Jokainen hiekkalaatikkosovellus pitää oman kopionsa säiliössään";
+"target.docker.disk.name" = "Dockerin virtuaalikoneen levy";
+"target.docker.disk.note" = "Vapautuu komennolla docker system prune. Levykuvat ja taltiot säilyvät";
 "target.docker.logs.name" = "Docker Desktopin lokit";
 "target.docker.logs.note" = "Vain lokit. Vedoksiin ja taltioihin ei kosketa";
+"target.electron.appsupport.name" = "Electron-sovellusten välimuistit";
+"target.electron.appsupport.note" = "Cache, Code Cache ja GPUCache kansion ~/Library/Caches ulkopuolella";
 "target.electron.name" = "Electronin välimuisti";
 "target.electron.note" = "Electronin ja electron-builderin binäärit";
 "target.flutter.name" = "Flutterin / Dartin välimuisti";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Jokainen Gradle-versio, jonka jokin projekti on ladannut (noin 150 Mt kukin)";
 "target.homebrew.name" = "Homebrew’n välimuisti";
 "target.homebrew.note" = "Bottlet ja vanhat brew-lataukset";
-"target.ios.backups.name" = "iOS-varmuuskopiot";
-"target.ios.backups.note" = "iPhonen ja iPadin varmuuskopiot. Ne voivat olla ainoa kopiosi";
+"target.installers.old.name" = "Ladatut asennusohjelmat";
+"target.installers.old.note" = "Päivitykset ja paketit, jotka on jo asennettu";
 "target.jetbrains.caches.name" = "JetBrainsin / Android Studion välimuisti";
 "target.jetbrains.caches.note" = "IntelliJ:n, Android Studion, PyCharmin ja muiden indeksit ja välimuistit";
 "target.jetbrains.logs.name" = "JetBrainsin / Android Studion lokit";
@@ -118,6 +155,10 @@
 "target.php.note" = "Composerin lataamat paketit";
 "target.pnpm.name" = "pnpm:n varasto";
 "target.pnpm.note" = "pnpm:n yhteinen pakettivarasto";
+"target.projects.builds.name" = "Käännöksen tulokset";
+"target.projects.builds.note" = "build, target, .next ja DerivedData. Seuraava käännös tekee ne uudelleen";
+"target.projects.deps.name" = "Projektien riippuvuudet";
+"target.projects.deps.note" = "node_modules, Pods, .venv ja vendor. Paketinhallinta hakee ne uudelleen";
 "target.python.name" = "Pythonin välimuisti";
 "target.python.note" = "pip, uv, poetry ja käännetyt wheelit";
 "target.ruby.name" = "Rubyn välimuisti";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Ikkunat ja dokumentit, jotka apit avaavat uudelleen käynnistyessään";
 "target.sim.caches.name" = "CoreSimulatorin välimuisti";
 "target.sim.caches.note" = "Ladatut suoritusympäristöt ja simulaattoreiden yhteinen välimuisti";
-"target.sim.devicedata.name" = "Simulaattoreiden väliaikaistiedot";
-"target.sim.devicedata.note" = "Välimuistit ja /tmp jokaisen simulaattorin sisällä (asennetut apit säilyvät)";
+"target.sim.devices.name" = "Asennetut simulaattorit";
+"target.sim.devices.note" = "Poistetaan simctl:llä, jottei Xcodelle jää haamulaitetta";
 "target.swiftpm.name" = "Swift Package Managerin välimuisti";
 "target.swiftpm.note" = "SwiftPM-riippuvuuksien varastot ja binäärit";
 "target.trash.name" = "Roskakori";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Symbolit jokaiselle iOS-versiolle, josta olet liittänyt laitteen";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Sama muille alustoille";
+"target.xcode.doccache.name" = "Ladattu Xcode-dokumentaatio";
+"target.xcode.doccache.note" = "Xcode lataa sen uudelleen, kun avaat sen";
 "target.xcode.previews.name" = "Xcoden esikatselut";
 "target.xcode.previews.note" = "SwiftUI-esikatselujen välimuisti";
 "target.yarn.name" = "Yarnin välimuisti";
 "target.yarn.note" = "Yarnin lataamat paketit";
+
+/* ---- why ---- */
+"why.dataLoss" = "Tämä on sinun eikä siitä ole kopiota missään muualla: poistettu on mennyttä.";
+"why.recreate" = "Joudut luomaan sen käsin uudelleen, eikä sen nykyinen tila palaa.";
+"why.redownload" = "Pitää ladata uudelleen, kun jokin sitä seuraavan kerran tarvitsee.";
+"why.regenerates" = "Syntyy itsestään uudelleen seuraavalla kerralla, etkä huomaa mitään.";
+"why.signOut" = "Sinut kirjataan ulos sivustoilta, jotka käyttävät sitä, ja pitää kirjautua uudelleen.";
+"why.slowerBuild" = "Mitään ei häviä, mutta seuraava käännös kestää kauemmin, kun se tehdään uudelleen.";
+"why.toolDecides" = "Työkalu poistaa itse, joten se päättää mitä tarkalleen katoaa.";
+"why.unknown" = "Sekalaatikko: tänne päätyy se, mitä mikään muu rivi ei ole nimennyt. Katso ennen poistoa.";

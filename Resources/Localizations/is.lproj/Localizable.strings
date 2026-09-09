@@ -13,11 +13,15 @@
 "alert.report.failures" = "Ekki tókst að eyða öllu (flokkar sem um ræðir: %d). Yfirleitt er þetta heimildamál: veittu MacCleaner fullan diskaðgang í Stillingar › Persónuvernd og öryggi.";
 "alert.report.freed" = "Losaði %@.";
 "alert.report.title" = "Hreinsun lokið";
+"alert.report.trashed" = "Færði %@ í Ruslið. Plássið losnar þegar þú tæmir það.";
 
 /* ---- category ---- */
+"category.ai" = "Gervigreindartól";
+"category.browsers" = "Vafrar";
 "category.jvm" = "Android, Gradle og JVM";
 "category.langs" = "Önnur forritunarmál";
 "category.node" = "Node og vefur";
+"category.projects" = "Verkefni";
 "category.system" = "Kerfi og forrit";
 "category.tools" = "Pakkastjórar";
 "category.xcode" = "Xcode og iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Skanna núna";
 "empty.subtitle" = "Ekkert er valið: þú velur hverju er eytt og staðfestir áður.";
 "empty.title" = "Skannaðu til að sjá hversu mikið pláss þú getur losað";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ er ekki uppsett, eða MacCleaner finnur það ekki.";
 
 /* ---- footer ---- */
 "footer.clean" = "Hreinsa %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Velja";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Skyndiminni kóðaaðstoðarmanna";
+"target.ai.caches.note" = "Bráðabirgðaskrár frá Claude, Codex, Cursor og OpenCode";
+"target.ai.models.name" = "Sóttar gervigreindarlíkön";
+"target.ai.models.note" = "Vigtir frá Ollama, Hugging Face og LM Studio: gígabæt hvert";
+"target.ai.vmbundles.name" = "Sýndarvélar aðstoðarmanna";
+"target.ai.vmbundles.note" = "Diskmyndir sem Claude sækir til að keyra kóða";
+"target.ai.worktrees.name" = "Vinnutré umboða";
+"target.ai.worktrees.note" = "Afrit af verkefnunum þínum sem umboð skilja eftir í ~/.codex/worktrees";
+"target.android.avd.name" = "Android-hermar";
+"target.android.avd.note" = "Hver AVD geymir disk sinn og stöðu; þú þarft að búa hann til aftur";
 "target.android.caches.name" = "Skyndiminni Android";
 "target.android.caches.note" = "Þýðingarskyndiminni SDK og tímabundin gögn verkfæra";
+"target.android.systemimages.name" = "Android-kerfismyndir";
+"target.android.systemimages.note" = "Sóttar af SDK Manager, ein fyrir hverja API-útgáfu";
+"target.browsers.cache.name" = "Skyndiminni vafranna";
+"target.browsers.cache.note" = "Síður, myndir og skyggingar úr Chrome, Brave, Edge, Chromium og Firefox";
+"target.browsers.cookies.name" = "Vefkökur";
+"target.browsers.cookies.note" = "Skráir þig út alls staðar og tekur nánast ekkert pláss";
 "target.browsers.headless.name" = "Vafrar Playwright / Puppeteer";
 "target.browsers.headless.note" = "Chromium, Firefox og WebKit sótt fyrir E2E-prófanir";
+"target.browsers.history.name" = "Vafurferill";
+"target.browsers.history.note" = "Heimsótt svæði og mest notuðu síður. Kemur ekki aftur";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Ónettengd gögn vefforrita; sótt aftur þegar þú heimsækir þau";
+"target.browsers.storage.name" = "Geymsla vefsvæða";
+"target.browsers.storage.note" = "Local Storage og IndexedDB; sum svæði biðja þig að skrá þig inn aftur";
+"target.browsers.updater.name" = "Skyndiminni uppfærslu";
+"target.browsers.updater.note" = "Þegar uppsettar uppfærslur vafrans";
 "target.bun.deno.name" = "Skyndiminni Bun og Deno";
 "target.bun.deno.note" = "Einingar sóttar af Bun og Deno";
 "target.caches.other.name" = "Annað skyndiminni forrita";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Carthage-grunnar og checkouts";
 "target.cocoapods.name" = "Skyndiminni CocoaPods";
 "target.cocoapods.note" = "Sóttir pods og specs";
+"target.containers.caches.name" = "Skyndiminni sandkassaforrita";
+"target.containers.caches.note" = "Hvert sandkassaforrit geymir sitt eigið afrit í gámi sínum";
+"target.docker.disk.name" = "Diskur sýndarvélar Docker";
+"target.docker.disk.note" = "Losnar með docker system prune. Myndirnar þínar og bindin haldast";
 "target.docker.logs.name" = "Annálar Docker Desktop";
 "target.docker.logs.note" = "Aðeins annálar. Myndir og geymslur eru ósnertar";
+"target.electron.appsupport.name" = "Skyndiminni Electron-forrita";
+"target.electron.appsupport.note" = "Cache, Code Cache og GPUCache utan við ~/Library/Caches";
 "target.electron.name" = "Skyndiminni Electron";
 "target.electron.note" = "Tvíundarskrár Electron og electron-builder";
 "target.flutter.name" = "Skyndiminni Flutter / Dart";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Hver Gradle-útgáfa sem verkefni hefur sótt (um 150 MB hver)";
 "target.homebrew.name" = "Skyndiminni Homebrew";
 "target.homebrew.note" = "Bottles og gamalt niðurhal brew";
-"target.ios.backups.name" = "iOS-afrit";
-"target.ios.backups.note" = "Afrit af iPhone og iPad. Gætu verið eina eintakið sem þú átt";
+"target.installers.old.name" = "Sótt uppsetningarforrit";
+"target.installers.old.note" = "Uppfærslur og pakkar sem eru þegar uppsett";
 "target.jetbrains.caches.name" = "Skyndiminni JetBrains / Android Studio";
 "target.jetbrains.caches.note" = "Yfirlit og skyndiminni úr IntelliJ, Android Studio, PyCharm og fleirum";
 "target.jetbrains.logs.name" = "Annálar JetBrains / Android Studio";
@@ -118,6 +155,10 @@
 "target.php.note" = "Pakkar sóttir af Composer";
 "target.pnpm.name" = "pnpm-geymsla";
 "target.pnpm.note" = "Sameiginleg pakkageymsla pnpm";
+"target.projects.builds.name" = "Afurðir þýðingar";
+"target.projects.builds.note" = "build, target, .next og DerivedData. Næsta þýðing býr þau til aftur";
+"target.projects.deps.name" = "Hæði verkefna";
+"target.projects.deps.note" = "node_modules, Pods, .venv og vendor. Pakkastjórinn sækir þau aftur";
 "target.python.name" = "Skyndiminni Python";
 "target.python.note" = "pip, uv, poetry og þýdd wheels";
 "target.ruby.name" = "Skyndiminni Ruby";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Gluggar og skjöl sem forrit opna aftur við ræsingu";
 "target.sim.caches.name" = "Skyndiminni CoreSimulator";
 "target.sim.caches.note" = "Sótt keyrsluumhverfi og sameiginlegt skyndiminni hermanna";
-"target.sim.devicedata.name" = "Tímabundin gögn hermanna";
-"target.sim.devicedata.note" = "Skyndiminni og /tmp inni í hverjum hermi (uppsett forrit haldast)";
+"target.sim.devices.name" = "Uppsettir hermar";
+"target.sim.devices.note" = "Fjarlægðir með simctl svo Xcode sitji ekki uppi með draug";
 "target.swiftpm.name" = "Skyndiminni Swift Package Manager";
 "target.swiftpm.note" = "Safn og tvíundarskrár fyrir SwiftPM-hluti";
 "target.trash.name" = "Rusl";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Tákn fyrir hverja iOS-útgáfu sem þú hefur tengt tæki frá";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Það sama fyrir hina vettvangana";
+"target.xcode.doccache.name" = "Sótt Xcode-skjölun";
+"target.xcode.doccache.note" = "Xcode sækir hana aftur þegar þú opnar hana";
 "target.xcode.previews.name" = "Forskoðanir Xcode";
 "target.xcode.previews.note" = "Skyndiminni fyrir SwiftUI-forskoðanir";
 "target.yarn.name" = "Skyndiminni Yarn";
 "target.yarn.note" = "Pakkar sóttir af Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "Þetta er þitt og hvergi til afrit: þegar því er eytt er það farið.";
+"why.recreate" = "Þú þarft að búa það til aftur handvirkt, og núverandi staða þess kemur ekki aftur.";
+"why.redownload" = "Þarf að sækja aftur næst þegar eitthvað þarf á því að halda.";
+"why.regenerates" = "Býr sig til aftur sjálf næst þegar hennar þarf, og þú tekur ekki eftir því.";
+"why.signOut" = "Þú verður skráður út af vefsvæðum sem nota það og þarft að skrá þig inn aftur.";
+"why.slowerBuild" = "Ekkert tapast, en næsta þýðing tekur lengri tíma meðan hún býr það til aftur.";
+"why.toolDecides" = "Tólið eyðir sjálft, svo hvað nákvæmlega hverfur ræður það.";
+"why.unknown" = "Ruslakista: hér lendir það sem engin önnur röð hefur nefnt. Kíktu áður en þú eyðir.";

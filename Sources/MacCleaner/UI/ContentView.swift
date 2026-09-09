@@ -1,4 +1,5 @@
 import SwiftUI
+import AppKit
 
 struct ContentView: View {
     @StateObject private var engine = Engine()
@@ -14,6 +15,14 @@ struct ContentView: View {
             footer
         }
         .frame(minWidth: 720, minHeight: 540)
+        // Al volver a la app el hueco libre puede haber cambiado sin que
+        // nosotros hayamos tocado nada: una descarga, un vaciado de la Papelera,
+        // un borrado en el Finder. Cuesta un `statfs` y evita que la cifra que
+        // se mira primero sea la de hace media hora.
+        .onReceive(NotificationCenter.default.publisher(
+            for: NSApplication.didBecomeActiveNotification)) { _ in
+            engine.refreshVolume()
+        }
         .alert(L("alert.clean.title", FileSystem.humanBytes(engine.selectedBytes)),
                isPresented: $confirming) {
             Button(L("common.cancel"), role: .cancel) {}
@@ -51,7 +60,10 @@ struct ContentView: View {
     }
 
     private func reportMessage(_ report: Engine.Report) -> String {
-        var text = L("alert.report.freed", FileSystem.humanBytes(report.freed))
+        // Con la Papelera de por medio el disco no se ha movido todavia, y
+        // decir «liberados» seria justo lo contrario de lo que ha pasado.
+        var text = L(report.toTrash ? "alert.report.trashed" : "alert.report.freed",
+                     FileSystem.humanBytes(report.freed))
         text += "\n" + L("alert.report.count", report.cleaned)
         if !report.failures.isEmpty {
             text += "\n\n" + L("alert.report.failures", report.failures.count)

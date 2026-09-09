@@ -72,3 +72,23 @@ final class SafetyTests: XCTestCase {
         }
     }
 }
+
+/// Safari no se puede limpiar sin Acceso total al disco, que esta app no pide.
+/// Lo que si se puede es asegurarse de que no se cuela por una puerta lateral.
+final class SafariTests: XCTestCase {
+
+    func testLasCachesHermanasDeUnaAppProtegidaTambienLoEstan() {
+        let caches = NSHomeDirectory() + "/Library/Caches/"
+        XCTAssertTrue(FileSystem.isProtected(caches + "com.apple.Safari"))
+        XCTAssertTrue(FileSystem.isProtected(caches + "com.apple.Safari.SafeBrowsing"),
+                      "el cajon de sastre no puede llevarsela por delante")
+        XCTAssertTrue(FileSystem.isProtected(caches + "com.apple.Photos.Analytics"))
+    }
+
+    /// Y que el prefijo no se lleve por delante a un tercero con nombre parecido.
+    func testUnNombreParecidoNoSeProtegeSinMotivo() {
+        let caches = NSHomeDirectory() + "/Library/Caches/"
+        XCTAssertFalse(FileSystem.isProtected(caches + "com.apple.SafariClone"))
+        XCTAssertFalse(FileSystem.isProtected(caches + "org.mozilla.firefox"))
+    }
+}

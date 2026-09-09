@@ -13,11 +13,15 @@
 "alert.report.failures" = "Ezin izan da dena ezabatu (eragindako kategoriak: %d). Normalean baimen kontua da: eman MacCleaner-i diskorako sarbide osoa Ezarpenak › Pribatutasuna eta segurtasuna atalean.";
 "alert.report.freed" = "%@ askatu dira.";
 "alert.report.title" = "Garbiketa amaituta";
+"alert.report.trashed" = "%@ Zakarrontzira eraman dira. Lekua hustean askatzen da.";
 
 /* ---- category ---- */
+"category.ai" = "AA tresnak";
+"category.browsers" = "Nabigatzaileak";
 "category.jvm" = "Android, Gradle eta JVM";
 "category.langs" = "Beste lengoaia batzuk";
 "category.node" = "Node eta weba";
+"category.projects" = "Proiektuak";
 "category.system" = "Sistema eta aplikazioak";
 "category.tools" = "Pakete-kudeatzaileak";
 "category.xcode" = "Xcode eta iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Aztertu orain";
 "empty.subtitle" = "Ez dago ezer hautatuta: zuk erabakitzen duzu zer ezabatu, eta aurretik berresten duzu.";
 "empty.title" = "Aztertu zenbat leku berreskura dezakezun ikusteko";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ ez dago instalatuta, edo MacCleanerrek ez du aurkitzen.";
 
 /* ---- footer ---- */
 "footer.clean" = "Garbitu %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Hautatu";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Kode-laguntzaileen cacheak";
+"target.ai.caches.note" = "Claude, Codex, Cursor eta OpenCode aplikazioen aldi baterako fitxategiak";
+"target.ai.models.name" = "Deskargatutako AA ereduak";
+"target.ai.models.note" = "Ollama, Hugging Face eta LM Studio pisuak: gigabyte batzuk bakoitza";
+"target.ai.vmbundles.name" = "Laguntzaileen makina birtualak";
+"target.ai.vmbundles.note" = "Claudek kodea exekutatzeko deskargatzen dituen disko-irudiak";
+"target.ai.worktrees.name" = "Agenteen lan-zuhaitzak";
+"target.ai.worktrees.note" = "Agenteek ~/.codex/worktrees barruan uzten dituzten proiektuen kopiak";
+"target.android.avd.name" = "Android emulagailuak";
+"target.android.avd.note" = "AVD bakoitzak bere diskoa eta egoera gordetzen ditu; berriz sortu behar da";
 "target.android.caches.name" = "Androiden cachea";
 "target.android.caches.note" = "SDKaren konpilazio-cachea eta tresnen aldi baterako datuak";
+"target.android.systemimages.name" = "Android sistema-irudiak";
+"target.android.systemimages.note" = "SDK Managerrek deskargatzen ditu, bat API bertsio bakoitzeko";
+"target.browsers.cache.name" = "Nabigatzaileen cachea";
+"target.browsers.cache.note" = "Chrome, Brave, Edge, Chromium eta Firefoxen orriak, irudiak eta shaderrak";
+"target.browsers.cookies.name" = "Cookieak";
+"target.browsers.cookies.note" = "Gune guztietan saioa ixten du, eta ia ez du lekurik hartzen";
 "target.browsers.headless.name" = "Playwright / Puppeteerren nabigatzaileak";
 "target.browsers.headless.note" = "E2E probetarako deskargatutako Chromium, Firefox eta WebKit";
+"target.browsers.history.name" = "Nabigazio historia";
+"target.browsers.history.note" = "Bisitatutako guneak eta orri erabilienak. Ez da berreskuratzen";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Konexiorik gabeko web aplikazioen datuak; bisitatzean berriz deskargatzen dira";
+"target.browsers.storage.name" = "Guneen biltegiratzea";
+"target.browsers.storage.note" = "Local Storage eta IndexedDB; gune batzuek saioa hasteko eskatuko dute";
+"target.browsers.updater.name" = "Eguneratzailearen cachea";
+"target.browsers.updater.note" = "Dagoeneko instalatutako nabigatzaile eguneraketen deskargak";
 "target.bun.deno.name" = "Bun eta Denoren cachea";
 "target.bun.deno.note" = "Bunek eta Denok deskargatutako moduluak";
 "target.caches.other.name" = "Aplikazioen beste cache batzuk";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Carthageren frameworkak eta checkout-ak";
 "target.cocoapods.name" = "CocoaPodsen cachea";
 "target.cocoapods.note" = "Deskargatutako pod-ak eta spec-ak";
+"target.containers.caches.name" = "Sandbox aplikazioen cacheak";
+"target.containers.caches.note" = "Sandbox aplikazio bakoitzak bere kopia gordetzen du edukiontzian";
+"target.docker.disk.name" = "Docker makina birtualaren diskoa";
+"target.docker.disk.note" = "docker system prune bidez askatzen da. Irudiak eta bolumenak gorde egiten dira";
 "target.docker.logs.name" = "Docker Desktopen erregistroak";
 "target.docker.logs.note" = "Erregistroak soilik. Ez ditu irudiak ez bolumenak ukitzen";
+"target.electron.appsupport.name" = "Electron aplikazioen cacheak";
+"target.electron.appsupport.note" = "~/Library/Caches kanpoan dauden Cache, Code Cache eta GPUCache";
 "target.electron.name" = "Electronen cachea";
 "target.electron.note" = "Electron eta electron-builderren binarioak";
 "target.flutter.name" = "Flutter / Darten cachea";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Proiektu batek deskargatutako Gradle bertsio bakoitza (150 MB inguru bakoitza)";
 "target.homebrew.name" = "Homebrewen cachea";
 "target.homebrew.note" = "Bottle-ak eta brew-en deskarga zaharrak";
-"target.ios.backups.name" = "iOSen babeskopiak";
-"target.ios.backups.note" = "iPhone eta iPaden kopiak. Dituzun kopia bakarra izan liteke";
+"target.installers.old.name" = "Deskargatutako instalatzaileak";
+"target.installers.old.note" = "Dagoeneko instalatuta dauden eguneraketak eta paketeak";
 "target.jetbrains.caches.name" = "JetBrains / Android Studioren cachea";
 "target.jetbrains.caches.note" = "IntelliJ, Android Studio, PyCharm eta besteen indizeak eta cacheak";
 "target.jetbrains.logs.name" = "JetBrains / Android Studioren erregistroak";
@@ -118,6 +155,10 @@
 "target.php.note" = "Composerrek deskargatutako paketeak";
 "target.pnpm.name" = "pnpm-ren biltegia";
 "target.pnpm.note" = "pnpm-ren pakete-biltegi partekatua";
+"target.projects.builds.name" = "Konpilazio-irteerak";
+"target.projects.builds.note" = "build, target, .next eta DerivedData. Hurrengo konpilazioak berregiten ditu";
+"target.projects.deps.name" = "Proiektuen mendekotasunak";
+"target.projects.deps.note" = "node_modules, Pods, .venv eta vendor. Pakete-kudeatzaileak berriz ekartzen ditu";
 "target.python.name" = "Pythonen cachea";
 "target.python.note" = "pip, uv, poetry eta konpilatutako wheel-ak";
 "target.ruby.name" = "Rubyren cachea";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Aplikazioek abiaraztean berriro irekitzen dituzten leihoak eta dokumentuak";
 "target.sim.caches.name" = "CoreSimulatorren cachea";
 "target.sim.caches.note" = "Deskargatutako exekuzio-inguruneak eta simulagailuen cache partekatua";
-"target.sim.devicedata.name" = "Simulagailuen aldi baterako datuak";
-"target.sim.devicedata.note" = "Cacheak eta /tmp simulagailu bakoitzaren barruan (instalatutako aplikazioek hor jarraitzen dute)";
+"target.sim.devices.name" = "Instalatutako simulagailuak";
+"target.sim.devices.note" = "simctl bidez ezabatzen dira, Xcodek mamurik gorde ez dezan";
 "target.swiftpm.name" = "Swift Package Managerren cachea";
 "target.swiftpm.note" = "SwiftPM mendekotasunen biltegiak eta binarioak";
 "target.trash.name" = "Zakarrontzia";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Gailu bat konektatu duzun iOS bertsio bakoitzaren sinboloak";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Gauza bera gainerako plataformetarako";
+"target.xcode.doccache.name" = "Deskargatutako Xcode dokumentazioa";
+"target.xcode.doccache.note" = "Xcodek berriro deskargatzen du irekitzean";
 "target.xcode.previews.name" = "Xcoderen aurrebistak";
 "target.xcode.previews.note" = "SwiftUIren aurrebisten cachea";
 "target.yarn.name" = "Yarnen cachea";
 "target.yarn.note" = "Yarnek deskargatutako paketeak";
+
+/* ---- why ---- */
+"why.dataLoss" = "Hau zurea da eta ez dago kopiarik beste inon: ezabatuz gero, joan da.";
+"why.recreate" = "Eskuz sortu beharko duzu berriro, eta bere egungo egoera ez da itzultzen.";
+"why.redownload" = "Berriro deskargatu beharko da zerbaitek behar duen hurrengo aldian.";
+"why.regenerates" = "Berez sortzen da berriro behar den hurrengo aldian, eta ez duzu nabarituko.";
+"why.signOut" = "Erabiltzen duten guneetan saioa itxiko duzu eta berriro sartu beharko duzu.";
+"why.slowerBuild" = "Ez da ezer galtzen, baina hurrengo konpilazioak gehiago iraungo du berregiten duen bitartean.";
+"why.toolDecides" = "Tresnak berak ezabatzen du, beraz zer desagertzen den zehazki berak erabakitzen du.";
+"why.unknown" = "Denetariko kutxa: hemen erortzen da beste inork izendatu ez duena. Begiratu ezabatu aurretik.";

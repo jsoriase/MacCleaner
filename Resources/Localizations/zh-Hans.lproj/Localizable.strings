@@ -14,11 +14,15 @@
 "alert.report.failures" = "部分内容无法删除（受影响类别：%d）。通常是权限问题：请在「系统设置 › 隐私与安全性」中授予 MacCleaner 完全磁盘访问权限。";
 "alert.report.freed" = "已释放 %@。";
 "alert.report.title" = "清理完成";
+"alert.report.trashed" = "已将 %@ 移到废纸篓。清倒后才会释放空间。";
 
 /* ---- category ---- */
+"category.ai" = "AI 工具";
+"category.browsers" = "浏览器";
 "category.jvm" = "Android、Gradle 与 JVM";
 "category.langs" = "其他语言";
 "category.node" = "Node 与 Web";
+"category.projects" = "项目";
 "category.system" = "系统与应用";
 "category.tools" = "包管理器";
 "category.xcode" = "Xcode 与 iOS";
@@ -31,6 +35,9 @@
 "empty.button" = "立即扫描";
 "empty.subtitle" = "默认不选中任何项：由你决定删除什么，并在执行前确认。";
 "empty.title" = "扫描一下，看看能释放多少空间";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ 未安装，或者 MacCleaner 找不到它。";
 
 /* ---- footer ---- */
 "footer.clean" = "清理 %@";
@@ -73,10 +80,34 @@
 "select.mark" = "选择";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "编程助手缓存";
+"target.ai.caches.note" = "Claude、Codex、Cursor 和 OpenCode 的临时文件";
+"target.ai.models.name" = "已下载的 AI 模型";
+"target.ai.models.note" = "Ollama、Hugging Face 和 LM Studio 的权重，每个都有数 GB";
+"target.ai.vmbundles.name" = "助手的虚拟机";
+"target.ai.vmbundles.note" = "Claude 为运行代码而下载的磁盘映像";
+"target.ai.worktrees.name" = "智能体工作树";
+"target.ai.worktrees.note" = "智能体留在 ~/.codex/worktrees 里的项目副本";
+"target.android.avd.name" = "Android 模拟器";
+"target.android.avd.note" = "每个 AVD 都保存自己的磁盘和状态，删掉要重新创建";
 "target.android.caches.name" = "Android 缓存";
 "target.android.caches.note" = "SDK 构建缓存和工具的临时数据";
+"target.android.systemimages.name" = "Android 系统映像";
+"target.android.systemimages.note" = "由 SDK Manager 下载，每个 API 版本一个";
+"target.browsers.cache.name" = "浏览器缓存";
+"target.browsers.cache.note" = "Chrome、Brave、Edge、Chromium 和 Firefox 的页面、图片和着色器";
+"target.browsers.cookies.name" = "Cookie";
+"target.browsers.cookies.note" = "会让你从所有网站退出登录，而且几乎不占空间";
 "target.browsers.headless.name" = "Playwright / Puppeteer 浏览器";
 "target.browsers.headless.note" = "为端到端测试下载的 Chromium、Firefox 和 WebKit";
+"target.browsers.history.name" = "浏览历史";
+"target.browsers.history.note" = "访问过的网站和常用页面，删掉就没了";
+"target.browsers.serviceworkers.name" = "Service Worker";
+"target.browsers.serviceworkers.note" = "网页应用的离线数据，再次访问时会重新下载";
+"target.browsers.storage.name" = "网站存储";
+"target.browsers.storage.note" = "Local Storage 和 IndexedDB，部分网站会要求重新登录";
+"target.browsers.updater.name" = "更新器缓存";
+"target.browsers.updater.note" = "已经安装过的浏览器更新";
 "target.bun.deno.name" = "Bun 与 Deno 缓存";
 "target.bun.deno.note" = "Bun 和 Deno 下载的模块";
 "target.caches.other.name" = "其他应用缓存";
@@ -85,8 +116,14 @@
 "target.carthage.note" = "Carthage 的框架和检出内容";
 "target.cocoapods.name" = "CocoaPods 缓存";
 "target.cocoapods.note" = "已下载的 pod 和 spec";
+"target.containers.caches.name" = "沙盒应用缓存";
+"target.containers.caches.note" = "每个沙盒应用都在自己的容器里保存一份副本";
+"target.docker.disk.name" = "Docker 虚拟机磁盘";
+"target.docker.disk.note" = "用 docker system prune 释放，你的镜像和卷都会保留";
 "target.docker.logs.name" = "Docker Desktop 日志";
 "target.docker.logs.note" = "仅日志。不会动镜像和卷";
+"target.electron.appsupport.name" = "Electron 应用缓存";
+"target.electron.appsupport.note" = "位于 ~/Library/Caches 之外的 Cache、Code Cache 和 GPUCache";
 "target.electron.name" = "Electron 缓存";
 "target.electron.note" = "Electron 和 electron-builder 的二进制文件";
 "target.flutter.name" = "Flutter / Dart 缓存";
@@ -103,8 +140,8 @@
 "target.gradle.wrapper.note" = "每个项目下载的各个 Gradle 版本（每个约 150 MB）";
 "target.homebrew.name" = "Homebrew 缓存";
 "target.homebrew.note" = "bottle 文件和 brew 的旧下载内容";
-"target.ios.backups.name" = "iOS 备份";
-"target.ios.backups.note" = "iPhone 和 iPad 的备份。可能是你唯一的副本";
+"target.installers.old.name" = "已下载的安装程序";
+"target.installers.old.note" = "已经安装过的更新和软件包";
 "target.jetbrains.caches.name" = "JetBrains / Android Studio 缓存";
 "target.jetbrains.caches.note" = "IntelliJ、Android Studio、PyCharm 等的索引和缓存";
 "target.jetbrains.logs.name" = "JetBrains / Android Studio 日志";
@@ -119,6 +156,10 @@
 "target.php.note" = "Composer 下载的包";
 "target.pnpm.name" = "pnpm 存储区";
 "target.pnpm.note" = "pnpm 的共享包存储区";
+"target.projects.builds.name" = "构建产物";
+"target.projects.builds.note" = "build、target、.next 和 DerivedData。下次构建会重新生成";
+"target.projects.deps.name" = "项目依赖";
+"target.projects.deps.note" = "node_modules、Pods、.venv 和 vendor。包管理器会重新装回来";
 "target.python.name" = "Python 缓存";
 "target.python.note" = "pip、uv、poetry 以及已编译的 wheel";
 "target.ruby.name" = "Ruby 缓存";
@@ -129,8 +170,8 @@
 "target.savedstate.note" = "App 启动时会重新打开的窗口和文稿";
 "target.sim.caches.name" = "CoreSimulator 缓存";
 "target.sim.caches.note" = "已下载的运行时和模拟器共享缓存";
-"target.sim.devicedata.name" = "模拟器临时数据";
-"target.sim.devicedata.note" = "每个模拟器内部的缓存和 /tmp（不会删除已安装的 App）";
+"target.sim.devices.name" = "已安装的模拟器";
+"target.sim.devices.note" = "用 simctl 删除，这样 Xcode 不会留下幽灵设备";
 "target.swiftpm.name" = "Swift Package Manager 缓存";
 "target.swiftpm.note" = "SwiftPM 依赖的仓库和二进制文件";
 "target.trash.name" = "废纸篓";
@@ -149,7 +190,19 @@
 "target.xcode.devicesupport.note" = "你连接过设备的每个 iOS 版本的符号文件";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "其他平台的同类文件";
+"target.xcode.doccache.name" = "已下载的 Xcode 文档";
+"target.xcode.doccache.note" = "打开时 Xcode 会重新下载";
 "target.xcode.previews.name" = "Xcode 预览缓存";
 "target.xcode.previews.note" = "SwiftUI 预览的缓存";
 "target.yarn.name" = "Yarn 缓存";
 "target.yarn.note" = "Yarn 下载的包";
+
+/* ---- why ---- */
+"why.dataLoss" = "这是你的东西，别处没有副本：删了就没了。";
+"why.recreate" = "得手动重新创建，而且现在的状态回不来了。";
+"why.redownload" = "下次有东西需要它时，得重新下载一遍。";
+"why.regenerates" = "下次需要时会自己重建，你不会察觉。";
+"why.signOut" = "会让你从用到它的网站退出登录，需要重新登入。";
+"why.slowerBuild" = "什么都不会丢，只是下次构建要多花点时间重做。";
+"why.toolDecides" = "删除的是工具本身，所以到底消失什么由它决定。";
+"why.unknown" = "杂物抽屉：其他行没点名的东西都落在这里。删之前先看看。";

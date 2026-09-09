@@ -13,11 +13,15 @@
 "alert.report.failures" = "Nu s-a putut șterge totul (categorii afectate: %d). De obicei este o problemă de permisiuni: acordă-i lui MacCleaner acces complet la disc în Configurări › Confidențialitate și securitate.";
 "alert.report.freed" = "S-au eliberat %@.";
 "alert.report.title" = "Curățare terminată";
+"alert.report.trashed" = "%@ au fost mutate în Coș. Spațiul se eliberează la golire.";
 
 /* ---- category ---- */
+"category.ai" = "Instrumente de IA";
+"category.browsers" = "Browsere";
 "category.jvm" = "Android, Gradle și JVM";
 "category.langs" = "Alte limbaje";
 "category.node" = "Node și web";
+"category.projects" = "Proiecte";
 "category.system" = "Sistem și aplicații";
 "category.tools" = "Manageri de pachete";
 "category.xcode" = "Xcode și iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Analizează acum";
 "empty.subtitle" = "Nimic nu este selectat: tu alegi ce se șterge și confirmi înainte.";
 "empty.title" = "Analizează pentru a vedea cât spațiu poți recupera";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ nu este instalat sau MacCleaner nu îl găsește.";
 
 /* ---- footer ---- */
 "footer.clean" = "Curăță %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Selectează";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Cache-uri ale asistenților de cod";
+"target.ai.caches.note" = "Fișiere temporare de la Claude, Codex, Cursor și OpenCode";
+"target.ai.models.name" = "Modele de IA descărcate";
+"target.ai.models.note" = "Ponderi Ollama, Hugging Face și LM Studio: gigaocteți fiecare";
+"target.ai.vmbundles.name" = "Mașini virtuale ale asistenților";
+"target.ai.vmbundles.note" = "Imagini de disc pe care Claude le descarcă pentru a rula cod";
+"target.ai.worktrees.name" = "Arbori de lucru ai agenților";
+"target.ai.worktrees.note" = "Copii ale proiectelor tale lăsate de agenți în ~/.codex/worktrees";
+"target.android.avd.name" = "Emulatoare Android";
+"target.android.avd.note" = "Fiecare AVD își păstrează discul și starea; trebuie creat din nou";
 "target.android.caches.name" = "Cache Android";
 "target.android.caches.note" = "Build cache-ul SDK-ului și date temporare ale uneltelor";
+"target.android.systemimages.name" = "Imagini de sistem Android";
+"target.android.systemimages.note" = "Descărcate de SDK Manager, câte una pentru fiecare versiune de API";
+"target.browsers.cache.name" = "Cache-urile browserelor";
+"target.browsers.cache.note" = "Pagini, imagini și shadere din Chrome, Brave, Edge, Chromium și Firefox";
+"target.browsers.cookies.name" = "Cookie-uri";
+"target.browsers.cookies.note" = "Te deconectează de pe toate site-urile și nu ocupă aproape nimic";
 "target.browsers.headless.name" = "Browsere Playwright / Puppeteer";
 "target.browsers.headless.note" = "Chromium, Firefox și WebKit descărcate pentru teste E2E";
+"target.browsers.history.name" = "Istoric de navigare";
+"target.browsers.history.note" = "Site-uri vizitate și pagini folosite des. Nu se recuperează";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Date ale aplicațiilor web offline; se descarcă din nou la vizitare";
+"target.browsers.storage.name" = "Stocarea site-urilor";
+"target.browsers.storage.note" = "Local Storage și IndexedDB; unele site-uri vor cere autentificare";
+"target.browsers.updater.name" = "Cache-ul actualizatorului";
+"target.browsers.updater.note" = "Descărcări de actualizări ale browserului deja instalate";
 "target.bun.deno.name" = "Cache Bun și Deno";
 "target.bun.deno.note" = "Module descărcate de Bun și Deno";
 "target.caches.other.name" = "Alte cache-uri de aplicații";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Framework-uri și checkout-uri Carthage";
 "target.cocoapods.name" = "Cache CocoaPods";
 "target.cocoapods.note" = "Pod-uri descărcate și specs";
+"target.containers.caches.name" = "Cache-uri ale aplicațiilor izolate";
+"target.containers.caches.note" = "Fiecare aplicație izolată păstrează copia sa în containerul ei";
+"target.docker.disk.name" = "Discul mașinii virtuale Docker";
+"target.docker.disk.note" = "Se eliberează cu docker system prune. Imaginile și volumele se păstrează";
 "target.docker.logs.name" = "Jurnale Docker Desktop";
 "target.docker.logs.note" = "Doar jurnale. Nu atinge imagini sau volume";
+"target.electron.appsupport.name" = "Cache-uri ale aplicațiilor Electron";
+"target.electron.appsupport.note" = "Cache, Code Cache și GPUCache aflate în afara ~/Library/Caches";
 "target.electron.name" = "Cache Electron";
 "target.electron.note" = "Binare Electron și electron-builder";
 "target.flutter.name" = "Cache Flutter / Dart";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Fiecare versiune de Gradle descărcată de un proiect (~150 MB fiecare)";
 "target.homebrew.name" = "Cache Homebrew";
 "target.homebrew.note" = "Bottles și descărcări vechi ale brew";
-"target.ios.backups.name" = "Copii de siguranță iOS";
-"target.ios.backups.note" = "Copii ale iPhone și iPad. Ar putea fi singura copie pe care o ai";
+"target.installers.old.name" = "Programe de instalare descărcate";
+"target.installers.old.note" = "Actualizări și pachete deja instalate";
 "target.jetbrains.caches.name" = "Cache JetBrains / Android Studio";
 "target.jetbrains.caches.note" = "Indexuri și cache-uri din IntelliJ, Android Studio, PyCharm etc.";
 "target.jetbrains.logs.name" = "Jurnale JetBrains / Android Studio";
@@ -118,6 +155,10 @@
 "target.php.note" = "Pachete descărcate de Composer";
 "target.pnpm.name" = "Depozit pnpm";
 "target.pnpm.note" = "Depozitul comun de pachete al pnpm";
+"target.projects.builds.name" = "Ieșiri de compilare";
+"target.projects.builds.note" = "build, target, .next și DerivedData. Următoarea compilare le reface";
+"target.projects.deps.name" = "Dependențe ale proiectelor";
+"target.projects.deps.note" = "node_modules, Pods, .venv și vendor. Managerul de pachete le aduce înapoi";
 "target.python.name" = "Cache Python";
 "target.python.note" = "pip, uv, poetry și wheel-uri compilate";
 "target.ruby.name" = "Cache Ruby";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Ferestre și documente pe care aplicațiile le redeschid la pornire";
 "target.sim.caches.name" = "Cache CoreSimulator";
 "target.sim.caches.note" = "Runtime-uri descărcate și cache-ul comun al simulatoarelor";
-"target.sim.devicedata.name" = "Date temporare ale simulatoarelor";
-"target.sim.devicedata.note" = "Cache și /tmp din fiecare simulator (aplicațiile instalate rămân)";
+"target.sim.devices.name" = "Simulatoare instalate";
+"target.sim.devices.note" = "Șterse cu simctl, ca Xcode să nu rămână cu o fantomă";
 "target.swiftpm.name" = "Cache Swift Package Manager";
 "target.swiftpm.note" = "Depozite și binare ale dependențelor SwiftPM";
 "target.trash.name" = "Coș";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Simboluri pentru fiecare versiune de iOS din care ai conectat un dispozitiv";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "La fel, pentru celelalte platforme";
+"target.xcode.doccache.name" = "Documentație Xcode descărcată";
+"target.xcode.doccache.note" = "Xcode o descarcă din nou când o deschizi";
 "target.xcode.previews.name" = "Previzualizări Xcode";
 "target.xcode.previews.note" = "Cache pentru previzualizările SwiftUI";
 "target.yarn.name" = "Cache Yarn";
 "target.yarn.note" = "Pachete descărcate de Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "Asta e a ta și nu există copie nicăieri altundeva: dacă o ștergi, s-a dus.";
+"why.recreate" = "Va trebui să îl creezi din nou manual, iar starea lui actuală nu se întoarce.";
+"why.redownload" = "Va trebui descărcat din nou data viitoare când ceva are nevoie de el.";
+"why.regenerates" = "Se recreează singură data viitoare când e nevoie, și nu vei observa.";
+"why.signOut" = "Vei fi deconectat de pe site-urile care îl folosesc și va trebui să intri iar.";
+"why.slowerBuild" = "Nu se pierde nimic, dar următoarea compilare va dura mai mult cât o reface.";
+"why.toolDecides" = "Șterge chiar unealta, deci ce dispare exact decide ea.";
+"why.unknown" = "Sertar de toate: aici cade ce nicio altă linie nu a numit. Uită-te înainte să ștergi.";

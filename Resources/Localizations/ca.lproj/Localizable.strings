@@ -13,11 +13,15 @@
 "alert.report.failures" = "No s’ha pogut esborrar tot (categories afectades: %d). Sol ser qüestió de permisos: dona accés complet al disc a MacCleaner a Configuració › Privadesa i seguretat.";
 "alert.report.freed" = "Alliberats %@.";
 "alert.report.title" = "Neteja acabada";
+"alert.report.trashed" = "S’han mogut %@ a la Paperera. L’espai s’allibera en buidar-la.";
 
 /* ---- category ---- */
+"category.ai" = "Eines d’IA";
+"category.browsers" = "Navegadors";
 "category.jvm" = "Android, Gradle i JVM";
 "category.langs" = "Altres llenguatges";
 "category.node" = "Node i web";
+"category.projects" = "Projectes";
 "category.system" = "Sistema i apps";
 "category.tools" = "Gestors de paquets";
 "category.xcode" = "Xcode i iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Analitza ara";
 "empty.subtitle" = "No hi ha res marcat: tu tries què esborrar i ho confirmes abans.";
 "empty.title" = "Analitza per veure quant espai pots recuperar";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ no està instal·lat, o MacCleaner no el troba.";
 
 /* ---- footer ---- */
 "footer.clean" = "Neteja %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Marca";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Cachés d’assistents de codi";
+"target.ai.caches.note" = "Fitxers temporals de Claude, Codex, Cursor i OpenCode";
+"target.ai.models.name" = "Models d’IA descarregats";
+"target.ai.models.note" = "Pesos d’Ollama, Hugging Face i LM Studio: gigabytes cadascun";
+"target.ai.vmbundles.name" = "Màquines virtuals d’assistents";
+"target.ai.vmbundles.note" = "Imatges de disc que descarrega Claude per executar codi";
+"target.ai.worktrees.name" = "Arbres de treball d’agents";
+"target.ai.worktrees.note" = "Còpies dels teus projectes que deixen els agents a ~/.codex/worktrees";
+"target.android.avd.name" = "Emuladors d’Android";
+"target.android.avd.note" = "Cada AVD desa el seu disc i el seu estat; s’ha de tornar a crear";
 "target.android.caches.name" = "Memòria cau d’Android";
 "target.android.caches.note" = "Build cache de l’SDK i dades temporals de les eines";
+"target.android.systemimages.name" = "Imatges de sistema d’Android";
+"target.android.systemimages.note" = "Les descarrega el SDK Manager, una per versió d’API";
+"target.browsers.cache.name" = "Memòria cau dels navegadors";
+"target.browsers.cache.note" = "Pàgines, imatges i shaders de Chrome, Brave, Edge, Chromium i Firefox";
+"target.browsers.cookies.name" = "Galetes";
+"target.browsers.cookies.note" = "Tanca la sessió a tots els llocs, i no ocupa gairebé res";
 "target.browsers.headless.name" = "Navegadors de Playwright / Puppeteer";
 "target.browsers.headless.note" = "Chromium, Firefox i WebKit baixats per a proves E2E";
+"target.browsers.history.name" = "Historial de navegació";
+"target.browsers.history.note" = "Llocs visitats i pàgines més usades. No es recupera";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Dades d’apps web sense connexió; es tornen a baixar en visitar-les";
+"target.browsers.storage.name" = "Emmagatzematge dels llocs";
+"target.browsers.storage.note" = "Local Storage i IndexedDB; alguns llocs demanaran iniciar sessió";
+"target.browsers.updater.name" = "Memòria cau de l’actualitzador";
+"target.browsers.updater.note" = "Baixades d’actualitzacions del navegador ja instal·lades";
 "target.bun.deno.name" = "Memòria cau de Bun i Deno";
 "target.bun.deno.note" = "Mòduls baixats per Bun i Deno";
 "target.caches.other.name" = "Altres memòries cau d’aplicacions";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Frameworks i checkouts de Carthage";
 "target.cocoapods.name" = "Memòria cau de CocoaPods";
 "target.cocoapods.note" = "Pods baixats i specs";
+"target.containers.caches.name" = "Cachés d’apps en sandbox";
+"target.containers.caches.note" = "Cada app en sandbox desa la seva còpia dins del contenidor";
+"target.docker.disk.name" = "Disc de la màquina virtual de Docker";
+"target.docker.disk.note" = "S’allibera amb docker system prune. Les imatges i els volums es conserven";
 "target.docker.logs.name" = "Registres de Docker Desktop";
 "target.docker.logs.note" = "Només registres. No toca imatges ni volums";
+"target.electron.appsupport.name" = "Cachés d’apps Electron";
+"target.electron.appsupport.note" = "Cache, Code Cache i GPUCache que viuen fora de ~/Library/Caches";
 "target.electron.name" = "Memòria cau d’Electron";
 "target.electron.note" = "Binaris d’Electron i electron-builder";
 "target.flutter.name" = "Memòria cau de Flutter / Dart";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Cada versió de Gradle baixada per un projecte (~150 MB cadascuna)";
 "target.homebrew.name" = "Memòria cau de Homebrew";
 "target.homebrew.note" = "Bottles i baixades antigues de brew";
-"target.ios.backups.name" = "Còpies de seguretat d’iOS";
-"target.ios.backups.note" = "Còpies d’iPhone i iPad. Poden ser l’única còpia que tens";
+"target.installers.old.name" = "Instal·ladors descarregats";
+"target.installers.old.note" = "Actualitzacions i paquets que ja estan instal·lats";
 "target.jetbrains.caches.name" = "Memòria cau de JetBrains / Android Studio";
 "target.jetbrains.caches.note" = "Índexs i memòries cau d’IntelliJ, Android Studio, PyCharm, etc.";
 "target.jetbrains.logs.name" = "Registres de JetBrains / Android Studio";
@@ -118,6 +155,10 @@
 "target.php.note" = "Paquets baixats per Composer";
 "target.pnpm.name" = "Magatzem de pnpm";
 "target.pnpm.note" = "Magatzem de paquets compartit de pnpm";
+"target.projects.builds.name" = "Sortides de compilació";
+"target.projects.builds.note" = "build, target, .next i DerivedData. La compilació següent els refà";
+"target.projects.deps.name" = "Dependències de projectes";
+"target.projects.deps.note" = "node_modules, Pods, .venv i vendor. El gestor de paquets les torna a portar";
 "target.python.name" = "Memòria cau de Python";
 "target.python.note" = "pip, uv, poetry i wheels compilades";
 "target.ruby.name" = "Memòria cau de Ruby";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Finestres i documents que les apps reobren en iniciar-se";
 "target.sim.caches.name" = "Memòria cau de CoreSimulator";
 "target.sim.caches.note" = "Runtimes baixats i memòria cau compartida dels simuladors";
-"target.sim.devicedata.name" = "Dades temporals dels simuladors";
-"target.sim.devicedata.note" = "Memòries cau i /tmp dins de cada simulador (les apps instal·lades es conserven)";
+"target.sim.devices.name" = "Simuladors instal·lats";
+"target.sim.devices.note" = "S’esborren amb simctl perquè Xcode no es quedi amb un fantasma";
 "target.swiftpm.name" = "Memòria cau de Swift Package Manager";
 "target.swiftpm.note" = "Repositoris i binaris de dependències SwiftPM";
 "target.trash.name" = "Paperera";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Símbols de cada versió d’iOS des de la qual has connectat un dispositiu";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "El mateix per a la resta de plataformes";
+"target.xcode.doccache.name" = "Documentació descarregada d’Xcode";
+"target.xcode.doccache.note" = "Xcode la torna a descarregar quan l’obres";
 "target.xcode.previews.name" = "Previsualitzacions de Xcode";
 "target.xcode.previews.note" = "Memòria cau de les previsualitzacions de SwiftUI";
 "target.yarn.name" = "Memòria cau de Yarn";
 "target.yarn.note" = "Paquets baixats per Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "Això és teu i no hi ha còpia enlloc més: si ho esborres, s’ha acabat.";
+"why.recreate" = "Hauràs de tornar-lo a crear a mà, i el seu estat actual no torna.";
+"why.redownload" = "S’haurà de tornar a baixar la propera vegada que alguna cosa ho necessiti.";
+"why.regenerates" = "Es torna a crear sola la propera vegada que calgui, i no ho notaràs.";
+"why.signOut" = "Tancaràs la sessió als llocs que ho facin servir i hi hauràs de tornar a entrar.";
+"why.slowerBuild" = "No es perd res, però la compilació següent trigarà més mentre ho refà.";
+"why.toolDecides" = "Ho esborra la mateixa eina, així que què desapareix exactament ho decideix ella.";
+"why.unknown" = "Calaix de sastre: aquí cau el que cap altra fila ha anomenat. Mira-ho abans d’esborrar.";

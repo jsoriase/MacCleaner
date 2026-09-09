@@ -13,11 +13,15 @@
 "alert.report.failures" = "Nije bilo moguće izbrisati sve (pogođene kategorije: %d). Obično je riječ o dozvolama: dodijeli MacCleaneru puni pristup disku u Postavke › Privatnost i sigurnost.";
 "alert.report.freed" = "Oslobođeno %@.";
 "alert.report.title" = "Čišćenje je završeno";
+"alert.report.trashed" = "Premješteno %@ u smeće. Prostor se oslobađa kad ga isprazniš.";
 
 /* ---- category ---- */
+"category.ai" = "Alati UI";
+"category.browsers" = "Pretraživači";
 "category.jvm" = "Android, Gradle i JVM";
 "category.langs" = "Ostali jezici";
 "category.node" = "Node i web";
+"category.projects" = "Projekti";
 "category.system" = "Sistem i aplikacije";
 "category.tools" = "Upravitelji paketa";
 "category.xcode" = "Xcode i iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Skeniraj sada";
 "empty.subtitle" = "Ništa nije odabrano: sam biraš što se briše i prije toga potvrđuješ.";
 "empty.title" = "Skeniraj da vidiš koliko prostora možeš osloboditi";
+
+/* ---- error ---- */
+"error.tool.missing" = "%@ nije instaliran ili ga MacCleaner ne pronalazi.";
 
 /* ---- footer ---- */
 "footer.clean" = "Očisti %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Odaberi";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Keš memorije pomoćnika za kod";
+"target.ai.caches.note" = "Privremene datoteke iz Claude, Codex, Cursor i OpenCode";
+"target.ai.models.name" = "Preuzeti modeli UI";
+"target.ai.models.note" = "Težine Ollame, Hugging Facea i LM Studija: svaka po nekoliko GB";
+"target.ai.vmbundles.name" = "Virtuelne mašine pomoćnika";
+"target.ai.vmbundles.note" = "Slike diska koje Claude preuzima za pokretanje koda";
+"target.ai.worktrees.name" = "Radna stabla agenata";
+"target.ai.worktrees.note" = "Kopije tvojih projekata koje agenti ostavljaju u ~/.codex/worktrees";
+"target.android.avd.name" = "Emulatori Androida";
+"target.android.avd.note" = "Svaki AVD čuva svoj disk i stanje; moraš ga ponovo napraviti";
 "target.android.caches.name" = "Predmemorija Androida";
 "target.android.caches.note" = "Predmemorija izgradnje SDK-a i privremeni podaci alata";
+"target.android.systemimages.name" = "Sistemske slike Androida";
+"target.android.systemimages.note" = "Preuzima ih SDK Manager, jednu po verziji API-ja";
+"target.browsers.cache.name" = "Keš memorije pretraživača";
+"target.browsers.cache.note" = "Stranice, slike i sjenčari iz Chromea, Bravea, Edgea, Chromiuma i Firefoxa";
+"target.browsers.cookies.name" = "Kolačići";
+"target.browsers.cookies.note" = "Odjavljuje te sa svih stranica i zauzima gotovo ništa";
 "target.browsers.headless.name" = "Preglednici Playwrighta / Puppeteera";
 "target.browsers.headless.note" = "Chromium, Firefox i WebKit preuzeti za E2E testove";
+"target.browsers.history.name" = "Historija pregledanja";
+"target.browsers.history.note" = "Posjećene stranice i najkorištenije stranice. Ne vraća se";
+"target.browsers.serviceworkers.name" = "Service Workeri";
+"target.browsers.serviceworkers.note" = "Offline podaci web aplikacija; pri posjeti se preuzimaju ponovo";
+"target.browsers.storage.name" = "Pohrana stranica";
+"target.browsers.storage.note" = "Local Storage i IndexedDB; neke stranice će tražiti novu prijavu";
+"target.browsers.updater.name" = "Keš ažuriranja";
+"target.browsers.updater.note" = "Već instalirana ažuriranja pretraživača";
 "target.bun.deno.name" = "Predmemorija Buna i Dena";
 "target.bun.deno.note" = "Moduli koje su preuzeli Bun i Deno";
 "target.caches.other.name" = "Ostale predmemorije aplikacija";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Carthage okviri i checkouti";
 "target.cocoapods.name" = "Predmemorija CocoaPodsa";
 "target.cocoapods.note" = "Preuzeti podovi i specs";
+"target.containers.caches.name" = "Keš memorije izolovanih aplikacija";
+"target.containers.caches.note" = "Svaka izolovana aplikacija čuva svoju kopiju u svom kontejneru";
+"target.docker.disk.name" = "Disk virtuelne mašine Docker";
+"target.docker.disk.note" = "Oslobađa ga docker system prune. Tvoje slike i volumeni ostaju";
 "target.docker.logs.name" = "Zapisi Docker Desktopa";
 "target.docker.logs.note" = "Samo zapisi. Slike i volumeni ostaju netaknuti";
+"target.electron.appsupport.name" = "Keš memorije aplikacija Electron";
+"target.electron.appsupport.note" = "Cache, Code Cache i GPUCache izvan ~/Library/Caches";
 "target.electron.name" = "Predmemorija Electrona";
 "target.electron.note" = "Binarne datoteke Electrona i electron-buildera";
 "target.flutter.name" = "Predmemorija Fluttera / Darta";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Svaka verzija Gradlea koju je preuzeo neki projekt (oko 150 MB svaka)";
 "target.homebrew.name" = "Predmemorija Homebrewa";
 "target.homebrew.note" = "Bottles i stara preuzimanja brewa";
-"target.ios.backups.name" = "Sigurnosne kopije iOS-a";
-"target.ios.backups.note" = "Kopije iPhonea i iPada. Možda su jedina kopija koju imaš";
+"target.installers.old.name" = "Preuzeti instalacijski programi";
+"target.installers.old.note" = "Ažuriranja i paketi koji su već instalirani";
 "target.jetbrains.caches.name" = "Predmemorija JetBrainsa / Android Studija";
 "target.jetbrains.caches.note" = "Indeksi i predmemorije IntelliJ-a, Android Studija, PyCharma i drugih";
 "target.jetbrains.logs.name" = "Zapisi JetBrainsa / Android Studija";
@@ -118,6 +155,10 @@
 "target.php.note" = "Paketi koje je preuzeo Composer";
 "target.pnpm.name" = "Spremište pnpm-a";
 "target.pnpm.note" = "Zajedničko spremište paketa pnpm-a";
+"target.projects.builds.name" = "Rezultati gradnje";
+"target.projects.builds.note" = "build, target, .next i DerivedData. Sljedeća gradnja pravi ih ponovo";
+"target.projects.deps.name" = "Zavisnosti projekata";
+"target.projects.deps.note" = "node_modules, Pods, .venv i vendor. Upravitelj paketa vraća ih nazad";
 "target.python.name" = "Predmemorija Pythona";
 "target.python.note" = "pip, uv, poetry i prevedeni wheels";
 "target.ruby.name" = "Predmemorija Rubyja";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Prozori i dokumenti koje aplikacije ponovno otvaraju pri pokretanju";
 "target.sim.caches.name" = "Predmemorija CoreSimulatora";
 "target.sim.caches.note" = "Preuzeta izvršna okruženja i zajednička predmemorija simulatora";
-"target.sim.devicedata.name" = "Privremeni podaci simulatora";
-"target.sim.devicedata.note" = "Predmemorije i /tmp unutar svakog simulatora (instalirane aplikacije ostaju)";
+"target.sim.devices.name" = "Instalirani simulatori";
+"target.sim.devices.note" = "Brišu se pomoću simctl da Xcodeu ne ostane duh uređaja";
 "target.swiftpm.name" = "Predmemorija Swift Package Managera";
 "target.swiftpm.note" = "Repozitoriji i binarne datoteke SwiftPM ovisnosti";
 "target.trash.name" = "Smeće";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Simboli za svaku verziju iOS-a s koje si spojio uređaj";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Isto za ostale platforme";
+"target.xcode.doccache.name" = "Preuzeta dokumentacija Xcodea";
+"target.xcode.doccache.note" = "Xcode je ponovo preuzima kad je otvoriš";
 "target.xcode.previews.name" = "Pregledi Xcodea";
 "target.xcode.previews.note" = "Predmemorija SwiftUI pregleda";
 "target.yarn.name" = "Predmemorija Yarna";
 "target.yarn.note" = "Paketi koje je preuzeo Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "Ovo je tvoje i kopije nema nigdje drugdje: kad obrišeš, nestalo je.";
+"why.recreate" = "Morat ćeš ga ponovo napraviti ručno, a trenutno stanje se ne vraća.";
+"why.redownload" = "Morat će se ponovo preuzeti kad to nešto sljedeći put zatreba.";
+"why.regenerates" = "Sljedeći put se napravi sama i nećeš to primijetiti.";
+"why.signOut" = "Odjavit će te sa stranica koje to koriste i morat ćeš se ponovo prijaviti.";
+"why.slowerBuild" = "Ništa se ne gubi, ali sljedeća gradnja trajat će duže dok to ponovo napravi.";
+"why.toolDecides" = "Briše sam alat, pa šta tačno nestaje odlučuje on.";
+"why.unknown" = "Ladica za sve: ovdje pada ono što nijedan drugi red nije imenovao. Pogledaj prije brisanja.";

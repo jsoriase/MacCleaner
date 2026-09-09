@@ -13,11 +13,15 @@
 "alert.report.failures" = "Δεν διαγράφηκαν όλα (κατηγορίες που επηρεάστηκαν: %d). Συνήθως είναι θέμα δικαιωμάτων: δώστε στο MacCleaner πλήρη πρόσβαση στον δίσκο από τις Ρυθμίσεις › Απόρρητο και ασφάλεια.";
 "alert.report.freed" = "Ελευθερώθηκαν %@.";
 "alert.report.title" = "Ο καθαρισμός ολοκληρώθηκε";
+"alert.report.trashed" = "%@ μεταφέρθηκαν στον Κάδο. Ο χώρος ελευθερώνεται όταν τον αδειάσετε.";
 
 /* ---- category ---- */
+"category.ai" = "Εργαλεία ΤΝ";
+"category.browsers" = "Προγράμματα περιήγησης";
 "category.jvm" = "Android, Gradle και JVM";
 "category.langs" = "Άλλες γλώσσες";
 "category.node" = "Node και web";
+"category.projects" = "Έργα";
 "category.system" = "Σύστημα και εφαρμογές";
 "category.tools" = "Διαχειριστές πακέτων";
 "category.xcode" = "Xcode και iOS";
@@ -30,6 +34,9 @@
 "empty.button" = "Σάρωση τώρα";
 "empty.subtitle" = "Δεν είναι επιλεγμένο τίποτα: εσείς επιλέγετε τι θα διαγραφεί και το επιβεβαιώνετε πρώτα.";
 "empty.title" = "Κάντε σάρωση για να δείτε πόσο χώρο μπορείτε να ελευθερώσετε";
+
+/* ---- error ---- */
+"error.tool.missing" = "Το %@ δεν είναι εγκατεστημένο, ή το MacCleaner δεν το βρίσκει.";
 
 /* ---- footer ---- */
 "footer.clean" = "Καθαρισμός %@";
@@ -72,10 +79,34 @@
 "select.mark" = "Επιλογή";
 
 /* ---- target ---- */
+"target.ai.caches.name" = "Κρυφές μνήμες βοηθών κώδικα";
+"target.ai.caches.note" = "Προσωρινά αρχεία από Claude, Codex, Cursor και OpenCode";
+"target.ai.models.name" = "Κατεβασμένα μοντέλα ΤΝ";
+"target.ai.models.note" = "Βάρη από Ollama, Hugging Face και LM Studio: αρκετά GB το καθένα";
+"target.ai.vmbundles.name" = "Εικονικές μηχανές βοηθών";
+"target.ai.vmbundles.note" = "Εικόνες δίσκου που κατεβάζει το Claude για να εκτελεί κώδικα";
+"target.ai.worktrees.name" = "Δέντρα εργασίας πρακτόρων";
+"target.ai.worktrees.note" = "Αντίγραφα των έργων σου που αφήνουν οι πράκτορες στο ~/.codex/worktrees";
+"target.android.avd.name" = "Εξομοιωτές Android";
+"target.android.avd.note" = "Κάθε AVD κρατά τον δίσκο και την κατάστασή του· πρέπει να τον ξαναφτιάξεις";
 "target.android.caches.name" = "Προσωρινή μνήμη Android";
 "target.android.caches.note" = "Προσωρινή μνήμη μεταγλώττισης του SDK και προσωρινά δεδομένα των εργαλείων";
+"target.android.systemimages.name" = "Εικόνες συστήματος Android";
+"target.android.systemimages.note" = "Τις κατεβάζει ο SDK Manager, μία ανά έκδοση API";
+"target.browsers.cache.name" = "Κρυφές μνήμες των περιηγητών";
+"target.browsers.cache.note" = "Σελίδες, εικόνες και shaders από Chrome, Brave, Edge, Chromium και Firefox";
+"target.browsers.cookies.name" = "Cookies";
+"target.browsers.cookies.note" = "Σας αποσυνδέει από παντού και δεν πιάνει σχεδόν τίποτα";
 "target.browsers.headless.name" = "Προγράμματα περιήγησης Playwright / Puppeteer";
 "target.browsers.headless.note" = "Chromium, Firefox και WebKit που κατέβηκαν για δοκιμές E2E";
+"target.browsers.history.name" = "Ιστορικό περιήγησης";
+"target.browsers.history.note" = "Ιστότοποι που επισκεφθήκατε και πιο συχνές σελίδες. Δεν επιστρέφει";
+"target.browsers.serviceworkers.name" = "Service Workers";
+"target.browsers.serviceworkers.note" = "Δεδομένα εφαρμογών χωρίς σύνδεση· κατεβαίνουν ξανά στην επίσκεψη";
+"target.browsers.storage.name" = "Αποθήκευση ιστοτόπων";
+"target.browsers.storage.note" = "Local Storage και IndexedDB· κάποιοι ιστότοποι θα ζητήσουν σύνδεση";
+"target.browsers.updater.name" = "Κρυφή μνήμη ενημερώσεων";
+"target.browsers.updater.note" = "Ενημερώσεις του περιηγητή που ήδη εγκαταστάθηκαν";
 "target.bun.deno.name" = "Προσωρινή μνήμη Bun και Deno";
 "target.bun.deno.note" = "Μονάδες που κατέβασαν το Bun και το Deno";
 "target.caches.other.name" = "Άλλες προσωρινές μνήμες εφαρμογών";
@@ -84,8 +115,14 @@
 "target.carthage.note" = "Frameworks και checkouts του Carthage";
 "target.cocoapods.name" = "Προσωρινή μνήμη CocoaPods";
 "target.cocoapods.note" = "Ληφθέντα pods και specs";
+"target.containers.caches.name" = "Κρυφές μνήμες απομονωμένων εφαρμογών";
+"target.containers.caches.note" = "Κάθε απομονωμένη εφαρμογή κρατά το δικό της αντίγραφο στο κοντέινερ";
+"target.docker.disk.name" = "Δίσκος της εικονικής μηχανής του Docker";
+"target.docker.disk.note" = "Ελευθερώνεται με docker system prune. Οι εικόνες και οι τόμοι σου διατηρούνται";
 "target.docker.logs.name" = "Καταγραφές Docker Desktop";
 "target.docker.logs.note" = "Μόνο καταγραφές. Οι εικόνες και οι τόμοι δεν θίγονται";
+"target.electron.appsupport.name" = "Κρυφές μνήμες εφαρμογών Electron";
+"target.electron.appsupport.note" = "Cache, Code Cache και GPUCache εκτός του ~/Library/Caches";
 "target.electron.name" = "Προσωρινή μνήμη Electron";
 "target.electron.note" = "Δυαδικά αρχεία του Electron και του electron-builder";
 "target.flutter.name" = "Προσωρινή μνήμη Flutter / Dart";
@@ -102,8 +139,8 @@
 "target.gradle.wrapper.note" = "Κάθε έκδοση του Gradle που έχει κατεβάσει κάποιο έργο (περίπου 150 MB η καθεμία)";
 "target.homebrew.name" = "Προσωρινή μνήμη Homebrew";
 "target.homebrew.note" = "Bottles και παλιές λήψεις του brew";
-"target.ios.backups.name" = "Εφεδρικά αντίγραφα iOS";
-"target.ios.backups.note" = "Αντίγραφα iPhone και iPad. Μπορεί να είναι το μόνο αντίγραφο που έχετε";
+"target.installers.old.name" = "Κατεβασμένα προγράμματα εγκατάστασης";
+"target.installers.old.note" = "Ενημερώσεις και πακέτα που είναι ήδη εγκατεστημένα";
 "target.jetbrains.caches.name" = "Προσωρινή μνήμη JetBrains / Android Studio";
 "target.jetbrains.caches.note" = "Ευρετήρια και προσωρινές μνήμες από IntelliJ, Android Studio, PyCharm και άλλα";
 "target.jetbrains.logs.name" = "Καταγραφές JetBrains / Android Studio";
@@ -118,6 +155,10 @@
 "target.php.note" = "Πακέτα που κατέβασε το Composer";
 "target.pnpm.name" = "Αποθήκη pnpm";
 "target.pnpm.note" = "Κοινή αποθήκη πακέτων του pnpm";
+"target.projects.builds.name" = "Αποτελέσματα μεταγλώττισης";
+"target.projects.builds.note" = "build, target, .next και DerivedData. Η επόμενη μεταγλώττιση τα ξαναφτιάχνει";
+"target.projects.deps.name" = "Εξαρτήσεις των έργων";
+"target.projects.deps.note" = "node_modules, Pods, .venv και vendor. Ο διαχειριστής πακέτων τα ξαναφέρνει";
 "target.python.name" = "Προσωρινή μνήμη Python";
 "target.python.note" = "pip, uv, poetry και μεταγλωττισμένα wheels";
 "target.ruby.name" = "Προσωρινή μνήμη Ruby";
@@ -128,8 +169,8 @@
 "target.savedstate.note" = "Παράθυρα και έγγραφα που οι εφαρμογές ανοίγουν ξανά κατά την εκκίνηση";
 "target.sim.caches.name" = "Προσωρινή μνήμη CoreSimulator";
 "target.sim.caches.note" = "Ληφθέντα περιβάλλοντα εκτέλεσης και κοινή προσωρινή μνήμη των προσομοιωτών";
-"target.sim.devicedata.name" = "Προσωρινά δεδομένα προσομοιωτών";
-"target.sim.devicedata.note" = "Προσωρινές μνήμες και /tmp μέσα σε κάθε προσομοιωτή (οι εγκατεστημένες εφαρμογές παραμένουν)";
+"target.sim.devices.name" = "Εγκατεστημένοι προσομοιωτές";
+"target.sim.devices.note" = "Διαγράφονται με simctl ώστε το Xcode να μη μείνει με φάντασμα";
 "target.swiftpm.name" = "Προσωρινή μνήμη Swift Package Manager";
 "target.swiftpm.note" = "Αποθετήρια και δυαδικά αρχεία των εξαρτήσεων SwiftPM";
 "target.trash.name" = "Απορρίμματα";
@@ -148,7 +189,19 @@
 "target.xcode.devicesupport.note" = "Σύμβολα για κάθε έκδοση iOS από την οποία έχετε συνδέσει συσκευή";
 "target.xcode.devicesupport.other.name" = "watchOS / tvOS / visionOS DeviceSupport";
 "target.xcode.devicesupport.other.note" = "Το ίδιο για τις υπόλοιπες πλατφόρμες";
+"target.xcode.doccache.name" = "Κατεβασμένη τεκμηρίωση Xcode";
+"target.xcode.doccache.note" = "Το Xcode την ξανακατεβάζει όταν την ανοίξεις";
 "target.xcode.previews.name" = "Προεπισκοπήσεις Xcode";
 "target.xcode.previews.note" = "Προσωρινή μνήμη για τις προεπισκοπήσεις SwiftUI";
 "target.yarn.name" = "Προσωρινή μνήμη Yarn";
 "target.yarn.note" = "Πακέτα που κατέβασε το Yarn";
+
+/* ---- why ---- */
+"why.dataLoss" = "Αυτό είναι δικό σας και δεν υπάρχει αντίγραφο πουθενά αλλού: αν σβηστεί, χάθηκε.";
+"why.recreate" = "Θα πρέπει να το ξαναφτιάξετε με το χέρι, και η τωρινή του κατάσταση δεν επιστρέφει.";
+"why.redownload" = "Θα πρέπει να ξανακατέβει την επόμενη φορά που θα το χρειαστεί κάτι.";
+"why.regenerates" = "Ξαναφτιάχνεται μόνη της την επόμενη φορά, και δεν θα το καταλάβετε.";
+"why.signOut" = "Θα αποσυνδεθείτε από τους ιστότοπους που το χρησιμοποιούν και θα ξανασυνδεθείτε.";
+"why.slowerBuild" = "Δεν χάνεται τίποτα, αλλά η επόμενη μεταγλώττιση θα αργήσει όσο το ξαναφτιάχνει.";
+"why.toolDecides" = "Σβήνει το ίδιο το εργαλείο, οπότε τι ακριβώς εξαφανίζεται το αποφασίζει εκείνο.";
+"why.unknown" = "Συρτάρι για όλα: εδώ πέφτει ό,τι δεν ονόμασε καμία άλλη γραμμή. Κοιτάξτε πριν σβήσετε.";
