@@ -115,8 +115,6 @@
 "target.carthage.note" = "Frameworky a checkouty Carthage";
 "target.cocoapods.name" = "Vyrovnávacia pamäť CocoaPods";
 "target.cocoapods.note" = "Stiahnuté pody a specs";
-"target.containers.caches.name" = "Vyrovnávacie pamäte aplikácií v sandboxe";
-"target.containers.caches.note" = "Každá aplikácia v sandboxe si drží vlastnú kópiu v kontajneri";
 "target.docker.disk.name" = "Disk virtuálneho stroja Dockeru";
 "target.docker.disk.note" = "Uvoľní ho docker system prune. Tvoje obrazy a zväzky zostanú";
 "target.docker.logs.name" = "Záznamy Docker Desktopu";

@@ -116,8 +116,6 @@
 "target.carthage.note" = "Carthage のフレームワークとチェックアウト";
 "target.cocoapods.name" = "CocoaPods のキャッシュ";
 "target.cocoapods.note" = "ダウンロード済みの pod と spec";
-"target.containers.caches.name" = "サンドボックスアプリのキャッシュ";
-"target.containers.caches.note" = "サンドボックスの各アプリはコンテナ内に自分専用の複製を持ちます";
 "target.docker.disk.name" = "Docker仮想マシンのディスク";
 "target.docker.disk.note" = "docker system prune で解放されます。イメージとボリュームは残ります";
 "target.docker.logs.name" = "Docker Desktop のログ";

@@ -193,6 +193,26 @@ final class FileSystemTests: XCTestCase {
         XCTAssertFalse(result.errors.isEmpty)
         XCTAssertGreaterThan(result.failedBytes, 0, "debe medir lo que quedo sin borrar")
     }
+
+    /// Detener no deja la cuenta a medias: lo que no se llego a borrar se mide
+    /// y cuenta como lo que queda.
+    func testDetenerDejaMedidoLoQueQueda() throws {
+        try write("caja/uno.bin", bytes: 8192)
+        try write("caja/dos.bin", bytes: 8192)
+        let caja = sandbox + "/caja"
+
+        var consultas = 0
+        let result = Engine.erase(paths: [caja], scope: .contents, toTrash: false) {
+            consultas += 1
+            return consultas > 1   // borra uno y se detiene
+        }
+
+        let quedan = FileSystem.children(of: caja)
+        XCTAssertEqual(result.removed, 1)
+        XCTAssertEqual(quedan.count, 1, "el segundo sigue ahi")
+        XCTAssertEqual(result.leftover[caja], FileSystem.usage(of: quedan[0]).bytes)
+        XCTAssertTrue(result.errors.isEmpty, "detenerse no es un error")
+    }
 }
 
 /// Medir es la mitad del producto: una cifra inflada convierte «recuperas 60 GB»
@@ -274,5 +294,42 @@ final class SolapesTests: XCTestCase {
                                + "\(FileSystem.prettyPath(a.path)) / \(FileSystem.prettyPath(b.path))")
             }
         }
+    }
+
+    /// La comprobacion de arriba solo ve lo que haya instalado en esta maquina.
+    /// Esta no depende de eso: le da a `resolve` un disco inventado con las
+    /// rutas que mas se prestan a caer en dos filas, y cada patron se queda
+    /// con las que casan con el.
+    func testUnPerfilDeNavegadorNoSeCuentaTambienComoElectron() {
+        let home = NSHomeDirectory()
+        let support = home + "/Library/Application Support/"
+        var disco: [String] = []
+        for browser in ["Google/Chrome", "Microsoft Edge", "Chromium", "Vivaldi",
+                        "BraveSoftware/Brave-Browser"] {
+            for cache in ["Cache", "Code Cache", "GPUCache"] {
+                disco.append(support + browser + "/Default/" + cache)
+            }
+        }
+        disco += [support + "Slack/Cache", support + "discord/Code Cache"]
+
+        let map = Engine.resolve(Catalog.targets) { target in
+            disco.filter { path in
+                target.patterns.contains { pattern in
+                    let full = pattern.hasPrefix("~/") ? home + pattern.dropFirst() : pattern
+                    return fnmatch(full, path, FNM_PATHNAME) == 0
+                }
+            }
+        }
+
+        var filas: [String: [String]] = [:]
+        for (id, paths) in map {
+            for path in paths { filas[path, default: []].append(id) }
+        }
+        for path in disco {
+            XCTAssertEqual(filas[path]?.count, 1,
+                           "\(FileSystem.prettyPath(path)): \(filas[path] ?? [])")
+        }
+        XCTAssertEqual(filas[support + "Microsoft Edge/Default/Cache"], ["browsers.cache"])
+        XCTAssertEqual(filas[support + "Slack/Cache"], ["electron.appsupport"])
     }
 }

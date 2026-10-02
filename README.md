@@ -4,18 +4,18 @@
 
 Native dev-cache cleaner for macOS. No dependencies, ~1 MB.
 
-![Swift](https://img.shields.io/badge/Swift-6-orange)
+![Swift](https://img.shields.io/badge/Swift-5.9%2B-orange)
 ![macOS](https://img.shields.io/badge/macOS-13%2B-blue)
 ![Platform](https://img.shields.io/badge/platform-macOS-lightgrey)
 
-MacCleaner finds and measures the caches left behind by developer tools — Xcode, Gradle, Android Studio, npm, Cargo, Homebrew, Docker, and more — and lets you delete what you choose. **58 categories** across 9 groups, including AI-assistant leftovers and build artifacts inside your own projects.
+MacCleaner finds and measures the caches left behind by developer tools — Xcode, Gradle, Android Studio, npm, Cargo, Homebrew, Docker, and more — and lets you delete what you choose. **57 categories** across 9 groups, including AI-assistant leftovers and build artifacts inside your own projects.
 
 ## Features
 
 - **Scan-only by default** — analyzing never deletes anything
-- **58 categories in 9 groups**: Xcode, JVM / Android, Node, other languages, AI tools, project artifacts, dev tools, browsers, system
+- **57 categories in 9 groups**: Xcode, JVM / Android, Node, other languages, AI tools, project artifacts, dev tools, browsers, system
 - **Risk-based selection** — nothing is pre-selected; bulk-select by risk level with live totals
-- **Expandable rows** — 18 categories break down by version, project, app, device, etc., with per-item size and last-modified date
+- **Expandable rows** — 17 categories break down by version, project, app, device, etc., with per-item size and last-modified date
 - **Stale highlighting** — items untouched for 6+ months are flagged in amber
 - **Safety first** — never touches anything outside your home directory, skips TCC-protected paths, moves to Trash by default
 - **Accurate measuring** — counts allocated blocks like `du`, deduplicates hard links, never double-counts a path
@@ -65,14 +65,14 @@ Other UI details:
 | Group | Examples |
 | ----- | -------- |
 | Xcode | DerivedData (per project), Archives (per date), DeviceSupport (per iOS version), simulators (per device) |
-| JVM / Android | Gradle caches (per version), wrapper dists, Android emulators (per AVD), system images (per API) |
-| Node | npm, pnpm store, Yarn, Bun caches |
+| JVM / Android | Gradle caches (per version), wrapper dists, Android emulators (per AVD), system images (per API), JetBrains / Android Studio caches (per IDE version) |
+| Node | npm, pnpm store, Yarn, Bun / Deno caches, Electron app caches (per app), Playwright / Puppeteer browsers |
 | Languages | Cargo, Go, Python, Ruby, Maven, etc. |
 | AI tools | Agent worktrees (per branch), assistant VMs, downloaded models |
 | Project artifacts | `node_modules`, `Pods`, `target`, `build`, `.venv` found under `~/Projects`, `~/Code`, `~/dev`, `~/Developer`, `~/src`, `~/GitHub`, `~/Workspace`, `~/repos`, `~/Sites` |
-| Dev tools | JetBrains caches (per IDE version), Homebrew, Docker, Electron / sandboxed app caches (per app) |
+| Dev tools | Homebrew, Docker |
 | Browsers | Chromium-family cache, service workers, site storage, history, cookies |
-| System | User caches, logs, Trash |
+| System | User caches, logs, saved app state, old installers, Trash |
 
 ### Risk levels
 
@@ -88,6 +88,11 @@ Hovering a row's badge explains *why* it has that level.
 
 **Project artifacts** live where your code lives, not at a fixed path. Two rows (`Project dependencies`, `Build outputs`) sweep your code folders up to 8 levels deep, skipping hidden directories (except artifacts like `.build`, `.venv`, `.next`) and never descending into a match (so a `build` inside `node_modules` isn't counted twice). Home directory only — external drives and `/Volumes` are excluded.
 
+A folder name alone isn't enough, because `build`, `target` and `vendor` are also ordinary names:
+
+- Ambiguous names need proof that a tool made them: `build` needs a Gradle, CMake, Flutter, Node or Python project next to it, `target` a `Cargo.toml` / `pom.xml` / `build.sbt`, `vendor` Composer's `autoload.php` or Go's `modules.txt` (so a Rails `vendor/` is left alone), `venv` / `.venv` a `pyvenv.cfg`, `Pods` a `Podfile`, `.build` a `Package.swift`.
+- Anything tracked by git is never offered, whatever its name (VS Code's `build/` folder is source code). git is asked in one batch per repository; if it isn't installed, only the first check applies.
+
 **Simulators and Docker are delegated to their own tools**, not `rm`:
 
 - Simulators: `xcrun simctl delete <UDID>`
@@ -99,13 +104,14 @@ For these two rows space is re-measured after cleanup, and Trash does not apply.
 
 ## Safety
 
-Three layers, all covered by tests:
+Four layers, all covered by tests:
 
 1. Nothing outside `$HOME` is ever touched — no `/`, no `/System`, no other volumes.
 2. Top-level home folders (`Library`, `Documents`, `Desktop`, `Downloads`, `Pictures`, …) are protected.
 3. TCC-protected paths (`com.apple.Music`, `com.apple.Photos`, `MobileSync`, …) are ignored entirely — even reading them would trigger a permission prompt and freeze the scan.
+4. Other apps' sandbox containers (`~/Library/Containers`, `~/Library/Group Containers`) are never entered: since macOS Sonoma, doing so asks "would like to access data from other apps" on every scan. Sandboxed apps' own caches are therefore not included. The one exception is Docker, which isn't sandboxed and only keeps its data under that folder.
 
-Deletion moves to Trash by default (except the two tool-delegated rows, which delete immediately). Freed space is reported as "Moved to Trash", not "Freed", until you empty it.
+Deletion moves to Trash by default. Three rows always delete for real: the two tool-delegated ones, and the Trash row itself, since moving the Trash into the Trash frees nothing. The Trash row also runs first, so it never empties what other rows just moved there. Freed space is reported as "Moved to Trash", not "Freed", until you empty it.
 
 ## How it works
 
@@ -144,7 +150,7 @@ open MacCleaner.app --args -AppleLanguages "(ja)"
 Sources/MacCleaner/
   App/MacCleanerApp.swift    entry point
   Core/FileSystem.swift      glob, fts, deletion, protected paths
-  Core/Catalog.swift         the 58 categories and their paths
+  Core/Catalog.swift         the 57 categories and their paths
   Core/Engine.swift          parallel analysis, cleaning, reclaim tracking
   Core/Tools.swift           simctl / docker execution
   UI/ContentView.swift       main window

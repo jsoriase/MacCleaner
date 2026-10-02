@@ -115,8 +115,6 @@
 "target.carthage.note" = "Framework-ët dhe checkout-et e Carthage";
 "target.cocoapods.name" = "Cache e CocoaPods";
 "target.cocoapods.note" = "Pod-e dhe specs të shkarkuara";
-"target.containers.caches.name" = "Cache-t e aplikacioneve të izoluara";
-"target.containers.caches.note" = "Çdo aplikacion i izoluar mban kopjen e vet brenda kontejnerit";
 "target.docker.disk.name" = "Disku i makinës virtuale të Docker";
 "target.docker.disk.note" = "Lirohet me docker system prune. Imazhet dhe volumet e tua ruhen";
 "target.docker.logs.name" = "Regjistrat e Docker Desktop";

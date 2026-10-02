@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthage-Frameworken a -Checkouten";
 "target.cocoapods.name" = "CocoaPods-Cache";
 "target.cocoapods.note" = "Erofgelueden Pods a Specs";
-"target.containers.caches.name" = "Caches vu Sandbox-Apps";
-"target.containers.caches.note" = "All Sandbox-App hält hir eege Kopie an hirem Container";
 "target.docker.disk.name" = "Disk vun der Docker-VM";
 "target.docker.disk.note" = "Gëtt mat docker system prune fräi. Deng Images a Volumen bleiwen";
 "target.docker.logs.name" = "Docker-Desktop-Logbicher";

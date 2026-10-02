@@ -116,8 +116,6 @@
 "target.carthage.note" = "Frameworks et checkouts Carthage";
 "target.cocoapods.name" = "Cache de CocoaPods";
 "target.cocoapods.note" = "Pods téléchargés et specs";
-"target.containers.caches.name" = "Caches des apps en bac à sable";
-"target.containers.caches.note" = "Chaque app en bac à sable garde sa copie dans son conteneur";
 "target.docker.disk.name" = "Disque de la machine virtuelle Docker";
 "target.docker.disk.note" = "Libéré avec docker system prune. Vos images et vos volumes sont conservés";
 "target.docker.logs.name" = "Journaux Docker Desktop";

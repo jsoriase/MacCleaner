@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthage çatıları ve checkout’ları";
 "target.cocoapods.name" = "CocoaPods önbelleği";
 "target.cocoapods.note" = "İndirilen pod’lar ve spec’ler";
-"target.containers.caches.name" = "Kum havuzu uygulamalarının önbellekleri";
-"target.containers.caches.note" = "Her kum havuzu uygulaması kendi kopyasını kabında tutar";
 "target.docker.disk.name" = "Docker sanal makinesinin diski";
 "target.docker.disk.note" = "docker system prune ile boşalır. İmajların ve birimlerin korunur";
 "target.docker.logs.name" = "Docker Desktop günlükleri";

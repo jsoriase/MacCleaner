@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthage ietvari un checkouts";
 "target.cocoapods.name" = "CocoaPods kešatmiņa";
 "target.cocoapods.note" = "Lejupielādētie pods un specs";
-"target.containers.caches.name" = "Izolēto lietotņu kešatmiņas";
-"target.containers.caches.note" = "Katra izolētā lietotne glabā savu kopiju savā konteinerā";
 "target.docker.disk.name" = "Docker virtuālās mašīnas disks";
 "target.docker.disk.note" = "Atbrīvo docker system prune. Tavi attēli un sējumi tiek saglabāti";
 "target.docker.logs.name" = "Docker Desktop žurnāli";

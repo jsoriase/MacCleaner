@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthage okviri i checkouti";
 "target.cocoapods.name" = "Predmemorija CocoaPodsa";
 "target.cocoapods.note" = "Preuzeti podovi i specs";
-"target.containers.caches.name" = "Predmemorije aplikacija u sigurnosnom spremniku";
-"target.containers.caches.note" = "Svaka izolirana aplikacija čuva svoju kopiju u svom spremniku";
 "target.docker.disk.name" = "Disk virtualnog stroja Docker";
 "target.docker.disk.note" = "Oslobađa ga docker system prune. Tvoje slike i volumeni ostaju";
 "target.docker.logs.name" = "Zapisi Docker Desktopa";

@@ -71,6 +71,31 @@ final class SafetyTests: XCTestCase {
             }
         }
     }
+
+    /// Entrar en el contenedor de otra app saca, desde Sonoma, el aviso de
+    /// «acceder a datos de otras apps» en cada analisis. Filtrar la ruta
+    /// despues no sirve: `glob` ya ha entrado para encontrarla, asi que la
+    /// regla tiene que estar en los patrones.
+    ///
+    /// Docker es la excepcion: no esta en sandbox y solo usa esa carpeta para
+    /// guardar sus datos.
+    func testNingunPatronEntraEnElContenedorDeOtraApp() {
+        let permitidos: Set<String> = ["com.docker.docker"]
+        for target in Catalog.targets {
+            for pattern in target.patterns {
+                let partes = pattern.split(separator: "/").map(String.init)
+                guard partes.count > 2, partes[0] == "~", partes[1] == "Library" else { continue }
+
+                // `~/Library/*/...` entraria en Containers sin nombrarla.
+                XCTAssertFalse(partes[2].contains("*"), "\(target.id): \(pattern)")
+                XCTAssertNotEqual(partes[2], "Group Containers", "\(target.id): \(pattern)")
+                if partes[2] == "Containers" {
+                    XCTAssertTrue(partes.count > 3 && permitidos.contains(partes[3]),
+                                  "\(target.id): \(pattern)")
+                }
+            }
+        }
+    }
 }
 
 /// Safari no se puede limpiar sin Acceso total al disco, que esta app no pide.

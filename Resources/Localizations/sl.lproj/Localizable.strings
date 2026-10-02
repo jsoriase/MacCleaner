@@ -115,8 +115,6 @@
 "target.carthage.note" = "Ogrodja in checkouti Carthage";
 "target.cocoapods.name" = "Predpomnilnik CocoaPods";
 "target.cocoapods.note" = "Preneseni podi in specs";
-"target.containers.caches.name" = "Predpomnilniki aplikacij v peskovniku";
-"target.containers.caches.note" = "Vsaka aplikacija v peskovniku hrani svojo kopijo v vsebniku";
 "target.docker.disk.name" = "Disk navideznega stroja Docker";
 "target.docker.disk.note" = "Sprosti ga docker system prune. Tvoje slike in nosilci ostanejo";
 "target.docker.logs.name" = "Dnevniki Docker Desktop";
