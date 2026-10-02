@@ -151,4 +151,12 @@ final class ToolsTests: XCTestCase {
         XCTAssertFalse(missing.ok)
         XCTAssertFalse(missing.output.isEmpty)
     }
+
+    /// «Detener» tiene que llegar tambien a un programa que no acaba nunca.
+    func testUnProgramaSeParaAlDetener() {
+        let start = Date()
+        let result = Tools.run("/bin/sleep", ["30"], isCancelled: { true })
+        XCTAssertFalse(result.ok)
+        XCTAssertLessThan(Date().timeIntervalSince(start), 5)
+    }
 }

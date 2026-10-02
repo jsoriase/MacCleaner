@@ -88,6 +88,60 @@ final class SubItemTests: XCTestCase {
         }
     }
 
+    // MARK: - Volver a analizar
+
+    private func measured(_ names: [String]) -> [SubItem] {
+        names.map {
+            SubItem(path: NSHomeDirectory() + "/.gradle/caches/" + $0, name: $0,
+                    usage: FileSystem.Usage(bytes: 100, files: 1))
+        }
+    }
+
+    /// Marcar una version deja la fila marcada «a medias». Volver a analizar
+    /// no puede convertir eso en todas.
+    func testReanalizarNoAmpliaUnaSeleccionParcial() {
+        var row = makeRow([("9.1.0", 517, true), ("9.4.1", 766, false)], selected: true)
+        row.adopt(measured(["9.1.0", "9.4.1", "9.5.0"]))
+
+        XCTAssertEqual(row.items.filter(\.selected).map(\.name), ["9.1.0"])
+        XCTAssertEqual(row.checkState, .mixed)
+    }
+
+    func testReanalizarSinNadaMarcadoNoMarcaNada() {
+        var row = makeRow([("9.1.0", 517, false)])
+        row.adopt(measured(["9.1.0", "9.4.1"]))
+        XCTAssertFalse(row.anySelected)
+    }
+
+    /// Antes del primer analisis no hay desglose: si la fila se marco entera
+    /// —con los botones de riesgo—, al medir se marcan todas sus partes.
+    func testSinDesgloseAnteriorMandaLaFila() {
+        var row = makeRow([], selected: true)
+        row.adopt(measured(["9.1.0", "9.4.1"]))
+        XCTAssertEqual(row.checkState, .on)
+    }
+
+    // MARK: - Despues de borrar
+
+    func testLoBorradoSeVaYLoQueQuedaSigueEnLaLista() {
+        var row = makeRow([("9.1.0", 517, true), ("9.4.1", 766, true), ("modules-2", 748, false)])
+        let base = NSHomeDirectory() + "/.gradle/caches/"
+        row.settle(leftover: [base + "9.1.0": 0, base + "9.4.1": 300])
+
+        XCTAssertEqual(row.items.map(\.name), ["9.4.1", "modules-2"], "la borrada desaparece")
+        XCTAssertEqual(row.items.first?.usage.bytes, 300, "la que fallo pesa lo que le queda")
+        XCTAssertFalse(row.anySelected, "y nada queda marcado: reintentar es otra decision")
+        XCTAssertEqual(row.usage.bytes, 300 + 748)
+    }
+
+    func testUnaFilaNormalSeQuedaConLoQueNoSePudoBorrar() {
+        var row = makeRow([], selected: true, expansion: .none)
+        row.usage = FileSystem.Usage(bytes: 1000, files: 9)
+        row.settle(leftover: [row.paths[0]: 40])
+        XCTAssertEqual(row.usage.bytes, 40)
+        XCTAssertFalse(row.selected)
+    }
+
     // MARK: - Catalogo
 
     /// Lista explicita a proposito: desplegar una fila cambia lo que se borra,
@@ -101,7 +155,7 @@ final class SubItemTests: XCTestCase {
 
         let byPaths = Catalog.targets.filter { $0.expansion == .paths }.map(\.id)
         XCTAssertEqual(Set(byPaths), ["jetbrains.caches", "jetbrains.logs", "caches.other",
-                                      "electron.appsupport", "containers.caches",
+                                      "electron.appsupport",
                                       "sim.devices", "projects.deps", "projects.builds",
                                       "android.systemimages"])
     }

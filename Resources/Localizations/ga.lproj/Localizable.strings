@@ -115,8 +115,6 @@
 "target.carthage.note" = "Creataí agus checkouts Carthage";
 "target.cocoapods.name" = "Taisce CocoaPods";
 "target.cocoapods.note" = "Pods agus specs íoslódáilte";
-"target.containers.caches.name" = "Taisce na n-aipeanna bosca gainimh";
-"target.containers.caches.note" = "Coinníonn gach aip bhosca gainimh a cóip féin ina coimeádán";
 "target.docker.disk.name" = "Diosca mheaisín fíorúil Docker";
 "target.docker.disk.note" = "Saorann docker system prune é. Coinnítear do íomhánna agus do thoirteanna";
 "target.docker.logs.name" = "Logaí Docker Desktop";

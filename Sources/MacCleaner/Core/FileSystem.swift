@@ -249,9 +249,14 @@ enum FileSystem {
     /// `pruning` es la lista entera de artefactos y `collecting` la parte que
     /// recoge esta fila. Se podan todos aunque solo se recojan algunos: sin eso
     /// un `build` dentro de un `node_modules` acabaria contado dos veces.
+    ///
+    /// `markers` dice, para los nombres que no bastan solos, que tiene que
+    /// haber al lado para que la carpeta cuente. Si no lo hay, se recorre como
+    /// cualquier otra: puede tener artefactos de verdad dentro.
     static func artifactFolders(collecting: [String],
                                 pruning: [String],
                                 under roots: [String],
+                                markers: [String: [String]] = [:],
                                 maxDepth: Int = 8) -> [String] {
         var found: [String] = []
         var seen = Set<String>()
@@ -276,7 +281,8 @@ enum FileSystem {
                 let path = String(cString: raw)
                 let name = (path as NSString).lastPathComponent
 
-                if matchesArtifact(name, pruning) {
+                if let pattern = artifactPattern(name, pruning),
+                   hasMarker(path, markers[pattern]) {
                     fts_set(stream, entry, FTS_SKIP)
                     if matchesArtifact(name, collecting), seen.insert(path).inserted {
                         found.append(path)
@@ -296,10 +302,25 @@ enum FileSystem {
 
     /// Un asterisco final vale como prefijo: `cmake-build-*`. No hace falta mas.
     static func matchesArtifact(_ name: String, _ patterns: [String]) -> Bool {
-        patterns.contains { pattern in
+        artifactPattern(name, patterns) != nil
+    }
+
+    /// El patron con el que casa `name`, para poder buscar sus marcadores.
+    static func artifactPattern(_ name: String, _ patterns: [String]) -> String? {
+        patterns.first { pattern in
             pattern.hasSuffix("*")
                 ? name.hasPrefix(String(pattern.dropLast()))
                 : name == pattern
+        }
+    }
+
+    /// Sin lista no hace falta nada; con ella, basta con uno. Las rutas son
+    /// relativas a la carpeta que contiene el artefacto.
+    private static func hasMarker(_ path: String, _ markers: [String]?) -> Bool {
+        guard let markers, !markers.isEmpty else { return true }
+        let parent = (path as NSString).deletingLastPathComponent
+        return markers.contains {
+            FileManager.default.fileExists(atPath: (parent as NSString).appendingPathComponent($0))
         }
     }
 

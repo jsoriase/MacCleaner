@@ -13,8 +13,10 @@ final class SweepTests: XCTestCase {
             .appendingPathComponent("sweep-" + UUID().uuidString)
         try make("app/src/main")
         try make("app/build")
+        try touch("app/build.gradle.kts")
         try make("app/node_modules/paquete/build")
         try make("app/ios/Pods")
+        try touch("app/ios/Podfile")
         try make(".git/objects/build")
         try make("otro/cmake-build-debug")
     }
@@ -28,10 +30,19 @@ final class SweepTests: XCTestCase {
             at: root.appendingPathComponent(relative), withIntermediateDirectories: true)
     }
 
+    /// Un fichero vacio: para los marcadores basta con que exista.
+    private func touch(_ relative: String) throws {
+        let url = root.appendingPathComponent(relative)
+        try FileManager.default.createDirectory(
+            at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try Data().write(to: url)
+    }
+
     private func find(_ collecting: [String], depth: Int = 8) -> [String] {
         FileSystem.artifactFolders(collecting: collecting,
                                    pruning: Catalog.projectArtifacts,
                                    under: [root.path],
+                                   markers: Catalog.artifactMarkers,
                                    maxDepth: depth)
             .map { $0.replacingOccurrences(of: root.path + "/", with: "") }
             .sorted()
@@ -77,6 +88,57 @@ final class SweepTests: XCTestCase {
         XCTAssertEqual(FileSystem.artifactFolders(collecting: Catalog.outputFolders,
                                                   pruning: Catalog.projectArtifacts,
                                                   under: []), [])
+    }
+
+    // MARK: - Marcadores
+
+    /// Un `build` sin nada que lo construya al lado es una carpeta mas.
+    func testUnBuildSinProyectoAlLadoNoEsUnArtefacto() throws {
+        try make("docs/build")
+        XCTAssertFalse(find(Catalog.outputFolders).contains("docs/build"))
+    }
+
+    /// Y como no es un artefacto, se mira por dentro como cualquier otra.
+    func testLoQueNoEsArtefactoSeSigueRecorriendo() throws {
+        try make("tools/build/node_modules")
+        XCTAssertTrue(find(Catalog.dependencyFolders).contains("tools/build/node_modules"))
+    }
+
+    /// El `vendor/` de Rails es codigo de la app; el de Composer, no.
+    func testSoloSeRecogeElVendorQueRehaceUnaHerramienta() throws {
+        try make("rails/vendor/javascript")
+        try touch("rails/Gemfile")
+        try touch("php/vendor/autoload.php")
+
+        let deps = find(Catalog.dependencyFolders)
+        XCTAssertFalse(deps.contains("rails/vendor"))
+        XCTAssertTrue(deps.contains("php/vendor"))
+    }
+
+    func testUnEntornoVirtualSeReconocePorSuConfiguracion() throws {
+        try touch("py/.venv/pyvenv.cfg")
+        try make("otro-py/venv/lib")
+
+        let deps = find(Catalog.dependencyFolders)
+        XCTAssertTrue(deps.contains("py/.venv"))
+        XCTAssertFalse(deps.contains("otro-py/venv"))
+    }
+
+    func testUnTargetNecesitaSuProyecto() throws {
+        try make("rust/target/debug")
+        try touch("rust/Cargo.toml")
+        try make("deploy/target")
+
+        let outputs = find(Catalog.outputFolders)
+        XCTAssertTrue(outputs.contains("rust/target"))
+        XCTAssertFalse(outputs.contains("deploy/target"))
+    }
+
+    /// Un marcador para un nombre que nadie busca no protegeria nada.
+    func testCadaMarcadorEsDeUnArtefacto() {
+        for name in Catalog.artifactMarkers.keys {
+            XCTAssertTrue(Catalog.projectArtifacts.contains(name), name)
+        }
     }
 
     // MARK: - Nombres
@@ -147,5 +209,67 @@ final class SweepTests: XCTestCase {
         for target in Catalog.targets where target.isSweep {
             XCTAssertEqual(target.scope, .item, target.id)
         }
+    }
+}
+
+/// Lo versionado no es un artefacto, se llame como se llame: lo ha escrito
+/// alguien. Necesita `git`, asi que se salta si la maquina no lo tiene.
+final class VersionedArtifactTests: XCTestCase {
+
+    private var root: URL!
+    private var git: String!
+
+    override func setUpWithError() throws {
+        git = try XCTUnwrap(Tools.git, "sin git no hay nada que probar")
+        root = FileManager.default.temporaryDirectory
+            .appendingPathComponent("git-sweep-" + UUID().uuidString)
+        try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
+        XCTAssertTrue(Tools.run(git, ["init", "-q", root.path]).ok)
+    }
+
+    override func tearDownWithError() throws {
+        if let root { try? FileManager.default.removeItem(at: root) }
+    }
+
+    private func touch(_ relative: String) throws {
+        let url = root.appendingPathComponent(relative)
+        try FileManager.default.createDirectory(
+            at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try Data().write(to: url)
+    }
+
+    private func builds() -> [String] {
+        Target(id: "projects.builds",
+               group: .projects, risk: .rebuild, scope: .item,
+               patterns: [root.path],
+               expansion: .paths,
+               naming: .project,
+               artifacts: Catalog.outputFolders)
+            .resolvePaths()
+            .map { $0.replacingOccurrences(of: root.path + "/", with: "") }
+    }
+
+    /// Como el `build/` de VS Code: tiene `package.json` al lado, asi que pasa
+    /// los marcadores, pero es codigo.
+    func testUnBuildVersionadoNoSeOfrece() throws {
+        try touch("web/package.json")
+        try touch("web/build/gulpfile.js")
+        try touch("app/build.gradle.kts")
+        try touch("app/build/salida.bin")
+        XCTAssertTrue(Tools.run(git, ["-C", root.path, "add", "web/build/gulpfile.js"]).ok)
+
+        let found = builds()
+        XCTAssertFalse(found.contains("web/build"))
+        XCTAssertTrue(found.contains("app/build"), "lo que git no conoce sigue siendo salida")
+    }
+
+    /// Un repo entero con nombre de artefacto es de su repo, no basura.
+    func testUnRepoConNombreDeArtefactoNoSeOfrece() throws {
+        let clon = root.appendingPathComponent("lib/target").path
+        try FileManager.default.createDirectory(atPath: clon, withIntermediateDirectories: true)
+        try touch("lib/Cargo.toml")
+        XCTAssertTrue(Tools.run(git, ["init", "-q", clon]).ok)
+
+        XCTAssertEqual(Tools.versioned([clon], within: [root.path]), [clon])
     }
 }

@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthageren frameworkak eta checkout-ak";
 "target.cocoapods.name" = "CocoaPodsen cachea";
 "target.cocoapods.note" = "Deskargatutako pod-ak eta spec-ak";
-"target.containers.caches.name" = "Sandbox aplikazioen cacheak";
-"target.containers.caches.note" = "Sandbox aplikazio bakoitzak bere kopia gordetzen du edukiontzian";
 "target.docker.disk.name" = "Docker makina birtualaren diskoa";
 "target.docker.disk.note" = "docker system prune bidez askatzen da. Irudiak eta bolumenak gorde egiten dira";
 "target.docker.logs.name" = "Docker Desktopen erregistroak";

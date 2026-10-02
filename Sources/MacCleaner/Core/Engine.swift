@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import os
 
 enum RowState: Equatable {
     case idle
@@ -77,6 +78,49 @@ struct Row: Identifiable {
         // no convertir un "vaciar" en un "borrar la carpeta".
         return (chosen, target.expansion == .paths ? target.scope : .item)
     }
+
+    /// Pone el desglose recien medido sin perder lo que el usuario ya habia
+    /// marcado.
+    ///
+    /// Si ya habia desglose, manda la marca de cada subcarpeta. La de la fila
+    /// no sirve: solo dice que hay *algo* marcado, y tomarla por «todo» hacia
+    /// que marcar una version de Gradle y volver a analizar las marcara todas.
+    /// Si no lo habia —marcada por riesgo antes del primer analisis—, la fila
+    /// entera es la eleccion.
+    mutating func adopt(_ measured: [SubItem]) {
+        let previouslyOn: Set<String>? = hasItems
+            ? Set(items.filter(\.selected).map(\.path))
+            : nil
+        items = measured.map { item in
+            var copy = item
+            copy.selected = previouslyOn?.contains(item.path) ?? selected
+            return copy
+        }
+        if previouslyOn != nil { selected = items.contains(where: \.selected) }
+    }
+
+    /// Deja la fila como ha quedado despues de borrar.
+    ///
+    /// `leftover` es lo que sigue ocupando cada ruta que se intento borrar. Una
+    /// subcarpeta que no se pudo borrar —o a la que no se llego porque se
+    /// detuvo la limpieza— se queda en la lista con lo que ocupa ahora, y sin
+    /// marcar: volver a intentarlo es otra decision.
+    mutating func settle(leftover: [String: Int64]) {
+        if hasItems {
+            items = items.compactMap { item in
+                guard item.selected else { return item }
+                guard let left = leftover[item.path], left > 0 else { return nil }
+                var copy = item
+                copy.usage.bytes = left
+                copy.selected = false
+                return copy
+            }
+            usage = items.reduce(FileSystem.Usage()) { $0 + $1.usage }
+        } else {
+            usage = FileSystem.Usage(bytes: leftover.values.reduce(0, +), files: 0)
+        }
+        selected = false
+    }
 }
 
 @MainActor
@@ -89,7 +133,7 @@ final class Engine: ObservableObject {
     @Published private(set) var progress = 0.0
     @Published private(set) var currentStep = ""
     @Published private(set) var lastReport: Report?
-    @Published var useTrash = false
+    @Published var useTrash = true
     @Published var hideEmpty = true
     /// Espacio del disco donde vive el home. Se refresca al arrancar y despues
     /// de cada limpieza, para ver como sube el hueco libre.
@@ -119,7 +163,10 @@ final class Engine: ObservableObject {
             store.removeObject(forKey: key)
         }
         rows = Catalog.targets.map { Row(target: $0, selected: false) }
-        useTrash = store.bool(forKey: "useTrash")
+        // Mientras nadie diga lo contrario, a la Papelera: es lo unico que
+        // tiene vuelta atras. `bool(forKey:)` no sirve aqui, porque sin clave
+        // devuelve `false` y la primera limpieza seria para siempre.
+        useTrash = store.object(forKey: "useTrash") as? Bool ?? true
         volume = FileSystem.homeVolume()
     }
 
@@ -170,9 +217,18 @@ final class Engine: ObservableObject {
     func rows(in group: Category) -> [Row] {
         rows.filter { row in
             guard row.target.group == group else { return false }
-            if hideEmpty && hasScanned && row.isEmpty && !row.anySelected { return false }
-            return true
+            return !(hideEmpty && hasScanned && isHideable(row))
         }
+    }
+
+    /// Vacia de verdad: medida y sin nada. La que no se llego a medir —porque
+    /// se detuvo el analisis— no esta vacia, esta sin medir; y la que se acaba
+    /// de limpiar tiene que poder ensenar lo que ha liberado. Mientras se
+    /// analiza se ocultan todas las que aun no tienen cifra, como siempre,
+    /// para que la lista no de saltos.
+    private func isHideable(_ row: Row) -> Bool {
+        guard row.isEmpty, !row.anySelected else { return false }
+        return isScanning || row.state == .measured
     }
 
     func groupBytes(_ group: Category) -> Int64 {
@@ -308,8 +364,11 @@ final class Engine: ObservableObject {
         await withTaskGroup(of: (String, FileSystem.Usage, [SubItem]).self) { group in
             var iterator = pending.makeIterator()
 
-            func addNext() {
-                guard let (id, paths, expansion, naming) = iterator.next() else { return }
+            /// Devuelve la fila que se ha puesto a medir, para marcarla desde
+            /// fuera: a una funcion local no le llega el aislamiento del hilo
+            /// principal, y sin el no puede tocar `rows`.
+            func addNext() -> String? {
+                guard let (id, paths, expansion, naming) = iterator.next() else { return nil }
                 group.addTask(priority: .userInitiated) {
                     // Las filas desplegables se miden trozo a trozo: el mismo
                     // recorrido de siempre, pero guardando el desglose.
@@ -339,34 +398,36 @@ final class Engine: ObservableObject {
                     let sum = items.reduce(FileSystem.Usage()) { $0 + $1.usage }
                     // Las que no ocupan nada no se ensenan: no hay nada que
                     // recuperar en ellas y ahogan el desglose. Un patron como
-                    // ~/Library/Containers/*/Data/Library/Caches encuentra
-                    // cientos de carpetas y solo un punado tiene contenido.
+                    // ~/Library/Application Support/*/Cache encuentra decenas
+                    // de carpetas y solo un punado tiene contenido.
                     items.removeAll { $0.usage.bytes == 0 }
                     items.sort { $0.usage.bytes > $1.usage.bytes }
                     return (id, sum, items)
                 }
+                return id
             }
 
-            for _ in 0..<lanes { addNext() }
+            for _ in 0..<lanes {
+                if let id = addNext() { mark(id, .scanning) }
+            }
 
             for await (id, usage, items) in group {
                 if let i = rows.firstIndex(where: { $0.id == id }) {
                     rows[i].usage = usage
-                    // Se conserva lo que el usuario ya hubiera marcado antes.
-                    let previouslyOn = Set(rows[i].items.filter(\.selected).map(\.path))
-                    rows[i].items = items.map { item in
-                        var copy = item
-                        copy.selected = previouslyOn.contains(item.path) || rows[i].selected
-                        return copy
-                    }
+                    rows[i].adopt(items)
                     rows[i].state = .measured
                     currentStep = rows[i].target.name
                 }
                 done += 1
                 progress = Double(done) / Double(total)
                 if Task.isCancelled { group.cancelAll(); break }
-                addNext()
+                if let id = addNext() { mark(id, .scanning) }
             }
+        }
+
+        // Detenido a medias: lo que estaba midiendose no tiene cifra.
+        for i in rows.indices where rows[i].state == .scanning {
+            rows[i].state = .idle
         }
     }
 
@@ -375,24 +436,34 @@ final class Engine: ObservableObject {
     /// Vive aparte del analisis para poder comprobarla: que una ruta no acabe
     /// contada en dos filas es lo que separa un total honesto de uno inflado, y
     /// eso no se ve mirando una fila sola.
-    nonisolated static func resolve(_ targets: [Target]) -> [String: [String]] {
+    ///
+    /// `expand` es de donde salen las rutas de cada fila. Fuera de los tests
+    /// es el disco; en ellos, un disco inventado con los casos que interesan,
+    /// para no depender de lo que haya instalado en la maquina que los corre.
+    nonisolated static func resolve(
+        _ targets: [Target],
+        expand: (Target) -> [String] = { $0.resolvePaths() }
+    ) -> [String: [String]] {
         var map: [String: [String]] = [:]
         var claimed: [String] = []
 
         // Primero los targets concretos, para saber que rutas ya estan cubiertas.
         for target in targets where !target.isCatchAll {
-            let paths = target.resolvePaths().filter { !FileSystem.isProtected($0) }
+            let paths = expand(target).filter { !FileSystem.isProtected($0) }
             map[target.id] = paths
             claimed.append(contentsOf: paths)
         }
-        // Los "cajon de sastre" descartan lo que ya cubre otra fila.
+        // Los "cajon de sastre" descartan lo que ya cubre otra fila, incluido
+        // lo que se haya quedado un cajon de sastre anterior.
         for target in targets where target.isCatchAll {
-            map[target.id] = target.resolvePaths().filter { path in
+            let paths = expand(target).filter { path in
                 guard !FileSystem.isProtected(path) else { return false }
                 return !claimed.contains {
                     path == $0 || path.hasPrefix($0 + "/") || $0.hasPrefix(path + "/")
                 }
             }
+            map[target.id] = paths
+            claimed.append(contentsOf: paths)
         }
         return map
     }
@@ -415,13 +486,26 @@ final class Engine: ObservableObject {
 
     // MARK: - Limpieza
 
+    /// Las filas que se van a limpiar, en el orden en que se limpian.
+    ///
+    /// La Papelera va la primera. Detras, vaciaria tambien lo que el resto de
+    /// filas acaba de mover a ella, que es justo lo que el usuario queria
+    /// poder recuperar.
+    nonisolated static func plan(_ rows: [Row]) -> [Row] {
+        let chosen = rows.filter { $0.anySelected && !$0.isEmpty }
+        return chosen.filter(\.target.isTrash) + chosen.filter { !$0.target.isTrash }
+    }
+
     func clean() {
         guard !isScanning && !isCleaning else { return }
-        let plan = rows.filter { $0.anySelected && !$0.isEmpty }
+        let plan = Engine.plan(rows)
         guard !plan.isEmpty else { return }
 
         isCleaning = true
         progress = 0
+        // Sin esto la alerta del informe sale en cuanto empieza la limpieza,
+        // con las cifras de la anterior.
+        lastReport = nil
         let trash = useTrash
 
         work = Task { [weak self] in
@@ -437,14 +521,28 @@ final class Engine: ObservableObject {
 
                 let (paths, scope) = row.victims
                 let reclaim = row.target.reclaim
-                let result = await Task.detached(priority: .userInitiated) {
-                    // `failedBytes` es siempre "lo que sigue ahi despues", asi
+                // Vaciar la Papelera moviendo su contenido a la Papelera no
+                // libera nada.
+                let toTrash = trash && !row.target.isTrash
+                let stop = OSAllocatedUnfairLock(initialState: false)
+                let job = Task.detached(priority: .userInitiated) {
+                    // `leftover` es siempre "lo que sigue ahi despues", asi
                     // que las dos ramas se miden igual mas abajo.
+                    let stopped: @Sendable () -> Bool = { stop.withLock { $0 } }
                     if let reclaim {
-                        return Engine.reclaim(reclaim, paths: paths)
+                        return Engine.reclaim(reclaim, paths: paths, isCancelled: stopped)
                     }
-                    return Engine.erase(paths: paths, scope: scope, toTrash: trash)
-                }.value
+                    return Engine.erase(paths: paths, scope: scope, toTrash: toTrash,
+                                        isCancelled: stopped)
+                }
+                // Una tarea suelta no hereda la cancelacion de la de fuera. Sin
+                // avisarla, «Detener» esperaba a que acabase la fila entera, y
+                // un `docker system prune` puede llevar minutos.
+                let result = await withTaskCancellationHandler {
+                    await job.value
+                } onCancel: {
+                    stop.withLock { $0 = true }
+                }
 
                 let recovered = max(0, row.selectedBytes - result.failedBytes)
                 if result.errors.isEmpty {
@@ -455,7 +553,7 @@ final class Engine: ObservableObject {
                 }
                 freed += recovered
                 if recovered > 0 { cleaned += 1 }
-                self.dropCleanedItems(row.id, failedBytes: result.failedBytes)
+                self.settle(row.id, leftover: result.leftover)
                 self.progress = Double(index + 1) / Double(plan.count)
             }
 
@@ -473,29 +571,25 @@ final class Engine: ObservableObject {
         rows[i].state = state
     }
 
-    /// Deja la fila reflejando lo que queda: se van las subcarpetas borradas y
-    /// el tamano baja a lo que no se pudo eliminar.
-    private func dropCleanedItems(_ id: String, failedBytes: Int64) {
+    private func settle(_ id: String, leftover: [String: Int64]) {
         guard let i = rows.firstIndex(where: { $0.id == id }) else { return }
-        if rows[i].hasItems {
-            rows[i].items.removeAll(where: \.selected)
-            rows[i].usage = rows[i].items.reduce(FileSystem.Usage()) { $0 + $1.usage }
-            if failedBytes > 0 { rows[i].usage.bytes += failedBytes }
-        } else {
-            rows[i].usage = FileSystem.Usage(bytes: failedBytes, files: 0)
-        }
-        rows[i].selected = rows[i].items.contains(where: \.selected)
+        rows[i].settle(leftover: leftover)
     }
 
     // MARK: - Borrado real (fuera del hilo principal)
 
     struct EraseResult: Sendable {
         var removed = 0
-        var failedBytes: Int64 = 0
+        /// Lo que sigue ocupando cada ruta que se intento borrar. Es por ruta y
+        /// no un total para saber que subcarpetas se quedan en la lista.
+        var leftover: [String: Int64] = [:]
         var errors: [String] = []
+
+        var failedBytes: Int64 { leftover.values.reduce(0, +) }
     }
 
-    nonisolated static func erase(paths: [String], scope: Scope, toTrash: Bool) -> EraseResult {
+    nonisolated static func erase(paths: [String], scope: Scope, toTrash: Bool,
+                                  isCancelled: () -> Bool = { false }) -> EraseResult {
         var result = EraseResult()
 
         for path in paths {
@@ -508,21 +602,28 @@ final class Engine: ObservableObject {
                 ? FileSystem.children(of: path)
                 : [path]
 
+            var left: Int64 = 0
             for victim in victims {
-                if Task.isCancelled { return result }
                 guard isSafe(victim), !FileSystem.isProtected(victim) else { continue }
+                // Detenido: lo que queda no se toca, pero se mide. Sin eso la
+                // fila daria por liberado lo que sigue en el disco.
+                if isCancelled() {
+                    left += FileSystem.usage(of: victim).bytes
+                    continue
+                }
                 do {
                     try FileSystem.remove(victim, toTrash: toTrash)
                     result.removed += 1
                 } catch {
                     // Solo medimos lo que NO se ha podido borrar. En el caso normal
                     // (todo se borra) nos ahorramos recorrer el arbol una segunda vez.
-                    result.failedBytes += FileSystem.usage(of: victim).bytes
+                    left += FileSystem.usage(of: victim).bytes
                     let reason = (error as NSError).localizedFailureReason
                         ?? error.localizedDescription
                     if result.errors.count < 5 { result.errors.append(reason) }
                 }
             }
+            result.leftover[path] = left
         }
         return result
     }
@@ -531,17 +632,21 @@ final class Engine: ObservableObject {
 
     /// Igual que `erase`, pero pidiendoselo a quien creo la ruta.
     ///
-    /// Devuelve el mismo `EraseResult` a proposito: `failedBytes` es lo que
+    /// Devuelve el mismo `EraseResult` a proposito: `leftover` es lo que
     /// sigue ocupando disco al terminar, medido de nuevo, no lo que la
     /// herramienta diga haber liberado. Es la unica cifra que se puede
     /// prometer, porque aqui no borramos nosotros.
     ///
     /// La Papelera no pinta nada: ni `simctl` ni `docker` saben moverse a ella.
-    nonisolated static func reclaim(_ kind: Reclaim, paths: [String]) -> EraseResult {
+    nonisolated static func reclaim(
+        _ kind: Reclaim,
+        paths: [String],
+        isCancelled: @escaping @Sendable () -> Bool = { false }
+    ) -> EraseResult {
         var result = EraseResult()
 
-        func remaining(_ list: [String]) -> Int64 {
-            list.reduce(0) { $0 + FileSystem.usage(of: $1).bytes }
+        func measure(_ list: [String]) {
+            for path in list { result.leftover[path] = FileSystem.usage(of: path).bytes }
         }
 
         func note(_ text: String) {
@@ -554,28 +659,31 @@ final class Engine: ObservableObject {
 
         case .simulator:
             for path in paths {
-                if Task.isCancelled { return result }
                 guard isSafe(path), !FileSystem.isProtected(path) else {
                     note("ruta protegida: \(FileSystem.prettyPath(path))")
                     continue
                 }
-                // La carpeta se llama como el UDID, que es justo lo que simctl
-                // espera. Un simulador arrancado se niega a borrarse, y el
-                // mensaje de simctl lo explica mejor que nosotros.
-                let udid = (path as NSString).lastPathComponent
-                let run = Tools.run("/usr/bin/xcrun", ["simctl", "delete", udid])
-                if run.ok {
-                    result.removed += 1
-                } else {
-                    note(run.firstLine)
+                // Detenido: no se lanza ninguno mas, pero los que quedan se
+                // miden igual para que la cuenta no los de por borrados.
+                if !isCancelled() {
+                    // La carpeta se llama como el UDID, que es justo lo que
+                    // simctl espera. Un simulador arrancado se niega a borrarse,
+                    // y el mensaje de simctl lo explica mejor que nosotros.
+                    let udid = (path as NSString).lastPathComponent
+                    let run = Tools.run("/usr/bin/xcrun", ["simctl", "delete", udid])
+                    if run.ok {
+                        result.removed += 1
+                    } else {
+                        note(run.firstLine)
+                    }
                 }
-                result.failedBytes += FileSystem.usage(of: path).bytes
+                measure([path])
             }
 
         case .docker:
             guard let docker = Tools.locate("docker") else {
                 note(L("error.tool.missing", "docker"))
-                result.failedBytes = remaining(paths)
+                measure(paths)
                 return result
             }
             // Ni `--all` ni `--volumes`. Sin `--all` solo caen las imagenes
@@ -584,15 +692,20 @@ final class Engine: ObservableObject {
             // como "sin usar" para Docker, y suele ser justo la que alguien
             // construyo para subirla a un servidor. En los volumenes viven
             // bases de datos. Ninguna de las dos cosas es cache.
-            let run = Tools.run(docker, ["system", "prune", "--force"])
-            if run.ok {
-                result.removed += 1
-            } else {
-                note(run.firstLine)
+            if !isCancelled() {
+                let run = Tools.run(docker, ["system", "prune", "--force"],
+                                    isCancelled: isCancelled)
+                if run.ok {
+                    result.removed += 1
+                } else if !isCancelled() {
+                    // Si lo hemos parado nosotros, lo que diga al morir no es
+                    // un error que ensenar.
+                    note(run.firstLine)
+                }
             }
             // El fichero es disperso y Docker lo compacta cuando le toca, asi
             // que puede quedarse igual de grande un rato. Se mide, no se supone.
-            result.failedBytes = remaining(paths)
+            measure(paths)
         }
 
         return result

@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthagen frameworkit ja checkoutit";
 "target.cocoapods.name" = "CocoaPodsin välimuisti";
 "target.cocoapods.note" = "Ladatut podit ja specsit";
-"target.containers.caches.name" = "Hiekkalaatikkosovellusten välimuistit";
-"target.containers.caches.note" = "Jokainen hiekkalaatikkosovellus pitää oman kopionsa säiliössään";
 "target.docker.disk.name" = "Dockerin virtuaalikoneen levy";
 "target.docker.disk.note" = "Vapautuu komennolla docker system prune. Levykuvat ja taltiot säilyvät";
 "target.docker.logs.name" = "Docker Desktopin lokit";

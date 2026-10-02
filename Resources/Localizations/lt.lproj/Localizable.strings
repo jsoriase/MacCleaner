@@ -115,8 +115,6 @@
 "target.carthage.note" = "„Carthage“ karkasai ir „checkouts“";
 "target.cocoapods.name" = "„CocoaPods“ podėlis";
 "target.cocoapods.note" = "Atsisiųsti „pods“ ir „specs“";
-"target.containers.caches.name" = "Izoliuotų programų podėliai";
-"target.containers.caches.note" = "Kiekviena izoliuota programa laiko savo kopiją konteineryje";
 "target.docker.disk.name" = "Docker virtualios mašinos diskas";
 "target.docker.disk.note" = "Atlaisvina docker system prune. Tavo atvaizdai ir tomai išsaugomi";
 "target.docker.logs.name" = "„Docker Desktop“ žurnalai";

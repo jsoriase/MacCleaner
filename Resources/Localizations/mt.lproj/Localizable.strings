@@ -115,8 +115,6 @@
 "target.carthage.note" = "Frameworks u checkouts ta’ Carthage";
 "target.cocoapods.name" = "Cache ta’ CocoaPods";
 "target.cocoapods.note" = "Pods u specs imniżżla";
-"target.containers.caches.name" = "Cache tal-apps iżolati";
-"target.containers.caches.note" = "Kull app iżolata żżomm il-kopja tagħha fil-kontenitur tagħha";
 "target.docker.disk.name" = "Diska tal-magna virtwali ta’ Docker";
 "target.docker.disk.note" = "Tinħeles b’docker system prune. L-immaġini u l-volumi tiegħek jinżammu";
 "target.docker.logs.name" = "Logs ta’ Docker Desktop";

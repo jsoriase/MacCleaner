@@ -115,8 +115,6 @@
 "target.carthage.note" = "Framework e checkout di Carthage";
 "target.cocoapods.name" = "Cache di CocoaPods";
 "target.cocoapods.note" = "Pod scaricati e specs";
-"target.containers.caches.name" = "Cache delle app in sandbox";
-"target.containers.caches.note" = "Ogni app in sandbox tiene la sua copia dentro il contenitore";
 "target.docker.disk.name" = "Disco della macchina virtuale Docker";
 "target.docker.disk.note" = "Si libera con docker system prune. Le immagini e i volumi vengono mantenuti";
 "target.docker.logs.name" = "Log di Docker Desktop";

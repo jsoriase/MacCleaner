@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthage-grunnar og checkouts";
 "target.cocoapods.name" = "Skyndiminni CocoaPods";
 "target.cocoapods.note" = "Sóttir pods og specs";
-"target.containers.caches.name" = "Skyndiminni sandkassaforrita";
-"target.containers.caches.note" = "Hvert sandkassaforrit geymir sitt eigið afrit í gámi sínum";
 "target.docker.disk.name" = "Diskur sýndarvélar Docker";
 "target.docker.disk.note" = "Losnar með docker system prune. Myndirnar þínar og bindin haldast";
 "target.docker.logs.name" = "Annálar Docker Desktop";

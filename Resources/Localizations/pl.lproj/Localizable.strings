@@ -115,8 +115,6 @@
 "target.carthage.note" = "Frameworki i checkouty Carthage";
 "target.cocoapods.name" = "Pamięć podręczna CocoaPods";
 "target.cocoapods.note" = "Pobrane pody i specs";
-"target.containers.caches.name" = "Pamięci podręczne aplikacji w piaskownicy";
-"target.containers.caches.note" = "Każda aplikacja w piaskownicy trzyma swoją kopię w kontenerze";
 "target.docker.disk.name" = "Dysk maszyny wirtualnej Dockera";
 "target.docker.disk.note" = "Zwalnia go docker system prune. Twoje obrazy i wolumeny zostają";
 "target.docker.logs.name" = "Dzienniki Docker Desktop";

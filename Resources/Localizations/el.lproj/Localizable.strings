@@ -115,8 +115,6 @@
 "target.carthage.note" = "Frameworks και checkouts του Carthage";
 "target.cocoapods.name" = "Προσωρινή μνήμη CocoaPods";
 "target.cocoapods.note" = "Ληφθέντα pods και specs";
-"target.containers.caches.name" = "Κρυφές μνήμες απομονωμένων εφαρμογών";
-"target.containers.caches.note" = "Κάθε απομονωμένη εφαρμογή κρατά το δικό της αντίγραφο στο κοντέινερ";
 "target.docker.disk.name" = "Δίσκος της εικονικής μηχανής του Docker";
 "target.docker.disk.note" = "Ελευθερώνεται με docker system prune. Οι εικόνες και οι τόμοι σου διατηρούνται";
 "target.docker.logs.name" = "Καταγραφές Docker Desktop";

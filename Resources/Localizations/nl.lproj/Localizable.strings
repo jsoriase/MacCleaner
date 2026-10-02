@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthage-frameworks en -checkouts";
 "target.cocoapods.name" = "CocoaPods-cache";
 "target.cocoapods.note" = "Gedownloade pods en specs";
-"target.containers.caches.name" = "Caches van sandbox-apps";
-"target.containers.caches.note" = "Elke sandbox-app bewaart zijn eigen kopie in zijn container";
 "target.docker.disk.name" = "Schijf van de Docker-VM";
 "target.docker.disk.note" = "Wordt vrijgemaakt met docker system prune. Je images en volumes blijven";
 "target.docker.logs.name" = "Docker Desktop-logboeken";

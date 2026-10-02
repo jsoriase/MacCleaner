@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthage-rammeverk og -checkouts";
 "target.cocoapods.name" = "CocoaPods-buffer";
 "target.cocoapods.note" = "Nedlastede pods og specs";
-"target.containers.caches.name" = "Cacher fra sandkasseapper";
-"target.containers.caches.note" = "Hver sandkasseapp har sin egen kopi i sin container";
 "target.docker.disk.name" = "Disk for Dockers virtuelle maskin";
 "target.docker.disk.note" = "Frigjøres med docker system prune. Bildene og volumene dine beholdes";
 "target.docker.logs.name" = "Docker Desktop-logger";

@@ -115,8 +115,6 @@
 "target.carthage.note" = "Рамки и checkout-и на Carthage";
 "target.cocoapods.name" = "Кеш на CocoaPods";
 "target.cocoapods.note" = "Изтеглени pod-ове и specs";
-"target.containers.caches.name" = "Кешове на приложенията в пясъчник";
-"target.containers.caches.note" = "Всяко приложение в пясъчник пази своето копие в контейнера си";
 "target.docker.disk.name" = "Диск на виртуалната машина на Docker";
 "target.docker.disk.note" = "Освобождава се с docker system prune. Образите и томовете ти се запазват";
 "target.docker.logs.name" = "Дневници на Docker Desktop";

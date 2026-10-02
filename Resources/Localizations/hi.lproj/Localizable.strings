@@ -116,8 +116,6 @@
 "target.carthage.note" = "Carthage के फ़्रेमवर्क और checkouts";
 "target.cocoapods.name" = "CocoaPods कैश";
 "target.cocoapods.note" = "डाउनलोड किए गए pods और specs";
-"target.containers.caches.name" = "सैंडबॉक्स ऐप्स की कैश";
-"target.containers.caches.note" = "हर सैंडबॉक्स ऐप अपनी प्रति अपने कंटेनर में रखता है";
 "target.docker.disk.name" = "Docker की वर्चुअल मशीन की डिस्क";
 "target.docker.disk.note" = "docker system prune से खाली होती है। आपकी इमेज और वॉल्यूम बने रहते हैं";
 "target.docker.logs.name" = "Docker Desktop लॉग";

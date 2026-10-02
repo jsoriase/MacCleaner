@@ -103,11 +103,60 @@ final class SelectionTests: XCTestCase {
         XCTAssertTrue(Engine().useTrash)
     }
 
+    /// Sin haber elegido nunca, a la Papelera: es lo unico con vuelta atras.
+    func testLaPapeleraEsLaOpcionPorDefecto() {
+        UserDefaults.standard.removeObject(forKey: "useTrash")
+        XCTAssertTrue(Engine().useTrash)
+    }
+
+    /// Y quien elige borrar para siempre lo encuentra igual la proxima vez.
+    func testElBorradoDefinitivoTambienSeRecuerda() {
+        let engine = Engine()
+        engine.useTrash = false
+        engine.persistTrashPreference()
+        defer {
+            UserDefaults.standard.removeObject(forKey: "useTrash")
+        }
+
+        XCTAssertFalse(Engine().useTrash)
+    }
+
     /// Los tres botones tienen que cubrir el catalogo entero: si alguna fila
     /// no cae en ningun nivel, quedaria inalcanzable desde la barra.
     func testLosTresNivelesCubrenTodoElCatalogo() {
         let engine = Engine()
         for risk in Risk.allCases { engine.toggleRisk(risk) }
         XCTAssertTrue(engine.rows.allSatisfy(\.selected))
+    }
+}
+
+/// La fila de la Papelera es la unica que no puede obedecer a «Mover a la
+/// Papelera»: moverla a si misma no libera nada.
+final class PapeleraTests: XCTestCase {
+
+    private func row(_ id: String) -> Row {
+        let target = Catalog.targets.first { $0.id == id }!
+        var row = Row(target: target, selected: true)
+        row.usage = FileSystem.Usage(bytes: 100, files: 1)
+        return row
+    }
+
+    func testSoloLaPapeleraEsLaPapelera() {
+        XCTAssertEqual(Catalog.targets.filter(\.isTrash).map(\.id), ["trash"])
+        XCTAssertEqual(Catalog.targets.first(where: \.isTrash)?.patterns, ["~/.Trash"])
+    }
+
+    /// Detras del resto se llevaria por delante lo que acaban de mover a ella.
+    func testLaPapeleraSeVaciaAntesQueNada() {
+        let plan = Engine.plan([row("xcode.deriveddata"), row("trash"), row("npm")])
+        XCTAssertEqual(plan.map(\.id), ["trash", "xcode.deriveddata", "npm"])
+    }
+
+    func testElPlanSoloLlevaLoMarcadoConContenido() {
+        var vacia = row("npm")
+        vacia.usage = FileSystem.Usage()
+        var sinMarcar = row("yarn")
+        sinMarcar.selected = false
+        XCTAssertEqual(Engine.plan([vacia, sinMarcar, row("pnpm")]).map(\.id), ["pnpm"])
     }
 }

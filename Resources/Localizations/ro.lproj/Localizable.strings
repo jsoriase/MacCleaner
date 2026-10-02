@@ -115,8 +115,6 @@
 "target.carthage.note" = "Framework-uri și checkout-uri Carthage";
 "target.cocoapods.name" = "Cache CocoaPods";
 "target.cocoapods.note" = "Pod-uri descărcate și specs";
-"target.containers.caches.name" = "Cache-uri ale aplicațiilor izolate";
-"target.containers.caches.note" = "Fiecare aplicație izolată păstrează copia sa în containerul ei";
 "target.docker.disk.name" = "Discul mașinii virtuale Docker";
 "target.docker.disk.note" = "Se eliberează cu docker system prune. Imaginile și volumele se păstrează";
 "target.docker.logs.name" = "Jurnale Docker Desktop";

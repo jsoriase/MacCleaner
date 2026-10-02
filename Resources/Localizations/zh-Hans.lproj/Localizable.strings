@@ -116,8 +116,6 @@
 "target.carthage.note" = "Carthage 的框架和检出内容";
 "target.cocoapods.name" = "CocoaPods 缓存";
 "target.cocoapods.note" = "已下载的 pod 和 spec";
-"target.containers.caches.name" = "沙盒应用缓存";
-"target.containers.caches.note" = "每个沙盒应用都在自己的容器里保存一份副本";
 "target.docker.disk.name" = "Docker 虚拟机磁盘";
 "target.docker.disk.note" = "用 docker system prune 释放，你的镜像和卷都会保留";
 "target.docker.logs.name" = "Docker Desktop 日志";

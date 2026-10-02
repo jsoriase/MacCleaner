@@ -47,7 +47,7 @@ enum Reclaim {
 ///
 /// El nivel de riesgo dice cuanto cuidado hay que tener; esto dice por que. Son
 /// pocas y compartidas a proposito: escribir un texto suelto para cada una de
-/// las 58 filas serian 2.494 cadenas que traducir y ninguna forma de comprobar
+/// las 57 filas serian 2.451 cadenas que traducir y ninguna forma de comprobar
 /// que dicen la verdad. Asi, en cambio, cada fila declara su consecuencia y hay
 /// tests que exigen que cuadre con su riesgo.
 enum Consequence: String {
@@ -110,6 +110,10 @@ struct Target: Identifiable {
     /// riesgo. El valor por defecto solo vale para las filas seguras: un test
     /// exige que las demas declaren la suya.
     var why: Consequence = .regenerates
+    /// La fila es la propia Papelera. Se borra siempre de verdad, aunque este
+    /// marcado «Mover a la Papelera» —moverla a si misma no libera nada—, y
+    /// antes que el resto, para no llevarse lo que las demas acaban de dejar.
+    var isTrash: Bool = false
 
     var isSweep: Bool { !artifacts.isEmpty }
 
@@ -133,9 +137,15 @@ extension Target {
             return expanded.filter(FileSystem.isSimulatorDevice)
         }
         guard isSweep else { return expanded }
-        return FileSystem.artifactFolders(collecting: artifacts,
-                                          pruning: Catalog.projectArtifacts,
-                                          under: expanded)
+        let found = FileSystem.artifactFolders(collecting: artifacts,
+                                               pruning: Catalog.projectArtifacts,
+                                               under: expanded,
+                                               markers: Catalog.artifactMarkers)
+        // Lo versionado se queda fuera aunque tenga nombre y marcador: un
+        // `build/` con codigo propio al lado de un `package.json` pasa la
+        // primera criba, pero no esta.
+        let versioned = Tools.versioned(found, within: expanded)
+        return found.filter { !versioned.contains($0) }
     }
 }
 
@@ -208,6 +218,27 @@ enum Catalog {
     /// Las dos filas de barrido podan por la lista entera aunque cada una
     /// recoja su mitad.
     static let projectArtifacts = dependencyFolders + outputFolders
+
+    /// Lo que delata que una carpeta con nombre de artefacto lo es de verdad.
+    ///
+    /// `build`, `target` o `vendor` son tambien nombres normales: el `vendor/`
+    /// de Rails es codigo de la app. Para esos se exige al menos una de estas
+    /// rutas, relativas a la carpeta que lo contiene; las que llevan el propio
+    /// nombre delante miran dentro (`pyvenv.cfg` lo deja todo entorno virtual).
+    /// Los nombres que no salen aqui no se confunden con nada.
+    static let artifactMarkers: [String: [String]] = [
+        "Pods": ["Podfile"],
+        ".venv": [".venv/pyvenv.cfg"],
+        "venv": ["venv/pyvenv.cfg"],
+        // Composer y `go mod vendor`. El de Bundler vive en `vendor/bundle`, y
+        // borrar `vendor` entero se llevaria lo demas.
+        "vendor": ["vendor/autoload.php", "vendor/modules.txt"],
+        "build": ["build.gradle", "build.gradle.kts", "settings.gradle", "settings.gradle.kts",
+                  "CMakeLists.txt", "pubspec.yaml", "package.json",
+                  "setup.py", "pyproject.toml"],
+        ".build": ["Package.swift"],
+        "target": ["Cargo.toml", "pom.xml", "build.sbt"],
+    ]
 
     static let targets: [Target] = [
 
@@ -376,6 +407,10 @@ enum Catalog {
 
         // Las apps de Electron guardan su cache donde guardan sus datos, no en
         // ~/Library/Caches, asi que el cajon de sastre nunca las ve.
+        //
+        // Es un cajon de sastre a su vez: `*/*/Cache` casa tambien con el
+        // perfil de Edge, Chromium o Vivaldi (`Microsoft Edge/Default/Cache`),
+        // que ya es de `browsers.cache`. Sin esto se contaban en las dos filas.
         Target(id: "electron.appsupport",
                group: .node, risk: .safe, scope: .contents,
                patterns: ["~/Library/Application Support/*/Cache",
@@ -385,6 +420,7 @@ enum Catalog {
                           "~/Library/Application Support/*/*/Cache",
                           "~/Library/Application Support/*/*/Code Cache",
                           "~/Library/Application Support/*/*/GPUCache"],
+               isCatchAll: true,
                expansion: .paths),
 
         Target(id: "browsers.headless",
@@ -568,7 +604,8 @@ enum Catalog {
         Target(id: "trash",
                group: .system, risk: .caution, scope: .contents,
                patterns: ["~/.Trash"],
-               why: .dataLoss),
+               why: .dataLoss,
+               isTrash: true),
 
         Target(id: "savedstate",
                group: .system, risk: .caution, scope: .contents,
@@ -583,14 +620,12 @@ enum Catalog {
         // total al disco, que es justo lo que esta app no pide. Si algun dia lo
         // pidiera, habria que quitar tambien el prefijo.
 
-        // Las apps en sandbox no escriben en ~/Library/Caches: cada una tiene su
-        // propia copia dentro del contenedor.
-        Target(id: "containers.caches",
-               group: .system, risk: .safe, scope: .contents,
-               patterns: ["~/Library/Containers/*/Data/Library/Caches",
-                          "~/Library/Group Containers/*/Library/Caches"],
-               isCatchAll: true,
-               expansion: .paths),
+        // Aqui vivio otra para las caches de las apps en sandbox, en
+        // ~/Library/Containers/*/Data/Library/Caches y su equivalente en Group
+        // Containers. Desde Sonoma, entrar en el contenedor de otra app saca el
+        // aviso «MacCleaner quiere acceder a datos de otras apps», y salia en
+        // cada analisis. Ni siquiera llegaba a filtrarse: `glob` ya ha entrado
+        // cuando `isProtected` mira la ruta. Un test impide que vuelva.
 
         Target(id: "installers.old",
                group: .system, risk: .safe, scope: .contents,

@@ -116,8 +116,6 @@
 "target.carthage.note" = "أُطر Carthage ونُسخ الفحص";
 "target.cocoapods.name" = "ذاكرة CocoaPods المؤقتة";
 "target.cocoapods.note" = "حزم pods المُنزَّلة وملفات specs";
-"target.containers.caches.name" = "ذواكر التطبيقات المعزولة";
-"target.containers.caches.note" = "كل تطبيق معزول يحتفظ بنسخته داخل حاويته";
 "target.docker.disk.name" = "قرص جهاز Docker الافتراضي";
 "target.docker.disk.note" = "يُفرَّغ بأمر docker system prune. وتبقى صورك ووحدات التخزين لديك";
 "target.docker.logs.name" = "سجلات Docker Desktop";

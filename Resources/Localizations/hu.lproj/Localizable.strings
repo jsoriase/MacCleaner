@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthage keretrendszerek és checkoutok";
 "target.cocoapods.name" = "CocoaPods gyorsítótár";
 "target.cocoapods.note" = "Letöltött podok és specsek";
-"target.containers.caches.name" = "Homokozós alkalmazások gyorsítótárai";
-"target.containers.caches.note" = "Minden homokozós alkalmazás a saját tárolójában őrzi a másolatát";
 "target.docker.disk.name" = "A Docker virtuális gépének lemeze";
 "target.docker.disk.note" = "A docker system prune szabadítja fel. A képfájljaid és köteteid megmaradnak";
 "target.docker.logs.name" = "Docker Desktop naplók";

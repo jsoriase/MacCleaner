@@ -115,8 +115,6 @@
 "target.carthage.note" = "Фрэймворкі і checkout-ы Carthage";
 "target.cocoapods.name" = "Кэш CocoaPods";
 "target.cocoapods.note" = "Спампаваныя pod-ы і specs";
-"target.containers.caches.name" = "Кэшы ізаляваных праграм";
-"target.containers.caches.note" = "Кожная ізаляваная праграма трымае сваю копію ў кантэйнеры";
 "target.docker.disk.name" = "Дыск віртуальнай машыны Docker";
 "target.docker.disk.note" = "Вызваляецца камандай docker system prune. Вобразы і тамы захоўваюцца";
 "target.docker.logs.name" = "Журналы Docker Desktop";

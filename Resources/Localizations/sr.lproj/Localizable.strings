@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthage оквири и checkout-и";
 "target.cocoapods.name" = "Кеш CocoaPods-а";
 "target.cocoapods.note" = "Преузети pod-ови и specs";
-"target.containers.caches.name" = "Кеш меморије изолованих апликација";
-"target.containers.caches.note" = "Свака изолована апликација чува своју копију у свом контејнеру";
 "target.docker.disk.name" = "Диск виртуелне машине Docker";
 "target.docker.disk.note" = "Ослобађа га docker system prune. Твоје слике и волумени остају";
 "target.docker.logs.name" = "Записи Docker Desktop-а";

@@ -115,8 +115,6 @@
 "target.carthage.note" = "Carthage’i raamistikud ja checkoutid";
 "target.cocoapods.name" = "CocoaPodsi vahemälu";
 "target.cocoapods.note" = "Allalaaditud podid ja specid";
-"target.containers.caches.name" = "Liivakastirakenduste vahemälud";
-"target.containers.caches.note" = "Iga liivakastirakendus hoiab oma koopiat oma konteineris";
 "target.docker.disk.name" = "Dockeri virtuaalmasina ketas";
 "target.docker.disk.note" = "Vabaneb käsuga docker system prune. Sinu tõmmised ja köited säilivad";
 "target.docker.logs.name" = "Docker Desktopi logid";
