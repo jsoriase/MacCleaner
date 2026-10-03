@@ -12,12 +12,15 @@
 "alert.report.count" = "Išvalytos kategorijos: %d";
 "alert.report.failures" = "Nepavyko ištrinti visko (paveiktos kategorijos: %d). Paprastai tai leidimų klausimas: suteikite „MacCleaner“ visišką disko prieigą per Nuostatos › Privatumas ir sauga.";
 "alert.report.freed" = "Atlaisvinta %@.";
+"alert.report.skipped" = "Praleista, nieko neliesta: %@";
+"alert.report.space" = "Laisva vieta: %@ → %@ (%@)";
 "alert.report.title" = "Valymas baigtas";
 "alert.report.trashed" = "%@ perkelta į šiukšlinę. Vieta atlaisvinama ją ištuštinus.";
 
 /* ---- category ---- */
 "category.ai" = "DI įrankiai";
 "category.browsers" = "Naršyklės";
+"category.editors" = "Kodo redaktoriai";
 "category.jvm" = "Android, Gradle ir JVM";
 "category.langs" = "Kitos kalbos";
 "category.node" = "Node ir žiniatinklis";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Atsisakyti";
 "common.done" = "Atlikta";
+
+/* ---- detail ---- */
+"detail.empty" = "Čia nėra ką atlaisvinti";
 
 /* ---- empty ---- */
 "empty.button" = "Peržiūrėti dabar";
@@ -58,6 +64,10 @@
 "header.stop" = "Stabdyti";
 "header.working" = "Dirbama…";
 
+/* ---- menu ---- */
+"menu.history" = "Valymo istorija";
+"menu.unignore" = "Vėl siūlyti tai, kas ignoruota";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Reikės vėl atsisiųsti, arba prarasite naudingus duomenis.";
 "risk.caution.label" = "Atsargiai";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Saugios";
 
 /* ---- row ---- */
+"row.busy" = "Naudojama: %@";
+"row.busy.help" = "Uždarykite, kad galėtumėte tai išvalyti. „MacCleaner“ dar kartą patikrina prieš pat ištrindama.";
+"row.busy.unknown" = "Nepavyko patikrinti, ar naudojama, todėl nebus ištrinta.";
 "row.files" = "Failai: %d";
+"row.ignore" = "Daugiau nesiūlyti";
 "row.noPath" = "Šiame „Mac“ nerasta nė vieno atitinkančio kelio.";
+"row.recent.help" = "Keista per pastarąsias 7 dienas. Greitasis žymėjimas palieka nepažymėtą; pažymėkite ranka, jei norite.";
 "row.reveal" = "Rodyti Finder";
 
 /* ---- select ---- */
 "select.clear" = "Atžymėti viską";
 "select.mark" = "Pasirinkti";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Viskas";
+"sidebar.categories" = "Kategorijos";
+
+/* ---- skip ---- */
+"skip.busy" = "naudoja %@";
+"skip.changed" = "pasikeitė po peržiūros";
+"skip.unknown" = "nepavyko patikrinti, ar buvo naudojama";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Kodo asistentų podėliai";
 "target.ai.caches.note" = "Laikinieji Claude, Codex, Cursor ir OpenCode failai";
 "target.ai.models.name" = "Atsisiųsti DI modeliai";
 "target.ai.models.note" = "Ollama, Hugging Face ir LM Studio svoriai: po kelis gigabaitus";
+"target.ai.runtimes.name" = "Apleistos „Codex“ vykdymo aplinkos";
+"target.ai.runtimes.note" = "Nebaigti atsisiuntimai. „Codex“ naudojama aplinka niekada nesiūloma";
 "target.ai.vmbundles.name" = "Asistentų virtualios mašinos";
 "target.ai.vmbundles.note" = "Disko atvaizdai, kuriuos Claude atsisiunčia kodui vykdyti";
 "target.ai.worktrees.name" = "Agentų darbo medžiai";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "„Carthage“ karkasai ir „checkouts“";
 "target.cocoapods.name" = "„CocoaPods“ podėlis";
 "target.cocoapods.note" = "Atsisiųsti „pods“ ir „specs“";
-"target.docker.disk.name" = "Docker virtualios mašinos diskas";
-"target.docker.disk.note" = "Atlaisvina docker system prune. Tavo atvaizdai ir tomai išsaugomi";
+"target.docker.buildx.name" = "„Docker Buildx“ podėlis";
+"target.docker.buildx.note" = "Vietinis „docker buildx“ kompiliavimo podėlis";
+"target.docker.disk.name" = "Docker likučiai";
+"target.docker.disk.note" = "Ką ištrina docker system prune, kai Docker veikia. Atvaizdai ir tomai išsaugomi";
 "target.docker.logs.name" = "„Docker Desktop“ žurnalai";
 "target.docker.logs.note" = "Tik žurnalai. Atvaizdai ir tomai nepaliečiami";
+"target.editors.cache.name" = "„VS Code“ ir „Cursor“ podėliai";
+"target.editors.cache.note" = "Atsiųsti plėtiniai (VSIX), kodo podėlis ir žurnalai";
+"target.editors.extensions.name" = "Pasenę plėtiniai";
+"target.editors.extensions.note" = "Senos versijos, kurias redaktorius jau pakeitė ir pažymėjo kaip pasenusias";
 "target.electron.appsupport.name" = "Electron programų podėliai";
 "target.electron.appsupport.note" = "Cache, Code Cache ir GPUCache už ~/Library/Caches ribų";
 "target.electron.name" = "„Electron“ podėlis";
 "target.electron.note" = "„Electron“ ir „electron-builder“ dvejetainiai failai";
+"target.expo.name" = "„Expo“ podėlis";
+"target.expo.note" = "„Expo Go“, savosios versijos ir šablonai, kuriuos atsiunčia „Expo CLI“";
 "target.flutter.name" = "„Flutter“ / „Dart“ podėlis";
 "target.flutter.note" = "~/.pub-cache: paketai iš pub.dev";
 "target.go.build.name" = "„Go“ kompiliavimo podėlis";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "IDE žurnalai";
 "target.kotlin.name" = "„Kotlin“ / „Konan“ podėlis";
 "target.kotlin.note" = "„Kotlin“ ir „Kotlin Native“ kompiliatorių artefaktai";
+"target.langs.tools.name" = "Kitų įrankių podėliai";
+"target.langs.tools.note" = "„Terraform“, „Bazel“, „Zig“, „Ruff“ ir „mypy“";
 "target.maven.name" = "Vietinė „Maven“ saugykla";
 "target.maven.note" = "~/.m2/repository. Kitą kartą kompiliuojant bus atsisiųsta visa iš naujo";
+"target.node.tools.name" = "„Node“ įrankių podėliai";
+"target.node.tools.note" = "„Corepack“, „node-gyp“, „TypeScript“, „ESLint“, „Prettier“, „Vite“ ir „Prisma“";
 "target.npm.name" = "„npm“ podėlis";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "„Composer“ podėlis (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Atsisiųstos vykdymo aplinkos ir bendras simuliatorių podėlis";
 "target.sim.devices.name" = "Įdiegti simuliatoriai";
 "target.sim.devices.note" = "Šalinami su simctl, kad Xcode neliktų vaiduokliško įrenginio";
+"target.sim.runtimes.name" = "Nenaudojamos simuliatoriaus vykdymo aplinkos";
+"target.sim.runtimes.note" = "„iOS“, „watchOS“… atvaizdai be jokio simuliatoriaus. Šalinami su „simctl“";
 "target.swiftpm.name" = "„Swift Package Manager“ podėlis";
 "target.swiftpm.note" = "„SwiftPM“ priklausomybių saugyklos ir dvejetainiai failai";
 "target.trash.name" = "Šiukšlinė";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode ją atsisiųs vėl, kai atidarysi";
 "target.xcode.previews.name" = "„Xcode“ peržiūros";
 "target.xcode.previews.note" = "„SwiftUI“ peržiūrų podėlis";
+"target.xcode.products.name" = "„Xcode Organizer“ duomenys";
+"target.xcode.products.note" = "Iš „App Store Connect“ atsiųstos versijos, piktogramos, strigtys ir metrikos";
+"target.xcode.testdevices.name" = "Testinių simuliatorių klonai";
+"target.xcode.testdevices.note" = "Kopijos, kurias „Xcode“ daro lygiagretiems testams; kitą kartą sukuria iš naujo";
 "target.yarn.name" = "„Yarn“ podėlis";
 "target.yarn.note" = "„Yarn“ atsisiųsti paketai";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Kitą kartą susikurs pati ir to nepastebėsi.";
 "why.signOut" = "Būsi atjungtas nuo svetainių, kurios tai naudoja, ir teks prisijungti vėl.";
 "why.slowerBuild" = "Niekas nedingsta, bet kitas kompiliavimas užtruks ilgiau, kol tai padarys iš naujo.";
+"why.superseded" = "Tai sena versija, kurios niekas nebenaudoja. Jei kas nors jos vėl paprašytų, ji būtų atsiųsta iš naujo.";
 "why.toolDecides" = "Trina pats įrankis, tad ką tiksliai dings, sprendžia jis.";
 "why.unknown" = "Stalčius visam kam: čia patenka tai, ko neįvardijo joks kitas įrašas. Pažiūrėk prieš trindamas.";

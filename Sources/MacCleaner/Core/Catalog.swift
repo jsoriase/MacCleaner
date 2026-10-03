@@ -37,10 +37,30 @@ enum Expansion {
 enum Reclaim {
     /// `xcrun simctl delete <UDID>`.
     case simulator
-    /// `docker system prune --force`, a secas: se lleva la cache de
-    /// construccion —que es donde esta el bulto— y deja en paz las imagenes
-    /// etiquetadas y los volumenes.
+    /// `docker system prune --force`, a secas: se lleva los contenedores
+    /// parados, las imagenes colgantes y la cache de construccion, y deja en
+    /// paz las imagenes etiquetadas y los volumenes. Lo que se ofrece no es lo
+    /// que pesa el disco, sino lo que Docker dice que se llevaria
+    /// (`DockerPrune`).
     case docker
+    /// `xcrun simctl runtime delete <id>`. Los runtimes no viven en el home:
+    /// son imagenes de disco que monta el sistema, y solo `simctl` sabe
+    /// quitarlas sin dejar a CoreSimulator con una referencia rota.
+    case runtime
+}
+
+/// Que rutas de las que expande el patron entran de verdad en la fila.
+///
+/// Para las filas en las que el nombre no basta: de todas las extensiones
+/// instaladas solo sobran las que el editor ha dado por obsoletas, y de los
+/// runtimes de Codex solo los que se quedaron a medias.
+enum Pick {
+    case all
+    /// Las que el editor apunta en `extensions/.obsolete` tras actualizarlas.
+    case obsoleteExtensions
+    /// Los runtimes de Codex incompletos o abandonados. Uno completo es el
+    /// que esta usando, y ese no se ofrece.
+    case staleRuntimes
 }
 
 /// Que pasa exactamente si borras esta fila.
@@ -65,6 +85,9 @@ enum Consequence: String {
     case signOut
     /// Borra otro programa, y el decide que desaparece.
     case toolDecides
+    /// Una version vieja que ya no usa nadie. Si algo la volviera a pedir, se
+    /// descargaria otra vez, pero lo normal es que no la pida nada.
+    case superseded
     /// Cajon de sastre: aqui cae lo que nadie ha nombrado.
     case unknown
 
@@ -114,6 +137,8 @@ struct Target: Identifiable {
     /// marcado «Mover a la Papelera» —moverla a si misma no libera nada—, y
     /// antes que el resto, para no llevarse lo que las demas acaban de dejar.
     var isTrash: Bool = false
+    /// Filtro sobre lo que expande el patron. Ver `Pick`.
+    var pick: Pick = .all
 
     var isSweep: Bool { !artifacts.isEmpty }
 
@@ -132,9 +157,17 @@ extension Target {
     /// dice donde mirar y las rutas salen de recorrer el arbol buscando por
     /// nombre.
     func resolvePaths() -> [String] {
+        if reclaim == .runtime {
+            return SimRuntimes.scan().map(\.bundlePath)
+        }
         let expanded = patterns.flatMap { FileSystem.expand($0) }
         if reclaim == .simulator {
             return expanded.filter(FileSystem.isSimulatorDevice)
+        }
+        switch pick {
+        case .all: break
+        case .obsoleteExtensions: return expanded.filter(FileSystem.isObsoleteExtension)
+        case .staleRuntimes: return expanded.filter(FileSystem.isStaleCodexRuntime)
         }
         guard isSweep else { return expanded }
         let found = FileSystem.artifactFolders(collecting: artifacts,
@@ -150,7 +183,7 @@ extension Target {
 }
 
 enum Category: String, CaseIterable, Identifiable {
-    case xcode, jvm, node, langs, ai, projects, tools, browsers, system
+    case xcode, jvm, node, langs, editors, ai, projects, tools, browsers, system
 
     var id: String { rawValue }
     var title: String { L("category.\(rawValue)") }
@@ -161,6 +194,7 @@ enum Category: String, CaseIterable, Identifiable {
         case .jvm:    return "cup.and.saucer"
         case .node:   return "globe"
         case .langs:  return "chevron.left.forwardslash.chevron.right"
+        case .editors: return "curlybraces"
         case .ai:     return "brain"
         case .projects: return "folder"
         case .browsers: return "safari"
@@ -207,6 +241,14 @@ enum Catalog {
             names.map { "~/Library/Application Support/\(vendor)/Profiles/*/" + $0 }
         }
     }
+
+    /// VS Code y sus derivados comparten estructura: los datos de la app en
+    /// `Application Support/<nombre>` y las extensiones en `~/.<nombre>/extensions`.
+    static let editorData = ["Code", "Code - Insiders", "Cursor", "Windsurf", "VSCodium"]
+        .map { "~/Library/Application Support/" + $0 }
+
+    static let editorExtensions = [".vscode", ".vscode-insiders", ".cursor", ".windsurf", ".vscode-oss"]
+        .map { "~/\($0)/extensions" }
 
     /// Lo que reinstala un gestor de paquetes.
     static let dependencyFolders = ["node_modules", "Pods", ".venv", "venv", "vendor"]
@@ -294,6 +336,28 @@ enum Catalog {
                naming: .simulator,
                why: .toolDecides),
 
+        // Las imagenes de iOS, watchOS… que ya no tienen ningun simulador. Cada
+        // una son 7-10 GB fuera del home, que solo se ven desde Ajustes de Xcode.
+        Target(id: "sim.runtimes",
+               group: .xcode, risk: .caution, scope: .item,
+               patterns: [],
+               expansion: .paths,
+               reclaim: .runtime,
+               why: .toolDecides),
+
+        // Clones de simuladores que Xcode crea para los tests en paralelo y
+        // vuelve a crear en la siguiente ejecucion.
+        Target(id: "xcode.testdevices",
+               group: .xcode, risk: .safe, scope: .contents,
+               patterns: ["~/Library/Developer/XCTestDevices"]),
+
+        // Lo que el Organizer baja de App Store Connect: versiones, iconos,
+        // fallos y metricas de cada app.
+        Target(id: "xcode.products",
+               group: .xcode, risk: .rebuild, scope: .contents,
+               patterns: ["~/Library/Developer/Xcode/Products"],
+               why: .redownload),
+
         Target(id: "xcode.archives",
                group: .xcode, risk: .caution, scope: .contents,
                patterns: ["~/Library/Developer/Xcode/Archives"],
@@ -326,7 +390,8 @@ enum Catalog {
 
         Target(id: "gradle.daemon",
                group: .jvm, risk: .safe, scope: .contents,
-               patterns: ["~/.gradle/daemon", "~/.gradle/native", "~/.gradle/workers"]),
+               patterns: ["~/.gradle/daemon", "~/.gradle/native", "~/.gradle/workers",
+                          "~/.gradle/.tmp"]),
 
         Target(id: "gradle.wrapper",
                group: .jvm, risk: .caution, scope: .contents,
@@ -423,6 +488,25 @@ enum Catalog {
                isCatchAll: true,
                expansion: .paths),
 
+        // Herramientas sueltas de Node. Casi todas caian en el cajon de sastre,
+        // o en ningun sitio porque viven en ~/.cache.
+        Target(id: "node.tools",
+               group: .node, risk: .rebuild, scope: .contents,
+               patterns: ["~/.cache/node/corepack",
+                          "~/Library/Caches/node-gyp", "~/.node-gyp", "~/.cache/node-gyp",
+                          "~/Library/Caches/typescript", "~/.cache/typescript",
+                          "~/.cache/eslint", "~/.cache/prettier", "~/.cache/vite",
+                          "~/.cache/prisma"],
+               why: .redownload),
+
+        Target(id: "expo",
+               group: .node, risk: .rebuild, scope: .contents,
+               patterns: ["~/.expo/android-apk-cache", "~/.expo/ios-simulator-app-cache",
+                          "~/.expo/native-modules-cache", "~/.expo/schema-cache",
+                          "~/.expo/template-cache", "~/.expo/versions-cache",
+                          "~/.expo/expo-go"],
+               why: .redownload),
+
         Target(id: "browsers.headless",
                group: .node, risk: .caution, scope: .contents,
                patterns: ["~/Library/Caches/ms-playwright", "~/.cache/puppeteer"],
@@ -467,6 +551,32 @@ enum Catalog {
                patterns: ["~/.composer/cache", "~/.cache/composer"],
                why: .redownload),
 
+        Target(id: "langs.tools",
+               group: .langs, risk: .rebuild, scope: .contents,
+               patterns: ["~/.cache/terraform", "~/.cache/bazel", "~/.cache/zig",
+                          "~/.cache/ruff", "~/.cache/mypy"],
+               why: .redownload),
+
+        // MARK: Editores
+
+        // CachedData es cache de V8 y se rehace sola; los VSIX son las
+        // extensiones descargadas, y esos si hay que volver a bajarlos.
+        Target(id: "editors.cache",
+               group: .editors, risk: .rebuild, scope: .contents,
+               patterns: editorData.flatMap { root in
+                   ["CachedExtensionVSIXs", "CachedData", "logs"].map { root + "/" + $0 }
+               },
+               why: .redownload),
+
+        // Al actualizar una extension, la version vieja se queda en disco y el
+        // editor la apunta en `.obsolete`. No la vuelve a cargar nunca.
+        Target(id: "editors.extensions",
+               group: .editors, risk: .safe, scope: .item,
+               patterns: editorExtensions.map { $0 + "/*" },
+               expansion: .paths,
+               why: .superseded,
+               pick: .obsoleteExtensions),
+
         // MARK: Herramientas de IA
 
         Target(id: "ai.worktrees",
@@ -492,6 +602,15 @@ enum Catalog {
                           "~/.cache/lm-studio/models", "~/.lmstudio/models"],
                expansion: .children,
                why: .redownload),
+
+        // Solo los que se quedaron a medias. El completo es el que usa Codex
+        // —en ~/.cache/codex-runtimes pesa de 1 a 2 GB— y no se ofrece.
+        Target(id: "ai.runtimes",
+               group: .ai, risk: .safe, scope: .item,
+               patterns: ["~/.cache/codex-runtimes/*"],
+               expansion: .paths,
+               why: .superseded,
+               pick: .staleRuntimes),
 
         Target(id: "ai.caches",
                group: .ai, risk: .safe, scope: .contents,
@@ -586,8 +705,14 @@ enum Catalog {
                group: .tools, risk: .safe, scope: .contents,
                patterns: ["~/Library/Containers/com.docker.docker/Data/log"]),
 
-        // El fichero es disperso: `Docker.raw` declara cientos de GB y ocupa los
-        // que ocupa. Se mide con st_blocks, como `du`, asi que sale el real.
+        Target(id: "docker.buildx",
+               group: .tools, risk: .rebuild, scope: .contents,
+               patterns: ["~/.docker/buildx/cache"],
+               why: .slowerBuild),
+
+        // La ruta es `Docker.raw`, pero la cifra no es lo que ocupa: dentro
+        // estan las imagenes y los volumenes que el prune no toca. Es lo que
+        // Docker dice que se llevaria, y sin Docker abierto, nada.
         Target(id: "docker.disk",
                group: .tools, risk: .caution, scope: .item,
                patterns: ["~/Library/Containers/com.docker.docker/Data/vms/*/data/Docker.raw",

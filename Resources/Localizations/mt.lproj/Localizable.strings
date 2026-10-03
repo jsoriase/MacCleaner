@@ -12,12 +12,15 @@
 "alert.report.count" = "Kategoriji mnaddfa: %d";
 "alert.report.failures" = "Ma setax jitħassar kollox (kategoriji affettwati: %d). Normalment hija kwistjoni ta’ permessi: agħti lil MacCleaner Aċċess Sħiħ għad-Disk fis-Settings › Privatezza u sigurtà.";
 "alert.report.freed" = "Inħelsu %@.";
+"alert.report.skipped" = "Maqbuża, ma ntmess xejn: %@";
+"alert.report.space" = "Spazju ħieles: %@ → %@ (%@)";
 "alert.report.title" = "It-tindif tlesta";
 "alert.report.trashed" = "%@ ġew mċaqilqa fiż-Żibel. L-ispazju jinħeles meta tbattlu.";
 
 /* ---- category ---- */
 "category.ai" = "Għodod tal-IA";
 "category.browsers" = "Browsers";
+"category.editors" = "Edituri tal-kodiċi";
 "category.jvm" = "Android, Gradle u JVM";
 "category.langs" = "Lingwi oħra";
 "category.node" = "Node u web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Ikkanċella";
 "common.done" = "Lest";
+
+/* ---- detail ---- */
+"detail.empty" = "M’hemm xejn x’jinkiseb lura hawn";
 
 /* ---- empty ---- */
 "empty.button" = "Skennja issa";
@@ -58,6 +64,10 @@
 "header.stop" = "Waqqaf";
 "header.working" = "Qed jaħdem…";
 
+/* ---- menu ---- */
+"menu.history" = "Storja tat-tindif";
+"menu.unignore" = "Erġa’ offri dak li ġie injorat";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Ikollok terġa’ tniżżel l-affarijiet, inkella titlef dejta utli.";
 "risk.caution.label" = "Attenzjoni";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Sikuri";
 
 /* ---- row ---- */
+"row.busy" = "Qed jintuża: %@";
+"row.busy.help" = "Agħlqu biex tkun tista’ tnaddaf dan. MacCleaner jiċċekkja mill-ġdid eżatt qabel ma jħassar.";
+"row.busy.unknown" = "Ma setax jiġi ċċekkjat jekk hux qed jintuża, għalhekk mhux se jitħassar.";
 "row.files" = "Fajls: %d";
+"row.ignore" = "Terġax toffri";
 "row.noPath" = "Ma nstab l-ebda passaġġ li jaqbel f’dan il-Mac.";
+"row.recent.help" = "Inbidel fl-aħħar 7 ijiem. L-għażla ta’ malajr tħallih mhux immarkat; immarkah bl-idejn jekk tridu.";
 "row.reveal" = "Uri fil-Finder";
 
 /* ---- select ---- */
 "select.clear" = "Neħħi kollox";
 "select.mark" = "Agħżel";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Kollox";
+"sidebar.categories" = "Kategoriji";
+
+/* ---- skip ---- */
+"skip.busy" = "qed jużah %@";
+"skip.changed" = "inbidel wara l-iskennjar";
+"skip.unknown" = "ma setax jiġi ċċekkjat jekk kienx qed jintuża";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Cache tal-assistenti tal-kodiċi";
 "target.ai.caches.note" = "Fajls temporanji minn Claude, Codex, Cursor u OpenCode";
 "target.ai.models.name" = "Mudelli tal-IA mniżżla";
 "target.ai.models.note" = "Piżijiet ta’ Ollama, Hugging Face u LM Studio: ġigabytes kull wieħed";
+"target.ai.runtimes.name" = "Runtimes ta’ Codex abbandunati";
+"target.ai.runtimes.note" = "Tniżżil nofsu lest. Ir-runtime li juża Codex qatt ma jiġi offrut";
 "target.ai.vmbundles.name" = "Magni virtwali tal-assistenti";
 "target.ai.vmbundles.note" = "Immaġini tad-diska li Claude iniżżel biex iħaddem kodiċi";
 "target.ai.worktrees.name" = "Siġar tax-xogħol tal-aġenti";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Frameworks u checkouts ta’ Carthage";
 "target.cocoapods.name" = "Cache ta’ CocoaPods";
 "target.cocoapods.note" = "Pods u specs imniżżla";
-"target.docker.disk.name" = "Diska tal-magna virtwali ta’ Docker";
-"target.docker.disk.note" = "Tinħeles b’docker system prune. L-immaġini u l-volumi tiegħek jinżammu";
+"target.docker.buildx.name" = "Cache ta’ Docker Buildx";
+"target.docker.buildx.note" = "Cache lokali tal-bini ta’ docker buildx";
+"target.docker.disk.name" = "Fdal ta’ Docker";
+"target.docker.disk.note" = "Dak li jħassar docker system prune b’Docker mixgħul. L-immaġini u l-volumi jinżammu";
 "target.docker.logs.name" = "Logs ta’ Docker Desktop";
 "target.docker.logs.note" = "Logs biss. L-images u l-volumi ma jintmessux";
+"target.editors.cache.name" = "Cache ta’ VS Code u Cursor";
+"target.editors.cache.note" = "Estensjonijiet imniżżla (VSIX), cache tal-kodiċi u logs";
+"target.editors.extensions.name" = "Estensjonijiet skaduti";
+"target.editors.extensions.note" = "Verżjonijiet qodma li l-editur diġà biddel u mmarka bħala skaduti";
 "target.electron.appsupport.name" = "Cache tal-apps Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache u GPUCache barra minn ~/Library/Caches";
 "target.electron.name" = "Cache ta’ Electron";
 "target.electron.note" = "Binarji ta’ Electron u electron-builder";
+"target.expo.name" = "Cache ta’ Expo";
+"target.expo.note" = "Expo Go, bini nattiv u mudelli li jniżżel l-Expo CLI";
 "target.flutter.name" = "Cache ta’ Flutter / Dart";
 "target.flutter.note" = "~/.pub-cache: pakketti minn pub.dev";
 "target.go.build.name" = "Cache tal-bini ta’ Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Logs tal-ambjenti tal-iżvilupp";
 "target.kotlin.name" = "Cache ta’ Kotlin / Konan";
 "target.kotlin.note" = "Artifatti tal-kompilaturi Kotlin u Kotlin Native";
+"target.langs.tools.name" = "Cache ta’ għodod oħra";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff u mypy";
 "target.maven.name" = "Repożitorju lokali ta’ Maven";
 "target.maven.note" = "~/.m2/repository. Jitniżżel kollu mill-ġdid fil-bini li jmiss";
+"target.node.tools.name" = "Cache tal-għodod ta’ Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite u Prisma";
 "target.npm.name" = "Cache ta’ npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Cache ta’ Composer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Runtimes imniżżla u l-cache komuni tas-simulaturi";
 "target.sim.devices.name" = "Simulaturi installati";
 "target.sim.devices.note" = "Jitħassru b’simctl biex Xcode ma jibqax b’apparat fantażma";
+"target.sim.runtimes.name" = "Runtimes tas-simulatur mhux użati";
+"target.sim.runtimes.note" = "Immaġni ta’ iOS, watchOS… mingħajr ebda simulatur. Jitneħħew b’simctl";
 "target.swiftpm.name" = "Cache ta’ Swift Package Manager";
 "target.swiftpm.note" = "Repożitorji u binarji tad-dipendenzi ta’ SwiftPM";
 "target.trash.name" = "Basket";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode jerġa jniżżilha meta tiftaħha";
 "target.xcode.previews.name" = "Previews ta’ Xcode";
 "target.xcode.previews.note" = "Cache tal-previews ta’ SwiftUI";
+"target.xcode.products.name" = "Data tal-Organizer ta’ Xcode";
+"target.xcode.products.note" = "Verżjonijiet, ikoni, ħabtiet u metriċi mniżżla minn App Store Connect";
+"target.xcode.testdevices.name" = "Kloni tas-simulaturi tat-test";
+"target.xcode.testdevices.note" = "Kopji li jagħmel Xcode għat-testijiet paralleli; jerġa’ joħloqhom fil-ġirja li jmiss";
 "target.yarn.name" = "Cache ta’ Yarn";
 "target.yarn.note" = "Pakketti mniżżla minn Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Jinħoloq mill-ġdid waħdu d-darba li jmiss, u lanqas tinduna.";
 "why.signOut" = "Toħroġ mis-siti li jużawh u jkollok terġa tidħol.";
 "why.slowerBuild" = "Ma jintilef xejn, imma l-bini li jmiss idum aktar waqt li jerġa jagħmlu.";
+"why.superseded" = "Hija verżjoni qadima li m’għadu juża xejn. Jekk xi ħaġa terġa’ titlobha, terġa’ titniżżel.";
 "why.toolDecides" = "Iħassar l-għodda nnifisha, allura x’jisparixxi eżatt tiddeċiedi hi.";
 "why.unknown" = "Kexxun ta’ kollox: hawn jaqa dak li l-ebda ringiela oħra ma semmiet. Ħares qabel tħassar.";

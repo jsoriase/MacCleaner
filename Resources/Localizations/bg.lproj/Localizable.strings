@@ -12,12 +12,15 @@
 "alert.report.count" = "Почистени категории: %d";
 "alert.report.failures" = "Не всичко можа да бъде изтрито (засегнати категории: %d). Обикновено е въпрос на права: дайте на MacCleaner пълен достъп до диска в Настройки › Поверителност и сигурност.";
 "alert.report.freed" = "Освободени %@.";
+"alert.report.skipped" = "Пропуснати, без да се пипа нищо: %@";
+"alert.report.space" = "Свободно място: %@ → %@ (%@)";
 "alert.report.title" = "Почистването приключи";
 "alert.report.trashed" = "%@ бяха преместени в Кошчето. Мястото се освобождава при изпразване.";
 
 /* ---- category ---- */
 "category.ai" = "Инструменти с ИИ";
 "category.browsers" = "Браузъри";
+"category.editors" = "Редактори на код";
 "category.jvm" = "Android, Gradle и JVM";
 "category.langs" = "Други езици";
 "category.node" = "Node и уеб";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Отказ";
 "common.done" = "Готово";
+
+/* ---- detail ---- */
+"detail.empty" = "Тук няма какво да се освободи";
 
 /* ---- empty ---- */
 "empty.button" = "Сканирай сега";
@@ -58,6 +64,10 @@
 "header.stop" = "Спри";
 "header.working" = "Работи…";
 
+/* ---- menu ---- */
+"menu.history" = "История на почистването";
+"menu.unignore" = "Предлагай отново пренебрегнатото";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Ще трябва да се изтегли отново, или губите полезни данни.";
 "risk.caution.label" = "Внимание";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Безопасни";
 
 /* ---- row ---- */
+"row.busy" = "Използва се: %@";
+"row.busy.help" = "Затворете го, за да почистите това. MacCleaner проверява отново точно преди изтриване.";
+"row.busy.unknown" = "Не може да се провери дали се използва, затова няма да бъде изтрито.";
 "row.files" = "Файлове: %d";
+"row.ignore" = "Да не се предлага отново";
 "row.noPath" = "На този Mac не е намерен съответстващ път.";
+"row.recent.help" = "Променено през последните 7 дни. Бързият избор го оставя неотметнато; отметнете го ръчно, ако го искате.";
 "row.reveal" = "Показване във Finder";
 
 /* ---- select ---- */
 "select.clear" = "Изчисти избора";
 "select.mark" = "Избери";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Всичко";
+"sidebar.categories" = "Категории";
+
+/* ---- skip ---- */
+"skip.busy" = "използва се от %@";
+"skip.changed" = "променено след сканирането";
+"skip.unknown" = "не може да се провери дали се е използвало";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Кешове на асистентите за код";
 "target.ai.caches.note" = "Временни файлове от Claude, Codex, Cursor и OpenCode";
 "target.ai.models.name" = "Изтеглени модели с ИИ";
 "target.ai.models.note" = "Тегла от Ollama, Hugging Face и LM Studio: по няколко GB всяко";
+"target.ai.runtimes.name" = "Изоставени среди на Codex";
+"target.ai.runtimes.note" = "Недовършени изтегляния. Средата, която Codex използва, никога не се предлага";
 "target.ai.vmbundles.name" = "Виртуални машини на асистентите";
 "target.ai.vmbundles.note" = "Дискови образи, които Claude изтегля, за да изпълнява код";
 "target.ai.worktrees.name" = "Работни дървета на агентите";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Рамки и checkout-и на Carthage";
 "target.cocoapods.name" = "Кеш на CocoaPods";
 "target.cocoapods.note" = "Изтеглени pod-ове и specs";
-"target.docker.disk.name" = "Диск на виртуалната машина на Docker";
-"target.docker.disk.note" = "Освобождава се с docker system prune. Образите и томовете ти се запазват";
+"target.docker.buildx.name" = "Кеш на Docker Buildx";
+"target.docker.buildx.note" = "Локален кеш за компилация на docker buildx";
+"target.docker.disk.name" = "Остатъци от Docker";
+"target.docker.disk.note" = "Каквото изтрива docker system prune при пуснат Docker. Образите и томовете се запазват";
 "target.docker.logs.name" = "Дневници на Docker Desktop";
 "target.docker.logs.note" = "Само дневници. Образите и томовете остават непокътнати";
+"target.editors.cache.name" = "Кешове на VS Code и Cursor";
+"target.editors.cache.note" = "Изтеглени разширения (VSIX), кеш на кода и дневници";
+"target.editors.extensions.name" = "Остарели разширения";
+"target.editors.extensions.note" = "Стари версии, които редакторът вече е заменил и отбелязал като остарели";
 "target.electron.appsupport.name" = "Кешове на приложенията Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache и GPUCache извън ~/Library/Caches";
 "target.electron.name" = "Кеш на Electron";
 "target.electron.note" = "Двоични файлове на Electron и electron-builder";
+"target.expo.name" = "Кеш на Expo";
+"target.expo.note" = "Expo Go, нативни компилации и шаблони, изтеглени от Expo CLI";
 "target.flutter.name" = "Кеш на Flutter / Dart";
 "target.flutter.note" = "~/.pub-cache: пакети от pub.dev";
 "target.go.build.name" = "Кеш за компилиране на Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Дневници на средите за разработка";
 "target.kotlin.name" = "Кеш на Kotlin / Konan";
 "target.kotlin.note" = "Артефакти на компилаторите Kotlin и Kotlin Native";
+"target.langs.tools.name" = "Кешове на други инструменти";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff и mypy";
 "target.maven.name" = "Локално хранилище на Maven";
 "target.maven.note" = "~/.m2/repository. При следващото компилиране се изтегля изцяло наново";
+"target.node.tools.name" = "Кешове на инструменти за Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite и Prisma";
 "target.npm.name" = "Кеш на npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Кеш на Composer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Изтеглени среди за изпълнение и общ кеш на симулаторите";
 "target.sim.devices.name" = "Инсталирани симулатори";
 "target.sim.devices.note" = "Изтриват се със simctl, за да не остане на Xcode призрачно устройство";
+"target.sim.runtimes.name" = "Неизползвани среди на симулатора";
+"target.sim.runtimes.note" = "Образи на iOS, watchOS… без нито един симулатор. Премахват се със simctl";
 "target.swiftpm.name" = "Кеш на Swift Package Manager";
 "target.swiftpm.note" = "Хранилища и двоични файлове на зависимостите на SwiftPM";
 "target.trash.name" = "Кошче";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode я изтегля отново, когато я отвориш";
 "target.xcode.previews.name" = "Прегледи в Xcode";
 "target.xcode.previews.note" = "Кеш за прегледите на SwiftUI";
+"target.xcode.products.name" = "Данни от Organizer на Xcode";
+"target.xcode.products.note" = "Версии, икони, сривове и метрики, изтеглени от App Store Connect";
+"target.xcode.testdevices.name" = "Клонинги на тестови симулатори";
+"target.xcode.testdevices.note" = "Копия, които Xcode прави за паралелни тестове; създава ги отново при следващото изпълнение";
 "target.yarn.name" = "Кеш на Yarn";
 "target.yarn.note" = "Пакети, изтеглени от Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Следващия път се създава сама и няма да го забележиш.";
 "why.signOut" = "Ще излезеш от сайтовете, които го ползват, и ще трябва да влезеш пак.";
 "why.slowerBuild" = "Нищо не се губи, но следващата компилация ще отнеме повече, докато го направи пак.";
+"why.superseded" = "Това е стара версия, която вече нищо не използва. Ако нещо я поиска отново, ще бъде изтеглена пак.";
 "why.toolDecides" = "Изтрива самият инструмент, така че какво точно изчезва решава той.";
 "why.unknown" = "Чекмедже за всичко: тук пада онова, което никой друг ред не е назовал. Погледни преди да триеш.";

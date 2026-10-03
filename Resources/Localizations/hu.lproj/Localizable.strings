@@ -12,12 +12,15 @@
 "alert.report.count" = "Megtisztított kategóriák: %d";
 "alert.report.failures" = "Nem sikerült mindent törölni (érintett kategóriák: %d). Ez rendszerint jogosultsági kérdés: adj a MacCleanernek teljes lemez-hozzáférést a Beállítások › Adatvédelem és biztonság menüben.";
 "alert.report.freed" = "Felszabadítva: %@.";
+"alert.report.skipped" = "Kihagyva, semmihez sem nyúlt: %@";
+"alert.report.space" = "Szabad hely: %@ → %@ (%@)";
 "alert.report.title" = "A tisztítás befejeződött";
 "alert.report.trashed" = "%@ a Kukába került. A hely a Kuka ürítésekor szabadul fel.";
 
 /* ---- category ---- */
 "category.ai" = "MI-eszközök";
 "category.browsers" = "Böngészők";
+"category.editors" = "Kódszerkesztők";
 "category.jvm" = "Android, Gradle és JVM";
 "category.langs" = "Egyéb nyelvek";
 "category.node" = "Node és web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Mégse";
 "common.done" = "Kész";
+
+/* ---- detail ---- */
+"detail.empty" = "Itt nincs mit felszabadítani";
 
 /* ---- empty ---- */
 "empty.button" = "Átvizsgálás most";
@@ -58,6 +64,10 @@
 "header.stop" = "Leállítás";
 "header.working" = "Dolgozom…";
 
+/* ---- menu ---- */
+"menu.history" = "Tisztítási előzmények";
+"menu.unignore" = "A mellőzöttek újbóli felajánlása";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Dolgokat újra le kell tölteni, vagy hasznos adatokat vesztesz.";
 "risk.caution.label" = "Vigyázz";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Biztonságosak";
 
 /* ---- row ---- */
+"row.busy" = "Használatban: %@";
+"row.busy.help" = "Zárja be, hogy ezt meg lehessen tisztítani. A MacCleaner közvetlenül a törlés előtt újra ellenőrzi.";
+"row.busy.unknown" = "Nem sikerült ellenőrizni, hogy használatban van-e, ezért nem lesz törölve.";
 "row.files" = "Fájlok: %d";
+"row.ignore" = "Ne ajánlja fel újra";
 "row.noPath" = "Ezen a Macen nem található megfelelő útvonal.";
+"row.recent.help" = "Az elmúlt 7 napban módosult. A gyorskijelölés jelöletlenül hagyja; jelölje be kézzel, ha szeretné.";
 "row.reveal" = "Megjelenítés a Finderben";
 
 /* ---- select ---- */
 "select.clear" = "Kijelölés törlése";
 "select.mark" = "Kijelölés";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Mind";
+"sidebar.categories" = "Kategóriák";
+
+/* ---- skip ---- */
+"skip.busy" = "használja: %@";
+"skip.changed" = "megváltozott az átvizsgálás óta";
+"skip.unknown" = "nem sikerült ellenőrizni, hogy használatban volt-e";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Kódasszisztensek gyorsítótárai";
 "target.ai.caches.note" = "Ideiglenes fájlok a Claude, Codex, Cursor és OpenCode alkalmazásokból";
 "target.ai.models.name" = "Letöltött MI-modellek";
 "target.ai.models.note" = "Ollama, Hugging Face és LM Studio súlyok: fejenként több GB";
+"target.ai.runtimes.name" = "Elhagyott Codex-futtatókörnyezetek";
+"target.ai.runtimes.note" = "Félbemaradt letöltések. A Codex által használt környezetet sosem ajánlja fel";
 "target.ai.vmbundles.name" = "Asszisztensek virtuális gépei";
 "target.ai.vmbundles.note" = "Lemezképek, amiket a Claude tölt le kódfuttatáshoz";
 "target.ai.worktrees.name" = "Ügynökök munkafái";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Carthage keretrendszerek és checkoutok";
 "target.cocoapods.name" = "CocoaPods gyorsítótár";
 "target.cocoapods.note" = "Letöltött podok és specsek";
-"target.docker.disk.name" = "A Docker virtuális gépének lemeze";
-"target.docker.disk.note" = "A docker system prune szabadítja fel. A képfájljaid és köteteid megmaradnak";
+"target.docker.buildx.name" = "Docker Buildx gyorsítótár";
+"target.docker.buildx.note" = "A docker buildx helyi build-gyorsítótára";
+"target.docker.disk.name" = "Docker-maradványok";
+"target.docker.disk.note" = "Amit a docker system prune töröl, ha fut a Docker. A képfájlok és kötetek megmaradnak";
 "target.docker.logs.name" = "Docker Desktop naplók";
 "target.docker.logs.note" = "Csak naplók. A képfájlokhoz és kötetekhez nem nyúl";
+"target.editors.cache.name" = "VS Code és Cursor gyorsítótárak";
+"target.editors.cache.note" = "Letöltött bővítmények (VSIX), kódgyorsítótár és naplók";
+"target.editors.extensions.name" = "Elavult bővítmények";
+"target.editors.extensions.note" = "Régi verziók, amelyeket a szerkesztő már lecserélt és elavultnak jelölt";
 "target.electron.appsupport.name" = "Electron-alkalmazások gyorsítótárai";
 "target.electron.appsupport.note" = "Cache, Code Cache és GPUCache a ~/Library/Caches mappán kívül";
 "target.electron.name" = "Electron gyorsítótár";
 "target.electron.note" = "Az Electron és az electron-builder binárisai";
+"target.expo.name" = "Expo gyorsítótár";
+"target.expo.note" = "Az Expo CLI által letöltött Expo Go, natív buildek és sablonok";
 "target.flutter.name" = "Flutter / Dart gyorsítótár";
 "target.flutter.note" = "~/.pub-cache: csomagok a pub.dev oldalról";
 "target.go.build.name" = "Go fordítási gyorsítótár";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "A fejlesztőkörnyezetek naplói";
 "target.kotlin.name" = "Kotlin / Konan gyorsítótár";
 "target.kotlin.note" = "A Kotlin és Kotlin Native fordítók termékei";
+"target.langs.tools.name" = "Egyéb eszközök gyorsítótárai";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff és mypy";
 "target.maven.name" = "Helyi Maven tároló";
 "target.maven.note" = "~/.m2/repository. A következő fordításnál teljesen újra letöltődik";
+"target.node.tools.name" = "Node-eszközök gyorsítótárai";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite és Prisma";
 "target.npm.name" = "npm gyorsítótár";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composer gyorsítótár (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Letöltött futtatókörnyezetek és a szimulátorok közös gyorsítótára";
 "target.sim.devices.name" = "Telepített szimulátorok";
 "target.sim.devices.note" = "A simctl törli őket, hogy az Xcode ne maradjon szellemeszközzel";
+"target.sim.runtimes.name" = "Nem használt szimulátor-futtatókörnyezetek";
+"target.sim.runtimes.note" = "iOS-, watchOS-… lemezképek szimulátor nélkül. A simctl távolítja el őket";
 "target.swiftpm.name" = "Swift Package Manager gyorsítótár";
 "target.swiftpm.note" = "A SwiftPM-függőségek tárolói és binárisai";
 "target.trash.name" = "Kuka";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Az Xcode újra letölti, amikor megnyitod";
 "target.xcode.previews.name" = "Xcode előnézetek";
 "target.xcode.previews.note" = "A SwiftUI-előnézetek gyorsítótára";
+"target.xcode.products.name" = "Az Xcode Organizer adatai";
+"target.xcode.products.note" = "Az App Store Connectből letöltött verziók, ikonok, összeomlások és mérőszámok";
+"target.xcode.testdevices.name" = "Tesztszimulátor-klónok";
+"target.xcode.testdevices.note" = "Az Xcode párhuzamos tesztekhez készített másolatai; a következő futtatáskor újra létrehozza őket";
 "target.yarn.name" = "Yarn gyorsítótár";
 "target.yarn.note" = "A Yarn által letöltött csomagok";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Legközelebb magától elkészül, és észre sem veszed.";
 "why.signOut" = "Kiléptet azokról az oldalakról, amelyek használják, és újra be kell jelentkezned.";
 "why.slowerBuild" = "Semmi nem vész el, de a következő fordítás tovább tart, amíg újra elkészíti.";
+"why.superseded" = "Régi verzió, amelyet már semmi sem használ. Ha valami újra kérné, ismét le lenne töltve.";
 "why.toolDecides" = "Maga az eszköz töröl, így pontosan mi tűnik el, azt ő dönti el.";
 "why.unknown" = "Mindenes fiók: ide kerül, amit egyetlen másik sor sem nevezett meg. Nézd meg törlés előtt.";

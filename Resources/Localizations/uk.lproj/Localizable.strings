@@ -12,12 +12,15 @@
 "alert.report.count" = "Очищено категорій: %d";
 "alert.report.failures" = "Не вдалося видалити все (задіяні категорії: %d). Зазвичай це питання дозволів: надайте MacCleaner повний доступ до диска в Параметри › Конфіденційність і безпека.";
 "alert.report.freed" = "Звільнено %@.";
+"alert.report.skipped" = "Пропущено, нічого не зачеплено: %@";
+"alert.report.space" = "Вільне місце: %@ → %@ (%@)";
 "alert.report.title" = "Очищення завершено";
 "alert.report.trashed" = "%@ переміщено до Кошика. Місце звільниться після його очищення.";
 
 /* ---- category ---- */
 "category.ai" = "Інструменти ШІ";
 "category.browsers" = "Браузери";
+"category.editors" = "Редактори коду";
 "category.jvm" = "Android, Gradle та JVM";
 "category.langs" = "Інші мови";
 "category.node" = "Node та вебтехнології";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Скасувати";
 "common.done" = "Готово";
+
+/* ---- detail ---- */
+"detail.empty" = "Тут нічого звільняти";
 
 /* ---- empty ---- */
 "empty.button" = "Сканувати зараз";
@@ -58,6 +64,10 @@
 "header.stop" = "Зупинити";
 "header.working" = "Працюю…";
 
+/* ---- menu ---- */
+"menu.history" = "Історія очищення";
+"menu.unignore" = "Знову пропонувати проігнороване";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Доведеться завантажувати заново, інакше втратите корисні дані.";
 "risk.caution.label" = "Обережно";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Безпечні";
 
 /* ---- row ---- */
+"row.busy" = "Використовується: %@";
+"row.busy.help" = "Закрийте його, щоб це очистити. MacCleaner перевіряє ще раз безпосередньо перед видаленням.";
+"row.busy.unknown" = "Не вдалося перевірити, чи використовується, тому видалено не буде.";
 "row.files" = "Файли: %d";
+"row.ignore" = "Більше не пропонувати";
 "row.noPath" = "На цьому Mac не знайдено жодного відповідного шляху.";
+"row.recent.help" = "Змінено за останні 7 днів. Швидкий вибір залишає це непозначеним; позначте вручну, якщо потрібно.";
 "row.reveal" = "Показати у Finder";
 
 /* ---- select ---- */
 "select.clear" = "Зняти позначки";
 "select.mark" = "Вибрати";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Усе";
+"sidebar.categories" = "Категорії";
+
+/* ---- skip ---- */
+"skip.busy" = "використовує %@";
+"skip.changed" = "змінилося після сканування";
+"skip.unknown" = "не вдалося перевірити, чи використовувалося";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Кеші помічників з коду";
 "target.ai.caches.note" = "Тимчасові файли Claude, Codex, Cursor і OpenCode";
 "target.ai.models.name" = "Завантажені моделі ШІ";
 "target.ai.models.note" = "Ваги Ollama, Hugging Face і LM Studio: по кілька гігабайтів";
+"target.ai.runtimes.name" = "Покинуті середовища Codex";
+"target.ai.runtimes.note" = "Недозавантажені файли. Середовище, яким користується Codex, ніколи не пропонується";
 "target.ai.vmbundles.name" = "Віртуальні машини асистентів";
 "target.ai.vmbundles.note" = "Образи дисків, які Claude завантажує для запуску коду";
 "target.ai.worktrees.name" = "Робочі дерева агентів";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Фреймворки та checkout-и Carthage";
 "target.cocoapods.name" = "Кеш CocoaPods";
 "target.cocoapods.note" = "Завантажені pod-и та specs";
-"target.docker.disk.name" = "Диск віртуальної машини Docker";
-"target.docker.disk.note" = "Звільняється командою docker system prune. Образи й томи зберігаються";
+"target.docker.buildx.name" = "Кеш Docker Buildx";
+"target.docker.buildx.note" = "Локальний кеш збирання docker buildx";
+"target.docker.disk.name" = "Залишки Docker";
+"target.docker.disk.note" = "Те, що видаляє docker system prune за запущеного Docker. Образи й томи зберігаються";
 "target.docker.logs.name" = "Журнали Docker Desktop";
 "target.docker.logs.note" = "Лише журнали. Образи та томи не чіпаються";
+"target.editors.cache.name" = "Кеші VS Code і Cursor";
+"target.editors.cache.note" = "Завантажені розширення (VSIX), кеш коду та журнали";
+"target.editors.extensions.name" = "Застарілі розширення";
+"target.editors.extensions.note" = "Старі версії, які редактор уже замінив і позначив як застарілі";
 "target.electron.appsupport.name" = "Кеші застосунків Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache і GPUCache поза ~/Library/Caches";
 "target.electron.name" = "Кеш Electron";
 "target.electron.note" = "Бінарні файли Electron і electron-builder";
+"target.expo.name" = "Кеш Expo";
+"target.expo.note" = "Expo Go, нативні збірки й шаблони, завантажені Expo CLI";
 "target.flutter.name" = "Кеш Flutter / Dart";
 "target.flutter.note" = "~/.pub-cache: пакети з pub.dev";
 "target.go.build.name" = "Кеш збірки Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Журнали середовищ розробки";
 "target.kotlin.name" = "Кеш Kotlin / Konan";
 "target.kotlin.note" = "Артефакти компіляторів Kotlin і Kotlin Native";
+"target.langs.tools.name" = "Кеші інших інструментів";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff і mypy";
 "target.maven.name" = "Локальний репозиторій Maven";
 "target.maven.note" = "~/.m2/repository. За наступної збірки завантажиться повністю заново";
+"target.node.tools.name" = "Кеші інструментів Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite і Prisma";
 "target.npm.name" = "Кеш npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Кеш Composer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Завантажені середовища виконання та спільний кеш симуляторів";
 "target.sim.devices.name" = "Встановлені симулятори";
 "target.sim.devices.note" = "Видаляються через simctl, щоб Xcode не лишився з привидом";
+"target.sim.runtimes.name" = "Невикористані середовища симулятора";
+"target.sim.runtimes.note" = "Образи iOS, watchOS… без жодного симулятора. Видаляються через simctl";
 "target.swiftpm.name" = "Кеш Swift Package Manager";
 "target.swiftpm.note" = "Репозиторії та бінарні файли залежностей SwiftPM";
 "target.trash.name" = "Кошик";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode завантажить її знову при відкритті";
 "target.xcode.previews.name" = "Перегляди Xcode";
 "target.xcode.previews.note" = "Кеш переглядів SwiftUI";
+"target.xcode.products.name" = "Дані Organizer у Xcode";
+"target.xcode.products.note" = "Версії, піктограми, збої та метрики, завантажені з App Store Connect";
+"target.xcode.testdevices.name" = "Клони тестових симуляторів";
+"target.xcode.testdevices.note" = "Копії, які Xcode створює для паралельних тестів; перестворює їх під час наступного запуску";
 "target.yarn.name" = "Кеш Yarn";
 "target.yarn.note" = "Пакети, завантажені Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Наступного разу створиться сама, і ти цього не помітиш.";
 "why.signOut" = "Ти вийдеш із сайтів, які це використовують, і доведеться увійти знову.";
 "why.slowerBuild" = "Нічого не втрачається, але наступне збирання триватиме довше, поки робить заново.";
+"why.superseded" = "Це стара версія, якою вже ніщо не користується. Якщо щось знову її запросить, її завантажать заново.";
 "why.toolDecides" = "Видаляє сам інструмент, тож що саме зникне, вирішує він.";
 "why.unknown" = "Скринька для всього: сюди потрапляє те, чого не назвав жоден інший рядок. Подивись перед видаленням.";

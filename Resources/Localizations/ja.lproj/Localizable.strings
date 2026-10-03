@@ -13,12 +13,15 @@
 "alert.report.count" = "クリーンアップしたカテゴリ: %d";
 "alert.report.failures" = "一部の項目を削除できませんでした（対象カテゴリ: %d）。多くの場合は権限の問題です。「システム設定 › プライバシーとセキュリティ」で MacCleaner にフルディスクアクセスを許可してください。";
 "alert.report.freed" = "%@ を解放しました。";
+"alert.report.skipped" = "スキップ（何も変更していません）: %@";
+"alert.report.space" = "空き容量: %@ → %@（%@）";
 "alert.report.title" = "クリーンアップ完了";
 "alert.report.trashed" = "%@ をゴミ箱に移動しました。空にすると容量が解放されます。";
 
 /* ---- category ---- */
 "category.ai" = "AIツール";
 "category.browsers" = "ブラウザ";
+"category.editors" = "コードエディタ";
 "category.jvm" = "Android・Gradle・JVM";
 "category.langs" = "その他の言語";
 "category.node" = "Node と Web";
@@ -30,6 +33,9 @@
 /* ---- common ---- */
 "common.cancel" = "キャンセル";
 "common.done" = "完了";
+
+/* ---- detail ---- */
+"detail.empty" = "ここで解放できるものはありません";
 
 /* ---- empty ---- */
 "empty.button" = "今すぐスキャン";
@@ -59,6 +65,10 @@
 "header.stop" = "停止";
 "header.working" = "処理中…";
 
+/* ---- menu ---- */
+"menu.history" = "クリーンアップ履歴";
+"menu.unignore" = "無視した項目を再表示";
+
 /* ---- risk ---- */
 "risk.caution.help" = "再ダウンロードが必要になるか、有用なデータを失います。";
 "risk.caution.label" = "注意";
@@ -71,19 +81,35 @@
 "risk.safe.plural" = "安全な項目";
 
 /* ---- row ---- */
+"row.busy" = "使用中: %@";
+"row.busy.help" = "クリーンアップするには終了してください。MacCleaner は削除の直前にもう一度確認します。";
+"row.busy.unknown" = "使用中かどうかを確認できなかったため、削除しません。";
 "row.files" = "ファイル: %d";
+"row.ignore" = "今後表示しない";
 "row.noPath" = "この Mac に該当するパスは見つかりませんでした。";
+"row.recent.help" = "過去 7 日以内に変更されています。クイック選択ではチェックされません。必要なら手動でチェックしてください。";
 "row.reveal" = "Finder に表示";
 
 /* ---- select ---- */
 "select.clear" = "すべて解除";
 "select.mark" = "選択";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "すべて";
+"sidebar.categories" = "カテゴリ";
+
+/* ---- skip ---- */
+"skip.busy" = "%@ が使用中";
+"skip.changed" = "スキャン後に変更されました";
+"skip.unknown" = "使用中かどうかを確認できませんでした";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "コーディングアシスタントのキャッシュ";
 "target.ai.caches.note" = "Claude、Codex、Cursor、OpenCode の一時ファイル";
 "target.ai.models.name" = "ダウンロード済みのAIモデル";
 "target.ai.models.note" = "Ollama、Hugging Face、LM Studio の重み。1つで数ギガバイト";
+"target.ai.runtimes.name" = "放置された Codex ランタイム";
+"target.ai.runtimes.note" = "途中で止まったダウンロード。Codex が使っているランタイムは表示されません";
 "target.ai.vmbundles.name" = "アシスタントの仮想マシン";
 "target.ai.vmbundles.note" = "Claude がコード実行のためにダウンロードするディスクイメージ";
 "target.ai.worktrees.name" = "エージェントの作業ツリー";
@@ -116,14 +142,22 @@
 "target.carthage.note" = "Carthage のフレームワークとチェックアウト";
 "target.cocoapods.name" = "CocoaPods のキャッシュ";
 "target.cocoapods.note" = "ダウンロード済みの pod と spec";
-"target.docker.disk.name" = "Docker仮想マシンのディスク";
-"target.docker.disk.note" = "docker system prune で解放されます。イメージとボリュームは残ります";
+"target.docker.buildx.name" = "Docker Buildx のキャッシュ";
+"target.docker.buildx.note" = "docker buildx のローカルビルドキャッシュ";
+"target.docker.disk.name" = "Docker の不要データ";
+"target.docker.disk.note" = "Docker 起動中に docker system prune が削除するもの。イメージとボリュームは残ります";
 "target.docker.logs.name" = "Docker Desktop のログ";
 "target.docker.logs.note" = "ログのみ。イメージとボリュームには触れません";
+"target.editors.cache.name" = "VS Code と Cursor のキャッシュ";
+"target.editors.cache.note" = "ダウンロードした拡張機能 (VSIX)、コードキャッシュ、ログ";
+"target.editors.extensions.name" = "古い拡張機能";
+"target.editors.extensions.note" = "エディタがすでに置き換え、廃止済みとしてマークした古いバージョン";
 "target.electron.appsupport.name" = "Electronアプリのキャッシュ";
 "target.electron.appsupport.note" = "~/Library/Caches の外にある Cache、Code Cache、GPUCache";
 "target.electron.name" = "Electron のキャッシュ";
 "target.electron.note" = "Electron と electron-builder のバイナリ";
+"target.expo.name" = "Expo のキャッシュ";
+"target.expo.note" = "Expo CLI がダウンロードした Expo Go、ネイティブビルド、テンプレート";
 "target.flutter.name" = "Flutter / Dart のキャッシュ";
 "target.flutter.note" = "~/.pub-cache：pub.dev のパッケージ";
 "target.go.build.name" = "Go のビルドキャッシュ";
@@ -146,8 +180,12 @@
 "target.jetbrains.logs.note" = "各 IDE のログ";
 "target.kotlin.name" = "Kotlin / Konan のキャッシュ";
 "target.kotlin.note" = "Kotlin および Kotlin Native コンパイラの成果物";
+"target.langs.tools.name" = "その他のツールのキャッシュ";
+"target.langs.tools.note" = "Terraform、Bazel、Zig、Ruff、mypy";
 "target.maven.name" = "ローカル Maven リポジトリ";
 "target.maven.note" = "~/.m2/repository。次のビルドで全体が再ダウンロードされます";
+"target.node.tools.name" = "Node ツールのキャッシュ";
+"target.node.tools.note" = "Corepack、node-gyp、TypeScript、ESLint、Prettier、Vite、Prisma";
 "target.npm.name" = "npm のキャッシュ";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composer のキャッシュ（PHP）";
@@ -170,6 +208,8 @@
 "target.sim.caches.note" = "ダウンロード済みランタイムとシミュレータの共有キャッシュ";
 "target.sim.devices.name" = "インストール済みのシミュレータ";
 "target.sim.devices.note" = "simctl で削除します。Xcode に幽霊デバイスが残りません";
+"target.sim.runtimes.name" = "未使用のシミュレータランタイム";
+"target.sim.runtimes.note" = "シミュレータが残っていない iOS、watchOS… のイメージ。simctl で削除します";
 "target.swiftpm.name" = "Swift Package Manager のキャッシュ";
 "target.swiftpm.note" = "SwiftPM 依存関係のリポジトリとバイナリ";
 "target.trash.name" = "ゴミ箱";
@@ -192,6 +232,10 @@
 "target.xcode.doccache.note" = "開いたときにXcodeが再びダウンロードします";
 "target.xcode.previews.name" = "Xcode プレビュー";
 "target.xcode.previews.note" = "SwiftUI プレビューのキャッシュ";
+"target.xcode.products.name" = "Xcode Organizer のデータ";
+"target.xcode.products.note" = "App Store Connect からダウンロードしたバージョン、アイコン、クラッシュ、メトリクス";
+"target.xcode.testdevices.name" = "テスト用シミュレータのクローン";
+"target.xcode.testdevices.note" = "Xcode が並列テスト用に作るコピー。次回の実行時に再作成されます";
 "target.yarn.name" = "Yarn のキャッシュ";
 "target.yarn.note" = "Yarn がダウンロードしたパッケージ";
 
@@ -202,5 +246,6 @@
 "why.regenerates" = "次に必要になったとき勝手に作り直されます。気づくこともありません。";
 "why.signOut" = "これを使っているサイトからログアウトし、入り直すことになります。";
 "why.slowerBuild" = "失うものはありませんが、次のビルドは作り直すぶんだけ長くかかります。";
+"why.superseded" = "もう何も使っていない古いバージョンです。再び必要になった場合は、もう一度ダウンロードされます。";
 "why.toolDecides" = "削除するのはツール自身なので、何が消えるかはツールが決めます。";
 "why.unknown" = "なんでも入れ：ほかのどの行も名前を付けなかったものがここに落ちます。消す前に確認を。";

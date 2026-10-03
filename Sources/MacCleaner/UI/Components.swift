@@ -13,6 +13,14 @@ func revealInFinder(_ paths: [String]) {
     NSWorkspace.shared.activateFileViewerSelecting(urls)
 }
 
+/// Abre el historial de limpiezas con la app que el sistema tenga para los
+/// `.log`, que normalmente es Consola.
+func openHistory() {
+    let log = OperationLog.shared
+    guard log.exists else { return }
+    NSWorkspace.shared.open(log.url)
+}
+
 // MARK: - Cabecera de categoria
 
 struct GroupHeader: View {
@@ -83,8 +91,10 @@ struct TriStateCheckbox: View {
 
 struct TargetRow: View {
     let row: Row
+    var occupancy: Occupancy = .free
     let onToggle: () -> Void
     let onExpand: () -> Void
+    var onIgnore: () -> Void = {}
 
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
@@ -115,6 +125,7 @@ struct TargetRow: View {
                         .font(.system(size: 13))
                         .foregroundStyle(row.isEmpty ? .secondary : .primary)
                     RiskBadge(risk: row.target.risk, why: row.target.why)
+                    BusyBadge(occupancy: occupancy)
                     if row.hasItems {
                         Text("\(row.items.count)")
                             .font(.system(size: 9, weight: .medium))
@@ -142,6 +153,8 @@ struct TargetRow: View {
             // mirarlo primero.
             Button(L("row.reveal")) { revealInFinder(row.paths) }
                 .disabled(row.paths.isEmpty)
+            Divider()
+            Button(L("row.ignore"), action: onIgnore)
         }
     }
 
@@ -153,6 +166,10 @@ struct TargetRow: View {
         case .failed(let reason):
             Image(systemName: "exclamationmark.triangle.fill")
                 .foregroundStyle(.orange)
+                .help(reason)
+        case .skipped(let reason):
+            Image(systemName: "pause.circle.fill")
+                .foregroundStyle(.secondary)
                 .help(reason)
         case .cleaned(let freed):
             HStack(spacing: 4) {
@@ -185,7 +202,12 @@ struct TargetRow: View {
 /// Una subcarpeta dentro de una fila desplegable.
 struct SubItemRow: View {
     let item: SubItem
+    var occupancy: Occupancy = .free
+    /// En un barrido de proyectos, lo escrito esta semana se senala: los
+    /// botones de seleccion rapida lo dejan sin marcar.
+    var flagsRecent = false
     let onToggle: (Bool) -> Void
+    var onIgnore: () -> Void = {}
 
     var body: some View {
         HStack(spacing: 10) {
@@ -206,9 +228,12 @@ struct SubItemRow: View {
             if let date = item.usage.modified {
                 Text(FileSystem.humanAge(date))
                     .font(.system(size: 10))
-                    .foregroundStyle(item.isStale ? Color.orange : Color.secondary)
+                    .foregroundStyle(ageColor)
                     .lineLimit(1)
+                    .help(recent ? L("row.recent.help") : FileSystem.humanDate(date))
             }
+
+            BusyBadge(occupancy: occupancy)
 
             Spacer(minLength: 12)
 
@@ -228,7 +253,16 @@ struct SubItemRow: View {
         .help(helpText)
         .contextMenu {
             Button(L("row.reveal")) { revealInFinder([item.path]) }
+            Divider()
+            Button(L("row.ignore"), action: onIgnore)
         }
+    }
+
+    private var recent: Bool { flagsRecent && item.isRecent }
+
+    private var ageColor: Color {
+        if recent { return .blue }
+        return item.isStale ? .orange : .secondary
     }
 
     private var helpText: String {
@@ -237,6 +271,37 @@ struct SubItemRow: View {
             text += "\n" + FileSystem.humanDate(date)
         }
         return text
+    }
+}
+
+// MARK: - En uso
+
+/// «En uso: Xcode». Sin ella, la fila se marcaria, se confirmaria y se
+/// saltaria al limpiar sin que nadie supiera por que.
+struct BusyBadge: View {
+    let occupancy: Occupancy
+
+    var body: some View {
+        switch occupancy {
+        case .free:
+            EmptyView()
+        case .busy(let name):
+            capsule(Text(L("row.busy", name)))
+                .help(L("row.busy.help"))
+        case .unknown:
+            capsule(Image(systemName: "questionmark"))
+                .help(L("row.busy.unknown"))
+        }
+    }
+
+    private func capsule(_ content: some View) -> some View {
+        content
+            .font(.system(size: 9, weight: .medium))
+            .lineLimit(1)
+            .padding(.horizontal, 5)
+            .padding(.vertical, 1)
+            .background(Color.secondary.opacity(0.15), in: Capsule())
+            .foregroundStyle(.secondary)
     }
 }
 
@@ -328,5 +393,24 @@ struct EmptyState: View {
         .padding(40)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.background)
+    }
+}
+
+/// Una categoria sin nada que ofrecer: todo vacio, ignorado u oculto por
+/// «Ocultar vacias».
+struct CategoryEmptyState: View {
+    let group: Category
+
+    var body: some View {
+        VStack(spacing: 10) {
+            Image(systemName: group.symbol)
+                .font(.system(size: 36, weight: .thin))
+                .foregroundStyle(.tertiary)
+            Text(L("detail.empty"))
+                .font(.title3)
+                .foregroundStyle(.secondary)
+        }
+        .padding(40)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

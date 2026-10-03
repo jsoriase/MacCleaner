@@ -12,12 +12,15 @@
 "alert.report.count" = "Temizlenen kategori: %d";
 "alert.report.failures" = "Her şey silinemedi (etkilenen kategori: %d). Genellikle izin meselesidir: Ayarlar › Gizlilik ve Güvenlik bölümünden MacCleaner’a Tam Disk Erişimi verin.";
 "alert.report.freed" = "%@ boşaltıldı.";
+"alert.report.skipped" = "Atlandı, hiçbir şeye dokunulmadı: %@";
+"alert.report.space" = "Boş alan: %@ → %@ (%@)";
 "alert.report.title" = "Temizlik tamamlandı";
 "alert.report.trashed" = "%@ Çöp Kutusuna taşındı. Yer, kutuyu boşaltınca açılır.";
 
 /* ---- category ---- */
 "category.ai" = "YZ araçları";
 "category.browsers" = "Tarayıcılar";
+"category.editors" = "Kod düzenleyicileri";
 "category.jvm" = "Android, Gradle ve JVM";
 "category.langs" = "Diğer diller";
 "category.node" = "Node ve web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Vazgeç";
 "common.done" = "Bitti";
+
+/* ---- detail ---- */
+"detail.empty" = "Burada geri kazanılacak bir şey yok";
 
 /* ---- empty ---- */
 "empty.button" = "Şimdi tara";
@@ -58,6 +64,10 @@
 "header.stop" = "Durdur";
 "header.working" = "Çalışıyor…";
 
+/* ---- menu ---- */
+"menu.history" = "Temizlik geçmişi";
+"menu.unignore" = "Yok sayılanları yeniden öner";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Bazı şeyleri yeniden indirmen gerekir, yoksa işine yarayan veriyi kaybedersin.";
 "risk.caution.label" = "Dikkat";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Güvenli";
 
 /* ---- row ---- */
+"row.busy" = "Kullanımda: %@";
+"row.busy.help" = "Bunu temizleyebilmek için kapatın. MacCleaner silmeden hemen önce yeniden kontrol eder.";
+"row.busy.unknown" = "Kullanımda olup olmadığı kontrol edilemedi, bu yüzden silinmeyecek.";
 "row.files" = "Dosya: %d";
+"row.ignore" = "Bir daha önerme";
 "row.noPath" = "Bu Mac’te eşleşen bir yol bulunamadı.";
+"row.recent.help" = "Son 7 gün içinde değiştirildi. Hızlı seçim bunu işaretsiz bırakır; isterseniz elle işaretleyin.";
 "row.reveal" = "Finder'da Göster";
 
 /* ---- select ---- */
 "select.clear" = "Tüm seçimi kaldır";
 "select.mark" = "Seç";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Tümü";
+"sidebar.categories" = "Kategoriler";
+
+/* ---- skip ---- */
+"skip.busy" = "%@ tarafından kullanılıyor";
+"skip.changed" = "taramadan sonra değişti";
+"skip.unknown" = "kullanımda olup olmadığı kontrol edilemedi";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Kod asistanlarının önbellekleri";
 "target.ai.caches.note" = "Claude, Codex, Cursor ve OpenCode geçici dosyaları";
 "target.ai.models.name" = "İndirilen YZ modelleri";
 "target.ai.models.note" = "Ollama, Hugging Face ve LM Studio ağırlıkları: her biri gigabaytlarca";
+"target.ai.runtimes.name" = "Terk edilmiş Codex çalışma ortamları";
+"target.ai.runtimes.note" = "Yarım kalmış indirmeler. Codex’in kullandığı ortam asla önerilmez";
 "target.ai.vmbundles.name" = "Asistanların sanal makineleri";
 "target.ai.vmbundles.note" = "Claude’un kod çalıştırmak için indirdiği disk kalıpları";
 "target.ai.worktrees.name" = "Aracıların çalışma ağaçları";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Carthage çatıları ve checkout’ları";
 "target.cocoapods.name" = "CocoaPods önbelleği";
 "target.cocoapods.note" = "İndirilen pod’lar ve spec’ler";
-"target.docker.disk.name" = "Docker sanal makinesinin diski";
-"target.docker.disk.note" = "docker system prune ile boşalır. İmajların ve birimlerin korunur";
+"target.docker.buildx.name" = "Docker Buildx önbelleği";
+"target.docker.buildx.note" = "docker buildx yerel derleme önbelleği";
+"target.docker.disk.name" = "Docker artıkları";
+"target.docker.disk.note" = "Docker açıkken docker system prune'un sildikleri. İmajlar ve birimler korunur";
 "target.docker.logs.name" = "Docker Desktop günlükleri";
 "target.docker.logs.note" = "Yalnızca günlükler. İmajlara ve birimlere dokunulmaz";
+"target.editors.cache.name" = "VS Code ve Cursor önbellekleri";
+"target.editors.cache.note" = "İndirilen eklentiler (VSIX), kod önbelleği ve günlükler";
+"target.editors.extensions.name" = "Eskimiş eklentiler";
+"target.editors.extensions.note" = "Düzenleyicinin zaten değiştirdiği ve eskimiş olarak işaretlediği eski sürümler";
 "target.electron.appsupport.name" = "Electron uygulamalarının önbellekleri";
 "target.electron.appsupport.note" = "~/Library/Caches dışında kalan Cache, Code Cache ve GPUCache";
 "target.electron.name" = "Electron önbelleği";
 "target.electron.note" = "Electron ve electron-builder ikili dosyaları";
+"target.expo.name" = "Expo önbelleği";
+"target.expo.note" = "Expo CLI’nin indirdiği Expo Go, yerel derlemeler ve şablonlar";
 "target.flutter.name" = "Flutter / Dart önbelleği";
 "target.flutter.note" = "~/.pub-cache: pub.dev’den gelen paketler";
 "target.go.build.name" = "Go derleme önbelleği";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Geliştirme ortamlarının günlükleri";
 "target.kotlin.name" = "Kotlin / Konan önbelleği";
 "target.kotlin.note" = "Kotlin ve Kotlin Native derleyicilerinin ürünleri";
+"target.langs.tools.name" = "Diğer araçların önbellekleri";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff ve mypy";
 "target.maven.name" = "Yerel Maven deposu";
 "target.maven.note" = "~/.m2/repository. Bir sonraki derlemede baştan tamamen indirilir";
+"target.node.tools.name" = "Node araçlarının önbellekleri";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite ve Prisma";
 "target.npm.name" = "npm önbelleği";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composer önbelleği (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "İndirilen çalışma zamanları ve benzeticilerin ortak önbelleği";
 "target.sim.devices.name" = "Kurulu simülatörler";
 "target.sim.devices.note" = "simctl ile silinir, böylece Xcode hayalet aygıtla kalmaz";
+"target.sim.runtimes.name" = "Kullanılmayan simülatör çalışma ortamları";
+"target.sim.runtimes.note" = "Hiç simülatörü kalmamış iOS, watchOS… görüntüleri. simctl ile kaldırılır";
 "target.swiftpm.name" = "Swift Package Manager önbelleği";
 "target.swiftpm.note" = "SwiftPM bağımlılıklarının depoları ve ikili dosyaları";
 "target.trash.name" = "Çöp Sepeti";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode açtığında yeniden indirir";
 "target.xcode.previews.name" = "Xcode önizlemeleri";
 "target.xcode.previews.note" = "SwiftUI önizlemelerinin önbelleği";
+"target.xcode.products.name" = "Xcode Organizer verileri";
+"target.xcode.products.note" = "App Store Connect’ten indirilen sürümler, simgeler, çökmeler ve ölçümler";
+"target.xcode.testdevices.name" = "Test simülatörü kopyaları";
+"target.xcode.testdevices.note" = "Xcode’un paralel testler için yaptığı kopyalar; bir sonraki çalıştırmada yeniden oluşturur";
 "target.yarn.name" = "Yarn önbelleği";
 "target.yarn.note" = "Yarn’ın indirdiği paketler";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Bir dahaki sefere kendi kendine oluşur, fark bile etmezsin.";
 "why.signOut" = "Onu kullanan sitelerden çıkış yaparsın ve yeniden giriş yapman gerekir.";
 "why.slowerBuild" = "Hiçbir şey kaybolmaz ama sonraki derleme yeniden üretirken daha uzun sürer.";
+"why.superseded" = "Artık hiçbir şeyin kullanmadığı eski bir sürüm. Bir şey yeniden isterse, yeniden indirilir.";
 "why.toolDecides" = "Silen aracın kendisi, yani tam olarak neyin kaybolacağına o karar verir.";
 "why.unknown" = "Karma çekmece: başka hiçbir satırın adlandırmadığı şey buraya düşer. Silmeden önce bak.";

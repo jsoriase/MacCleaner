@@ -12,12 +12,15 @@
 "alert.report.count" = "Ryddede kategorier: %d";
 "alert.report.failures" = "Ikke alt kunne slettes (berørte kategorier: %d). Det skyldes normalt rettigheder: giv MacCleaner fuld diskadgang under Systemindstillinger › Anonymitet og sikkerhed.";
 "alert.report.freed" = "Frigjorde %@.";
+"alert.report.skipped" = "Sprunget over, intet rørt: %@";
+"alert.report.space" = "Ledig plads: %@ → %@ (%@)";
 "alert.report.title" = "Oprydningen er færdig";
 "alert.report.trashed" = "Flyttede %@ til Papirkurven. Pladsen frigives, når du tømmer den.";
 
 /* ---- category ---- */
 "category.ai" = "AI-værktøjer";
 "category.browsers" = "Browsere";
+"category.editors" = "Kodeeditorer";
 "category.jvm" = "Android, Gradle og JVM";
 "category.langs" = "Andre sprog";
 "category.node" = "Node og web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Annuller";
 "common.done" = "Færdig";
+
+/* ---- detail ---- */
+"detail.empty" = "Intet at frigøre her";
 
 /* ---- empty ---- */
 "empty.button" = "Scan nu";
@@ -58,6 +64,10 @@
 "header.stop" = "Stop";
 "header.working" = "Arbejder…";
 
+/* ---- menu ---- */
+"menu.history" = "Oprydningshistorik";
+"menu.unignore" = "Tilbyd ignorerede emner igen";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Ting skal hentes igen, ellers mister du nyttige data.";
 "risk.caution.label" = "Pas på";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Sikre";
 
 /* ---- row ---- */
+"row.busy" = "I brug: %@";
+"row.busy.help" = "Luk det for at kunne rydde op her. MacCleaner tjekker igen lige før sletning.";
+"row.busy.unknown" = "Kunne ikke tjekke, om det er i brug, så det bliver ikke slettet.";
 "row.files" = "Filer: %d";
+"row.ignore" = "Tilbyd ikke igen";
 "row.noPath" = "Der blev ikke fundet nogen matchende sti på denne Mac.";
+"row.recent.help" = "Ændret inden for de sidste 7 dage. Hurtigvalg lader det være umarkeret; markér det selv, hvis du vil have det med.";
 "row.reveal" = "Vis i Finder";
 
 /* ---- select ---- */
 "select.clear" = "Fravælg alle";
 "select.mark" = "Vælg";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Alle";
+"sidebar.categories" = "Kategorier";
+
+/* ---- skip ---- */
+"skip.busy" = "i brug af %@";
+"skip.changed" = "ændret siden scanningen";
+"skip.unknown" = "kunne ikke tjekke, om det var i brug";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Caches fra kodeassistenter";
 "target.ai.caches.note" = "Midlertidige filer fra Claude, Codex, Cursor og OpenCode";
 "target.ai.models.name" = "Hentede AI-modeller";
 "target.ai.models.note" = "Vægte fra Ollama, Hugging Face og LM Studio: gigabyte hver";
+"target.ai.runtimes.name" = "Efterladte Codex-runtimes";
+"target.ai.runtimes.note" = "Halvfærdige overførsler. Den runtime, Codex bruger, tilbydes aldrig";
 "target.ai.vmbundles.name" = "Assistenters virtuelle maskiner";
 "target.ai.vmbundles.note" = "Diskbilleder, som Claude henter for at køre kode";
 "target.ai.worktrees.name" = "Agenters arbejdstræer";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Carthage-frameworks og -checkouts";
 "target.cocoapods.name" = "CocoaPods-cache";
 "target.cocoapods.note" = "Hentede pods og specs";
-"target.docker.disk.name" = "Disk til Dockers virtuelle maskine";
-"target.docker.disk.note" = "Frigives med docker system prune. Dine images og volumener bevares";
+"target.docker.buildx.name" = "Docker Buildx-cache";
+"target.docker.buildx.note" = "Lokal build-cache fra docker buildx";
+"target.docker.disk.name" = "Docker-rester";
+"target.docker.disk.note" = "Det, docker system prune fjerner, mens Docker kører. Images og volumener bevares";
 "target.docker.logs.name" = "Docker Desktop-logfiler";
 "target.docker.logs.note" = "Kun logfiler. Images og volumener røres ikke";
+"target.editors.cache.name" = "Caches fra VS Code og Cursor";
+"target.editors.cache.note" = "Hentede udvidelser (VSIX), kodecache og logfiler";
+"target.editors.extensions.name" = "Forældede udvidelser";
+"target.editors.extensions.note" = "Gamle versioner, som editoren allerede har erstattet og markeret som forældede";
 "target.electron.appsupport.name" = "Caches fra Electron-apps";
 "target.electron.appsupport.note" = "Cache, Code Cache og GPUCache uden for ~/Library/Caches";
 "target.electron.name" = "Electron-cache";
 "target.electron.note" = "Binære filer til Electron og electron-builder";
+"target.expo.name" = "Expo-cache";
+"target.expo.note" = "Expo Go, native builds og skabeloner hentet af Expo CLI";
 "target.flutter.name" = "Flutter-/Dart-cache";
 "target.flutter.note" = "~/.pub-cache: pakker fra pub.dev";
 "target.go.build.name" = "Go-buildcache";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Logfiler fra udviklingsmiljøerne";
 "target.kotlin.name" = "Kotlin-/Konan-cache";
 "target.kotlin.note" = "Artefakter fra Kotlin- og Kotlin Native-oversætterne";
+"target.langs.tools.name" = "Caches fra andre værktøjer";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff og mypy";
 "target.maven.name" = "Lokalt Maven-arkiv";
 "target.maven.note" = "~/.m2/repository. Hentes helt forfra ved næste build";
+"target.node.tools.name" = "Caches fra Node-værktøjer";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite og Prisma";
 "target.npm.name" = "npm-cache";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composer-cache (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Hentede runtimes og simulatorernes fælles cache";
 "target.sim.devices.name" = "Installerede simulatorer";
 "target.sim.devices.note" = "Fjernes med simctl, så Xcode ikke beholder et spøgelse";
+"target.sim.runtimes.name" = "Ubrugte simulator-runtimes";
+"target.sim.runtimes.note" = "iOS-, watchOS-… billeder uden nogen simulator. Fjernes med simctl";
 "target.swiftpm.name" = "Swift Package Manager-cache";
 "target.swiftpm.note" = "Arkiver og binære filer til SwiftPM-afhængigheder";
 "target.trash.name" = "Papirkurv";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode henter den igen, når du åbner den";
 "target.xcode.previews.name" = "Xcode-forhåndsvisninger";
 "target.xcode.previews.note" = "Cache til SwiftUI-forhåndsvisninger";
+"target.xcode.products.name" = "Data fra Xcode Organizer";
+"target.xcode.products.note" = "Versioner, ikoner, nedbrud og målinger hentet fra App Store Connect";
+"target.xcode.testdevices.name" = "Kloner af testsimulatorer";
+"target.xcode.testdevices.note" = "Kopier, som Xcode laver til parallelle tests; de oprettes igen ved næste kørsel";
 "target.yarn.name" = "Yarn-cache";
 "target.yarn.note" = "Pakker hentet af Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Bliver lavet igen af sig selv næste gang, uden at du opdager det.";
 "why.signOut" = "Du bliver logget ud af de sider, der bruger det, og skal logge ind igen.";
 "why.slowerBuild" = "Der går intet tabt, men næste bygning tager længere tid, mens den laves igen.";
+"why.superseded" = "Det er en gammel version, som intet bruger længere. Hvis noget skulle bede om den igen, hentes den igen.";
 "why.toolDecides" = "Værktøjet sletter selv, så hvad der præcis forsvinder, bestemmer det.";
 "why.unknown" = "Rodekasse: her ender det, ingen anden række har navngivet. Kig, før du sletter.";

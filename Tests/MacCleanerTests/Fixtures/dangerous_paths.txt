@@ -1,0 +1,109 @@
+# Rutas que Engine.mayDelete tiene que rechazar todas.
+# $HOME se sustituye por el home real. Lineas vacias y comentarios se ignoran.
+# Si alguna pasa, la red de seguridad tiene un agujero.
+
+# Raiz y sistema
+/
+/System
+/System/Library
+/System/Library/Caches
+/System/Volumes/Data
+/bin
+/bin/ls
+/sbin
+/usr
+/usr/bin
+/usr/lib
+/usr/local
+/usr/local/bin
+/etc
+/etc/hosts
+/private
+/private/etc
+/private/var
+/private/var/db
+/private/tmp
+/var
+/var/db
+/tmp
+/opt
+/opt/homebrew
+/cores
+/dev
+/Library
+/Library/Caches
+/Library/Developer/CoreSimulator
+/Library/Extensions
+/Library/Application Support
+/Applications
+/Applications/Xcode.app
+/Applications/Safari.app
+/Users
+/Users/Shared
+/Users/root
+/Volumes
+/Volumes/External
+/Network
+
+# El home y sus carpetas de primer nivel
+$HOME
+$HOME/
+$HOME/.
+$HOME//
+$HOME/./
+$HOME/Library
+$HOME/Library/
+$HOME/./Library
+$HOME//Library
+$HOME/Documents
+$HOME/Documents/proyecto
+$HOME/Desktop
+$HOME/Desktop/nota.txt
+$HOME/Downloads
+$HOME/Downloads/instalador.dmg
+$HOME/Pictures
+$HOME/Pictures/Photos Library.photoslibrary
+$HOME/Music
+$HOME/Movies
+$HOME/Public
+$HOME/Applications
+$HOME/Developer
+$HOME/Sites
+
+# Escapes con dos puntos
+$HOME/..
+$HOME/../..
+$HOME/Library/..
+$HOME/Library/../..
+$HOME/Library/Caches/../../..
+$HOME/.gradle/../../..
+$HOME/Library/Caches/../../../etc
+..
+../..
+../$HOME
+
+# Relativas: no dicen nada sin saber donde esta uno
+Library
+Library/Caches
+./Library
+~
+~/Library
+~/.gradle/caches
+.gradle
+
+# Datos que macOS protege, o que no son cache
+$HOME/Library/Application Support/MobileSync/Backup
+$HOME/Library/Application Support/AddressBook
+$HOME/Library/Application Support/CallHistory
+$HOME/Library/Calendars
+$HOME/Library/Messages
+$HOME/Library/Caches/com.apple.Music
+$HOME/Library/Caches/com.apple.Safari
+$HOME/Library/Caches/com.apple.Safari.SafeBrowsing
+$HOME/Library/Caches/com.apple.Photos
+$HOME/Library/Caches/CloudKit
+$HOME/.codex/sessions
+$HOME/.codex/sessions/2026
+$HOME/.codex/archived_sessions
+$HOME/.claude/projects
+$HOME/.claude/projects/-Users-x-proyecto

@@ -12,12 +12,15 @@
 "alert.report.count" = "Categorii curățate: %d";
 "alert.report.failures" = "Nu s-a putut șterge totul (categorii afectate: %d). De obicei este o problemă de permisiuni: acordă-i lui MacCleaner acces complet la disc în Configurări › Confidențialitate și securitate.";
 "alert.report.freed" = "S-au eliberat %@.";
+"alert.report.skipped" = "Sărite, nu s-a atins nimic: %@";
+"alert.report.space" = "Spațiu liber: %@ → %@ (%@)";
 "alert.report.title" = "Curățare terminată";
 "alert.report.trashed" = "%@ au fost mutate în Coș. Spațiul se eliberează la golire.";
 
 /* ---- category ---- */
 "category.ai" = "Instrumente de IA";
 "category.browsers" = "Browsere";
+"category.editors" = "Editoare de cod";
 "category.jvm" = "Android, Gradle și JVM";
 "category.langs" = "Alte limbaje";
 "category.node" = "Node și web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Anulează";
 "common.done" = "Gata";
+
+/* ---- detail ---- */
+"detail.empty" = "Nu este nimic de recuperat aici";
 
 /* ---- empty ---- */
 "empty.button" = "Analizează acum";
@@ -58,6 +64,10 @@
 "header.stop" = "Oprește";
 "header.working" = "Se lucrează…";
 
+/* ---- menu ---- */
+"menu.history" = "Istoricul curățărilor";
+"menu.unignore" = "Propune din nou elementele ignorate";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Va trebui să descarci lucruri din nou, sau pierzi date utile.";
 "risk.caution.label" = "Atenție";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Sigure";
 
 /* ---- row ---- */
+"row.busy" = "În uz: %@";
+"row.busy.help" = "Închide-l ca să poți curăța asta. MacCleaner verifică din nou chiar înainte de ștergere.";
+"row.busy.unknown" = "Nu s-a putut verifica dacă e în uz, așa că nu va fi șters.";
 "row.files" = "Fișiere: %d";
+"row.ignore" = "Nu mai propune";
 "row.noPath" = "Nu s-a găsit nicio cale pe acest Mac.";
+"row.recent.help" = "Modificat în ultimele 7 zile. Selecția rapidă îl lasă nebifat; bifează-l manual dacă îl vrei.";
 "row.reveal" = "Afișează în Finder";
 
 /* ---- select ---- */
 "select.clear" = "Deselectează tot";
 "select.mark" = "Selectează";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Tot";
+"sidebar.categories" = "Categorii";
+
+/* ---- skip ---- */
+"skip.busy" = "folosit de %@";
+"skip.changed" = "s-a schimbat de la analiză";
+"skip.unknown" = "nu s-a putut verifica dacă era în uz";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Cache-uri ale asistenților de cod";
 "target.ai.caches.note" = "Fișiere temporare de la Claude, Codex, Cursor și OpenCode";
 "target.ai.models.name" = "Modele de IA descărcate";
 "target.ai.models.note" = "Ponderi Ollama, Hugging Face și LM Studio: gigaocteți fiecare";
+"target.ai.runtimes.name" = "Runtime-uri Codex abandonate";
+"target.ai.runtimes.note" = "Descărcări neterminate. Runtime-ul folosit de Codex nu este propus niciodată";
 "target.ai.vmbundles.name" = "Mașini virtuale ale asistenților";
 "target.ai.vmbundles.note" = "Imagini de disc pe care Claude le descarcă pentru a rula cod";
 "target.ai.worktrees.name" = "Arbori de lucru ai agenților";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Framework-uri și checkout-uri Carthage";
 "target.cocoapods.name" = "Cache CocoaPods";
 "target.cocoapods.note" = "Pod-uri descărcate și specs";
-"target.docker.disk.name" = "Discul mașinii virtuale Docker";
-"target.docker.disk.note" = "Se eliberează cu docker system prune. Imaginile și volumele se păstrează";
+"target.docker.buildx.name" = "Cache Docker Buildx";
+"target.docker.buildx.note" = "Cache de build local pentru docker buildx";
+"target.docker.disk.name" = "Resturi Docker";
+"target.docker.disk.note" = "Ce șterge docker system prune cu Docker pornit. Imaginile și volumele se păstrează";
 "target.docker.logs.name" = "Jurnale Docker Desktop";
 "target.docker.logs.note" = "Doar jurnale. Nu atinge imagini sau volume";
+"target.editors.cache.name" = "Cache-uri VS Code și Cursor";
+"target.editors.cache.note" = "Extensii descărcate (VSIX), cache de cod și jurnale";
+"target.editors.extensions.name" = "Extensii depășite";
+"target.editors.extensions.note" = "Versiuni vechi pe care editorul le-a înlocuit deja și le-a marcat ca învechite";
 "target.electron.appsupport.name" = "Cache-uri ale aplicațiilor Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache și GPUCache aflate în afara ~/Library/Caches";
 "target.electron.name" = "Cache Electron";
 "target.electron.note" = "Binare Electron și electron-builder";
+"target.expo.name" = "Cache Expo";
+"target.expo.note" = "Expo Go, build-uri native și șabloane descărcate de Expo CLI";
 "target.flutter.name" = "Cache Flutter / Dart";
 "target.flutter.note" = "~/.pub-cache: pachete de pe pub.dev";
 "target.go.build.name" = "Cache de compilare Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Jurnalele IDE-urilor";
 "target.kotlin.name" = "Cache Kotlin / Konan";
 "target.kotlin.note" = "Artefacte ale compilatoarelor Kotlin și Kotlin Native";
+"target.langs.tools.name" = "Cache-uri ale altor instrumente";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff și mypy";
 "target.maven.name" = "Depozit local Maven";
 "target.maven.note" = "~/.m2/repository. Se descarcă integral la următoarea compilare";
+"target.node.tools.name" = "Cache-uri ale instrumentelor Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite și Prisma";
 "target.npm.name" = "Cache npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Cache Composer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Runtime-uri descărcate și cache-ul comun al simulatoarelor";
 "target.sim.devices.name" = "Simulatoare instalate";
 "target.sim.devices.note" = "Șterse cu simctl, ca Xcode să nu rămână cu o fantomă";
+"target.sim.runtimes.name" = "Runtime-uri de simulator nefolosite";
+"target.sim.runtimes.note" = "Imagini iOS, watchOS… fără niciun simulator. Eliminate cu simctl";
 "target.swiftpm.name" = "Cache Swift Package Manager";
 "target.swiftpm.note" = "Depozite și binare ale dependențelor SwiftPM";
 "target.trash.name" = "Coș";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode o descarcă din nou când o deschizi";
 "target.xcode.previews.name" = "Previzualizări Xcode";
 "target.xcode.previews.note" = "Cache pentru previzualizările SwiftUI";
+"target.xcode.products.name" = "Datele Organizer din Xcode";
+"target.xcode.products.note" = "Versiuni, pictograme, blocări și metrici descărcate din App Store Connect";
+"target.xcode.testdevices.name" = "Clone ale simulatoarelor de test";
+"target.xcode.testdevices.note" = "Copii pe care Xcode le face pentru teste în paralel; le recreează la următoarea rulare";
 "target.yarn.name" = "Cache Yarn";
 "target.yarn.note" = "Pachete descărcate de Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Se recreează singură data viitoare când e nevoie, și nu vei observa.";
 "why.signOut" = "Vei fi deconectat de pe site-urile care îl folosesc și va trebui să intri iar.";
 "why.slowerBuild" = "Nu se pierde nimic, dar următoarea compilare va dura mai mult cât o reface.";
+"why.superseded" = "Este o versiune veche pe care n-o mai folosește nimic. Dacă ceva ar cere-o din nou, ar fi descărcată iar.";
 "why.toolDecides" = "Șterge chiar unealta, deci ce dispare exact decide ea.";
 "why.unknown" = "Sertar de toate: aici cade ce nicio altă linie nu a numit. Uită-te înainte să ștergi.";

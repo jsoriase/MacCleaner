@@ -12,12 +12,15 @@
 "alert.report.count" = "Categories netejades: %d";
 "alert.report.failures" = "No s’ha pogut esborrar tot (categories afectades: %d). Sol ser qüestió de permisos: dona accés complet al disc a MacCleaner a Configuració › Privadesa i seguretat.";
 "alert.report.freed" = "Alliberats %@.";
+"alert.report.skipped" = "Omeses, sense tocar res: %@";
+"alert.report.space" = "Espai lliure: %@ → %@ (%@)";
 "alert.report.title" = "Neteja acabada";
 "alert.report.trashed" = "S’han mogut %@ a la Paperera. L’espai s’allibera en buidar-la.";
 
 /* ---- category ---- */
 "category.ai" = "Eines d’IA";
 "category.browsers" = "Navegadors";
+"category.editors" = "Editors de codi";
 "category.jvm" = "Android, Gradle i JVM";
 "category.langs" = "Altres llenguatges";
 "category.node" = "Node i web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Cancel·la";
 "common.done" = "Fet";
+
+/* ---- detail ---- */
+"detail.empty" = "Aquí no hi ha res a recuperar";
 
 /* ---- empty ---- */
 "empty.button" = "Analitza ara";
@@ -58,6 +64,10 @@
 "header.stop" = "Atura";
 "header.working" = "Treballant…";
 
+/* ---- menu ---- */
+"menu.history" = "Historial de neteja";
+"menu.unignore" = "Torna a oferir el que s’ha ignorat";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Hauràs de tornar a baixar coses, o perds dades útils.";
 "risk.caution.label" = "Compte";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Segures";
 
 /* ---- row ---- */
+"row.busy" = "En ús: %@";
+"row.busy.help" = "Tanca’l per poder netejar això. MacCleaner ho torna a comprovar just abans d’esborrar.";
+"row.busy.unknown" = "No s’ha pogut comprovar si està en ús, així que no s’esborrarà.";
 "row.files" = "Fitxers: %d";
+"row.ignore" = "No ho tornis a oferir";
 "row.noPath" = "No s’ha trobat cap camí en aquest Mac.";
+"row.recent.help" = "Modificat en els últims 7 dies. La selecció ràpida el deixa sense marcar; marca’l a mà si el vols.";
 "row.reveal" = "Mostra al Finder";
 
 /* ---- select ---- */
 "select.clear" = "Desmarca-ho tot";
 "select.mark" = "Marca";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Tot";
+"sidebar.categories" = "Categories";
+
+/* ---- skip ---- */
+"skip.busy" = "en ús per %@";
+"skip.changed" = "ha canviat des de l’anàlisi";
+"skip.unknown" = "no s’ha pogut comprovar si estava en ús";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Cachés d’assistents de codi";
 "target.ai.caches.note" = "Fitxers temporals de Claude, Codex, Cursor i OpenCode";
 "target.ai.models.name" = "Models d’IA descarregats";
 "target.ai.models.note" = "Pesos d’Ollama, Hugging Face i LM Studio: gigabytes cadascun";
+"target.ai.runtimes.name" = "Entorns de Codex abandonats";
+"target.ai.runtimes.note" = "Baixades a mitges. L’entorn que fa servir Codex no s’ofereix mai";
 "target.ai.vmbundles.name" = "Màquines virtuals d’assistents";
 "target.ai.vmbundles.note" = "Imatges de disc que descarrega Claude per executar codi";
 "target.ai.worktrees.name" = "Arbres de treball d’agents";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Frameworks i checkouts de Carthage";
 "target.cocoapods.name" = "Memòria cau de CocoaPods";
 "target.cocoapods.note" = "Pods baixats i specs";
-"target.docker.disk.name" = "Disc de la màquina virtual de Docker";
-"target.docker.disk.note" = "S’allibera amb docker system prune. Les imatges i els volums es conserven";
+"target.docker.buildx.name" = "Memòria cau de Docker Buildx";
+"target.docker.buildx.note" = "Memòria cau de compilació local de docker buildx";
+"target.docker.disk.name" = "Restes de Docker";
+"target.docker.disk.note" = "El que esborra docker system prune, amb Docker obert. Les imatges i els volums es conserven";
 "target.docker.logs.name" = "Registres de Docker Desktop";
 "target.docker.logs.note" = "Només registres. No toca imatges ni volums";
+"target.editors.cache.name" = "Cachés de VS Code i Cursor";
+"target.editors.cache.note" = "Extensions baixades (VSIX), memòria cau de codi i registres";
+"target.editors.extensions.name" = "Extensions desfasades";
+"target.editors.extensions.note" = "Versions antigues que l’editor ja ha substituït i marcat com a obsoletes";
 "target.electron.appsupport.name" = "Cachés d’apps Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache i GPUCache que viuen fora de ~/Library/Caches";
 "target.electron.name" = "Memòria cau d’Electron";
 "target.electron.note" = "Binaris d’Electron i electron-builder";
+"target.expo.name" = "Memòria cau d’Expo";
+"target.expo.note" = "Expo Go, compilacions natives i plantilles que baixa la CLI d’Expo";
 "target.flutter.name" = "Memòria cau de Flutter / Dart";
 "target.flutter.note" = "~/.pub-cache: paquets de pub.dev";
 "target.go.build.name" = "Memòria cau de compilació de Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Registres dels IDE";
 "target.kotlin.name" = "Memòria cau de Kotlin / Konan";
 "target.kotlin.note" = "Artefactes dels compiladors de Kotlin i Kotlin Native";
+"target.langs.tools.name" = "Cachés d’altres eines";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff i mypy";
 "target.maven.name" = "Repositori local de Maven";
 "target.maven.note" = "~/.m2/repository. Es torna a baixar sencer a la compilació següent";
+"target.node.tools.name" = "Cachés d’eines de Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite i Prisma";
 "target.npm.name" = "Memòria cau d’npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Memòria cau de Composer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Runtimes baixats i memòria cau compartida dels simuladors";
 "target.sim.devices.name" = "Simuladors instal·lats";
 "target.sim.devices.note" = "S’esborren amb simctl perquè Xcode no es quedi amb un fantasma";
+"target.sim.runtimes.name" = "Entorns de simulador sense ús";
+"target.sim.runtimes.note" = "Imatges d’iOS, watchOS… sense cap simulador. S’esborren amb simctl";
 "target.swiftpm.name" = "Memòria cau de Swift Package Manager";
 "target.swiftpm.note" = "Repositoris i binaris de dependències SwiftPM";
 "target.trash.name" = "Paperera";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode la torna a descarregar quan l’obres";
 "target.xcode.previews.name" = "Previsualitzacions de Xcode";
 "target.xcode.previews.note" = "Memòria cau de les previsualitzacions de SwiftUI";
+"target.xcode.products.name" = "Dades de l’Organizer de Xcode";
+"target.xcode.products.note" = "Versions, icones, errors i mètriques baixats d’App Store Connect";
+"target.xcode.testdevices.name" = "Clons de simuladors de proves";
+"target.xcode.testdevices.note" = "Còpies que fa Xcode per a les proves en paral·lel; les refà a la següent execució";
 "target.yarn.name" = "Memòria cau de Yarn";
 "target.yarn.note" = "Paquets baixats per Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Es torna a crear sola la propera vegada que calgui, i no ho notaràs.";
 "why.signOut" = "Tancaràs la sessió als llocs que ho facin servir i hi hauràs de tornar a entrar.";
 "why.slowerBuild" = "No es perd res, però la compilació següent trigarà més mentre ho refà.";
+"why.superseded" = "És una versió antiga que ja no fa servir res. Si alguna cosa la tornés a demanar, es tornaria a baixar.";
 "why.toolDecides" = "Ho esborra la mateixa eina, així que què desapareix exactament ho decideix ella.";
 "why.unknown" = "Calaix de sastre: aquí cau el que cap altra fila ha anomenat. Mira-ho abans d’esborrar.";

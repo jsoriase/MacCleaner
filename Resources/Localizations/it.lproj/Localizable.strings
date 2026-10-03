@@ -12,12 +12,15 @@
 "alert.report.count" = "Categorie pulite: %d";
 "alert.report.failures" = "Non è stato possibile eliminare tutto (categorie interessate: %d). Di solito è una questione di permessi: concedi a MacCleaner l’accesso completo al disco in Impostazioni › Privacy e sicurezza.";
 "alert.report.freed" = "Liberati %@.";
+"alert.report.skipped" = "Saltati, senza toccare nulla: %@";
+"alert.report.space" = "Spazio libero: %@ → %@ (%@)";
 "alert.report.title" = "Pulizia completata";
 "alert.report.trashed" = "Spostati %@ nel Cestino. Lo spazio si libera svuotandolo.";
 
 /* ---- category ---- */
 "category.ai" = "Strumenti di IA";
 "category.browsers" = "Browser";
+"category.editors" = "Editor di codice";
 "category.jvm" = "Android, Gradle e JVM";
 "category.langs" = "Altri linguaggi";
 "category.node" = "Node e web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Annulla";
 "common.done" = "Fatto";
+
+/* ---- detail ---- */
+"detail.empty" = "Niente da recuperare qui";
 
 /* ---- empty ---- */
 "empty.button" = "Analizza ora";
@@ -58,6 +64,10 @@
 "header.stop" = "Interrompi";
 "header.working" = "In corso…";
 
+/* ---- menu ---- */
+"menu.history" = "Cronologia pulizie";
+"menu.unignore" = "Riproponi gli elementi ignorati";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Dovrai riscaricare qualcosa, o perdi dati utili.";
 "risk.caution.label" = "Attenzione";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Sicure";
 
 /* ---- row ---- */
+"row.busy" = "In uso: %@";
+"row.busy.help" = "Chiudilo per poter pulire questo elemento. MacCleaner ricontrolla subito prima di eliminare.";
+"row.busy.unknown" = "Impossibile verificare se è in uso, quindi non verrà eliminato.";
 "row.files" = "File: %d";
+"row.ignore" = "Non proporre più";
 "row.noPath" = "Nessun percorso corrispondente trovato su questo Mac.";
+"row.recent.help" = "Modificato negli ultimi 7 giorni. La selezione rapida lo lascia deselezionato; selezionalo a mano se lo vuoi.";
 "row.reveal" = "Mostra nel Finder";
 
 /* ---- select ---- */
 "select.clear" = "Deseleziona tutto";
 "select.mark" = "Seleziona";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Tutto";
+"sidebar.categories" = "Categorie";
+
+/* ---- skip ---- */
+"skip.busy" = "in uso da %@";
+"skip.changed" = "cambiato dopo l’analisi";
+"skip.unknown" = "impossibile verificare se era in uso";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Cache degli assistenti di codice";
 "target.ai.caches.note" = "File temporanei di Claude, Codex, Cursor e OpenCode";
 "target.ai.models.name" = "Modelli di IA scaricati";
 "target.ai.models.note" = "Pesi di Ollama, Hugging Face e LM Studio: gigabyte ciascuno";
+"target.ai.runtimes.name" = "Runtime di Codex abbandonati";
+"target.ai.runtimes.note" = "Download a metà. Il runtime usato da Codex non viene mai proposto";
 "target.ai.vmbundles.name" = "Macchine virtuali degli assistenti";
 "target.ai.vmbundles.note" = "Immagini disco che Claude scarica per eseguire codice";
 "target.ai.worktrees.name" = "Alberi di lavoro degli agenti";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Framework e checkout di Carthage";
 "target.cocoapods.name" = "Cache di CocoaPods";
 "target.cocoapods.note" = "Pod scaricati e specs";
-"target.docker.disk.name" = "Disco della macchina virtuale Docker";
-"target.docker.disk.note" = "Si libera con docker system prune. Le immagini e i volumi vengono mantenuti";
+"target.docker.buildx.name" = "Cache di Docker Buildx";
+"target.docker.buildx.note" = "Cache di build locale di docker buildx";
+"target.docker.disk.name" = "Residui di Docker";
+"target.docker.disk.note" = "Ciò che elimina docker system prune, con Docker aperto. Immagini e volumi vengono mantenuti";
 "target.docker.logs.name" = "Log di Docker Desktop";
 "target.docker.logs.note" = "Solo log. Immagini e volumi non vengono toccati";
+"target.editors.cache.name" = "Cache di VS Code e Cursor";
+"target.editors.cache.note" = "Estensioni scaricate (VSIX), cache del codice e log";
+"target.editors.extensions.name" = "Estensioni superate";
+"target.editors.extensions.note" = "Vecchie versioni che l’editor ha già sostituito e segnato come obsolete";
 "target.electron.appsupport.name" = "Cache delle app Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache e GPUCache che stanno fuori da ~/Library/Caches";
 "target.electron.name" = "Cache di Electron";
 "target.electron.note" = "Binari di Electron e electron-builder";
+"target.expo.name" = "Cache di Expo";
+"target.expo.note" = "Expo Go, build native e modelli scaricati dalla CLI di Expo";
 "target.flutter.name" = "Cache di Flutter / Dart";
 "target.flutter.note" = "~/.pub-cache: pacchetti di pub.dev";
 "target.go.build.name" = "Cache di compilazione di Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Log degli IDE";
 "target.kotlin.name" = "Cache di Kotlin / Konan";
 "target.kotlin.note" = "Artefatti dei compilatori Kotlin e Kotlin Native";
+"target.langs.tools.name" = "Cache di altri strumenti";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff e mypy";
 "target.maven.name" = "Repository Maven locale";
 "target.maven.note" = "~/.m2/repository. Verrà riscaricato per intero alla prossima build";
+"target.node.tools.name" = "Cache degli strumenti Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite e Prisma";
 "target.npm.name" = "Cache di npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Cache di Composer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Runtime scaricati e cache condivisa dei simulatori";
 "target.sim.devices.name" = "Simulatori installati";
 "target.sim.devices.note" = "Rimossi con simctl, così Xcode non conserva un fantasma";
+"target.sim.runtimes.name" = "Runtime del simulatore inutilizzati";
+"target.sim.runtimes.note" = "Immagini iOS, watchOS… senza alcun simulatore. Rimosse con simctl";
 "target.swiftpm.name" = "Cache di Swift Package Manager";
 "target.swiftpm.note" = "Repository e binari delle dipendenze SwiftPM";
 "target.trash.name" = "Cestino";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode la riscarica quando la apri";
 "target.xcode.previews.name" = "Anteprime di Xcode";
 "target.xcode.previews.note" = "Cache delle anteprime SwiftUI";
+"target.xcode.products.name" = "Dati dell’Organizer di Xcode";
+"target.xcode.products.note" = "Versioni, icone, crash e metriche scaricati da App Store Connect";
+"target.xcode.testdevices.name" = "Cloni dei simulatori di test";
+"target.xcode.testdevices.note" = "Copie che Xcode crea per i test in parallelo; le ricrea all’esecuzione successiva";
 "target.yarn.name" = "Cache di Yarn";
 "target.yarn.note" = "Pacchetti scaricati da Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Si ricrea da sola la prossima volta che serve, e non te ne accorgerai.";
 "why.signOut" = "Uscirai dai siti che lo usano e dovrai accedere di nuovo.";
 "why.slowerBuild" = "Non si perde nulla, ma la prossima compilazione impiegherà di più a rifarlo.";
+"why.superseded" = "È una versione vecchia che non usa più niente. Se qualcosa la richiedesse di nuovo, verrebbe riscaricata.";
 "why.toolDecides" = "Cancella lo strumento stesso, quindi cosa sparisce esattamente lo decide lui.";
 "why.unknown" = "Ripostiglio: qui finisce ciò che nessun’altra riga ha nominato. Guarda prima di cancellare.";

@@ -12,12 +12,15 @@
 "alert.report.count" = "Κατηγορίες που καθαρίστηκαν: %d";
 "alert.report.failures" = "Δεν διαγράφηκαν όλα (κατηγορίες που επηρεάστηκαν: %d). Συνήθως είναι θέμα δικαιωμάτων: δώστε στο MacCleaner πλήρη πρόσβαση στον δίσκο από τις Ρυθμίσεις › Απόρρητο και ασφάλεια.";
 "alert.report.freed" = "Ελευθερώθηκαν %@.";
+"alert.report.skipped" = "Παραλείφθηκαν, χωρίς να αγγιχτεί τίποτα: %@";
+"alert.report.space" = "Ελεύθερος χώρος: %@ → %@ (%@)";
 "alert.report.title" = "Ο καθαρισμός ολοκληρώθηκε";
 "alert.report.trashed" = "%@ μεταφέρθηκαν στον Κάδο. Ο χώρος ελευθερώνεται όταν τον αδειάσετε.";
 
 /* ---- category ---- */
 "category.ai" = "Εργαλεία ΤΝ";
 "category.browsers" = "Προγράμματα περιήγησης";
+"category.editors" = "Επεξεργαστές κώδικα";
 "category.jvm" = "Android, Gradle και JVM";
 "category.langs" = "Άλλες γλώσσες";
 "category.node" = "Node και web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Ακύρωση";
 "common.done" = "Τέλος";
+
+/* ---- detail ---- */
+"detail.empty" = "Δεν υπάρχει τίποτα να ελευθερωθεί εδώ";
 
 /* ---- empty ---- */
 "empty.button" = "Σάρωση τώρα";
@@ -58,6 +64,10 @@
 "header.stop" = "Διακοπή";
 "header.working" = "Εργασία σε εξέλιξη…";
 
+/* ---- menu ---- */
+"menu.history" = "Ιστορικό καθαρισμού";
+"menu.unignore" = "Να προτείνονται ξανά τα παραβλεπόμενα";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Θα χρειαστεί να ξανακατεβούν πράγματα, αλλιώς χάνετε χρήσιμα δεδομένα.";
 "risk.caution.label" = "Προσοχή";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Ασφαλείς";
 
 /* ---- row ---- */
+"row.busy" = "Σε χρήση: %@";
+"row.busy.help" = "Κλείστε το για να μπορέσετε να το καθαρίσετε. Το MacCleaner ελέγχει ξανά ακριβώς πριν τη διαγραφή.";
+"row.busy.unknown" = "Δεν ήταν δυνατό να ελεγχθεί αν είναι σε χρήση, οπότε δεν θα διαγραφεί.";
 "row.files" = "Αρχεία: %d";
+"row.ignore" = "Να μην προτείνεται ξανά";
 "row.noPath" = "Δεν βρέθηκε καμία αντίστοιχη διαδρομή σε αυτό το Mac.";
+"row.recent.help" = "Τροποποιήθηκε τις τελευταίες 7 ημέρες. Η γρήγορη επιλογή το αφήνει χωρίς σημάδι· σημειώστε το με το χέρι αν το θέλετε.";
 "row.reveal" = "Εμφάνιση στο Finder";
 
 /* ---- select ---- */
 "select.clear" = "Καθαρισμός επιλογής";
 "select.mark" = "Επιλογή";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Όλα";
+"sidebar.categories" = "Κατηγορίες";
+
+/* ---- skip ---- */
+"skip.busy" = "σε χρήση από %@";
+"skip.changed" = "άλλαξε μετά τη σάρωση";
+"skip.unknown" = "δεν ήταν δυνατό να ελεγχθεί αν ήταν σε χρήση";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Κρυφές μνήμες βοηθών κώδικα";
 "target.ai.caches.note" = "Προσωρινά αρχεία από Claude, Codex, Cursor και OpenCode";
 "target.ai.models.name" = "Κατεβασμένα μοντέλα ΤΝ";
 "target.ai.models.note" = "Βάρη από Ollama, Hugging Face και LM Studio: αρκετά GB το καθένα";
+"target.ai.runtimes.name" = "Εγκαταλελειμμένα runtimes του Codex";
+"target.ai.runtimes.note" = "Μισοτελειωμένες λήψεις. Το runtime που χρησιμοποιεί το Codex δεν προτείνεται ποτέ";
 "target.ai.vmbundles.name" = "Εικονικές μηχανές βοηθών";
 "target.ai.vmbundles.note" = "Εικόνες δίσκου που κατεβάζει το Claude για να εκτελεί κώδικα";
 "target.ai.worktrees.name" = "Δέντρα εργασίας πρακτόρων";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Frameworks και checkouts του Carthage";
 "target.cocoapods.name" = "Προσωρινή μνήμη CocoaPods";
 "target.cocoapods.note" = "Ληφθέντα pods και specs";
-"target.docker.disk.name" = "Δίσκος της εικονικής μηχανής του Docker";
-"target.docker.disk.note" = "Ελευθερώνεται με docker system prune. Οι εικόνες και οι τόμοι σου διατηρούνται";
+"target.docker.buildx.name" = "Προσωρινή μνήμη Docker Buildx";
+"target.docker.buildx.note" = "Τοπική προσωρινή μνήμη μεταγλώττισης του docker buildx";
+"target.docker.disk.name" = "Υπολείμματα του Docker";
+"target.docker.disk.note" = "Ό,τι σβήνει το docker system prune με το Docker ανοιχτό. Εικόνες και τόμοι διατηρούνται";
 "target.docker.logs.name" = "Καταγραφές Docker Desktop";
 "target.docker.logs.note" = "Μόνο καταγραφές. Οι εικόνες και οι τόμοι δεν θίγονται";
+"target.editors.cache.name" = "Κρυφές μνήμες VS Code και Cursor";
+"target.editors.cache.note" = "Ληφθείσες επεκτάσεις (VSIX), κρυφή μνήμη κώδικα και καταγραφές";
+"target.editors.extensions.name" = "Παρωχημένες επεκτάσεις";
+"target.editors.extensions.note" = "Παλιές εκδόσεις που ο επεξεργαστής έχει ήδη αντικαταστήσει και σημειώσει ως παρωχημένες";
 "target.electron.appsupport.name" = "Κρυφές μνήμες εφαρμογών Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache και GPUCache εκτός του ~/Library/Caches";
 "target.electron.name" = "Προσωρινή μνήμη Electron";
 "target.electron.note" = "Δυαδικά αρχεία του Electron και του electron-builder";
+"target.expo.name" = "Προσωρινή μνήμη Expo";
+"target.expo.note" = "Expo Go, εγγενείς εκδόσεις και πρότυπα που κατεβάζει το Expo CLI";
 "target.flutter.name" = "Προσωρινή μνήμη Flutter / Dart";
 "target.flutter.note" = "~/.pub-cache: πακέτα από το pub.dev";
 "target.go.build.name" = "Προσωρινή μνήμη μεταγλώττισης Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Καταγραφές των περιβαλλόντων ανάπτυξης";
 "target.kotlin.name" = "Προσωρινή μνήμη Kotlin / Konan";
 "target.kotlin.note" = "Artifacts των μεταγλωττιστών Kotlin και Kotlin Native";
+"target.langs.tools.name" = "Κρυφές μνήμες άλλων εργαλείων";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff και mypy";
 "target.maven.name" = "Τοπικό αποθετήριο Maven";
 "target.maven.note" = "~/.m2/repository. Θα ξανακατέβει ολόκληρο στην επόμενη μεταγλώττιση";
+"target.node.tools.name" = "Κρυφές μνήμες εργαλείων Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite και Prisma";
 "target.npm.name" = "Προσωρινή μνήμη npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Προσωρινή μνήμη Composer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Ληφθέντα περιβάλλοντα εκτέλεσης και κοινή προσωρινή μνήμη των προσομοιωτών";
 "target.sim.devices.name" = "Εγκατεστημένοι προσομοιωτές";
 "target.sim.devices.note" = "Διαγράφονται με simctl ώστε το Xcode να μη μείνει με φάντασμα";
+"target.sim.runtimes.name" = "Αχρησιμοποίητα runtimes προσομοιωτή";
+"target.sim.runtimes.note" = "Εικόνες iOS, watchOS… χωρίς κανέναν προσομοιωτή. Αφαιρούνται με το simctl";
 "target.swiftpm.name" = "Προσωρινή μνήμη Swift Package Manager";
 "target.swiftpm.note" = "Αποθετήρια και δυαδικά αρχεία των εξαρτήσεων SwiftPM";
 "target.trash.name" = "Απορρίμματα";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Το Xcode την ξανακατεβάζει όταν την ανοίξεις";
 "target.xcode.previews.name" = "Προεπισκοπήσεις Xcode";
 "target.xcode.previews.note" = "Προσωρινή μνήμη για τις προεπισκοπήσεις SwiftUI";
+"target.xcode.products.name" = "Δεδομένα του Organizer του Xcode";
+"target.xcode.products.note" = "Εκδόσεις, εικονίδια, σφάλματα και μετρήσεις από το App Store Connect";
+"target.xcode.testdevices.name" = "Κλώνοι προσομοιωτών δοκιμών";
+"target.xcode.testdevices.note" = "Αντίγραφα που φτιάχνει το Xcode για παράλληλες δοκιμές· τα ξαναφτιάχνει στην επόμενη εκτέλεση";
 "target.yarn.name" = "Προσωρινή μνήμη Yarn";
 "target.yarn.note" = "Πακέτα που κατέβασε το Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Ξαναφτιάχνεται μόνη της την επόμενη φορά, και δεν θα το καταλάβετε.";
 "why.signOut" = "Θα αποσυνδεθείτε από τους ιστότοπους που το χρησιμοποιούν και θα ξανασυνδεθείτε.";
 "why.slowerBuild" = "Δεν χάνεται τίποτα, αλλά η επόμενη μεταγλώττιση θα αργήσει όσο το ξαναφτιάχνει.";
+"why.superseded" = "Είναι παλιά έκδοση που δεν τη χρησιμοποιεί πια τίποτα. Αν κάτι τη ζητούσε ξανά, θα κατέβαινε από την αρχή.";
 "why.toolDecides" = "Σβήνει το ίδιο το εργαλείο, οπότε τι ακριβώς εξαφανίζεται το αποφασίζει εκείνο.";
 "why.unknown" = "Συρτάρι για όλα: εδώ πέφτει ό,τι δεν ονόμασε καμία άλλη γραμμή. Κοιτάξτε πριν σβήσετε.";

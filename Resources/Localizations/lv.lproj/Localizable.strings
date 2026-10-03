@@ -12,12 +12,15 @@
 "alert.report.count" = "Iztīrītās kategorijas: %d";
 "alert.report.failures" = "Neizdevās izdzēst visu (skartās kategorijas: %d). Parasti tas ir atļauju jautājums: piešķiriet MacCleaner pilnu piekļuvi diskam sadaļā Iestatījumi › Privātums un drošība.";
 "alert.report.freed" = "Atbrīvoti %@.";
+"alert.report.skipped" = "Izlaists, nekas netika aizskarts: %@";
+"alert.report.space" = "Brīvā vieta: %@ → %@ (%@)";
 "alert.report.title" = "Tīrīšana pabeigta";
 "alert.report.trashed" = "%@ pārvietoti uz miskasti. Vieta atbrīvojas, to iztukšojot.";
 
 /* ---- category ---- */
 "category.ai" = "MI rīki";
 "category.browsers" = "Pārlūki";
+"category.editors" = "Koda redaktori";
 "category.jvm" = "Android, Gradle un JVM";
 "category.langs" = "Citas valodas";
 "category.node" = "Node un tīmeklis";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Atcelt";
 "common.done" = "Gatavs";
+
+/* ---- detail ---- */
+"detail.empty" = "Šeit nav ko atbrīvot";
 
 /* ---- empty ---- */
 "empty.button" = "Skenēt tagad";
@@ -58,6 +64,10 @@
 "header.stop" = "Apturēt";
 "header.working" = "Notiek darbs…";
 
+/* ---- menu ---- */
+"menu.history" = "Tīrīšanas vēsture";
+"menu.unignore" = "Atkal piedāvāt ignorēto";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Lietas būs jālejupielādē no jauna, citādi zaudēsiet noderīgus datus.";
 "risk.caution.label" = "Uzmanīgi";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Drošās";
 
 /* ---- row ---- */
+"row.busy" = "Tiek izmantots: %@";
+"row.busy.help" = "Aizveriet to, lai varētu šo notīrīt. MacCleaner vēlreiz pārbauda tieši pirms dzēšanas.";
+"row.busy.unknown" = "Neizdevās pārbaudīt, vai tas tiek izmantots, tāpēc tas netiks dzēsts.";
 "row.files" = "Faili: %d";
+"row.ignore" = "Vairs nepiedāvāt";
 "row.noPath" = "Šajā Mac datorā netika atrasts neviens atbilstošs ceļš.";
+"row.recent.help" = "Mainīts pēdējo 7 dienu laikā. Ātrā atlase to atstāj neatzīmētu; atzīmējiet to manuāli, ja vēlaties.";
 "row.reveal" = "Rādīt Finder";
 
 /* ---- select ---- */
 "select.clear" = "Noņemt atlasi";
 "select.mark" = "Atlasīt";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Viss";
+"sidebar.categories" = "Kategorijas";
+
+/* ---- skip ---- */
+"skip.busy" = "izmanto %@";
+"skip.changed" = "mainījies kopš skenēšanas";
+"skip.unknown" = "neizdevās pārbaudīt, vai tas tika izmantots";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Koda asistentu kešatmiņas";
 "target.ai.caches.note" = "Claude, Codex, Cursor un OpenCode pagaidu faili";
 "target.ai.models.name" = "Lejupielādētie MI modeļi";
 "target.ai.models.note" = "Ollama, Hugging Face un LM Studio svari: katrs pa vairākiem GB";
+"target.ai.runtimes.name" = "Pamestas Codex izpildvides";
+"target.ai.runtimes.note" = "Nepabeigtas lejupielādes. Izpildvide, ko izmanto Codex, nekad netiek piedāvāta";
 "target.ai.vmbundles.name" = "Asistentu virtuālās mašīnas";
 "target.ai.vmbundles.note" = "Diska attēli, ko Claude lejupielādē koda izpildei";
 "target.ai.worktrees.name" = "Aģentu darba koki";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Carthage ietvari un checkouts";
 "target.cocoapods.name" = "CocoaPods kešatmiņa";
 "target.cocoapods.note" = "Lejupielādētie pods un specs";
-"target.docker.disk.name" = "Docker virtuālās mašīnas disks";
-"target.docker.disk.note" = "Atbrīvo docker system prune. Tavi attēli un sējumi tiek saglabāti";
+"target.docker.buildx.name" = "Docker Buildx kešatmiņa";
+"target.docker.buildx.note" = "docker buildx lokālā būvēšanas kešatmiņa";
+"target.docker.disk.name" = "Docker atliekas";
+"target.docker.disk.note" = "Ko izdzēš docker system prune, kad Docker darbojas. Attēli un sējumi tiek saglabāti";
 "target.docker.logs.name" = "Docker Desktop žurnāli";
 "target.docker.logs.note" = "Tikai žurnāli. Attēli un sējumi netiek aiztikti";
+"target.editors.cache.name" = "VS Code un Cursor kešatmiņas";
+"target.editors.cache.note" = "Lejupielādētie paplašinājumi (VSIX), koda kešatmiņa un žurnāli";
+"target.editors.extensions.name" = "Novecojuši paplašinājumi";
+"target.editors.extensions.note" = "Vecas versijas, ko redaktors jau ir aizstājis un atzīmējis kā novecojušas";
 "target.electron.appsupport.name" = "Electron lietotņu kešatmiņas";
 "target.electron.appsupport.note" = "Cache, Code Cache un GPUCache ārpus ~/Library/Caches";
 "target.electron.name" = "Electron kešatmiņa";
 "target.electron.note" = "Electron un electron-builder binārie faili";
+"target.expo.name" = "Expo kešatmiņa";
+"target.expo.note" = "Expo Go, vietējās būves un veidnes, ko lejupielādē Expo CLI";
 "target.flutter.name" = "Flutter / Dart kešatmiņa";
 "target.flutter.note" = "~/.pub-cache: pakotnes no pub.dev";
 "target.go.build.name" = "Go būvēšanas kešatmiņa";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Izstrādes vižu žurnāli";
 "target.kotlin.name" = "Kotlin / Konan kešatmiņa";
 "target.kotlin.note" = "Kotlin un Kotlin Native kompilatoru artefakti";
+"target.langs.tools.name" = "Citu rīku kešatmiņas";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff un mypy";
 "target.maven.name" = "Vietējā Maven krātuve";
 "target.maven.note" = "~/.m2/repository. Nākamajā būvēšanā tiks lejupielādēta pilnībā no jauna";
+"target.node.tools.name" = "Node rīku kešatmiņas";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite un Prisma";
 "target.npm.name" = "npm kešatmiņa";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composer kešatmiņa (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Lejupielādētās izpildvides un simulatoru koplietotā kešatmiņa";
 "target.sim.devices.name" = "Instalētie simulatori";
 "target.sim.devices.note" = "Tiek dzēsti ar simctl, lai Xcode nepaliktu spoku ierīce";
+"target.sim.runtimes.name" = "Neizmantotas simulatora izpildvides";
+"target.sim.runtimes.note" = "iOS, watchOS… attēli bez neviena simulatora. Tiek noņemti ar simctl";
 "target.swiftpm.name" = "Swift Package Manager kešatmiņa";
 "target.swiftpm.note" = "SwiftPM atkarību krātuves un binārie faili";
 "target.trash.name" = "Miskaste";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode to lejupielādēs vēlreiz, kad to atvērsi";
 "target.xcode.previews.name" = "Xcode priekšskatījumi";
 "target.xcode.previews.note" = "SwiftUI priekšskatījumu kešatmiņa";
+"target.xcode.products.name" = "Xcode Organizer dati";
+"target.xcode.products.note" = "No App Store Connect lejupielādētās versijas, ikonas, avārijas un metrikas";
+"target.xcode.testdevices.name" = "Testa simulatoru kloni";
+"target.xcode.testdevices.note" = "Kopijas, ko Xcode veido paralēlajiem testiem; nākamajā palaišanā izveido no jauna";
 "target.yarn.name" = "Yarn kešatmiņa";
 "target.yarn.note" = "Yarn lejupielādētās pakotnes";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Nākamreiz izveidosies pati, un tu to nepamanīsi.";
 "why.signOut" = "Tevi izrakstīs no vietnēm, kas to lieto, un nāksies pieteikties vēlreiz.";
 "why.slowerBuild" = "Nekas nepazūd, bet nākamā būvēšana ilgs vairāk, kamēr to izveido no jauna.";
+"why.superseded" = "Šī ir veca versija, ko vairs nekas neizmanto. Ja kaut kas to atkal pieprasītu, tā tiktu lejupielādēta vēlreiz.";
 "why.toolDecides" = "Dzēš pats rīks, tāpēc, kas tieši pazudīs, izlemj tas.";
 "why.unknown" = "Atvilktne visam: te nonāk tas, ko neviena cita rinda nav nosaukusi. Paskaties, pirms dzēs.";

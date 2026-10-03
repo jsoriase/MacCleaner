@@ -12,12 +12,15 @@
 "alert.report.count" = "Ачышчана катэгорый: %d";
 "alert.report.failures" = "Не ўдалося выдаліць усё (закранутыя катэгорыі: %d). Звычайна гэта пытанне дазволаў: дайце MacCleaner поўны доступ да дыска ў Налады › Прыватнасць і бяспека.";
 "alert.report.freed" = "Вызвалена %@.";
+"alert.report.skipped" = "Прапушчана, нічога не кранута: %@";
+"alert.report.space" = "Вольнае месца: %@ → %@ (%@)";
 "alert.report.title" = "Ачыстка завершана";
 "alert.report.trashed" = "%@ перамешчана ў Сметніцу. Месца вызваліцца пасля яе ачысткі.";
 
 /* ---- category ---- */
 "category.ai" = "Інструменты ШІ";
 "category.browsers" = "Браўзеры";
+"category.editors" = "Рэдактары кода";
 "category.jvm" = "Android, Gradle і JVM";
 "category.langs" = "Іншыя мовы";
 "category.node" = "Node і вэб";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Скасаваць";
 "common.done" = "Гатова";
+
+/* ---- detail ---- */
+"detail.empty" = "Тут няма чаго вызваляць";
 
 /* ---- empty ---- */
 "empty.button" = "Сканаваць зараз";
@@ -58,6 +64,10 @@
 "header.stop" = "Спыніць";
 "header.working" = "Працую…";
 
+/* ---- menu ---- */
+"menu.history" = "Гісторыя ачысткі";
+"menu.unignore" = "Зноў прапаноўваць праігнараванае";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Давядзецца спампоўваць нанова, інакш страціце карысныя даныя.";
 "risk.caution.label" = "Асцярожна";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Бяспечныя";
 
 /* ---- row ---- */
+"row.busy" = "Выкарыстоўваецца: %@";
+"row.busy.help" = "Закрыйце яго, каб гэта ачысціць. MacCleaner правярае зноў непасрэдна перад выдаленнем.";
+"row.busy.unknown" = "Не ўдалося праверыць, ці выкарыстоўваецца, таму выдалена не будзе.";
 "row.files" = "Файлы: %d";
+"row.ignore" = "Больш не прапаноўваць";
 "row.noPath" = "На гэтым Mac не знойдзена ніводнага адпаведнага шляху.";
+"row.recent.help" = "Зменена за апошнія 7 дзён. Хуткі выбар пакідае гэта непазначаным; пазначце ўручную, калі трэба.";
 "row.reveal" = "Паказаць у Finder";
 
 /* ---- select ---- */
 "select.clear" = "Зняць адзнакі";
 "select.mark" = "Выбраць";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Усё";
+"sidebar.categories" = "Катэгорыі";
+
+/* ---- skip ---- */
+"skip.busy" = "выкарыстоўвае %@";
+"skip.changed" = "змянілася пасля сканавання";
+"skip.unknown" = "не ўдалося праверыць, ці выкарыстоўвалася";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Кэшы памочнікаў па кодзе";
 "target.ai.caches.note" = "Часовыя файлы Claude, Codex, Cursor і OpenCode";
 "target.ai.models.name" = "Спампаваныя мадэлі ШІ";
 "target.ai.models.note" = "Вагі Ollama, Hugging Face і LM Studio: па некалькі гігабайт";
+"target.ai.runtimes.name" = "Пакінутыя асяроддзі Codex";
+"target.ai.runtimes.note" = "Недацягнутыя загрузкі. Асяроддзе, якім карыстаецца Codex, ніколі не прапануецца";
 "target.ai.vmbundles.name" = "Віртуальныя машыны асістэнтаў";
 "target.ai.vmbundles.note" = "Вобразы дыскаў, якія Claude сцягвае для запуску кода";
 "target.ai.worktrees.name" = "Працоўныя дрэвы агентаў";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Фрэймворкі і checkout-ы Carthage";
 "target.cocoapods.name" = "Кэш CocoaPods";
 "target.cocoapods.note" = "Спампаваныя pod-ы і specs";
-"target.docker.disk.name" = "Дыск віртуальнай машыны Docker";
-"target.docker.disk.note" = "Вызваляецца камандай docker system prune. Вобразы і тамы захоўваюцца";
+"target.docker.buildx.name" = "Кэш Docker Buildx";
+"target.docker.buildx.note" = "Лакальны кэш зборкі docker buildx";
+"target.docker.disk.name" = "Рэшткі Docker";
+"target.docker.disk.note" = "Тое, што выдаляе docker system prune пры запушчаным Docker. Вобразы і тамы застаюцца";
 "target.docker.logs.name" = "Журналы Docker Desktop";
 "target.docker.logs.note" = "Толькі журналы. Вобразы і тамы не чапаюцца";
+"target.editors.cache.name" = "Кэшы VS Code і Cursor";
+"target.editors.cache.note" = "Сцягнутыя пашырэнні (VSIX), кэш кода і журналы";
+"target.editors.extensions.name" = "Састарэлыя пашырэнні";
+"target.editors.extensions.note" = "Старыя версіі, якія рэдактар ужо замяніў і пазначыў састарэлымі";
 "target.electron.appsupport.name" = "Кэшы праграм Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache і GPUCache па-за ~/Library/Caches";
 "target.electron.name" = "Кэш Electron";
 "target.electron.note" = "Бінарныя файлы Electron і electron-builder";
+"target.expo.name" = "Кэш Expo";
+"target.expo.note" = "Expo Go, натыўныя зборкі і шаблоны, што сцягвае Expo CLI";
 "target.flutter.name" = "Кэш Flutter / Dart";
 "target.flutter.note" = "~/.pub-cache: пакеты з pub.dev";
 "target.go.build.name" = "Кэш зборкі Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Журналы асяроддзяў распрацоўкі";
 "target.kotlin.name" = "Кэш Kotlin / Konan";
 "target.kotlin.note" = "Артэфакты кампілятараў Kotlin і Kotlin Native";
+"target.langs.tools.name" = "Кэшы іншых інструментаў";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff і mypy";
 "target.maven.name" = "Лакальны рэпазіторый Maven";
 "target.maven.note" = "~/.m2/repository. Пры наступнай зборцы спампуецца цалкам нанова";
+"target.node.tools.name" = "Кэшы інструментаў Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite і Prisma";
 "target.npm.name" = "Кэш npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Кэш Composer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Спампаваныя асяроддзі выканання і супольны кэш сімулятараў";
 "target.sim.devices.name" = "Усталяваныя сімулятары";
 "target.sim.devices.note" = "Выдаляюцца праз simctl, каб у Xcode не застаўся прывід";
+"target.sim.runtimes.name" = "Невыкарыстаныя асяроддзі сімулятара";
+"target.sim.runtimes.note" = "Вобразы iOS, watchOS… без ніводнага сімулятара. Выдаляюцца праз simctl";
 "target.swiftpm.name" = "Кэш Swift Package Manager";
 "target.swiftpm.note" = "Рэпазіторыі і бінарныя файлы залежнасцяў SwiftPM";
 "target.trash.name" = "Сметніца";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode спампуе яе зноў пры адкрыцці";
 "target.xcode.previews.name" = "Перадпрагляды Xcode";
 "target.xcode.previews.note" = "Кэш перадпраглядаў SwiftUI";
+"target.xcode.products.name" = "Даныя Organizer у Xcode";
+"target.xcode.products.note" = "Версіі, значкі, збоі і метрыкі, сцягнутыя з App Store Connect";
+"target.xcode.testdevices.name" = "Клоны тэставых сімулятараў";
+"target.xcode.testdevices.note" = "Копіі, якія Xcode робіць для паралельных тэстаў; ён стварае іх зноў пры наступным запуску";
 "target.yarn.name" = "Кэш Yarn";
 "target.yarn.note" = "Пакеты, спампаваныя Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Наступным разам створыцца сама, і ты гэтага не заўважыш.";
 "why.signOut" = "Ты выйдзеш з сайтаў, якія гэта выкарыстоўваюць, і давядзецца ўвайсці зноў.";
 "why.slowerBuild" = "Нічога не губляецца, але наступная зборка зойме больш часу, пакуль робіць нанова.";
+"why.superseded" = "Гэта старая версія, якой ужо нішто не карыстаецца. Калі нешта зноў яе запатрабуе, яе сцягнуць нанова.";
 "why.toolDecides" = "Выдаляе сам інструмент, таму што менавіта знікне, вырашае ён.";
 "why.unknown" = "Скрыня для ўсяго: сюды трапляе тое, чаго не назваў ніводны іншы радок. Паглядзі перад выдаленнем.";

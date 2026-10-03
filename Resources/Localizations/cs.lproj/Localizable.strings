@@ -12,12 +12,15 @@
 "alert.report.count" = "Vyčištěné kategorie: %d";
 "alert.report.failures" = "Nepodařilo se smazat vše (dotčené kategorie: %d). Obvykle jde o oprávnění: udělte MacCleaneru plný přístup k disku v Nastavení › Soukromí a zabezpečení.";
 "alert.report.freed" = "Uvolněno %@.";
+"alert.report.skipped" = "Přeskočeno, ničeho se nedotklo: %@";
+"alert.report.space" = "Volné místo: %@ → %@ (%@)";
 "alert.report.title" = "Čištění dokončeno";
 "alert.report.trashed" = "Přesunuto %@ do koše. Místo se uvolní po jeho vysypání.";
 
 /* ---- category ---- */
 "category.ai" = "Nástroje UI";
 "category.browsers" = "Prohlížeče";
+"category.editors" = "Editory kódu";
 "category.jvm" = "Android, Gradle a JVM";
 "category.langs" = "Další jazyky";
 "category.node" = "Node a web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Zrušit";
 "common.done" = "Hotovo";
+
+/* ---- detail ---- */
+"detail.empty" = "Tady není co uvolnit";
 
 /* ---- empty ---- */
 "empty.button" = "Prohledat nyní";
@@ -58,6 +64,10 @@
 "header.stop" = "Zastavit";
 "header.working" = "Pracuji…";
 
+/* ---- menu ---- */
+"menu.history" = "Historie čištění";
+"menu.unignore" = "Znovu nabízet ignorované";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Bude nutné věci znovu stáhnout, jinak přijdete o užitečná data.";
 "risk.caution.label" = "Pozor";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Bezpečné";
 
 /* ---- row ---- */
+"row.busy" = "Používá se: %@";
+"row.busy.help" = "Zavřete ho, abyste to mohli vyčistit. MacCleaner to znovu zkontroluje těsně před smazáním.";
+"row.busy.unknown" = "Nepodařilo se ověřit, zda se používá, takže se nesmaže.";
 "row.files" = "Soubory: %d";
+"row.ignore" = "Už nenabízet";
 "row.noPath" = "Na tomto Macu nebyla nalezena žádná odpovídající cesta.";
+"row.recent.help" = "Změněno během posledních 7 dní. Rychlý výběr to nechá neoznačené; označte to ručně, pokud chcete.";
 "row.reveal" = "Zobrazit ve Finderu";
 
 /* ---- select ---- */
 "select.clear" = "Zrušit výběr";
 "select.mark" = "Vybrat";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Vše";
+"sidebar.categories" = "Kategorie";
+
+/* ---- skip ---- */
+"skip.busy" = "používá %@";
+"skip.changed" = "změnilo se od prohledání";
+"skip.unknown" = "nepodařilo se ověřit, zda se používalo";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Mezipaměti kódových asistentů";
 "target.ai.caches.note" = "Dočasné soubory z Claude, Codex, Cursor a OpenCode";
 "target.ai.models.name" = "Stažené modely UI";
 "target.ai.models.note" = "Váhy Ollama, Hugging Face a LM Studio: každý několik GB";
+"target.ai.runtimes.name" = "Opuštěná prostředí Codexu";
+"target.ai.runtimes.note" = "Nedokončená stahování. Prostředí, které Codex používá, se nikdy nenabízí";
 "target.ai.vmbundles.name" = "Virtuální stroje asistentů";
 "target.ai.vmbundles.note" = "Obrazy disku, které Claude stahuje pro spouštění kódu";
 "target.ai.worktrees.name" = "Pracovní stromy agentů";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Frameworky a checkouty Carthage";
 "target.cocoapods.name" = "Mezipaměť CocoaPods";
 "target.cocoapods.note" = "Stažené pody a specs";
-"target.docker.disk.name" = "Disk virtuálního stroje Dockeru";
-"target.docker.disk.note" = "Uvolní ho docker system prune. Tvé obrazy a svazky zůstanou";
+"target.docker.buildx.name" = "Mezipaměť Docker Buildx";
+"target.docker.buildx.note" = "Místní mezipaměť sestavení pro docker buildx";
+"target.docker.disk.name" = "Zbytky Dockeru";
+"target.docker.disk.note" = "Co smaže docker system prune při spuštěném Dockeru. Obrazy a svazky zůstanou";
 "target.docker.logs.name" = "Protokoly Docker Desktopu";
 "target.docker.logs.note" = "Pouze protokoly. Obrazů ani svazků se to nedotkne";
+"target.editors.cache.name" = "Mezipaměti VS Code a Cursoru";
+"target.editors.cache.note" = "Stažená rozšíření (VSIX), mezipaměť kódu a protokoly";
+"target.editors.extensions.name" = "Zastaralá rozšíření";
+"target.editors.extensions.note" = "Staré verze, které editor už nahradil a označil jako zastaralé";
 "target.electron.appsupport.name" = "Mezipaměti aplikací Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache a GPUCache mimo ~/Library/Caches";
 "target.electron.name" = "Mezipaměť Electronu";
 "target.electron.note" = "Binárky Electronu a electron-builderu";
+"target.expo.name" = "Mezipaměť Expo";
+"target.expo.note" = "Expo Go, nativní sestavení a šablony stažené přes Expo CLI";
 "target.flutter.name" = "Mezipaměť Flutteru / Dartu";
 "target.flutter.note" = "~/.pub-cache: balíčky z pub.dev";
 "target.go.build.name" = "Mezipaměť sestavení Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Protokoly vývojových prostředí";
 "target.kotlin.name" = "Mezipaměť Kotlinu / Konanu";
 "target.kotlin.note" = "Artefakty překladačů Kotlin a Kotlin Native";
+"target.langs.tools.name" = "Mezipaměti dalších nástrojů";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff a mypy";
 "target.maven.name" = "Místní repozitář Mavenu";
 "target.maven.note" = "~/.m2/repository. Při dalším sestavení se stáhne celý znovu";
+"target.node.tools.name" = "Mezipaměti nástrojů pro Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite a Prisma";
 "target.npm.name" = "Mezipaměť npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Mezipaměť Composeru (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Stažená běhová prostředí a sdílená mezipaměť simulátorů";
 "target.sim.devices.name" = "Nainstalované simulátory";
 "target.sim.devices.note" = "Mažou se přes simctl, aby Xcodu nezůstalo duchařské zařízení";
+"target.sim.runtimes.name" = "Nepoužívaná prostředí simulátoru";
+"target.sim.runtimes.note" = "Obrazy iOS, watchOS… bez jediného simulátoru. Odstraní se pomocí simctl";
 "target.swiftpm.name" = "Mezipaměť Swift Package Manageru";
 "target.swiftpm.note" = "Repozitáře a binárky závislostí SwiftPM";
 "target.trash.name" = "Koš";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode ji při otevření stáhne znovu";
 "target.xcode.previews.name" = "Náhledy Xcode";
 "target.xcode.previews.note" = "Mezipaměť náhledů SwiftUI";
+"target.xcode.products.name" = "Data Organizeru v Xcode";
+"target.xcode.products.note" = "Verze, ikony, pády a metriky stažené z App Store Connect";
+"target.xcode.testdevices.name" = "Klony testovacích simulátorů";
+"target.xcode.testdevices.note" = "Kopie, které Xcode vytváří pro paralelní testy; při dalším spuštění je vytvoří znovu";
 "target.yarn.name" = "Mezipaměť Yarnu";
 "target.yarn.note" = "Balíčky stažené Yarnem";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Vytvoří se sama, až bude příště potřeba, a nevšimneš si toho.";
 "why.signOut" = "Odhlásí tě z webů, které to používají, a budeš se muset přihlásit znovu.";
 "why.slowerBuild" = "Nic se neztratí, ale další sestavení potrvá déle, než to udělá znovu.";
+"why.superseded" = "Je to stará verze, kterou už nic nepoužívá. Kdyby ji něco znovu potřebovalo, stáhla by se znovu.";
 "why.toolDecides" = "Maže samotný nástroj, takže co přesně zmizí, rozhoduje on.";
 "why.unknown" = "Přihrádka na zbytek: sem spadne, co žádný jiný řádek nepojmenoval. Podívej se před mazáním.";

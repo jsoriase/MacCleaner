@@ -99,13 +99,21 @@ enum Tools {
     /// mitad del analisis. `xcode-select -p` no abre nada y dice donde estan,
     /// si estan.
     static let git: String? = {
-        let developer = run("/usr/bin/xcode-select", ["-p"], timeout: 10)
-        if developer.ok {
-            let candidate = developer.firstLine + "/usr/bin/git"
+        if let developer = developerDirectory {
+            let candidate = developer + "/usr/bin/git"
             if FileManager.default.isExecutableFile(atPath: candidate) { return candidate }
         }
         return ["/opt/homebrew/bin/git", "/usr/local/bin/git"]
             .first { FileManager.default.isExecutableFile(atPath: $0) }
+    }()
+
+    /// Donde estan las herramientas de desarrollo, o nil si no hay. Antes de
+    /// tocar cualquier envoltorio de `/usr/bin` —git, xcrun— hay que
+    /// preguntarlo: sin ellas, ejecutarlo abre el dialogo de instalacion.
+    static let developerDirectory: String? = {
+        let developer = run("/usr/bin/xcode-select", ["-p"], timeout: 10)
+        guard developer.ok, !developer.firstLine.isEmpty else { return nil }
+        return developer.firstLine
     }()
 
     /// Las carpetas de `paths` que guardan algo versionado en git.

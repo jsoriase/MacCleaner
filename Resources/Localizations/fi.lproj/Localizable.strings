@@ -12,12 +12,15 @@
 "alert.report.count" = "Siivottuja luokkia: %d";
 "alert.report.failures" = "Kaikkea ei voitu poistaa (koskee luokkia: %d). Yleensä kyse on käyttöoikeuksista: anna MacCleanerille täysi levyoikeus kohdasta Asetukset › Tietosuoja ja turvallisuus.";
 "alert.report.freed" = "Vapautettiin %@.";
+"alert.report.skipped" = "Jätetty väliin, mihinkään ei koskettu: %@";
+"alert.report.space" = "Vapaa tila: %@ → %@ (%@)";
 "alert.report.title" = "Siivous valmis";
 "alert.report.trashed" = "Siirretty %@ roskakoriin. Tila vapautuu, kun tyhjennät sen.";
 
 /* ---- category ---- */
 "category.ai" = "Tekoälytyökalut";
 "category.browsers" = "Selaimet";
+"category.editors" = "Koodieditorit";
 "category.jvm" = "Android, Gradle ja JVM";
 "category.langs" = "Muut kielet";
 "category.node" = "Node ja web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Kumoa";
 "common.done" = "Valmis";
+
+/* ---- detail ---- */
+"detail.empty" = "Täällä ei ole mitään vapautettavaa";
 
 /* ---- empty ---- */
 "empty.button" = "Tarkista nyt";
@@ -58,6 +64,10 @@
 "header.stop" = "Pysäytä";
 "header.working" = "Työskentelee…";
 
+/* ---- menu ---- */
+"menu.history" = "Siivoushistoria";
+"menu.unignore" = "Tarjoa ohitetut uudelleen";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Asioita joutuu lataamaan uudelleen, tai menetät hyödyllistä dataa.";
 "risk.caution.label" = "Varoitus";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Turvalliset";
 
 /* ---- row ---- */
+"row.busy" = "Käytössä: %@";
+"row.busy.help" = "Sulje se, jotta voit siivota tämän. MacCleaner tarkistaa uudelleen juuri ennen poistamista.";
+"row.busy.unknown" = "Ei voitu tarkistaa, onko se käytössä, joten sitä ei poisteta.";
 "row.files" = "Tiedostot: %d";
+"row.ignore" = "Älä tarjoa uudelleen";
 "row.noPath" = "Tästä Macista ei löytynyt yhtään vastaavaa polkua.";
+"row.recent.help" = "Muutettu viimeisten 7 päivän aikana. Pikavalinta jättää sen merkitsemättä; merkitse käsin, jos haluat.";
 "row.reveal" = "Näytä Finderissä";
 
 /* ---- select ---- */
 "select.clear" = "Poista kaikki valinnat";
 "select.mark" = "Valitse";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Kaikki";
+"sidebar.categories" = "Kategoriat";
+
+/* ---- skip ---- */
+"skip.busy" = "käytössä: %@";
+"skip.changed" = "muuttunut tarkistuksen jälkeen";
+"skip.unknown" = "ei voitu tarkistaa, oliko se käytössä";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Koodiavustajien välimuistit";
 "target.ai.caches.note" = "Väliaikaiset tiedostot: Claude, Codex, Cursor ja OpenCode";
 "target.ai.models.name" = "Ladatut tekoälymallit";
 "target.ai.models.note" = "Ollaman, Hugging Facen ja LM Studion painot: gigatavuja kukin";
+"target.ai.runtimes.name" = "Hylätyt Codexin ajoympäristöt";
+"target.ai.runtimes.note" = "Keskeneräiset lataukset. Codexin käyttämää ajoympäristöä ei koskaan tarjota";
 "target.ai.vmbundles.name" = "Avustajien virtuaalikoneet";
 "target.ai.vmbundles.note" = "Levykuvat, jotka Claude lataa koodin suorittamiseen";
 "target.ai.worktrees.name" = "Agenttien työpuut";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Carthagen frameworkit ja checkoutit";
 "target.cocoapods.name" = "CocoaPodsin välimuisti";
 "target.cocoapods.note" = "Ladatut podit ja specsit";
-"target.docker.disk.name" = "Dockerin virtuaalikoneen levy";
-"target.docker.disk.note" = "Vapautuu komennolla docker system prune. Levykuvat ja taltiot säilyvät";
+"target.docker.buildx.name" = "Docker Buildxin välimuisti";
+"target.docker.buildx.note" = "docker buildxin paikallinen käännösvälimuisti";
+"target.docker.disk.name" = "Dockerin jäämät";
+"target.docker.disk.note" = "Mitä docker system prune poistaa Dockerin ollessa käynnissä. Levykuvat ja taltiot säilyvät";
 "target.docker.logs.name" = "Docker Desktopin lokit";
 "target.docker.logs.note" = "Vain lokit. Vedoksiin ja taltioihin ei kosketa";
+"target.editors.cache.name" = "VS Coden ja Cursorin välimuistit";
+"target.editors.cache.note" = "Ladatut laajennukset (VSIX), koodin välimuisti ja lokit";
+"target.editors.extensions.name" = "Vanhentuneet laajennukset";
+"target.editors.extensions.note" = "Vanhat versiot, jotka editori on jo korvannut ja merkinnyt vanhentuneiksi";
 "target.electron.appsupport.name" = "Electron-sovellusten välimuistit";
 "target.electron.appsupport.note" = "Cache, Code Cache ja GPUCache kansion ~/Library/Caches ulkopuolella";
 "target.electron.name" = "Electronin välimuisti";
 "target.electron.note" = "Electronin ja electron-builderin binäärit";
+"target.expo.name" = "Expon välimuisti";
+"target.expo.note" = "Expo CLI:n lataamat Expo Go, natiivikäännökset ja mallipohjat";
 "target.flutter.name" = "Flutterin / Dartin välimuisti";
 "target.flutter.note" = "~/.pub-cache: paketit pub.dev-palvelusta";
 "target.go.build.name" = "Gon käännösvälimuisti";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Kehitysympäristöjen lokit";
 "target.kotlin.name" = "Kotlinin / Konanin välimuisti";
 "target.kotlin.note" = "Kotlin- ja Kotlin Native -kääntäjien artefaktit";
+"target.langs.tools.name" = "Muiden työkalujen välimuistit";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff ja mypy";
 "target.maven.name" = "Paikallinen Maven-varasto";
 "target.maven.note" = "~/.m2/repository. Ladataan kokonaan uudelleen seuraavalla käännöksellä";
+"target.node.tools.name" = "Node-työkalujen välimuistit";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite ja Prisma";
 "target.npm.name" = "npm:n välimuisti";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composerin välimuisti (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Ladatut suoritusympäristöt ja simulaattoreiden yhteinen välimuisti";
 "target.sim.devices.name" = "Asennetut simulaattorit";
 "target.sim.devices.note" = "Poistetaan simctl:llä, jottei Xcodelle jää haamulaitetta";
+"target.sim.runtimes.name" = "Käyttämättömät simulaattorin ajoympäristöt";
+"target.sim.runtimes.note" = "iOS-, watchOS-… levykuvat ilman yhtään simulaattoria. Poistetaan simctl:llä";
 "target.swiftpm.name" = "Swift Package Managerin välimuisti";
 "target.swiftpm.note" = "SwiftPM-riippuvuuksien varastot ja binäärit";
 "target.trash.name" = "Roskakori";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode lataa sen uudelleen, kun avaat sen";
 "target.xcode.previews.name" = "Xcoden esikatselut";
 "target.xcode.previews.note" = "SwiftUI-esikatselujen välimuisti";
+"target.xcode.products.name" = "Xcode Organizerin tiedot";
+"target.xcode.products.note" = "App Store Connectista ladatut versiot, kuvakkeet, kaatumiset ja mittarit";
+"target.xcode.testdevices.name" = "Testisimulaattorien kloonit";
+"target.xcode.testdevices.note" = "Kopiot, jotka Xcode tekee rinnakkaistestejä varten; luodaan uudelleen seuraavalla ajokerralla";
 "target.yarn.name" = "Yarnin välimuisti";
 "target.yarn.note" = "Yarnin lataamat paketit";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Syntyy itsestään uudelleen seuraavalla kerralla, etkä huomaa mitään.";
 "why.signOut" = "Sinut kirjataan ulos sivustoilta, jotka käyttävät sitä, ja pitää kirjautua uudelleen.";
 "why.slowerBuild" = "Mitään ei häviä, mutta seuraava käännös kestää kauemmin, kun se tehdään uudelleen.";
+"why.superseded" = "Vanha versio, jota mikään ei enää käytä. Jos jokin pyytäisi sitä uudelleen, se ladattaisiin uudelleen.";
 "why.toolDecides" = "Työkalu poistaa itse, joten se päättää mitä tarkalleen katoaa.";
 "why.unknown" = "Sekalaatikko: tänne päätyy se, mitä mikään muu rivi ei ole nimennyt. Katso ennen poistoa.";

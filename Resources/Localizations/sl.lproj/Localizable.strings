@@ -12,12 +12,15 @@
 "alert.report.count" = "Počiščene kategorije: %d";
 "alert.report.failures" = "Ni bilo mogoče izbrisati vsega (prizadete kategorije: %d). Običajno gre za dovoljenja: MacCleanerju odobrite polni dostop do diska v Nastavitve › Zasebnost in varnost.";
 "alert.report.freed" = "Sproščeno %@.";
+"alert.report.skipped" = "Preskočeno, nič ni bilo dotaknjeno: %@";
+"alert.report.space" = "Prosti prostor: %@ → %@ (%@)";
 "alert.report.title" = "Čiščenje je končano";
 "alert.report.trashed" = "Premaknjeno %@ v koš. Prostor se sprosti, ko ga izpraznite.";
 
 /* ---- category ---- */
 "category.ai" = "Orodja UI";
 "category.browsers" = "Brskalniki";
+"category.editors" = "Urejevalniki kode";
 "category.jvm" = "Android, Gradle in JVM";
 "category.langs" = "Drugi jeziki";
 "category.node" = "Node in splet";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Prekliči";
 "common.done" = "Končano";
+
+/* ---- detail ---- */
+"detail.empty" = "Tu ni ničesar za sprostitev";
 
 /* ---- empty ---- */
 "empty.button" = "Preglej zdaj";
@@ -58,6 +64,10 @@
 "header.stop" = "Ustavi";
 "header.working" = "Delam…";
 
+/* ---- menu ---- */
+"menu.history" = "Zgodovina čiščenja";
+"menu.unignore" = "Znova ponudi prezrto";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Stvari bo treba znova prenesti, sicer izgubite uporabne podatke.";
 "risk.caution.label" = "Pozor";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Varne";
 
 /* ---- row ---- */
+"row.busy" = "V uporabi: %@";
+"row.busy.help" = "Zaprite ga, da boste lahko to počistili. MacCleaner tik pred brisanjem ponovno preveri.";
+"row.busy.unknown" = "Ni bilo mogoče preveriti, ali je v uporabi, zato ne bo izbrisano.";
 "row.files" = "Datoteke: %d";
+"row.ignore" = "Ne ponujaj več";
 "row.noPath" = "Na tem Macu ni bilo najdene nobene ustrezne poti.";
+"row.recent.help" = "Spremenjeno v zadnjih 7 dneh. Hitra izbira ga pusti neoznačenega; označite ga ročno, če ga želite.";
 "row.reveal" = "Pokaži v Finderju";
 
 /* ---- select ---- */
 "select.clear" = "Počisti izbor";
 "select.mark" = "Izberi";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Vse";
+"sidebar.categories" = "Kategorije";
+
+/* ---- skip ---- */
+"skip.busy" = "uporablja %@";
+"skip.changed" = "spremenjeno po pregledu";
+"skip.unknown" = "ni bilo mogoče preveriti, ali je bilo v uporabi";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Predpomnilniki kodnih pomočnikov";
 "target.ai.caches.note" = "Začasne datoteke iz Claude, Codex, Cursor in OpenCode";
 "target.ai.models.name" = "Preneseni modeli UI";
 "target.ai.models.note" = "Uteži Ollama, Hugging Face in LM Studio: vsaka več gigabajtov";
+"target.ai.runtimes.name" = "Zapuščena izvajalna okolja Codexa";
+"target.ai.runtimes.note" = "Napol končani prenosi. Okolje, ki ga uporablja Codex, se nikoli ne ponudi";
 "target.ai.vmbundles.name" = "Navidezni stroji pomočnikov";
 "target.ai.vmbundles.note" = "Slike diska, ki jih Claude prenese za izvajanje kode";
 "target.ai.worktrees.name" = "Delovna drevesa agentov";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Ogrodja in checkouti Carthage";
 "target.cocoapods.name" = "Predpomnilnik CocoaPods";
 "target.cocoapods.note" = "Preneseni podi in specs";
-"target.docker.disk.name" = "Disk navideznega stroja Docker";
-"target.docker.disk.note" = "Sprosti ga docker system prune. Tvoje slike in nosilci ostanejo";
+"target.docker.buildx.name" = "Predpomnilnik Docker Buildx";
+"target.docker.buildx.note" = "Lokalni predpomnilnik gradnje docker buildx";
+"target.docker.disk.name" = "Ostanki Dockerja";
+"target.docker.disk.note" = "Kar izbriše docker system prune, ko Docker teče. Slike in nosilci ostanejo";
 "target.docker.logs.name" = "Dnevniki Docker Desktop";
 "target.docker.logs.note" = "Samo dnevniki. Slik in nosilcev se ne dotakne";
+"target.editors.cache.name" = "Predpomnilniki VS Code in Cursorja";
+"target.editors.cache.note" = "Prenesene razširitve (VSIX), predpomnilnik kode in dnevniki";
+"target.editors.extensions.name" = "Zastarele razširitve";
+"target.editors.extensions.note" = "Stare različice, ki jih je urejevalnik že zamenjal in označil kot zastarele";
 "target.electron.appsupport.name" = "Predpomnilniki aplikacij Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache in GPUCache zunaj ~/Library/Caches";
 "target.electron.name" = "Predpomnilnik Electron";
 "target.electron.note" = "Binarne datoteke Electron in electron-builder";
+"target.expo.name" = "Predpomnilnik Expo";
+"target.expo.note" = "Expo Go, izvorne gradnje in predloge, ki jih prenese Expo CLI";
 "target.flutter.name" = "Predpomnilnik Flutter / Dart";
 "target.flutter.note" = "~/.pub-cache: paketi s pub.dev";
 "target.go.build.name" = "Predpomnilnik gradnje Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Dnevniki razvojnih okolij";
 "target.kotlin.name" = "Predpomnilnik Kotlin / Konan";
 "target.kotlin.note" = "Artefakti prevajalnikov Kotlin in Kotlin Native";
+"target.langs.tools.name" = "Predpomnilniki drugih orodij";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff in mypy";
 "target.maven.name" = "Lokalni repozitorij Maven";
 "target.maven.note" = "~/.m2/repository. Pri naslednji gradnji se prenese v celoti znova";
+"target.node.tools.name" = "Predpomnilniki orodij za Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite in Prisma";
 "target.npm.name" = "Predpomnilnik npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Predpomnilnik Composer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Preneseni izvajalniki in skupni predpomnilnik simulatorjev";
 "target.sim.devices.name" = "Nameščeni simulatorji";
 "target.sim.devices.note" = "Odstranijo se s simctl, da Xcodu ne ostane duh naprave";
+"target.sim.runtimes.name" = "Neuporabljena izvajalna okolja simulatorja";
+"target.sim.runtimes.note" = "Slike iOS, watchOS… brez enega samega simulatorja. Odstranijo se s simctl";
 "target.swiftpm.name" = "Predpomnilnik Swift Package Manager";
 "target.swiftpm.note" = "Repozitoriji in binarne datoteke odvisnosti SwiftPM";
 "target.trash.name" = "Koš";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode jo ob odprtju prenese znova";
 "target.xcode.previews.name" = "Predogledi Xcode";
 "target.xcode.previews.note" = "Predpomnilnik predogledov SwiftUI";
+"target.xcode.products.name" = "Podatki Xcode Organizerja";
+"target.xcode.products.note" = "Različice, ikone, sesutja in meritve, preneseni iz App Store Connecta";
+"target.xcode.testdevices.name" = "Kloni testnih simulatorjev";
+"target.xcode.testdevices.note" = "Kopije, ki jih Xcode naredi za vzporedne teste; ob naslednjem zagonu jih ustvari znova";
 "target.yarn.name" = "Predpomnilnik Yarn";
 "target.yarn.note" = "Paketi, ki jih je prenesel Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Naslednjič se ustvari sama in tega ne boš opazil.";
 "why.signOut" = "Odjavil te bo s strani, ki to uporabljajo, in se boš moral znova prijaviti.";
 "why.slowerBuild" = "Nič se ne izgubi, a naslednja gradnja bo trajala dlje, dokler tega ne naredi znova.";
+"why.superseded" = "To je stara različica, ki je nič več ne uporablja. Če bi jo kaj spet zahtevalo, bi se znova prenesla.";
 "why.toolDecides" = "Briše samo orodje, zato kaj natanko izgine, odloči ono.";
 "why.unknown" = "Predal za vse: sem pade tisto, česar ni poimenovala nobena druga vrstica. Poglej pred brisanjem.";

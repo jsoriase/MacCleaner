@@ -25,6 +25,11 @@ enum FileSystem {
         return result
     }
 
+    /// `~/algo` -> `/Users/x/algo`. Lo demas, tal cual.
+    static func expandTilde(_ path: String) -> String {
+        path.hasPrefix("~") ? (path as NSString).expandingTildeInPath : path
+    }
+
     // MARK: - Rutas intocables
 
     /// Carpetas que macOS protege con TCC. Con solo leerlas se dispara un dialogo
@@ -54,6 +59,13 @@ enum FileSystem {
         NSHomeDirectory() + "/Documents",
         NSHomeDirectory() + "/Desktop",
         NSHomeDirectory() + "/Downloads",
+        // El historial de los asistentes de codigo. Pesa —el de Codex llega a
+        // varios GB— y por eso tienta, pero son conversaciones, no cache: no
+        // hay de donde rehacerlas. Esta aqui para que ningun patron futuro
+        // pueda llevarselo por accidente.
+        NSHomeDirectory() + "/.codex/sessions",
+        NSHomeDirectory() + "/.codex/archived_sessions",
+        NSHomeDirectory() + "/.claude/projects",
     ]
 
     /// Un identificador protegido cubre tambien los suyos: `com.apple.Safari`
@@ -185,6 +197,70 @@ enum FileSystem {
         return (info.st_mode & S_IFMT) == S_IFDIR
     }
 
+    /// Existe, aunque sea un enlace roto.
+    static func exists(_ path: String) -> Bool {
+        var info = stat()
+        return lstat(path, &info) == 0
+    }
+
+    /// Que objeto hay en una ruta: disco e inodo. Si al ir a borrar no es el
+    /// mismo que se midio, alguien lo ha cambiado entre medias —una carpeta
+    /// recreada, o sustituida por un enlace— y lo que se aprobo ya no es eso.
+    struct Identity: Sendable, Equatable {
+        var device: Int64
+        var inode: UInt64
+    }
+
+    static func identity(of path: String) -> Identity? {
+        var info = stat()
+        guard lstat(path, &info) == 0 else { return nil }
+        return Identity(device: Int64(info.st_dev), inode: UInt64(info.st_ino))
+    }
+
+    /// Donde cae de verdad una ruta, con todas las carpetas de por medio
+    /// resueltas. La ultima no se resuelve: si es un enlace, lo que se borra
+    /// es el enlace y no a lo que apunta.
+    ///
+    /// nil si la carpeta que la contiene no existe o no se puede resolver.
+    static func canonical(_ path: String) -> String? {
+        let parent = (path as NSString).deletingLastPathComponent
+        guard let resolved = realpath(parent, nil) else { return nil }
+        defer { free(resolved) }
+        let real = String(cString: resolved)
+        let leaf = (path as NSString).lastPathComponent
+        return real == "/" ? "/" + leaf : real + "/" + leaf
+    }
+
+    /// Si algo dentro de `path` se ha escrito despues de `date`. Para en
+    /// cuanto encuentra uno: en un `node_modules` recien instalado no hace
+    /// falta recorrer los cien mil ficheros para saberlo.
+    ///
+    /// Si no se puede recorrer, contesta que si: ante la duda, no se borra.
+    static func modified(_ path: String, since date: Date) -> Bool {
+        let limit = time_t(date.timeIntervalSince1970)
+        var info = stat()
+        guard lstat(path, &info) == 0 else { return false }
+        if info.st_mtimespec.tv_sec > limit { return true }
+        guard (info.st_mode & S_IFMT) == S_IFDIR else { return false }
+
+        let duplicated = strdup(path)
+        defer { free(duplicated) }
+        var argv: [UnsafeMutablePointer<CChar>?] = [duplicated, nil]
+        guard let stream = fts_open(&argv, FTS_PHYSICAL | FTS_NOCHDIR | FTS_XDEV, nil) else {
+            return true
+        }
+        defer { fts_close(stream) }
+        while let entry = fts_read(stream) {
+            let kind = Int32(entry.pointee.fts_info)
+            if kind == FTS_DNR || kind == FTS_ERR || kind == FTS_NS { return true }
+            if kind == FTS_DP { continue }
+            if let st = entry.pointee.fts_statp, st.pointee.st_mtimespec.tv_sec > limit {
+                return true
+            }
+        }
+        return false
+    }
+
     /// Borra una ruta. `toTrash` la mueve a la Papelera en lugar de eliminarla.
     static func remove(_ path: String, toTrash: Bool) throws {
         let url = URL(fileURLWithPath: path)
@@ -206,6 +282,13 @@ enum FileSystem {
 
     static func humanBytes(_ bytes: Int64) -> String {
         bytes <= 0 ? "—" : formatter.string(fromByteCount: bytes)
+    }
+
+    /// Una diferencia, con su signo: `+3,1 GB`, `−120 MB`. Cero es `±0`, que
+    /// se lee igual en cualquier idioma.
+    static func signedBytes(_ delta: Int64) -> String {
+        if delta == 0 { return "±0" }
+        return (delta > 0 ? "+" : "−") + formatter.string(fromByteCount: abs(delta))
     }
 
     /// "hace 14 meses". Lo traduce Foundation, asi que sale en el idioma del
@@ -234,6 +317,14 @@ enum FileSystem {
 
     static func isStale(_ date: Date, relativeTo now: Date = Date()) -> Bool {
         now.timeIntervalSince(date) > staleInterval
+    }
+
+    /// Una semana. Un artefacto de proyecto tocado en este plazo puede ser el
+    /// del proyecto en el que estas trabajando ahora mismo.
+    static let recentInterval: TimeInterval = 7 * 24 * 60 * 60
+
+    static func isRecent(_ date: Date, relativeTo now: Date = Date()) -> Bool {
+        now.timeIntervalSince(date) < recentInterval
     }
 
     // MARK: - Artefactos de proyecto
@@ -322,6 +413,49 @@ enum FileSystem {
         return markers.contains {
             FileManager.default.fileExists(atPath: (parent as NSString).appendingPathComponent($0))
         }
+    }
+
+    // MARK: - Restos de versiones
+
+    /// Las extensiones que el editor ha dado por obsoletas: VS Code y sus
+    /// derivados apuntan en `extensions/.obsolete` la version vieja de cada
+    /// extension que actualizan, y no la vuelven a cargar.
+    ///
+    /// Cada clave tiene que ser el nombre de una carpeta hija, sin mas: una
+    /// barra o un `..` podria sacar el borrado de la carpeta de extensiones.
+    static func obsoleteExtensions(in root: String) -> Set<String> {
+        let file = (root as NSString).appendingPathComponent(".obsolete")
+        guard let data = FileManager.default.contents(atPath: file),
+              let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+        else { return [] }
+        return Set(json.compactMap { name, flag in
+            guard (flag as? Bool) == true, !name.isEmpty, name != ".", name != "..",
+                  !name.contains("/") else { return nil }
+            return name
+        })
+    }
+
+    static func isObsoleteExtension(_ path: String) -> Bool {
+        let root = (path as NSString).deletingLastPathComponent
+        return isDirectory(path)
+            && obsoleteExtensions(in: root).contains((path as NSString).lastPathComponent)
+    }
+
+    /// Un runtime de Codex que se quedo a medias: con nombre de temporal, o
+    /// sin `runtime.json` ni `dependencies`. Uno completo —con su
+    /// `runtime.json` y su node o su python— es el que esta usando Codex.
+    static func isStaleCodexRuntime(_ path: String) -> Bool {
+        guard isDirectory(path) else { return false }
+        func has(_ name: String) -> Bool { exists((path as NSString).appendingPathComponent(name)) }
+
+        let complete = has("runtime.json")
+            && (isDirectory(path + "/dependencies/node") || isDirectory(path + "/dependencies/python"))
+        if complete { return false }
+
+        let name = (path as NSString).lastPathComponent.lowercased()
+        let temporary = ["tmp", "temp", "incomplete", "partial"].contains { name.hasPrefix($0) }
+            || [".tmp", ".incomplete", "-incomplete", ".partial"].contains { name.hasSuffix($0) }
+        return temporary || (!has("runtime.json") && !has("dependencies"))
     }
 
     // MARK: - Simuladores

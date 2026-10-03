@@ -13,12 +13,15 @@
 "alert.report.count" = "साफ़ की गई श्रेणियाँ: %d";
 "alert.report.failures" = "कुछ आइटम हटाए नहीं जा सके (प्रभावित श्रेणियाँ: %d)। आमतौर पर यह अनुमति की समस्या है: सेटिंग्स › गोपनीयता और सुरक्षा में MacCleaner को फ़ुल डिस्क ऐक्सेस दें।";
 "alert.report.freed" = "%@ खाली हुआ।";
+"alert.report.skipped" = "छोड़ दिए गए, कुछ नहीं छुआ गया: %@";
+"alert.report.space" = "खाली जगह: %@ → %@ (%@)";
 "alert.report.title" = "सफ़ाई पूरी हुई";
 "alert.report.trashed" = "%@ रद्दी में ले जाए गए। जगह रद्दी खाली करने पर मिलती है।";
 
 /* ---- category ---- */
 "category.ai" = "एआई उपकरण";
 "category.browsers" = "ब्राउज़र";
+"category.editors" = "कोड एडिटर";
 "category.jvm" = "Android, Gradle और JVM";
 "category.langs" = "अन्य भाषाएँ";
 "category.node" = "Node और वेब";
@@ -30,6 +33,9 @@
 /* ---- common ---- */
 "common.cancel" = "रद्द करें";
 "common.done" = "पूर्ण";
+
+/* ---- detail ---- */
+"detail.empty" = "यहाँ खाली करने के लिए कुछ नहीं है";
 
 /* ---- empty ---- */
 "empty.button" = "अभी स्कैन करें";
@@ -59,6 +65,10 @@
 "header.stop" = "रोकें";
 "header.working" = "कार्य जारी है…";
 
+/* ---- menu ---- */
+"menu.history" = "सफ़ाई का इतिहास";
+"menu.unignore" = "अनदेखे आइटम फिर से दिखाएँ";
+
 /* ---- risk ---- */
 "risk.caution.help" = "चीज़ें दोबारा डाउनलोड करनी होंगी, या उपयोगी डेटा चला जाएगा।";
 "risk.caution.label" = "सावधानी";
@@ -71,19 +81,35 @@
 "risk.safe.plural" = "सुरक्षित";
 
 /* ---- row ---- */
+"row.busy" = "उपयोग में: %@";
+"row.busy.help" = "इसे साफ़ करने के लिए उसे बंद करें। MacCleaner हटाने से ठीक पहले फिर से जाँचता है।";
+"row.busy.unknown" = "जाँच नहीं हो सकी कि यह उपयोग में है या नहीं, इसलिए इसे हटाया नहीं जाएगा।";
 "row.files" = "फ़ाइलें: %d";
+"row.ignore" = "फिर से न दिखाएँ";
 "row.noPath" = "इस Mac पर कोई मिलता-जुलता पथ नहीं मिला।";
+"row.recent.help" = "पिछले 7 दिनों में बदला गया। त्वरित चयन इसे बिना चिह्नित छोड़ देता है; चाहें तो इसे हाथ से चिह्नित करें।";
 "row.reveal" = "Finder में दिखाएँ";
 
 /* ---- select ---- */
 "select.clear" = "सभी अचयनित करें";
 "select.mark" = "चुनें";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "सभी";
+"sidebar.categories" = "श्रेणियाँ";
+
+/* ---- skip ---- */
+"skip.busy" = "%@ द्वारा उपयोग में";
+"skip.changed" = "स्कैन के बाद बदल गया";
+"skip.unknown" = "जाँच नहीं हो सकी कि यह उपयोग में था या नहीं";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "कोड सहायकों की कैश";
 "target.ai.caches.note" = "Claude, Codex, Cursor और OpenCode की अस्थायी फ़ाइलें";
 "target.ai.models.name" = "डाउनलोड किए गए एआई मॉडल";
 "target.ai.models.note" = "Ollama, Hugging Face और LM Studio के वेट: हर एक कई गीगाबाइट";
+"target.ai.runtimes.name" = "छोड़े गए Codex रनटाइम";
+"target.ai.runtimes.note" = "अधूरे डाउनलोड। Codex जिस रनटाइम का उपयोग करता है, वह कभी नहीं दिखाया जाता";
 "target.ai.vmbundles.name" = "सहायकों की वर्चुअल मशीनें";
 "target.ai.vmbundles.note" = "डिस्क छवियाँ जो Claude कोड चलाने के लिए डाउनलोड करता है";
 "target.ai.worktrees.name" = "एजेंटों के कार्यवृक्ष";
@@ -116,14 +142,22 @@
 "target.carthage.note" = "Carthage के फ़्रेमवर्क और checkouts";
 "target.cocoapods.name" = "CocoaPods कैश";
 "target.cocoapods.note" = "डाउनलोड किए गए pods और specs";
-"target.docker.disk.name" = "Docker की वर्चुअल मशीन की डिस्क";
-"target.docker.disk.note" = "docker system prune से खाली होती है। आपकी इमेज और वॉल्यूम बने रहते हैं";
+"target.docker.buildx.name" = "Docker Buildx कैश";
+"target.docker.buildx.note" = "docker buildx का स्थानीय बिल्ड कैश";
+"target.docker.disk.name" = "Docker का बचा हुआ डेटा";
+"target.docker.disk.note" = "Docker चालू रहते docker system prune जो हटाता है। इमेज और वॉल्यूम बने रहते हैं";
 "target.docker.logs.name" = "Docker Desktop लॉग";
 "target.docker.logs.note" = "केवल लॉग। इमेज और वॉल्यूम अछूते रहते हैं";
+"target.editors.cache.name" = "VS Code और Cursor कैश";
+"target.editors.cache.note" = "डाउनलोड किए गए एक्सटेंशन (VSIX), कोड कैश और लॉग";
+"target.editors.extensions.name" = "पुराने एक्सटेंशन";
+"target.editors.extensions.note" = "पुराने संस्करण जिन्हें एडिटर पहले ही बदल चुका है और अप्रचलित चिह्नित कर चुका है";
 "target.electron.appsupport.name" = "Electron ऐप्स की कैश";
 "target.electron.appsupport.note" = "~/Library/Caches के बाहर रहने वाले Cache, Code Cache और GPUCache";
 "target.electron.name" = "Electron कैश";
 "target.electron.note" = "Electron और electron-builder की बाइनरी";
+"target.expo.name" = "Expo कैश";
+"target.expo.note" = "Expo CLI द्वारा डाउनलोड किए गए Expo Go, नेटिव बिल्ड और टेम्पलेट";
 "target.flutter.name" = "Flutter / Dart कैश";
 "target.flutter.note" = "~/.pub-cache: pub.dev के पैकेज";
 "target.go.build.name" = "Go बिल्ड कैश";
@@ -146,8 +180,12 @@
 "target.jetbrains.logs.note" = "इन IDE के लॉग";
 "target.kotlin.name" = "Kotlin / Konan कैश";
 "target.kotlin.note" = "Kotlin और Kotlin Native कंपाइलर के आर्टिफ़ैक्ट";
+"target.langs.tools.name" = "अन्य टूल कैश";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff और mypy";
 "target.maven.name" = "स्थानीय Maven रिपॉज़िटरी";
 "target.maven.note" = "~/.m2/repository। अगले बिल्ड में पूरा फिर से डाउनलोड होगा";
+"target.node.tools.name" = "Node टूल कैश";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite और Prisma";
 "target.npm.name" = "npm कैश";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composer कैश (PHP)";
@@ -170,6 +208,8 @@
 "target.sim.caches.note" = "डाउनलोड किए गए रनटाइम और सिम्युलेटर का साझा कैश";
 "target.sim.devices.name" = "स्थापित सिम्युलेटर";
 "target.sim.devices.note" = "simctl से हटाए जाते हैं ताकि Xcode के पास भूत उपकरण न रहे";
+"target.sim.runtimes.name" = "अप्रयुक्त सिम्युलेटर रनटाइम";
+"target.sim.runtimes.note" = "iOS, watchOS… इमेज जिनका कोई सिम्युलेटर नहीं बचा। simctl से हटाए जाते हैं";
 "target.swiftpm.name" = "Swift Package Manager कैश";
 "target.swiftpm.note" = "SwiftPM निर्भरताओं की रिपॉज़िटरी और बाइनरी";
 "target.trash.name" = "ट्रैश";
@@ -192,6 +232,10 @@
 "target.xcode.doccache.note" = "खोलने पर Xcode इसे फिर डाउनलोड कर लेता है";
 "target.xcode.previews.name" = "Xcode Previews";
 "target.xcode.previews.note" = "SwiftUI प्रीव्यू का कैश";
+"target.xcode.products.name" = "Xcode Organizer का डेटा";
+"target.xcode.products.note" = "App Store Connect से डाउनलोड किए गए संस्करण, आइकन, क्रैश और मेट्रिक्स";
+"target.xcode.testdevices.name" = "परीक्षण सिम्युलेटर के क्लोन";
+"target.xcode.testdevices.note" = "समानांतर परीक्षणों के लिए Xcode द्वारा बनाई गई प्रतियाँ; अगली बार फिर बन जाती हैं";
 "target.yarn.name" = "Yarn कैश";
 "target.yarn.note" = "Yarn द्वारा डाउनलोड किए गए पैकेज";
 
@@ -202,5 +246,6 @@
 "why.regenerates" = "अगली बार अपने आप बन जाती है, और आपको पता भी नहीं चलेगा।";
 "why.signOut" = "इसका उपयोग करने वाली साइटों से लॉगआउट हो जाएँगे और फिर लॉगिन करना पड़ेगा।";
 "why.slowerBuild" = "कुछ नहीं खोता, पर अगला बिल्ड इसे दोबारा बनाते हुए ज़्यादा समय लेगा।";
+"why.superseded" = "यह एक पुराना संस्करण है जिसे अब कुछ भी उपयोग नहीं करता। अगर किसी को फिर इसकी ज़रूरत हुई, तो इसे फिर डाउनलोड किया जाएगा।";
 "why.toolDecides" = "मिटाता खुद टूल है, इसलिए ठीक क्या ग़ायब होगा यह वही तय करता है।";
 "why.unknown" = "सब कुछ का दराज़: यहाँ वह गिरता है जिसे किसी और पंक्ति ने नाम नहीं दिया। मिटाने से पहले देखें।";

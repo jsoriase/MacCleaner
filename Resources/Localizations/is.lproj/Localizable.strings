@@ -12,12 +12,15 @@
 "alert.report.count" = "Hreinsaðir flokkar: %d";
 "alert.report.failures" = "Ekki tókst að eyða öllu (flokkar sem um ræðir: %d). Yfirleitt er þetta heimildamál: veittu MacCleaner fullan diskaðgang í Stillingar › Persónuvernd og öryggi.";
 "alert.report.freed" = "Losaði %@.";
+"alert.report.skipped" = "Sleppt, ekkert snert: %@";
+"alert.report.space" = "Laust pláss: %@ → %@ (%@)";
 "alert.report.title" = "Hreinsun lokið";
 "alert.report.trashed" = "Færði %@ í Ruslið. Plássið losnar þegar þú tæmir það.";
 
 /* ---- category ---- */
 "category.ai" = "Gervigreindartól";
 "category.browsers" = "Vafrar";
+"category.editors" = "Kóðaritlar";
 "category.jvm" = "Android, Gradle og JVM";
 "category.langs" = "Önnur forritunarmál";
 "category.node" = "Node og vefur";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Hætta við";
 "common.done" = "Lokið";
+
+/* ---- detail ---- */
+"detail.empty" = "Hér er ekkert að losa";
 
 /* ---- empty ---- */
 "empty.button" = "Skanna núna";
@@ -58,6 +64,10 @@
 "header.stop" = "Stöðva";
 "header.working" = "Vinnur…";
 
+/* ---- menu ---- */
+"menu.history" = "Hreinsunarsaga";
+"menu.unignore" = "Bjóða hunsuð atriði aftur";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Sækja þarf hluti aftur, annars tapast gagnleg gögn.";
 "risk.caution.label" = "Varúð";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Öruggar";
 
 /* ---- row ---- */
+"row.busy" = "Í notkun: %@";
+"row.busy.help" = "Lokaðu því til að geta hreinsað þetta. MacCleaner athugar aftur rétt áður en eytt er.";
+"row.busy.unknown" = "Ekki tókst að athuga hvort þetta er í notkun, svo því verður ekki eytt.";
 "row.files" = "Skrár: %d";
+"row.ignore" = "Ekki bjóða aftur";
 "row.noPath" = "Engin samsvarandi slóð fannst á þessari Mac-tölvu.";
+"row.recent.help" = "Breytt á síðustu 7 dögum. Flýtival skilur það eftir ómerkt; merktu það handvirkt ef þú vilt.";
 "row.reveal" = "Sýna í Finder";
 
 /* ---- select ---- */
 "select.clear" = "Afvelja allt";
 "select.mark" = "Velja";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Allt";
+"sidebar.categories" = "Flokkar";
+
+/* ---- skip ---- */
+"skip.busy" = "í notkun hjá %@";
+"skip.changed" = "breyttist eftir skönnun";
+"skip.unknown" = "ekki tókst að athuga hvort þetta var í notkun";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Skyndiminni kóðaaðstoðarmanna";
 "target.ai.caches.note" = "Bráðabirgðaskrár frá Claude, Codex, Cursor og OpenCode";
 "target.ai.models.name" = "Sóttar gervigreindarlíkön";
 "target.ai.models.note" = "Vigtir frá Ollama, Hugging Face og LM Studio: gígabæt hvert";
+"target.ai.runtimes.name" = "Yfirgefin keyrsluumhverfi Codex";
+"target.ai.runtimes.note" = "Hálfkláruð niðurhöl. Umhverfið sem Codex notar er aldrei boðið";
 "target.ai.vmbundles.name" = "Sýndarvélar aðstoðarmanna";
 "target.ai.vmbundles.note" = "Diskmyndir sem Claude sækir til að keyra kóða";
 "target.ai.worktrees.name" = "Vinnutré umboða";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Carthage-grunnar og checkouts";
 "target.cocoapods.name" = "Skyndiminni CocoaPods";
 "target.cocoapods.note" = "Sóttir pods og specs";
-"target.docker.disk.name" = "Diskur sýndarvélar Docker";
-"target.docker.disk.note" = "Losnar með docker system prune. Myndirnar þínar og bindin haldast";
+"target.docker.buildx.name" = "Skyndiminni Docker Buildx";
+"target.docker.buildx.note" = "Staðbundið smíðaskyndiminni docker buildx";
+"target.docker.disk.name" = "Afgangar Docker";
+"target.docker.disk.note" = "Það sem docker system prune eyðir þegar Docker er í gangi. Myndir og bindi haldast";
 "target.docker.logs.name" = "Annálar Docker Desktop";
 "target.docker.logs.note" = "Aðeins annálar. Myndir og geymslur eru ósnertar";
+"target.editors.cache.name" = "Skyndiminni VS Code og Cursor";
+"target.editors.cache.note" = "Sóttar viðbætur (VSIX), kóðaskyndiminni og annálar";
+"target.editors.extensions.name" = "Úreltar viðbætur";
+"target.editors.extensions.note" = "Gamlar útgáfur sem ritillinn hefur þegar skipt út og merkt úreltar";
 "target.electron.appsupport.name" = "Skyndiminni Electron-forrita";
 "target.electron.appsupport.note" = "Cache, Code Cache og GPUCache utan við ~/Library/Caches";
 "target.electron.name" = "Skyndiminni Electron";
 "target.electron.note" = "Tvíundarskrár Electron og electron-builder";
+"target.expo.name" = "Skyndiminni Expo";
+"target.expo.note" = "Expo Go, innbyggðar smíðar og sniðmát sem Expo CLI sækir";
 "target.flutter.name" = "Skyndiminni Flutter / Dart";
 "target.flutter.note" = "~/.pub-cache: pakkar af pub.dev";
 "target.go.build.name" = "Þýðingarskyndiminni Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Annálar þróunarumhverfanna";
 "target.kotlin.name" = "Skyndiminni Kotlin / Konan";
 "target.kotlin.note" = "Afurðir Kotlin- og Kotlin Native-þýðendanna";
+"target.langs.tools.name" = "Skyndiminni annarra tóla";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff og mypy";
 "target.maven.name" = "Staðbundið Maven-safn";
 "target.maven.note" = "~/.m2/repository. Sækist í heild sinni aftur við næstu þýðingu";
+"target.node.tools.name" = "Skyndiminni Node-tóla";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite og Prisma";
 "target.npm.name" = "Skyndiminni npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Skyndiminni Composer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Sótt keyrsluumhverfi og sameiginlegt skyndiminni hermanna";
 "target.sim.devices.name" = "Uppsettir hermar";
 "target.sim.devices.note" = "Fjarlægðir með simctl svo Xcode sitji ekki uppi með draug";
+"target.sim.runtimes.name" = "Ónotuð keyrsluumhverfi herma";
+"target.sim.runtimes.note" = "iOS-, watchOS-… diskmyndir án nokkurs herma. Fjarlægðar með simctl";
 "target.swiftpm.name" = "Skyndiminni Swift Package Manager";
 "target.swiftpm.note" = "Safn og tvíundarskrár fyrir SwiftPM-hluti";
 "target.trash.name" = "Rusl";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode sækir hana aftur þegar þú opnar hana";
 "target.xcode.previews.name" = "Forskoðanir Xcode";
 "target.xcode.previews.note" = "Skyndiminni fyrir SwiftUI-forskoðanir";
+"target.xcode.products.name" = "Gögn úr Xcode Organizer";
+"target.xcode.products.note" = "Útgáfur, tákn, hrun og mælingar sótt úr App Store Connect";
+"target.xcode.testdevices.name" = "Afrit af prófunarhermum";
+"target.xcode.testdevices.note" = "Afrit sem Xcode gerir fyrir samhliða prófanir; býr þau til aftur í næstu keyrslu";
 "target.yarn.name" = "Skyndiminni Yarn";
 "target.yarn.note" = "Pakkar sóttir af Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Býr sig til aftur sjálf næst þegar hennar þarf, og þú tekur ekki eftir því.";
 "why.signOut" = "Þú verður skráður út af vefsvæðum sem nota það og þarft að skrá þig inn aftur.";
 "why.slowerBuild" = "Ekkert tapast, en næsta þýðing tekur lengri tíma meðan hún býr það til aftur.";
+"why.superseded" = "Þetta er gömul útgáfa sem ekkert notar lengur. Ef eitthvað bæði um hana aftur yrði hún sótt aftur.";
 "why.toolDecides" = "Tólið eyðir sjálft, svo hvað nákvæmlega hverfur ræður það.";
 "why.unknown" = "Ruslakista: hér lendir það sem engin önnur röð hefur nefnt. Kíktu áður en þú eyðir.";

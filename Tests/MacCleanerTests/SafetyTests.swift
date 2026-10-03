@@ -117,3 +117,121 @@ final class SafariTests: XCTestCase {
         XCTAssertFalse(FileSystem.isProtected(caches + "org.mozilla.firefox"))
     }
 }
+
+// MARK: - La comprobacion completa
+
+/// `mayDelete` es lo ultimo antes de borrar: la ruta escrita, y la ruta a la
+/// que lleva de verdad si alguna carpeta de por medio es un enlace.
+final class MayDeleteTests: XCTestCase {
+
+    private let home = NSHomeDirectory()
+    private var sandbox: String!
+
+    override func setUpWithError() throws {
+        sandbox = home + "/Library/Caches/com.haumealabs.maccleaner.tests/\(UUID().uuidString)"
+        try FileManager.default.createDirectory(atPath: sandbox, withIntermediateDirectories: true)
+    }
+
+    override func tearDownWithError() throws {
+        try? FileManager.default.removeItem(atPath: sandbox)
+    }
+
+    /// Una lista de rutas que tienen que caer todas. Vive en un fichero para
+    /// que anadir una sea anadir una linea.
+    func testNingunaRutaPeligrosaPasa() throws {
+        let corpus = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .appendingPathComponent("Fixtures/dangerous_paths.txt")
+        let lines = try String(contentsOf: corpus, encoding: .utf8)
+            .split(separator: "\n", omittingEmptySubsequences: false)
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .filter { !$0.isEmpty && !$0.hasPrefix("#") }
+            .map { $0.replacingOccurrences(of: "$HOME", with: home) }
+        XCTAssertGreaterThan(lines.count, 70, "el corpus parece incompleto")
+        for path in lines {
+            XCTAssertFalse(Engine.mayDelete(path), "paso: \(path)")
+        }
+    }
+
+    func testLosCaracteresDeControlNoPasan() {
+        XCTAssertFalse(Engine.isSafe(home + "/Library/Caches/a\nb"))
+        XCTAssertFalse(Engine.isSafe(home + "/Library/Caches/a\u{0}b"))
+        XCTAssertFalse(Engine.isSafe(home + "/Library/Caches/a\tb"))
+        XCTAssertTrue(Engine.isSafe(home + "/Library/Caches/a b"))
+    }
+
+    /// Una carpeta de por medio que es un enlace al sistema: la ruta escrita
+    /// parece una cache, pero lo que se borraria es /System.
+    func testUnEnlaceDePorMedioHaciaElSistemaNoPasa() throws {
+        let link = sandbox + "/sistema"
+        try FileManager.default.createSymbolicLink(atPath: link, withDestinationPath: "/System/Library")
+        let through = link + "/CoreServices"
+        XCTAssertTrue(Engine.isSafe(through), "escrita, parece del home")
+        XCTAssertFalse(Engine.mayDelete(through), "resuelta, es /System")
+    }
+
+    /// Un enlace hacia el propio home deja la ruta en una carpeta de primer
+    /// nivel, que tampoco se toca.
+    func testUnEnlaceDePorMedioHaciaElHomeNoPasa() throws {
+        let link = sandbox + "/casa"
+        try FileManager.default.createSymbolicLink(atPath: link, withDestinationPath: home)
+        XCTAssertFalse(Engine.mayDelete(link + "/Library"))
+    }
+
+    /// El enlace en si se puede borrar: lo que desaparece es el enlace, no a
+    /// lo que apunta.
+    func testElEnlaceEnSiSePuedeBorrar() throws {
+        let link = sandbox + "/sistema"
+        try FileManager.default.createSymbolicLink(atPath: link, withDestinationPath: "/System/Library")
+        XCTAssertTrue(Engine.mayDelete(link))
+
+        let result = Engine.erase(paths: [link], scope: .contents, toTrash: false)
+        XCTAssertTrue(result.errors.isEmpty, "\(result.errors)")
+        XCTAssertFalse(FileSystem.exists(link))
+        XCTAssertTrue(FileManager.default.fileExists(atPath: "/System/Library/CoreServices"))
+    }
+
+    /// Lo resuelto solo quita permiso: un enlace dentro de la propia cache
+    /// sigue siendo la cache.
+    func testUnEnlaceQueSeQuedaEnLaCachePasa() throws {
+        let real = sandbox + "/real/dentro"
+        try FileManager.default.createDirectory(atPath: real, withIntermediateDirectories: true)
+        try FileManager.default.createSymbolicLink(atPath: sandbox + "/atajo",
+                                                   withDestinationPath: sandbox + "/real")
+        XCTAssertTrue(Engine.mayDelete(sandbox + "/atajo/dentro"))
+    }
+
+    /// Un disco externo si: quien se lleva ~/.gradle a otro disco quiere poder
+    /// limpiarlo. Su raiz no.
+    func testUnDiscoExternoValeSalvoSuRaiz() {
+        XCTAssertTrue(Engine.isOnExternalVolume("/Volumes/External/gradle/caches"))
+        XCTAssertTrue(Engine.isOnExternalVolume("/Volumes/External/x"))
+        XCTAssertFalse(Engine.isOnExternalVolume("/Volumes/External"))
+        XCTAssertFalse(Engine.isOnExternalVolume("/Volumes"))
+        XCTAssertFalse(Engine.isOnExternalVolume("/Users/x/Volumes/a/b"))
+    }
+
+    /// Lo que ya no esta no se puede borrar mal: borrarlo es no hacer nada,
+    /// y no es un error.
+    func testLoQueYaNoEstaNoEsUnError() {
+        let gone = sandbox + "/no-existe"
+        let result = Engine.erase(paths: [gone], scope: .contents, toTrash: false)
+        XCTAssertTrue(result.errors.isEmpty)
+        XCTAssertEqual(result.leftover[gone], 0)
+    }
+}
+
+/// El historial de los asistentes es conversacion, no cache: no se ofrece
+/// nunca, lo pida el patron que lo pida.
+final class AgentHistoryTests: XCTestCase {
+
+    func testElHistorialDeLosAsistentesEstaProtegido() {
+        let home = NSHomeDirectory()
+        for path in ["/.codex/sessions", "/.codex/sessions/2026/10/02/x.jsonl",
+                     "/.codex/archived_sessions", "/.claude/projects/-Users-x-app"] {
+            XCTAssertTrue(FileSystem.isProtected(home + path), path)
+        }
+        XCTAssertFalse(FileSystem.isProtected(home + "/.codex/cache"))
+        XCTAssertFalse(FileSystem.isProtected(home + "/.claude/shell-snapshots"))
+    }
+}

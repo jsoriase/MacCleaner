@@ -13,12 +13,15 @@
 "alert.report.count" = "Categories cleaned: %d";
 "alert.report.failures" = "Some items could not be deleted (categories affected: %d). This is usually a permissions issue: grant MacCleaner Full Disk Access in Settings › Privacy & Security.";
 "alert.report.freed" = "Freed %@.";
+"alert.report.skipped" = "Skipped, nothing touched: %@";
+"alert.report.space" = "Free space: %@ → %@ (%@)";
 "alert.report.title" = "Cleanup finished";
 "alert.report.trashed" = "Moved %@ to the Trash. The space is freed when you empty it.";
 
 /* ---- category ---- */
 "category.ai" = "AI tools";
 "category.browsers" = "Browsers";
+"category.editors" = "Code editors";
 "category.jvm" = "Android, Gradle & JVM";
 "category.langs" = "Other languages";
 "category.node" = "Node & web";
@@ -30,6 +33,9 @@
 /* ---- common ---- */
 "common.cancel" = "Cancel";
 "common.done" = "Done";
+
+/* ---- detail ---- */
+"detail.empty" = "Nothing to reclaim here";
 
 /* ---- empty ---- */
 "empty.button" = "Scan now";
@@ -59,6 +65,10 @@
 "header.stop" = "Stop";
 "header.working" = "Working…";
 
+/* ---- menu ---- */
+"menu.history" = "Cleanup history";
+"menu.unignore" = "Offer ignored items again";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Things will need re-downloading, or you lose useful data.";
 "risk.caution.label" = "Caution";
@@ -71,19 +81,35 @@
 "risk.safe.plural" = "Safe";
 
 /* ---- row ---- */
+"row.busy" = "In use: %@";
+"row.busy.help" = "Close it to clean this. MacCleaner checks again right before deleting.";
+"row.busy.unknown" = "Couldn’t check whether it’s in use, so it won’t be deleted.";
 "row.files" = "Files: %d";
+"row.ignore" = "Don’t offer again";
 "row.noPath" = "No matching path found on this Mac.";
+"row.recent.help" = "Modified in the last 7 days. Quick selection leaves it unticked; tick it by hand if you want it.";
 "row.reveal" = "Show in Finder";
 
 /* ---- select ---- */
 "select.clear" = "Clear all";
 "select.mark" = "Select";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "All";
+"sidebar.categories" = "Categories";
+
+/* ---- skip ---- */
+"skip.busy" = "in use by %@";
+"skip.changed" = "changed since the scan";
+"skip.unknown" = "couldn’t check whether it was in use";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Coding assistant caches";
 "target.ai.caches.note" = "Temporary files from Claude, Codex, Cursor and OpenCode";
 "target.ai.models.name" = "Downloaded AI models";
 "target.ai.models.note" = "Ollama, Hugging Face and LM Studio weights — gigabytes each";
+"target.ai.runtimes.name" = "Abandoned Codex runtimes";
+"target.ai.runtimes.note" = "Half-finished downloads. The runtime Codex uses is never offered";
 "target.ai.vmbundles.name" = "Assistant virtual machines";
 "target.ai.vmbundles.note" = "Disk images that Claude downloads to run code on your Mac";
 "target.ai.worktrees.name" = "Agent worktrees";
@@ -116,14 +142,22 @@
 "target.carthage.note" = "Carthage frameworks and checkouts";
 "target.cocoapods.name" = "CocoaPods cache";
 "target.cocoapods.note" = "Downloaded pods and specs";
-"target.docker.disk.name" = "Docker virtual machine disk";
-"target.docker.disk.note" = "Freed with docker system prune. Your images and volumes are kept";
+"target.docker.buildx.name" = "Docker Buildx cache";
+"target.docker.buildx.note" = "Local build cache from docker buildx";
+"target.docker.disk.name" = "Docker leftovers";
+"target.docker.disk.note" = "What docker system prune removes, with Docker running. Images and volumes are kept";
 "target.docker.logs.name" = "Docker Desktop logs";
 "target.docker.logs.note" = "Logs only. Images and volumes are untouched";
+"target.editors.cache.name" = "VS Code and Cursor caches";
+"target.editors.cache.note" = "Downloaded extensions (VSIX), code cache and logs";
+"target.editors.extensions.name" = "Outdated extensions";
+"target.editors.extensions.note" = "Old versions the editor already replaced and marked obsolete";
 "target.electron.appsupport.name" = "Electron app caches";
 "target.electron.appsupport.note" = "Cache, Code Cache and GPUCache that live outside ~/Library/Caches";
 "target.electron.name" = "Electron cache";
 "target.electron.note" = "Electron and electron-builder binaries";
+"target.expo.name" = "Expo cache";
+"target.expo.note" = "Expo Go, native builds and templates downloaded by the Expo CLI";
 "target.flutter.name" = "Flutter / Dart cache";
 "target.flutter.note" = "~/.pub-cache: packages from pub.dev";
 "target.go.build.name" = "Go build cache";
@@ -146,8 +180,12 @@
 "target.jetbrains.logs.note" = "Logs from the IDEs";
 "target.kotlin.name" = "Kotlin / Konan cache";
 "target.kotlin.note" = "Artifacts from the Kotlin and Kotlin Native compilers";
+"target.langs.tools.name" = "Other tool caches";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff and mypy";
 "target.maven.name" = "Local Maven repository";
 "target.maven.note" = "~/.m2/repository. Downloaded again in full on your next build";
+"target.node.tools.name" = "Node tool caches";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite and Prisma";
 "target.npm.name" = "npm cache";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composer cache (PHP)";
@@ -170,6 +208,8 @@
 "target.sim.caches.note" = "Downloaded runtimes and the simulators’ shared cache";
 "target.sim.devices.name" = "Installed simulators";
 "target.sim.devices.note" = "Removed with simctl so Xcode doesn’t keep a ghost device";
+"target.sim.runtimes.name" = "Unused simulator runtimes";
+"target.sim.runtimes.note" = "iOS, watchOS… images with no simulator left. Removed with simctl";
 "target.swiftpm.name" = "Swift Package Manager cache";
 "target.swiftpm.note" = "Repositories and binaries of SwiftPM dependencies";
 "target.trash.name" = "Trash";
@@ -192,6 +232,10 @@
 "target.xcode.doccache.note" = "Xcode downloads it again when you open it";
 "target.xcode.previews.name" = "Xcode Previews";
 "target.xcode.previews.note" = "Cache for SwiftUI previews";
+"target.xcode.products.name" = "Xcode Organizer data";
+"target.xcode.products.note" = "Versions, icons, crashes and metrics downloaded from App Store Connect";
+"target.xcode.testdevices.name" = "Test simulator clones";
+"target.xcode.testdevices.note" = "Copies Xcode makes for parallel tests; it recreates them on the next run";
 "target.yarn.name" = "Yarn cache";
 "target.yarn.note" = "Packages downloaded by Yarn";
 
@@ -202,5 +246,6 @@
 "why.regenerates" = "It builds itself again next time it is needed, and you will not notice.";
 "why.signOut" = "You will be signed out of the sites that use it and will have to log in again.";
 "why.slowerBuild" = "Nothing is lost, but the next build will take longer while it is made again.";
+"why.superseded" = "It’s an old version that nothing uses any more. If something asked for it again, it would be downloaded again.";
 "why.toolDecides" = "The tool itself does the deleting, so exactly what disappears is up to it.";
 "why.unknown" = "A catch-all: whatever no other row has named lands here. Look before deleting.";

@@ -13,12 +13,15 @@
 "alert.report.count" = "الفئات التي تم تنظيفها: %d";
 "alert.report.failures" = "تعذّر حذف بعض العناصر (الفئات المتأثرة: %d). عادةً ما يكون السبب هو الأذونات: امنح MacCleaner إذن الوصول الكامل للقرص من الإعدادات › الخصوصية والأمان.";
 "alert.report.freed" = "تم تحرير %@.";
+"alert.report.skipped" = "تم تخطيها دون لمس أي شيء: %@";
+"alert.report.space" = "المساحة الحرة: %@ ← %@ (%@)";
 "alert.report.title" = "اكتمل التنظيف";
 "alert.report.trashed" = "تم نقل %@ إلى سلة المهملات. تُحرَّر المساحة عند إفراغها.";
 
 /* ---- category ---- */
 "category.ai" = "أدوات الذكاء الاصطناعي";
 "category.browsers" = "المتصفحات";
+"category.editors" = "محررات الشيفرة";
 "category.jvm" = "Android وGradle وJVM";
 "category.langs" = "لغات أخرى";
 "category.node" = "Node والويب";
@@ -30,6 +33,9 @@
 /* ---- common ---- */
 "common.cancel" = "إلغاء";
 "common.done" = "تم";
+
+/* ---- detail ---- */
+"detail.empty" = "لا شيء لاسترداده هنا";
 
 /* ---- empty ---- */
 "empty.button" = "افحص الآن";
@@ -59,6 +65,10 @@
 "header.stop" = "إيقاف";
 "header.working" = "جارٍ العمل…";
 
+/* ---- menu ---- */
+"menu.history" = "سجل التنظيف";
+"menu.unignore" = "إعادة عرض العناصر المتجاهَلة";
+
 /* ---- risk ---- */
 "risk.caution.help" = "ستحتاج إلى إعادة التنزيل، أو ستفقد بيانات مفيدة.";
 "risk.caution.label" = "تنبيه";
@@ -71,19 +81,35 @@
 "risk.safe.plural" = "الآمنة";
 
 /* ---- row ---- */
+"row.busy" = "قيد الاستخدام: %@";
+"row.busy.help" = "أغلقه لتتمكن من تنظيف هذا. يعيد MacCleaner التحقق قبل الحذف مباشرة.";
+"row.busy.unknown" = "تعذّر التحقق مما إذا كان قيد الاستخدام، لذا لن يُحذف.";
 "row.files" = "الملفات: %d";
+"row.ignore" = "عدم العرض مرة أخرى";
 "row.noPath" = "لم يتم العثور على أي مسار مطابق على هذا الـ Mac.";
+"row.recent.help" = "عُدِّل خلال آخر 7 أيام. التحديد السريع يتركه دون تحديد؛ حدِّده يدويًا إن أردته.";
 "row.reveal" = "إظهار في الباحث";
 
 /* ---- select ---- */
 "select.clear" = "إلغاء تحديد الكل";
 "select.mark" = "تحديد";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "الكل";
+"sidebar.categories" = "الفئات";
+
+/* ---- skip ---- */
+"skip.busy" = "قيد الاستخدام بواسطة %@";
+"skip.changed" = "تغيّر منذ الفحص";
+"skip.unknown" = "تعذّر التحقق مما إذا كان قيد الاستخدام";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "ذواكر مساعدي البرمجة";
 "target.ai.caches.note" = "ملفات مؤقتة من Claude و Codex و Cursor و OpenCode";
 "target.ai.models.name" = "نماذج ذكاء اصطناعي منزَّلة";
 "target.ai.models.note" = "أوزان Ollama و Hugging Face و LM Studio: عدة غيغابايت لكل منها";
+"target.ai.runtimes.name" = "بيئات تشغيل Codex المهجورة";
+"target.ai.runtimes.note" = "تنزيلات غير مكتملة. لا تُعرض أبدًا بيئة التشغيل التي يستخدمها Codex";
 "target.ai.vmbundles.name" = "الأجهزة الافتراضية للمساعدين";
 "target.ai.vmbundles.note" = "صور أقراص ينزّلها Claude لتشغيل الشيفرة";
 "target.ai.worktrees.name" = "أشجار عمل الوكلاء";
@@ -116,14 +142,22 @@
 "target.carthage.note" = "أُطر Carthage ونُسخ الفحص";
 "target.cocoapods.name" = "ذاكرة CocoaPods المؤقتة";
 "target.cocoapods.note" = "حزم pods المُنزَّلة وملفات specs";
-"target.docker.disk.name" = "قرص جهاز Docker الافتراضي";
-"target.docker.disk.note" = "يُفرَّغ بأمر docker system prune. وتبقى صورك ووحدات التخزين لديك";
+"target.docker.buildx.name" = "ذاكرة Docker Buildx المؤقتة";
+"target.docker.buildx.note" = "ذاكرة البناء المحلية لـ docker buildx";
+"target.docker.disk.name" = "بقايا Docker";
+"target.docker.disk.note" = "ما يحذفه docker system prune أثناء تشغيل Docker. وتبقى الصور ووحدات التخزين";
 "target.docker.logs.name" = "سجلات Docker Desktop";
 "target.docker.logs.note" = "السجلات فقط. لا تُمَس الصور ولا وحدات التخزين";
+"target.editors.cache.name" = "ذواكر VS Code وCursor المؤقتة";
+"target.editors.cache.note" = "الإضافات المنزّلة (VSIX) وذاكرة الشيفرة المؤقتة والسجلات";
+"target.editors.extensions.name" = "إضافات قديمة";
+"target.editors.extensions.note" = "إصدارات قديمة استبدلها المحرر ووسمها بأنها متقادمة";
 "target.electron.appsupport.name" = "ذواكر تطبيقات Electron";
 "target.electron.appsupport.note" = "‏Cache و Code Cache و GPUCache خارج ‎~/Library/Caches";
 "target.electron.name" = "ذاكرة Electron المؤقتة";
 "target.electron.note" = "ثنائيات Electron وelectron-builder";
+"target.expo.name" = "ذاكرة Expo المؤقتة";
+"target.expo.note" = "Expo Go والبنى الأصلية والقوالب التي تنزّلها واجهة أوامر Expo";
 "target.flutter.name" = "ذاكرة Flutter / Dart المؤقتة";
 "target.flutter.note" = "‎~/.pub-cache: حزم من pub.dev";
 "target.go.build.name" = "ذاكرة بناء Go المؤقتة";
@@ -146,8 +180,12 @@
 "target.jetbrains.logs.note" = "سجلات بيئات التطوير";
 "target.kotlin.name" = "ذاكرة Kotlin / Konan المؤقتة";
 "target.kotlin.note" = "مخرجات مُصرِّفَي Kotlin وKotlin Native";
+"target.langs.tools.name" = "ذواكر أدوات أخرى";
+"target.langs.tools.note" = "Terraform وBazel وZig وRuff وmypy";
 "target.maven.name" = "مستودع Maven المحلي";
 "target.maven.note" = "‎~/.m2/repository. سيُعاد تنزيله بالكامل في عملية البناء التالية";
+"target.node.tools.name" = "ذواكر أدوات Node المؤقتة";
+"target.node.tools.note" = "Corepack وnode-gyp وTypeScript وESLint وPrettier وVite وPrisma";
 "target.npm.name" = "ذاكرة npm المؤقتة";
 "target.npm.note" = "‎~/.npm/_cacache";
 "target.php.name" = "ذاكرة Composer المؤقتة (PHP)";
@@ -170,6 +208,8 @@
 "target.sim.caches.note" = "أوقات التشغيل المُنزَّلة والذاكرة المؤقتة المشتركة للمحاكيات";
 "target.sim.devices.name" = "المحاكيات المثبَّتة";
 "target.sim.devices.note" = "تُحذف عبر simctl كي لا يبقى لدى Xcode جهاز شبح";
+"target.sim.runtimes.name" = "بيئات تشغيل المحاكي غير المستخدمة";
+"target.sim.runtimes.note" = "صور iOS وwatchOS… لم يعد لها أي محاكٍ. تُحذف باستخدام simctl";
 "target.swiftpm.name" = "ذاكرة Swift Package Manager المؤقتة";
 "target.swiftpm.note" = "مستودعات وثنائيات اعتماديات SwiftPM";
 "target.trash.name" = "المهملات";
@@ -192,6 +232,10 @@
 "target.xcode.doccache.note" = "ينزّله Xcode من جديد عند فتحه";
 "target.xcode.previews.name" = "معاينات Xcode";
 "target.xcode.previews.note" = "ذاكرة معاينات SwiftUI المؤقتة";
+"target.xcode.products.name" = "بيانات منظِّم Xcode";
+"target.xcode.products.note" = "الإصدارات والأيقونات والأعطال والمقاييس المنزَّلة من App Store Connect";
+"target.xcode.testdevices.name" = "نسخ محاكيات الاختبار";
+"target.xcode.testdevices.note" = "نسخ ينشئها Xcode للاختبارات المتوازية؛ ويعيد إنشاءها في التشغيل التالي";
 "target.yarn.name" = "ذاكرة Yarn المؤقتة";
 "target.yarn.note" = "الحزم التي نزّلها Yarn";
 
@@ -202,5 +246,6 @@
 "why.regenerates" = "يُنشأ من جديد وحده في المرة القادمة، ولن تلاحظ شيئًا.";
 "why.signOut" = "ستخرج من المواقع التي تستخدمه وسيلزمك تسجيل الدخول من جديد.";
 "why.slowerBuild" = "لا يضيع شيء، لكن البناء التالي سيستغرق وقتًا أطول ريثما يعيد إنشاءه.";
+"why.superseded" = "إنها نسخة قديمة لم يعد يستخدمها شيء. إذا طلبها شيء مرة أخرى، فسيُعاد تنزيلها.";
 "why.toolDecides" = "الأداة نفسها هي التي تحذف، فما الذي يختفي بالضبط تقرره هي.";
 "why.unknown" = "درج لكل شيء: هنا يقع ما لم يسمّه أي صف آخر. انظر قبل الحذف.";

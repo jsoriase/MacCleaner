@@ -71,6 +71,25 @@ final class SelectionTests: XCTestCase {
         XCTAssertEqual(engine.rows.filter(\.selected).count, esperadas)
     }
 
+    /// Con una categoria abierta en la barra lateral, los botones solo tocan
+    /// lo que se ve: marcar «Seguras» en Xcode no marca nada de Node.
+    func testMarcarUnRiesgoEnUnaCategoriaNoTocaLasDemas() {
+        let engine = Engine()
+        engine.toggleRisk(.safe, in: .xcode)
+
+        XCTAssertTrue(engine.allSelected(for: .safe, in: .xcode))
+        XCTAssertFalse(engine.allSelected(for: .safe))
+        XCTAssertTrue(engine.anySelected(in: .xcode))
+        XCTAssertFalse(engine.anySelected(in: .node))
+
+        for row in engine.rows {
+            XCTAssertEqual(row.selected, row.target.group == .xcode && row.target.risk == .safe, row.id)
+        }
+
+        engine.toggleRisk(.safe, in: .xcode)
+        XCTAssertFalse(engine.anySelected)
+    }
+
     func testDesmarcarTodoLoLimpia() {
         let engine = Engine()
         for risk in Risk.allCases { engine.toggleRisk(risk) }

@@ -13,12 +13,15 @@
 "alert.report.count" = "已清理类别：%d";
 "alert.report.failures" = "部分内容无法删除（受影响类别：%d）。通常是权限问题：请在「系统设置 › 隐私与安全性」中授予 MacCleaner 完全磁盘访问权限。";
 "alert.report.freed" = "已释放 %@。";
+"alert.report.skipped" = "已跳过，未做任何改动：%@";
+"alert.report.space" = "可用空间：%@ → %@（%@）";
 "alert.report.title" = "清理完成";
 "alert.report.trashed" = "已将 %@ 移到废纸篓。清倒后才会释放空间。";
 
 /* ---- category ---- */
 "category.ai" = "AI 工具";
 "category.browsers" = "浏览器";
+"category.editors" = "代码编辑器";
 "category.jvm" = "Android、Gradle 与 JVM";
 "category.langs" = "其他语言";
 "category.node" = "Node 与 Web";
@@ -30,6 +33,9 @@
 /* ---- common ---- */
 "common.cancel" = "取消";
 "common.done" = "完成";
+
+/* ---- detail ---- */
+"detail.empty" = "这里没有可释放的空间";
 
 /* ---- empty ---- */
 "empty.button" = "立即扫描";
@@ -59,6 +65,10 @@
 "header.stop" = "停止";
 "header.working" = "处理中…";
 
+/* ---- menu ---- */
+"menu.history" = "清理记录";
+"menu.unignore" = "重新列出已忽略的项目";
+
 /* ---- risk ---- */
 "risk.caution.help" = "需要重新下载，或者会丢失有用的数据。";
 "risk.caution.label" = "需谨慎";
@@ -71,19 +81,35 @@
 "risk.safe.plural" = "安全项";
 
 /* ---- row ---- */
+"row.busy" = "正在使用：%@";
+"row.busy.help" = "关闭它才能清理这一项。MacCleaner 会在删除前再检查一次。";
+"row.busy.unknown" = "无法确认是否正在使用，因此不会删除。";
 "row.files" = "文件：%d";
+"row.ignore" = "不再列出";
 "row.noPath" = "在这台 Mac 上没有找到对应的路径。";
+"row.recent.help" = "最近 7 天内有修改。快速选择不会勾选它；如需清理，请手动勾选。";
 "row.reveal" = "在访达中显示";
 
 /* ---- select ---- */
 "select.clear" = "全部取消";
 "select.mark" = "选择";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "全部";
+"sidebar.categories" = "类别";
+
+/* ---- skip ---- */
+"skip.busy" = "正被 %@ 使用";
+"skip.changed" = "扫描后已发生变化";
+"skip.unknown" = "无法确认当时是否正在使用";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "编程助手缓存";
 "target.ai.caches.note" = "Claude、Codex、Cursor 和 OpenCode 的临时文件";
 "target.ai.models.name" = "已下载的 AI 模型";
 "target.ai.models.note" = "Ollama、Hugging Face 和 LM Studio 的权重，每个都有数 GB";
+"target.ai.runtimes.name" = "废弃的 Codex 运行时";
+"target.ai.runtimes.note" = "下载了一半的文件。Codex 正在使用的运行时永远不会列出";
 "target.ai.vmbundles.name" = "助手的虚拟机";
 "target.ai.vmbundles.note" = "Claude 为运行代码而下载的磁盘映像";
 "target.ai.worktrees.name" = "智能体工作树";
@@ -116,14 +142,22 @@
 "target.carthage.note" = "Carthage 的框架和检出内容";
 "target.cocoapods.name" = "CocoaPods 缓存";
 "target.cocoapods.note" = "已下载的 pod 和 spec";
-"target.docker.disk.name" = "Docker 虚拟机磁盘";
-"target.docker.disk.note" = "用 docker system prune 释放，你的镜像和卷都会保留";
+"target.docker.buildx.name" = "Docker Buildx 缓存";
+"target.docker.buildx.note" = "docker buildx 的本地构建缓存";
+"target.docker.disk.name" = "Docker 残留数据";
+"target.docker.disk.note" = "Docker 运行时 docker system prune 会删除的内容，镜像和卷都会保留";
 "target.docker.logs.name" = "Docker Desktop 日志";
 "target.docker.logs.note" = "仅日志。不会动镜像和卷";
+"target.editors.cache.name" = "VS Code 和 Cursor 缓存";
+"target.editors.cache.note" = "已下载的扩展 (VSIX)、代码缓存和日志";
+"target.editors.extensions.name" = "过时的扩展";
+"target.editors.extensions.note" = "编辑器已替换并标记为过时的旧版本";
 "target.electron.appsupport.name" = "Electron 应用缓存";
 "target.electron.appsupport.note" = "位于 ~/Library/Caches 之外的 Cache、Code Cache 和 GPUCache";
 "target.electron.name" = "Electron 缓存";
 "target.electron.note" = "Electron 和 electron-builder 的二进制文件";
+"target.expo.name" = "Expo 缓存";
+"target.expo.note" = "Expo CLI 下载的 Expo Go、原生构建和模板";
 "target.flutter.name" = "Flutter / Dart 缓存";
 "target.flutter.note" = "~/.pub-cache：来自 pub.dev 的包";
 "target.go.build.name" = "Go 构建缓存";
@@ -146,8 +180,12 @@
 "target.jetbrains.logs.note" = "这些 IDE 的日志";
 "target.kotlin.name" = "Kotlin / Konan 缓存";
 "target.kotlin.note" = "Kotlin 与 Kotlin Native 编译器的产物";
+"target.langs.tools.name" = "其他工具缓存";
+"target.langs.tools.note" = "Terraform、Bazel、Zig、Ruff 和 mypy";
 "target.maven.name" = "本地 Maven 仓库";
 "target.maven.note" = "~/.m2/repository。下次构建时会重新完整下载";
+"target.node.tools.name" = "Node 工具缓存";
+"target.node.tools.note" = "Corepack、node-gyp、TypeScript、ESLint、Prettier、Vite 和 Prisma";
 "target.npm.name" = "npm 缓存";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composer 缓存（PHP）";
@@ -170,6 +208,8 @@
 "target.sim.caches.note" = "已下载的运行时和模拟器共享缓存";
 "target.sim.devices.name" = "已安装的模拟器";
 "target.sim.devices.note" = "用 simctl 删除，这样 Xcode 不会留下幽灵设备";
+"target.sim.runtimes.name" = "未使用的模拟器运行时";
+"target.sim.runtimes.note" = "已没有任何模拟器的 iOS、watchOS… 镜像。通过 simctl 删除";
 "target.swiftpm.name" = "Swift Package Manager 缓存";
 "target.swiftpm.note" = "SwiftPM 依赖的仓库和二进制文件";
 "target.trash.name" = "废纸篓";
@@ -192,6 +232,10 @@
 "target.xcode.doccache.note" = "打开时 Xcode 会重新下载";
 "target.xcode.previews.name" = "Xcode 预览缓存";
 "target.xcode.previews.note" = "SwiftUI 预览的缓存";
+"target.xcode.products.name" = "Xcode Organizer 数据";
+"target.xcode.products.note" = "从 App Store Connect 下载的版本、图标、崩溃和指标";
+"target.xcode.testdevices.name" = "测试模拟器克隆";
+"target.xcode.testdevices.note" = "Xcode 为并行测试创建的副本；下次运行时会重新创建";
 "target.yarn.name" = "Yarn 缓存";
 "target.yarn.note" = "Yarn 下载的包";
 
@@ -202,5 +246,6 @@
 "why.regenerates" = "下次需要时会自己重建，你不会察觉。";
 "why.signOut" = "会让你从用到它的网站退出登录，需要重新登入。";
 "why.slowerBuild" = "什么都不会丢，只是下次构建要多花点时间重做。";
+"why.superseded" = "这是一个已经没有任何东西在用的旧版本。如果之后又有东西需要它，会重新下载。";
 "why.toolDecides" = "删除的是工具本身，所以到底消失什么由它决定。";
 "why.unknown" = "杂物抽屉：其他行没点名的东西都落在这里。删之前先看看。";

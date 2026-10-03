@@ -156,18 +156,19 @@ final class SubItemTests: XCTestCase {
         let byPaths = Catalog.targets.filter { $0.expansion == .paths }.map(\.id)
         XCTAssertEqual(Set(byPaths), ["jetbrains.caches", "jetbrains.logs", "caches.other",
                                       "electron.appsupport",
-                                      "sim.devices", "projects.deps", "projects.builds",
-                                      "android.systemimages"])
+                                      "sim.devices", "sim.runtimes", "projects.deps", "projects.builds",
+                                      "android.systemimages", "editors.extensions", "ai.runtimes"])
     }
 
     func testLasFilasDesplegablesBorranPorContenido() {
         // Sus hijos son justo las victimas de un borrado .contents, asi que el
-        // desglose y el borrado normal tienen que coincidir. Quedan fuera dos
+        // desglose y el borrado normal tienen que coincidir. Quedan fuera tres
         // casos: las filas que recupera una herramienta, donde no borramos
-        // nosotros, y las de barrido, donde cada ruta encontrada es un
-        // `node_modules` entero y vaciarlo no tendria sentido.
+        // nosotros; las de barrido, donde cada ruta encontrada es un
+        // `node_modules` entero y vaciarlo no tendria sentido; y las que eligen
+        // sus rutas, donde cada una es una version vieja que sobra entera.
         for target in Catalog.targets
-        where target.expandable && target.reclaim == nil && !target.isSweep {
+        where target.expandable && target.reclaim == nil && !target.isSweep && target.pick == .all {
             XCTAssertEqual(target.scope, .contents, target.id)
         }
     }
@@ -232,9 +233,19 @@ final class SubItemTests: XCTestCase {
 /// por que. Si las dos no cuadran, el distintivo miente al pasar el raton.
 final class ConsequenceTests: XCTestCase {
 
+    /// O es un resto que nadie usa: lo unico que puede decir una fila segura
+    /// ademas de «se rehace sola».
     func testTodaFilaSeguraSeRehaceSola() {
         for target in Catalog.targets where target.risk == .safe {
-            XCTAssertEqual(target.why, .regenerates, target.id)
+            XCTAssertTrue([.regenerates, .superseded].contains(target.why), target.id)
+        }
+    }
+
+    /// «Ya no lo usa nadie» solo lo puede prometer una fila que elige sus
+    /// rutas: lo que expande un patron sin mas puede ser la version en uso.
+    func testSoloUnaFilaQueEligeSusRutasOfreceRestos() {
+        for target in Catalog.targets {
+            XCTAssertEqual(target.why == .superseded, target.pick != .all, target.id)
         }
     }
 
@@ -272,7 +283,7 @@ final class ConsequenceTests: XCTestCase {
 
     func testCadaConsecuenciaTieneTexto() {
         for why in [Consequence.regenerates, .slowerBuild, .redownload, .recreate,
-                    .dataLoss, .signOut, .toolDecides, .unknown] {
+                    .dataLoss, .signOut, .toolDecides, .superseded, .unknown] {
             XCTAssertFalse(why.text.isEmpty, why.rawValue)
         }
     }

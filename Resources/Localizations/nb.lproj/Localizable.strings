@@ -12,12 +12,15 @@
 "alert.report.count" = "Ryddede kategorier: %d";
 "alert.report.failures" = "Ikke alt kunne slettes (berørte kategorier: %d). Det handler som regel om rettigheter: gi MacCleaner full disktilgang under Systeminnstillinger › Personvern og sikkerhet.";
 "alert.report.freed" = "Frigjorde %@.";
+"alert.report.skipped" = "Hoppet over, ingenting rørt: %@";
+"alert.report.space" = "Ledig plass: %@ → %@ (%@)";
 "alert.report.title" = "Oppryddingen er ferdig";
 "alert.report.trashed" = "Flyttet %@ til Papirkurven. Plassen frigjøres når du tømmer den.";
 
 /* ---- category ---- */
 "category.ai" = "KI-verktøy";
 "category.browsers" = "Nettlesere";
+"category.editors" = "Kodeeditorer";
 "category.jvm" = "Android, Gradle og JVM";
 "category.langs" = "Andre språk";
 "category.node" = "Node og web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Avbryt";
 "common.done" = "Ferdig";
+
+/* ---- detail ---- */
+"detail.empty" = "Ingenting å frigjøre her";
 
 /* ---- empty ---- */
 "empty.button" = "Skann nå";
@@ -58,6 +64,10 @@
 "header.stop" = "Stopp";
 "header.working" = "Arbeider…";
 
+/* ---- menu ---- */
+"menu.history" = "Oppryddingslogg";
+"menu.unignore" = "Tilby ignorerte elementer igjen";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Ting må lastes ned igjen, ellers mister du nyttige data.";
 "risk.caution.label" = "Pass på";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Trygge";
 
 /* ---- row ---- */
+"row.busy" = "I bruk: %@";
+"row.busy.help" = "Lukk det for å kunne rydde dette. MacCleaner sjekker på nytt rett før sletting.";
+"row.busy.unknown" = "Kunne ikke sjekke om det er i bruk, så det blir ikke slettet.";
 "row.files" = "Filer: %d";
+"row.ignore" = "Ikke tilby igjen";
 "row.noPath" = "Fant ingen tilsvarende sti på denne Macen.";
+"row.recent.help" = "Endret i løpet av de siste 7 dagene. Hurtigvalg lar det være umerket; merk det selv hvis du vil ha det med.";
 "row.reveal" = "Vis i Finder";
 
 /* ---- select ---- */
 "select.clear" = "Fjern alle valg";
 "select.mark" = "Velg";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Alle";
+"sidebar.categories" = "Kategorier";
+
+/* ---- skip ---- */
+"skip.busy" = "i bruk av %@";
+"skip.changed" = "endret siden skanningen";
+"skip.unknown" = "kunne ikke sjekke om det var i bruk";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Cacher fra kodeassistenter";
 "target.ai.caches.note" = "Midlertidige filer fra Claude, Codex, Cursor og OpenCode";
 "target.ai.models.name" = "Nedlastede KI-modeller";
 "target.ai.models.note" = "Vekter fra Ollama, Hugging Face og LM Studio: gigabyte hver";
+"target.ai.runtimes.name" = "Forlatte Codex-kjøretidsmiljøer";
+"target.ai.runtimes.note" = "Halvferdige nedlastinger. Kjøretidsmiljøet Codex bruker, tilbys aldri";
 "target.ai.vmbundles.name" = "Assistentenes virtuelle maskiner";
 "target.ai.vmbundles.note" = "Diskbilder som Claude laster ned for å kjøre kode";
 "target.ai.worktrees.name" = "Agentenes arbeidstrær";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Carthage-rammeverk og -checkouts";
 "target.cocoapods.name" = "CocoaPods-buffer";
 "target.cocoapods.note" = "Nedlastede pods og specs";
-"target.docker.disk.name" = "Disk for Dockers virtuelle maskin";
-"target.docker.disk.note" = "Frigjøres med docker system prune. Bildene og volumene dine beholdes";
+"target.docker.buildx.name" = "Docker Buildx-buffer";
+"target.docker.buildx.note" = "Lokal byggebuffer fra docker buildx";
+"target.docker.disk.name" = "Docker-rester";
+"target.docker.disk.note" = "Det docker system prune fjerner mens Docker kjører. Bilder og volumer beholdes";
 "target.docker.logs.name" = "Docker Desktop-logger";
 "target.docker.logs.note" = "Kun logger. Images og volumer røres ikke";
+"target.editors.cache.name" = "Cacher fra VS Code og Cursor";
+"target.editors.cache.note" = "Nedlastede utvidelser (VSIX), kodebuffer og logger";
+"target.editors.extensions.name" = "Utdaterte utvidelser";
+"target.editors.extensions.note" = "Gamle versjoner som editoren allerede har erstattet og merket som utdaterte";
 "target.electron.appsupport.name" = "Cacher fra Electron-apper";
 "target.electron.appsupport.note" = "Cache, Code Cache og GPUCache utenfor ~/Library/Caches";
 "target.electron.name" = "Electron-buffer";
 "target.electron.note" = "Binærfiler for Electron og electron-builder";
+"target.expo.name" = "Expo-buffer";
+"target.expo.note" = "Expo Go, native bygg og maler lastet ned av Expo CLI";
 "target.flutter.name" = "Flutter-/Dart-buffer";
 "target.flutter.note" = "~/.pub-cache: pakker fra pub.dev";
 "target.go.build.name" = "Go-byggbuffer";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Logger fra utviklingsmiljøene";
 "target.kotlin.name" = "Kotlin-/Konan-buffer";
 "target.kotlin.note" = "Artefakter fra Kotlin- og Kotlin Native-kompilatorene";
+"target.langs.tools.name" = "Cacher fra andre verktøy";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff og mypy";
 "target.maven.name" = "Lokalt Maven-arkiv";
 "target.maven.note" = "~/.m2/repository. Lastes ned i sin helhet på nytt ved neste bygg";
+"target.node.tools.name" = "Cacher fra Node-verktøy";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite og Prisma";
 "target.npm.name" = "npm-buffer";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composer-buffer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Nedlastede kjøretidsmiljøer og simulatorenes delte buffer";
 "target.sim.devices.name" = "Installerte simulatorer";
 "target.sim.devices.note" = "Fjernes med simctl, så Xcode ikke sitter igjen med et spøkelse";
+"target.sim.runtimes.name" = "Ubrukte simulator-kjøretidsmiljøer";
+"target.sim.runtimes.note" = "iOS-, watchOS-… bilder uten noen simulator. Fjernes med simctl";
 "target.swiftpm.name" = "Swift Package Manager-buffer";
 "target.swiftpm.note" = "Arkiver og binærfiler for SwiftPM-avhengigheter";
 "target.trash.name" = "Papirkurven";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode laster den ned igjen når du åpner den";
 "target.xcode.previews.name" = "Xcode-forhåndsvisninger";
 "target.xcode.previews.note" = "Buffer for SwiftUI-forhåndsvisninger";
+"target.xcode.products.name" = "Data fra Xcode Organizer";
+"target.xcode.products.note" = "Versjoner, ikoner, krasj og målinger lastet ned fra App Store Connect";
+"target.xcode.testdevices.name" = "Kloner av testsimulatorer";
+"target.xcode.testdevices.note" = "Kopier Xcode lager for parallelle tester; lages på nytt ved neste kjøring";
 "target.yarn.name" = "Yarn-buffer";
 "target.yarn.note" = "Pakker lastet ned av Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Lages på nytt av seg selv neste gang den trengs, uten at du merker det.";
 "why.signOut" = "Du blir logget ut av nettstedene som bruker det og må logge inn igjen.";
 "why.slowerBuild" = "Ingenting går tapt, men neste bygg tar lengre tid mens det lages på nytt.";
+"why.superseded" = "Det er en gammel versjon som ingenting bruker lenger. Hvis noe ba om den igjen, ville den blitt lastet ned på nytt.";
 "why.toolDecides" = "Verktøyet sletter selv, så hva som forsvinner nøyaktig bestemmer det.";
 "why.unknown" = "Rotekasse: her havner det ingen annen rad har navngitt. Se etter før du sletter.";

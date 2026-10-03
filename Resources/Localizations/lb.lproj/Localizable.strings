@@ -12,12 +12,15 @@
 "alert.report.count" = "Gebotzte Kategorien: %d";
 "alert.report.failures" = "Net alles konnt geläscht ginn (betraff Kategorien: %d). Meeschtens ass et eng Fro vun de Rechter: gëff MacCleaner de vollen Disquenzougrëff an den Astellungen › Privatsphär a Sécherheet.";
 "alert.report.freed" = "%@ fräigemaach.";
+"alert.report.skipped" = "Iwwersprongen, näischt ugepaakt: %@";
+"alert.report.space" = "Fräie Plaz: %@ → %@ (%@)";
 "alert.report.title" = "Botzen ofgeschloss";
 "alert.report.trashed" = "%@ an de Poubelle geréckelt. De Plaz gëtt beim Eidelmaachen fräi.";
 
 /* ---- category ---- */
 "category.ai" = "KI-Geschirr";
 "category.browsers" = "Browseren";
+"category.editors" = "Code-Editoren";
 "category.jvm" = "Android, Gradle a JVM";
 "category.langs" = "Aner Sproochen";
 "category.node" = "Node a Web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Ofbriechen";
 "common.done" = "Fäerdeg";
+
+/* ---- detail ---- */
+"detail.empty" = "Hei gëtt et näischt fräizemaachen";
 
 /* ---- empty ---- */
 "empty.button" = "Elo analyséieren";
@@ -58,6 +64,10 @@
 "header.stop" = "Stoppen";
 "header.working" = "Schafft…";
 
+/* ---- menu ---- */
+"menu.history" = "Botzverlaf";
+"menu.unignore" = "Ignoréiertes nees ubidden";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Saache musse nei erofgelueden ginn, soss verléiers du nëtzlech Donnéeën.";
 "risk.caution.label" = "Oppassen";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Sécher";
 
 /* ---- row ---- */
+"row.busy" = "Am Gebrauch: %@";
+"row.busy.help" = "Maacht et zou, fir dat hei ze botzen. MacCleaner kontrolléiert nach eng Kéier direkt virum Läschen.";
+"row.busy.unknown" = "Konnt net kontrolléieren, ob et am Gebrauch ass, dofir gëtt et net geläscht.";
 "row.files" = "Fichieren: %d";
+"row.ignore" = "Net méi ubidden";
 "row.noPath" = "Op dësem Mac gouf kee passende Wee fonnt.";
+"row.recent.help" = "An de leschte 7 Deeg geännert. D’Schnellauswiel léisst et ouni Markéierung; markéiert et mat der Hand, wann Dir et wëllt.";
 "row.reveal" = "Am Finder weisen";
 
 /* ---- select ---- */
 "select.clear" = "Alles ofwielen";
 "select.mark" = "Auswielen";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Alles";
+"sidebar.categories" = "Kategorien";
+
+/* ---- skip ---- */
+"skip.busy" = "vun %@ benotzt";
+"skip.changed" = "zanter der Analys verännert";
+"skip.unknown" = "konnt net kontrolléieren, ob et am Gebrauch war";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Caches vun Code-Assistenten";
 "target.ai.caches.note" = "Temporär Fichieren vu Claude, Codex, Cursor an OpenCode";
 "target.ai.models.name" = "Erofgelueden KI-Modeller";
 "target.ai.models.note" = "Gewiichter vun Ollama, Hugging Face a LM Studio: e puer GB pro Stéck";
+"target.ai.runtimes.name" = "Verlooss Codex-Laafzäiten";
+"target.ai.runtimes.note" = "Hallef fäerdeg Downloads. D’Laafzäit, déi Codex benotzt, gëtt ni ugebueden";
 "target.ai.vmbundles.name" = "Virtuell Maschinne vun Assistenten";
 "target.ai.vmbundles.note" = "Disk-Images, déi Claude erofluet fir Code auszeféieren";
 "target.ai.worktrees.name" = "Aarbechtsbeem vun Agenten";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Carthage-Frameworken a -Checkouten";
 "target.cocoapods.name" = "CocoaPods-Cache";
 "target.cocoapods.note" = "Erofgelueden Pods a Specs";
-"target.docker.disk.name" = "Disk vun der Docker-VM";
-"target.docker.disk.note" = "Gëtt mat docker system prune fräi. Deng Images a Volumen bleiwen";
+"target.docker.buildx.name" = "Docker-Buildx-Cache";
+"target.docker.buildx.note" = "Lokale Build-Cache vun docker buildx";
+"target.docker.disk.name" = "Docker-Reschter";
+"target.docker.disk.note" = "Wat docker system prune läscht, wann Docker leeft. Images a Volumen bleiwen";
 "target.docker.logs.name" = "Docker-Desktop-Logbicher";
 "target.docker.logs.note" = "Nëmme Logbicher. Images a Volumen ginn net ugerëmt";
+"target.editors.cache.name" = "Caches vu VS Code a Cursor";
+"target.editors.cache.note" = "Erofgeluede Extensiounen (VSIX), Code-Cache a Logbicher";
+"target.editors.extensions.name" = "Al Extensiounen";
+"target.editors.extensions.note" = "Al Versiounen, déi den Editor scho ersat an als veraalt markéiert huet";
 "target.electron.appsupport.name" = "Caches vun Electron-Apps";
 "target.electron.appsupport.note" = "Cache, Code Cache a GPUCache ausserhalb vun ~/Library/Caches";
 "target.electron.name" = "Electron-Cache";
 "target.electron.note" = "Binäre vun Electron an electron-builder";
+"target.expo.name" = "Expo-Cache";
+"target.expo.note" = "Expo Go, native Builds a Virlagen, déi d’Expo-CLI erofluet";
 "target.flutter.name" = "Flutter-/Dart-Cache";
 "target.flutter.note" = "~/.pub-cache: Packagen vu pub.dev";
 "target.go.build.name" = "Go-Build-Cache";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Logbicher vun den IDEen";
 "target.kotlin.name" = "Kotlin-/Konan-Cache";
 "target.kotlin.note" = "Artefakte vun de Kotlin- a Kotlin-Native-Compileren";
+"target.langs.tools.name" = "Caches vun anere Tools";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff a mypy";
 "target.maven.name" = "Lokaalt Maven-Repository";
 "target.maven.note" = "~/.m2/repository. Gëtt beim nächste Build komplett nei erofgelueden";
+"target.node.tools.name" = "Caches vun Node-Tools";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite a Prisma";
 "target.npm.name" = "npm-Cache";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composer-Cache (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Erofgelueden Runtimen an de gemeinsame Cache vun de Simulateuren";
 "target.sim.devices.name" = "Installéiert Simulatoren";
 "target.sim.devices.note" = "Ginn mat simctl geläscht, sou datt Xcode kee Geescht behält";
+"target.sim.runtimes.name" = "Onbenotzt Simulator-Laafzäiten";
+"target.sim.runtimes.note" = "iOS-, watchOS-… Biller ouni Simulator. Ginn mat simctl ewechgeholl";
 "target.swiftpm.name" = "Swift-Package-Manager-Cache";
 "target.swiftpm.note" = "Repositoryen a Binäre vun de SwiftPM-Ofhängegkeeten";
 "target.trash.name" = "Poubelle";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode luet se nei erof wann s du se opmaachs";
 "target.xcode.previews.name" = "Xcode-Virschauen";
 "target.xcode.previews.note" = "Cache fir d’SwiftUI-Virschauen";
+"target.xcode.products.name" = "Donnéeë vum Xcode Organizer";
+"target.xcode.products.note" = "Versiounen, Ikonen, Crashen a Metriken aus App Store Connect";
+"target.xcode.testdevices.name" = "Klonen vun Testsimulatoren";
+"target.xcode.testdevices.note" = "Kopien, déi Xcode fir parallel Tester mécht; beim nächste Laf nei erstallt";
 "target.yarn.name" = "Yarn-Cache";
 "target.yarn.note" = "Packagen, déi Yarn erofgelueden huet";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Gëtt beim nächste Mol vun eleng nei ugeluecht, ouni datt s du et mierks.";
 "why.signOut" = "Du gëss op de Säiten ofgemellt déi et benotzen a muss dech nei umellen.";
 "why.slowerBuild" = "Et geet näischt verluer, mä de nächste Build brauch méi laang fir et nei ze maachen.";
+"why.superseded" = "Et ass eng al Versioun, déi näischt méi benotzt. Wann eppes se nees ufrot, géif se nees erofgeluede ginn.";
 "why.toolDecides" = "D’Geschir läscht selwer, also entscheet et wat genau verschwënnt.";
 "why.unknown" = "Sammelkëscht: hei landet wat keng aner Rei benannt huet. Kuck ier s du läschs.";

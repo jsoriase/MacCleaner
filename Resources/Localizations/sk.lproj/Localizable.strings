@@ -12,12 +12,15 @@
 "alert.report.count" = "Vyčistené kategórie: %d";
 "alert.report.failures" = "Nepodarilo sa zmazať všetko (dotknuté kategórie: %d). Zvyčajne ide o oprávnenia: udeľte MacCleaneru plný prístup k disku v Nastaveniach › Súkromie a bezpečnosť.";
 "alert.report.freed" = "Uvoľnené %@.";
+"alert.report.skipped" = "Preskočené, ničoho sa nedotklo: %@";
+"alert.report.space" = "Voľné miesto: %@ → %@ (%@)";
 "alert.report.title" = "Čistenie dokončené";
 "alert.report.trashed" = "Presunuté %@ do koša. Miesto sa uvoľní po jeho vyprázdnení.";
 
 /* ---- category ---- */
 "category.ai" = "Nástroje UI";
 "category.browsers" = "Prehliadače";
+"category.editors" = "Editory kódu";
 "category.jvm" = "Android, Gradle a JVM";
 "category.langs" = "Ďalšie jazyky";
 "category.node" = "Node a web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Zrušiť";
 "common.done" = "Hotovo";
+
+/* ---- detail ---- */
+"detail.empty" = "Tu nie je čo uvoľniť";
 
 /* ---- empty ---- */
 "empty.button" = "Skenovať teraz";
@@ -58,6 +64,10 @@
 "header.stop" = "Zastaviť";
 "header.working" = "Pracujem…";
 
+/* ---- menu ---- */
+"menu.history" = "História čistenia";
+"menu.unignore" = "Znova ponúkať ignorované";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Veci sa budú musieť znova stiahnuť, inak prídete o užitočné dáta.";
 "risk.caution.label" = "Pozor";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Bezpečné";
 
 /* ---- row ---- */
+"row.busy" = "Používa sa: %@";
+"row.busy.help" = "Zatvorte ho, aby ste to mohli vyčistiť. MacCleaner to znova overí tesne pred vymazaním.";
+"row.busy.unknown" = "Nepodarilo sa overiť, či sa používa, takže sa nevymaže.";
 "row.files" = "Súbory: %d";
+"row.ignore" = "Už neponúkať";
 "row.noPath" = "Na tomto Macu sa nenašla žiadna zodpovedajúca cesta.";
+"row.recent.help" = "Zmenené za posledných 7 dní. Rýchly výber to nechá neoznačené; označte to ručne, ak chcete.";
 "row.reveal" = "Zobraziť vo Finderi";
 
 /* ---- select ---- */
 "select.clear" = "Zrušiť výber";
 "select.mark" = "Vybrať";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Všetko";
+"sidebar.categories" = "Kategórie";
+
+/* ---- skip ---- */
+"skip.busy" = "používa %@";
+"skip.changed" = "zmenilo sa od skenovania";
+"skip.unknown" = "nepodarilo sa overiť, či sa používalo";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Vyrovnávacie pamäte kódových asistentov";
 "target.ai.caches.note" = "Dočasné súbory z Claude, Codex, Cursor a OpenCode";
 "target.ai.models.name" = "Stiahnuté modely UI";
 "target.ai.models.note" = "Váhy Ollama, Hugging Face a LM Studio: každý niekoľko GB";
+"target.ai.runtimes.name" = "Opustené prostredia Codexu";
+"target.ai.runtimes.note" = "Nedokončené sťahovania. Prostredie, ktoré používa Codex, sa nikdy neponúka";
 "target.ai.vmbundles.name" = "Virtuálne stroje asistentov";
 "target.ai.vmbundles.note" = "Obrazy disku, ktoré Claude sťahuje na spúšťanie kódu";
 "target.ai.worktrees.name" = "Pracovné stromy agentov";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Frameworky a checkouty Carthage";
 "target.cocoapods.name" = "Vyrovnávacia pamäť CocoaPods";
 "target.cocoapods.note" = "Stiahnuté pody a specs";
-"target.docker.disk.name" = "Disk virtuálneho stroja Dockeru";
-"target.docker.disk.note" = "Uvoľní ho docker system prune. Tvoje obrazy a zväzky zostanú";
+"target.docker.buildx.name" = "Vyrovnávacia pamäť Docker Buildx";
+"target.docker.buildx.note" = "Lokálna vyrovnávacia pamäť zostavenia docker buildx";
+"target.docker.disk.name" = "Zvyšky Dockeru";
+"target.docker.disk.note" = "Čo zmaže docker system prune pri spustenom Dockeri. Obrazy a zväzky zostanú";
 "target.docker.logs.name" = "Záznamy Docker Desktopu";
 "target.docker.logs.note" = "Iba záznamy. Obrazov ani zväzkov sa to nedotkne";
+"target.editors.cache.name" = "Vyrovnávacie pamäte VS Code a Cursora";
+"target.editors.cache.note" = "Stiahnuté rozšírenia (VSIX), vyrovnávacia pamäť kódu a záznamy";
+"target.editors.extensions.name" = "Zastarané rozšírenia";
+"target.editors.extensions.note" = "Staré verzie, ktoré editor už nahradil a označil ako zastarané";
 "target.electron.appsupport.name" = "Vyrovnávacie pamäte aplikácií Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache a GPUCache mimo ~/Library/Caches";
 "target.electron.name" = "Vyrovnávacia pamäť Electronu";
 "target.electron.note" = "Binárky Electronu a electron-builderu";
+"target.expo.name" = "Vyrovnávacia pamäť Expo";
+"target.expo.note" = "Expo Go, natívne zostavenia a šablóny stiahnuté cez Expo CLI";
 "target.flutter.name" = "Vyrovnávacia pamäť Flutteru / Dartu";
 "target.flutter.note" = "~/.pub-cache: balíky z pub.dev";
 "target.go.build.name" = "Vyrovnávacia pamäť zostavenia Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Záznamy vývojových prostredí";
 "target.kotlin.name" = "Vyrovnávacia pamäť Kotlinu / Konanu";
 "target.kotlin.note" = "Artefakty prekladačov Kotlin a Kotlin Native";
+"target.langs.tools.name" = "Vyrovnávacie pamäte iných nástrojov";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff a mypy";
 "target.maven.name" = "Lokálny repozitár Mavenu";
 "target.maven.note" = "~/.m2/repository. Pri ďalšom zostavení sa stiahne celý nanovo";
+"target.node.tools.name" = "Vyrovnávacie pamäte nástrojov Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite a Prisma";
 "target.npm.name" = "Vyrovnávacia pamäť npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Vyrovnávacia pamäť Composeru (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Stiahnuté behové prostredia a zdieľaná vyrovnávacia pamäť simulátorov";
 "target.sim.devices.name" = "Nainštalované simulátory";
 "target.sim.devices.note" = "Mažú sa cez simctl, aby Xcodu nezostalo duchové zariadenie";
+"target.sim.runtimes.name" = "Nepoužívané prostredia simulátora";
+"target.sim.runtimes.note" = "Obrazy iOS, watchOS… bez jediného simulátora. Odstraňujú sa pomocou simctl";
 "target.swiftpm.name" = "Vyrovnávacia pamäť Swift Package Managera";
 "target.swiftpm.note" = "Repozitáre a binárky závislostí SwiftPM";
 "target.trash.name" = "Kôš";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode ju pri otvorení stiahne znova";
 "target.xcode.previews.name" = "Náhľady Xcode";
 "target.xcode.previews.note" = "Vyrovnávacia pamäť náhľadov SwiftUI";
+"target.xcode.products.name" = "Údaje Organizera v Xcode";
+"target.xcode.products.note" = "Verzie, ikony, pády a metriky stiahnuté z App Store Connect";
+"target.xcode.testdevices.name" = "Klony testovacích simulátorov";
+"target.xcode.testdevices.note" = "Kópie, ktoré Xcode vytvára pre paralelné testy; pri ďalšom spustení ich vytvorí znova";
 "target.yarn.name" = "Vyrovnávacia pamäť Yarnu";
 "target.yarn.note" = "Balíky stiahnuté Yarnom";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Vytvorí sa sama, keď bude nabudúce treba, a nevšimneš si to.";
 "why.signOut" = "Odhlási ťa z webov, ktoré to používajú, a budeš sa musieť prihlásiť znova.";
 "why.slowerBuild" = "Nič sa nestratí, ale ďalšie zostavenie potrvá dlhšie, kým to spraví znova.";
+"why.superseded" = "Je to stará verzia, ktorú už nič nepoužíva. Ak by ju niečo znova potrebovalo, stiahla by sa znova.";
 "why.toolDecides" = "Maže samotný nástroj, takže čo presne zmizne, rozhoduje on.";
 "why.unknown" = "Priehradka na zvyšok: sem spadne, čo žiadny iný riadok nepomenoval. Pozri sa pred mazaním.";

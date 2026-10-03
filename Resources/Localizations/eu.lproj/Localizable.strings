@@ -12,12 +12,15 @@
 "alert.report.count" = "Garbitutako kategoriak: %d";
 "alert.report.failures" = "Ezin izan da dena ezabatu (eragindako kategoriak: %d). Normalean baimen kontua da: eman MacCleaner-i diskorako sarbide osoa Ezarpenak › Pribatutasuna eta segurtasuna atalean.";
 "alert.report.freed" = "%@ askatu dira.";
+"alert.report.skipped" = "Saltatuak, ezer ukitu gabe: %@";
+"alert.report.space" = "Leku librea: %@ → %@ (%@)";
 "alert.report.title" = "Garbiketa amaituta";
 "alert.report.trashed" = "%@ Zakarrontzira eraman dira. Lekua hustean askatzen da.";
 
 /* ---- category ---- */
 "category.ai" = "AA tresnak";
 "category.browsers" = "Nabigatzaileak";
+"category.editors" = "Kode-editoreak";
 "category.jvm" = "Android, Gradle eta JVM";
 "category.langs" = "Beste lengoaia batzuk";
 "category.node" = "Node eta weba";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Utzi";
 "common.done" = "Eginda";
+
+/* ---- detail ---- */
+"detail.empty" = "Hemen ez dago ezer berreskuratzeko";
 
 /* ---- empty ---- */
 "empty.button" = "Aztertu orain";
@@ -58,6 +64,10 @@
 "header.stop" = "Gelditu";
 "header.working" = "Lanean…";
 
+/* ---- menu ---- */
+"menu.history" = "Garbiketen historia";
+"menu.unignore" = "Eskaini berriro baztertutakoa";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Gauzak berriro deskargatu beharko dituzu, edo datu erabilgarriak galduko dituzu.";
 "risk.caution.label" = "Kontuz";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Seguruak";
 
 /* ---- row ---- */
+"row.busy" = "Erabiltzen: %@";
+"row.busy.help" = "Itxi hori garbitu ahal izateko. MacCleaner-ek ezabatu aurretik egiaztatzen du berriro.";
+"row.busy.unknown" = "Ezin izan da egiaztatu erabiltzen ari den; beraz, ez da ezabatuko.";
 "row.files" = "Fitxategiak: %d";
+"row.ignore" = "Ez eskaini berriro";
 "row.noPath" = "Ez da bat datorren bide-izenik aurkitu Mac honetan.";
+"row.recent.help" = "Azken 7 egunetan aldatua. Hautapen azkarrak markatu gabe uzten du; markatu eskuz nahi baduzu.";
 "row.reveal" = "Erakutsi Finder-en";
 
 /* ---- select ---- */
 "select.clear" = "Kendu hautapen guztiak";
 "select.mark" = "Hautatu";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Dena";
+"sidebar.categories" = "Kategoriak";
+
+/* ---- skip ---- */
+"skip.busy" = "%@ erabiltzen ari da";
+"skip.changed" = "aldatu egin da azterketaz geroztik";
+"skip.unknown" = "ezin izan da egiaztatu erabiltzen ari zen";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Kode-laguntzaileen cacheak";
 "target.ai.caches.note" = "Claude, Codex, Cursor eta OpenCode aplikazioen aldi baterako fitxategiak";
 "target.ai.models.name" = "Deskargatutako AA ereduak";
 "target.ai.models.note" = "Ollama, Hugging Face eta LM Studio pisuak: gigabyte batzuk bakoitza";
+"target.ai.runtimes.name" = "Codex-en ingurune abandonatuak";
+"target.ai.runtimes.note" = "Erdizka geratutako deskargak. Codex-ek erabiltzen duen ingurunea ez da inoiz eskaintzen";
 "target.ai.vmbundles.name" = "Laguntzaileen makina birtualak";
 "target.ai.vmbundles.note" = "Claudek kodea exekutatzeko deskargatzen dituen disko-irudiak";
 "target.ai.worktrees.name" = "Agenteen lan-zuhaitzak";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Carthageren frameworkak eta checkout-ak";
 "target.cocoapods.name" = "CocoaPodsen cachea";
 "target.cocoapods.note" = "Deskargatutako pod-ak eta spec-ak";
-"target.docker.disk.name" = "Docker makina birtualaren diskoa";
-"target.docker.disk.note" = "docker system prune bidez askatzen da. Irudiak eta bolumenak gorde egiten dira";
+"target.docker.buildx.name" = "Docker Buildx-en cachea";
+"target.docker.buildx.note" = "docker buildx-en konpilazio-cache lokala";
+"target.docker.disk.name" = "Dockerren hondarrak";
+"target.docker.disk.note" = "docker system prune-k ezabatzen duena, Docker irekita. Irudiak eta bolumenak gordetzen dira";
 "target.docker.logs.name" = "Docker Desktopen erregistroak";
 "target.docker.logs.note" = "Erregistroak soilik. Ez ditu irudiak ez bolumenak ukitzen";
+"target.editors.cache.name" = "VS Code eta Cursor-en cacheak";
+"target.editors.cache.note" = "Deskargatutako hedapenak (VSIX), kode-cachea eta erregistroak";
+"target.editors.extensions.name" = "Zaharkitutako hedapenak";
+"target.editors.extensions.note" = "Editoreak dagoeneko ordeztu eta zaharkitutzat markatu dituen bertsio zaharrak";
 "target.electron.appsupport.name" = "Electron aplikazioen cacheak";
 "target.electron.appsupport.note" = "~/Library/Caches kanpoan dauden Cache, Code Cache eta GPUCache";
 "target.electron.name" = "Electronen cachea";
 "target.electron.note" = "Electron eta electron-builderren binarioak";
+"target.expo.name" = "Expo-ren cachea";
+"target.expo.note" = "Expo CLI-k deskargatutako Expo Go, konpilazio natiboak eta txantiloiak";
 "target.flutter.name" = "Flutter / Darten cachea";
 "target.flutter.note" = "~/.pub-cache: pub.dev-eko paketeak";
 "target.go.build.name" = "Goren konpilazio-cachea";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Garapen-inguruneen erregistroak";
 "target.kotlin.name" = "Kotlin / Konanen cachea";
 "target.kotlin.note" = "Kotlin eta Kotlin Native konpiladoreen artefaktuak";
+"target.langs.tools.name" = "Beste tresna batzuen cacheak";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff eta mypy";
 "target.maven.name" = "Mavenen biltegi lokala";
 "target.maven.note" = "~/.m2/repository. Osorik berriro deskargatuko da hurrengo konpilazioan";
+"target.node.tools.name" = "Node tresnen cacheak";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite eta Prisma";
 "target.npm.name" = "npm-ren cachea";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composerren cachea (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Deskargatutako exekuzio-inguruneak eta simulagailuen cache partekatua";
 "target.sim.devices.name" = "Instalatutako simulagailuak";
 "target.sim.devices.note" = "simctl bidez ezabatzen dira, Xcodek mamurik gorde ez dezan";
+"target.sim.runtimes.name" = "Erabiltzen ez diren simulagailu-inguruneak";
+"target.sim.runtimes.note" = "iOS, watchOS… irudiak, simulagailurik gabe. simctl-ekin kentzen dira";
 "target.swiftpm.name" = "Swift Package Managerren cachea";
 "target.swiftpm.note" = "SwiftPM mendekotasunen biltegiak eta binarioak";
 "target.trash.name" = "Zakarrontzia";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcodek berriro deskargatzen du irekitzean";
 "target.xcode.previews.name" = "Xcoderen aurrebistak";
 "target.xcode.previews.note" = "SwiftUIren aurrebisten cachea";
+"target.xcode.products.name" = "Xcode Organizer-en datuak";
+"target.xcode.products.note" = "App Store Connect-etik deskargatutako bertsioak, ikonoak, hutsegiteak eta metrikak";
+"target.xcode.testdevices.name" = "Proba-simulagailuen klonak";
+"target.xcode.testdevices.note" = "Xcode-k proba paraleloetarako egiten dituen kopiak; hurrengo exekuzioan sortzen ditu berriro";
 "target.yarn.name" = "Yarnen cachea";
 "target.yarn.note" = "Yarnek deskargatutako paketeak";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Berez sortzen da berriro behar den hurrengo aldian, eta ez duzu nabarituko.";
 "why.signOut" = "Erabiltzen duten guneetan saioa itxiko duzu eta berriro sartu beharko duzu.";
 "why.slowerBuild" = "Ez da ezer galtzen, baina hurrengo konpilazioak gehiago iraungo du berregiten duen bitartean.";
+"why.superseded" = "Bertsio zaharra da, eta jada ezerk ez du erabiltzen. Zerbaitek berriro eskatuko balu, berriro deskargatuko litzateke.";
 "why.toolDecides" = "Tresnak berak ezabatzen du, beraz zer desagertzen den zehazki berak erabakitzen du.";
 "why.unknown" = "Denetariko kutxa: hemen erortzen da beste inork izendatu ez duena. Begiratu ezabatu aurretik.";

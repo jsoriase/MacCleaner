@@ -12,12 +12,15 @@
 "alert.report.count" = "Puhastatud kategooriaid: %d";
 "alert.report.failures" = "Kõike ei õnnestunud kustutada (mõjutatud kategooriaid: %d). Tavaliselt on tegu õigustega: anna MacCleanerile täielik kettaligipääs jaotises Sätted › Privaatsus ja turvalisus.";
 "alert.report.freed" = "Vabastati %@.";
+"alert.report.skipped" = "Vahele jäetud, midagi ei puudutatud: %@";
+"alert.report.space" = "Vaba ruum: %@ → %@ (%@)";
 "alert.report.title" = "Puhastamine lõpetatud";
 "alert.report.trashed" = "%@ teisaldati prügikasti. Ruum vabaneb selle tühjendamisel.";
 
 /* ---- category ---- */
 "category.ai" = "Tehisintellekti tööriistad";
 "category.browsers" = "Brauserid";
+"category.editors" = "Koodiredaktorid";
 "category.jvm" = "Android, Gradle ja JVM";
 "category.langs" = "Muud keeled";
 "category.node" = "Node ja veeb";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Loobu";
 "common.done" = "Valmis";
+
+/* ---- detail ---- */
+"detail.empty" = "Siin pole midagi vabastada";
 
 /* ---- empty ---- */
 "empty.button" = "Skanni kohe";
@@ -58,6 +64,10 @@
 "header.stop" = "Peata";
 "header.working" = "Töötan…";
 
+/* ---- menu ---- */
+"menu.history" = "Puhastamise ajalugu";
+"menu.unignore" = "Paku eiratut uuesti";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Asju tuleb uuesti alla laadida, muidu kaotad kasulikke andmeid.";
 "risk.caution.label" = "Ettevaatust";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Ohutud";
 
 /* ---- row ---- */
+"row.busy" = "Kasutusel: %@";
+"row.busy.help" = "Selle puhastamiseks sulge see. MacCleaner kontrollib uuesti vahetult enne kustutamist.";
+"row.busy.unknown" = "Ei õnnestunud kontrollida, kas see on kasutusel, seega seda ei kustutata.";
 "row.files" = "Failid: %d";
+"row.ignore" = "Ära enam paku";
 "row.noPath" = "Sellest Macist ei leitud ühtegi sobivat teed.";
+"row.recent.help" = "Muudetud viimase 7 päeva jooksul. Kiirvalik jätab selle märkimata; märgi käsitsi, kui soovid.";
 "row.reveal" = "Näita Finderis";
 
 /* ---- select ---- */
 "select.clear" = "Tühista valik";
 "select.mark" = "Vali";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Kõik";
+"sidebar.categories" = "Kategooriad";
+
+/* ---- skip ---- */
+"skip.busy" = "kasutab %@";
+"skip.changed" = "muutunud pärast skannimist";
+"skip.unknown" = "ei õnnestunud kontrollida, kas see oli kasutusel";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Koodiassistentide vahemälud";
 "target.ai.caches.note" = "Ajutised failid: Claude, Codex, Cursor ja OpenCode";
 "target.ai.models.name" = "Alla laaditud TI-mudelid";
 "target.ai.models.note" = "Ollama, Hugging Face ja LM Studio kaalud: igaüks gigabaite";
+"target.ai.runtimes.name" = "Hüljatud Codexi käituskeskkonnad";
+"target.ai.runtimes.note" = "Poolikud allalaadimised. Käituskeskkonda, mida Codex kasutab, ei pakuta kunagi";
 "target.ai.vmbundles.name" = "Assistentide virtuaalmasinad";
 "target.ai.vmbundles.note" = "Kettatõmmised, mida Claude koodi käivitamiseks alla laadib";
 "target.ai.worktrees.name" = "Agentide tööpuud";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Carthage’i raamistikud ja checkoutid";
 "target.cocoapods.name" = "CocoaPodsi vahemälu";
 "target.cocoapods.note" = "Allalaaditud podid ja specid";
-"target.docker.disk.name" = "Dockeri virtuaalmasina ketas";
-"target.docker.disk.note" = "Vabaneb käsuga docker system prune. Sinu tõmmised ja köited säilivad";
+"target.docker.buildx.name" = "Docker Buildxi vahemälu";
+"target.docker.buildx.note" = "docker buildxi kohalik järguvahemälu";
+"target.docker.disk.name" = "Dockeri jäägid";
+"target.docker.disk.note" = "Mida docker system prune töötava Dockeriga kustutab. Tõmmised ja köited säilivad";
 "target.docker.logs.name" = "Docker Desktopi logid";
 "target.docker.logs.note" = "Ainult logid. Tõmmiseid ja köiteid ei puudutata";
+"target.editors.cache.name" = "VS Code’i ja Cursori vahemälud";
+"target.editors.cache.note" = "Allalaaditud laiendused (VSIX), koodi vahemälu ja logid";
+"target.editors.extensions.name" = "Aegunud laiendused";
+"target.editors.extensions.note" = "Vanad versioonid, mille redaktor on juba asendanud ja aegunuks märkinud";
 "target.electron.appsupport.name" = "Electroni rakenduste vahemälud";
 "target.electron.appsupport.note" = "Cache, Code Cache ja GPUCache väljaspool kausta ~/Library/Caches";
 "target.electron.name" = "Electroni vahemälu";
 "target.electron.note" = "Electroni ja electron-builderi binaarfailid";
+"target.expo.name" = "Expo vahemälu";
+"target.expo.note" = "Expo Go, natiivsed järgud ja mallid, mille Expo CLI alla laadis";
 "target.flutter.name" = "Flutteri / Darti vahemälu";
 "target.flutter.note" = "~/.pub-cache: paketid saidilt pub.dev";
 "target.go.build.name" = "Go ehitusvahemälu";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Arenduskeskkondade logid";
 "target.kotlin.name" = "Kotlini / Konani vahemälu";
 "target.kotlin.note" = "Kotlini ja Kotlin Native’i kompilaatorite artefaktid";
+"target.langs.tools.name" = "Muude tööriistade vahemälud";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff ja mypy";
 "target.maven.name" = "Kohalik Maveni hoidla";
 "target.maven.note" = "~/.m2/repository. Järgmisel ehitusel laaditakse tervikuna uuesti alla";
+"target.node.tools.name" = "Node’i tööriistade vahemälud";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite ja Prisma";
 "target.npm.name" = "npm-i vahemälu";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Composeri vahemälu (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Allalaaditud käituskeskkonnad ja simulaatorite ühine vahemälu";
 "target.sim.devices.name" = "Paigaldatud simulaatorid";
 "target.sim.devices.note" = "Eemaldatakse simctl abil, et Xcode ei jääks tontliku seadmega";
+"target.sim.runtimes.name" = "Kasutamata simulaatori käituskeskkonnad";
+"target.sim.runtimes.note" = "iOS-i, watchOS-i… tõmmised ilma ühegi simulaatorita. Eemaldatakse simctl-iga";
 "target.swiftpm.name" = "Swift Package Manageri vahemälu";
 "target.swiftpm.note" = "SwiftPM-i sõltuvuste hoidlad ja binaarfailid";
 "target.trash.name" = "Prügikast";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode laadib selle avamisel uuesti";
 "target.xcode.previews.name" = "Xcode’i eelvaated";
 "target.xcode.previews.note" = "SwiftUI eelvaadete vahemälu";
+"target.xcode.products.name" = "Xcode Organizeri andmed";
+"target.xcode.products.note" = "Versioonid, ikoonid, krahhid ja mõõdikud App Store Connectist";
+"target.xcode.testdevices.name" = "Testsimulaatorite kloonid";
+"target.xcode.testdevices.note" = "Koopiad, mida Xcode teeb paralleeltestide jaoks; järgmisel käivitusel loob need uuesti";
 "target.yarn.name" = "Yarni vahemälu";
 "target.yarn.note" = "Yarni alla laaditud paketid";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Tekib järgmisel korral ise uuesti ja sa ei märkagi seda.";
 "why.signOut" = "Sind logitakse välja saitidelt, mis seda kasutavad, ja pead uuesti sisse logima.";
 "why.slowerBuild" = "Midagi ei kao, aga järgmine ehitus võtab kauem aega, kuni see uuesti tehakse.";
+"why.superseded" = "See on vana versioon, mida enam miski ei kasuta. Kui miski seda uuesti küsiks, laaditaks see uuesti alla.";
 "why.toolDecides" = "Kustutab tööriist ise, seega mis täpselt kaob, otsustab tema.";
 "why.unknown" = "Kogumiskoht: siia satub see, mida ükski teine rida pole nimetanud. Vaata enne kustutamist.";

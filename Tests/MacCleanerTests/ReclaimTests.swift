@@ -15,7 +15,7 @@ final class ReclaimTests: XCTestCase {
     /// Lista explicita, como la de las filas desplegables: lanzar un proceso
     /// ajeno tiene que ser una decision, no algo que se cuele en un patron.
     func testSoloEstasFilasEjecutanUnaHerramienta() {
-        XCTAssertEqual(Set(reclaimable.map(\.id)), ["sim.devices", "docker.disk"])
+        XCTAssertEqual(Set(reclaimable.map(\.id)), ["sim.devices", "sim.runtimes", "docker.disk"])
     }
 
     /// Nunca es "seguro": lo que hace la herramienta no lo decidimos nosotros,

@@ -12,12 +12,15 @@
 "alert.report.count" = "Kategori të pastruara: %d";
 "alert.report.failures" = "Nuk u fshi gjithçka (kategori të prekura: %d). Zakonisht është çështje lejesh: jepi MacCleaner qasje të plotë në disk te Cilësimet › Privatësia dhe siguria.";
 "alert.report.freed" = "U liruan %@.";
+"alert.report.skipped" = "Kapërcyer, pa prekur asgjë: %@";
+"alert.report.space" = "Hapësirë e lirë: %@ → %@ (%@)";
 "alert.report.title" = "Pastrimi përfundoi";
 "alert.report.trashed" = "%@ u zhvendosën te Koshi. Hapësira lirohet kur ta zbrazësh.";
 
 /* ---- category ---- */
 "category.ai" = "Mjete IA";
 "category.browsers" = "Shfletuesit";
+"category.editors" = "Redaktorë kodi";
 "category.jvm" = "Android, Gradle dhe JVM";
 "category.langs" = "Gjuhë të tjera";
 "category.node" = "Node dhe web";
@@ -29,6 +32,9 @@
 /* ---- common ---- */
 "common.cancel" = "Anulo";
 "common.done" = "U krye";
+
+/* ---- detail ---- */
+"detail.empty" = "Këtu nuk ka asgjë për të rikuperuar";
 
 /* ---- empty ---- */
 "empty.button" = "Skano tani";
@@ -58,6 +64,10 @@
 "header.stop" = "Ndalo";
 "header.working" = "Duke punuar…";
 
+/* ---- menu ---- */
+"menu.history" = "Historiku i pastrimeve";
+"menu.unignore" = "Ofro sërish të shpërfillurat";
+
 /* ---- risk ---- */
 "risk.caution.help" = "Do të duhet t’i shkarkosh sërish, ose humbet të dhëna të dobishme.";
 "risk.caution.label" = "Kujdes";
@@ -70,19 +80,35 @@
 "risk.safe.plural" = "Të sigurta";
 
 /* ---- row ---- */
+"row.busy" = "Në përdorim: %@";
+"row.busy.help" = "Mbylle që ta pastrosh këtë. MacCleaner kontrollon sërish pikërisht para fshirjes.";
+"row.busy.unknown" = "Nuk u arrit të kontrollohej nëse është në përdorim, prandaj nuk do të fshihet.";
 "row.files" = "Skedarë: %d";
+"row.ignore" = "Mos e ofro më";
 "row.noPath" = "Nuk u gjet asnjë shteg përkatës në këtë Mac.";
+"row.recent.help" = "Ndryshuar gjatë 7 ditëve të fundit. Përzgjedhja e shpejtë e lë pa shënuar; shënoje me dorë nëse e do.";
 "row.reveal" = "Shfaq në Finder";
 
 /* ---- select ---- */
 "select.clear" = "Hiq të gjitha përzgjedhjet";
 "select.mark" = "Përzgjidh";
 
+/* ---- sidebar ---- */
+"sidebar.all" = "Të gjitha";
+"sidebar.categories" = "Kategoritë";
+
+/* ---- skip ---- */
+"skip.busy" = "në përdorim nga %@";
+"skip.changed" = "ndryshoi pas skanimit";
+"skip.unknown" = "nuk u arrit të kontrollohej nëse ishte në përdorim";
+
 /* ---- target ---- */
 "target.ai.caches.name" = "Cache-t e asistentëve të kodit";
 "target.ai.caches.note" = "Skedarë të përkohshëm nga Claude, Codex, Cursor dhe OpenCode";
 "target.ai.models.name" = "Modele IA të shkarkuara";
 "target.ai.models.note" = "Pesha nga Ollama, Hugging Face dhe LM Studio: nga disa GB secila";
+"target.ai.runtimes.name" = "Mjedise ekzekutimi të braktisura të Codex";
+"target.ai.runtimes.note" = "Shkarkime të papërfunduara. Mjedisi që përdor Codex nuk ofrohet kurrë";
 "target.ai.vmbundles.name" = "Makinat virtuale të asistentëve";
 "target.ai.vmbundles.note" = "Imazhe disku që Claude shkarkon për të ekzekutuar kod";
 "target.ai.worktrees.name" = "Pemët e punës së agjentëve";
@@ -115,14 +141,22 @@
 "target.carthage.note" = "Framework-ët dhe checkout-et e Carthage";
 "target.cocoapods.name" = "Cache e CocoaPods";
 "target.cocoapods.note" = "Pod-e dhe specs të shkarkuara";
-"target.docker.disk.name" = "Disku i makinës virtuale të Docker";
-"target.docker.disk.note" = "Lirohet me docker system prune. Imazhet dhe volumet e tua ruhen";
+"target.docker.buildx.name" = "Cache e Docker Buildx";
+"target.docker.buildx.note" = "Cache lokale e ndërtimit të docker buildx";
+"target.docker.disk.name" = "Mbetjet e Docker";
+"target.docker.disk.note" = "Çfarë fshin docker system prune me Docker të hapur. Imazhet dhe volumet ruhen";
 "target.docker.logs.name" = "Regjistrat e Docker Desktop";
 "target.docker.logs.note" = "Vetëm regjistra. Imazhet dhe volumet nuk preken";
+"target.editors.cache.name" = "Cache-t e VS Code dhe Cursor";
+"target.editors.cache.note" = "Zgjerime të shkarkuara (VSIX), cache e kodit dhe regjistra";
+"target.editors.extensions.name" = "Zgjerime të vjetruara";
+"target.editors.extensions.note" = "Versione të vjetra që redaktori i ka zëvendësuar tashmë dhe i ka shënuar si të vjetruara";
 "target.electron.appsupport.name" = "Cache-t e aplikacioneve Electron";
 "target.electron.appsupport.note" = "Cache, Code Cache dhe GPUCache jashtë ~/Library/Caches";
 "target.electron.name" = "Cache e Electron";
 "target.electron.note" = "Skedarë binarë të Electron dhe electron-builder";
+"target.expo.name" = "Cache e Expo";
+"target.expo.note" = "Expo Go, ndërtime native dhe shabllone që shkarkon Expo CLI";
 "target.flutter.name" = "Cache e Flutter / Dart";
 "target.flutter.note" = "~/.pub-cache: paketa nga pub.dev";
 "target.go.build.name" = "Cache e kompilimit të Go";
@@ -145,8 +179,12 @@
 "target.jetbrains.logs.note" = "Regjistrat e mjediseve të zhvillimit";
 "target.kotlin.name" = "Cache e Kotlin / Konan";
 "target.kotlin.note" = "Artefaktet e kompiluesve Kotlin dhe Kotlin Native";
+"target.langs.tools.name" = "Cache-t e mjeteve të tjera";
+"target.langs.tools.note" = "Terraform, Bazel, Zig, Ruff dhe mypy";
 "target.maven.name" = "Depoja lokale e Maven";
 "target.maven.note" = "~/.m2/repository. Shkarkohet i plotë sërish në kompilimin e radhës";
+"target.node.tools.name" = "Cache-t e mjeteve të Node";
+"target.node.tools.note" = "Corepack, node-gyp, TypeScript, ESLint, Prettier, Vite dhe Prisma";
 "target.npm.name" = "Cache e npm";
 "target.npm.note" = "~/.npm/_cacache";
 "target.php.name" = "Cache e Composer (PHP)";
@@ -169,6 +207,8 @@
 "target.sim.caches.note" = "Ambientet e ekzekutimit të shkarkuara dhe cache e përbashkët e simulatorëve";
 "target.sim.devices.name" = "Simulatorë të instaluar";
 "target.sim.devices.note" = "Fshihen me simctl që Xcode të mos mbetet me një pajisje fantazmë";
+"target.sim.runtimes.name" = "Mjedise ekzekutimi simulatori të papërdorura";
+"target.sim.runtimes.note" = "Imazhe iOS, watchOS… pa asnjë simulator. Hiqen me simctl";
 "target.swiftpm.name" = "Cache e Swift Package Manager";
 "target.swiftpm.note" = "Depot dhe skedarët binarë të varësive SwiftPM";
 "target.trash.name" = "Koshi";
@@ -191,6 +231,10 @@
 "target.xcode.doccache.note" = "Xcode e shkarkon sërish kur e hap";
 "target.xcode.previews.name" = "Parapamjet e Xcode";
 "target.xcode.previews.note" = "Cache e parapamjeve të SwiftUI";
+"target.xcode.products.name" = "Të dhënat e Organizer të Xcode";
+"target.xcode.products.note" = "Versione, ikona, rrëzime dhe metrika të shkarkuara nga App Store Connect";
+"target.xcode.testdevices.name" = "Klone simulatorësh testimi";
+"target.xcode.testdevices.note" = "Kopje që bën Xcode për testet paralele; i rikrijon në ekzekutimin tjetër";
 "target.yarn.name" = "Cache e Yarn";
 "target.yarn.note" = "Paketa të shkarkuara nga Yarn";
 
@@ -201,5 +245,6 @@
 "why.regenerates" = "Krijohet vetë herën tjetër që duhet, dhe nuk do ta vësh re.";
 "why.signOut" = "Do të dalësh nga faqet që e përdorin dhe do të duhet të hysh sërish.";
 "why.slowerBuild" = "Nuk humbet asgjë, por ndërtimi tjetër do të zgjasë më shumë ndërsa e ribën.";
+"why.superseded" = "Është një version i vjetër që nuk e përdor më asgjë. Nëse diçka e kërkon sërish, do të shkarkohet përsëri.";
 "why.toolDecides" = "Fshin vetë mjeti, prandaj çfarë zhduket saktësisht e vendos ai.";
 "why.unknown" = "Sirtar për gjithçka: këtu bie ajo që asnjë rresht tjetër nuk e ka emërtuar. Shiko para se të fshish.";

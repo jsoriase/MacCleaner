@@ -2,19 +2,27 @@ import SwiftUI
 import AppKit
 
 struct ContentView: View {
-    @StateObject private var engine = Engine()
+    /// Vive en la app y no aqui: el menu tambien la necesita, para el
+    /// historial y para lo ignorado.
+    @ObservedObject var engine: Engine
     @State private var confirming = false
     @State private var showingReport = false
+    @State private var scope: SidebarItem = .all
 
     var body: some View {
-        VStack(spacing: 0) {
-            header
-            Divider()
-            listBody
-            Divider()
-            footer
+        NavigationSplitView {
+            Sidebar(engine: engine, scope: $scope)
+                .navigationSplitViewColumnWidth(min: 220, ideal: 270, max: 340)
+        } detail: {
+            VStack(spacing: 0) {
+                header
+                Divider()
+                listBody
+                Divider()
+                footer
+            }
+            .frame(minWidth: 600, minHeight: 540)
         }
-        .frame(minWidth: 720, minHeight: 540)
         // Al volver a la app el hueco libre puede haber cambiado sin que
         // nosotros hayamos tocado nada: una descarga, un vaciado de la Papelera,
         // un borrado en el Finder. Cuesta un `statfs` y evita que la cifra que
@@ -22,6 +30,9 @@ struct ContentView: View {
         .onReceive(NotificationCenter.default.publisher(
             for: NSApplication.didBecomeActiveNotification)) { _ in
             engine.refreshVolume()
+            // Y lo que esta abierto: lo normal es volver despues de cerrar
+            // Xcode precisamente para poder limpiarlo.
+            engine.refreshOccupancy()
         }
         .alert(L("alert.clean.title", FileSystem.humanBytes(engine.selectedBytes)),
                isPresented: $confirming) {
@@ -39,6 +50,10 @@ struct ContentView: View {
             set: { if !$0 { showingReport = false } }
         )) {
             Button(L("common.done")) { showingReport = false }
+            Button(L("menu.history")) {
+                showingReport = false
+                openHistory()
+            }
         } message: {
             if let report = engine.lastReport {
                 Text(reportMessage(report))
@@ -65,6 +80,18 @@ struct ContentView: View {
         var text = L(report.toTrash ? "alert.report.trashed" : "alert.report.freed",
                      FileSystem.humanBytes(report.freed))
         text += "\n" + L("alert.report.count", report.cleaned)
+        // Lo que dice el disco, no lo que dice la cuenta. Se lee en vivo:
+        // APFS tarda unos segundos en devolver los bloques y la cifra sube
+        // mientras la alerta esta abierta.
+        if let before = report.freeBefore, let after = engine.volume?.free {
+            text += "\n" + L("alert.report.space",
+                             FileSystem.humanBytes(before),
+                             FileSystem.humanBytes(after),
+                             FileSystem.signedBytes(after - before))
+        }
+        if !report.skipped.isEmpty {
+            text += "\n\n" + L("alert.report.skipped", report.skipped.joined(separator: ", "))
+        }
         if !report.failures.isEmpty {
             text += "\n\n" + L("alert.report.failures", report.failures.count)
         }
@@ -76,7 +103,20 @@ struct ContentView: View {
     /// En cuanto hay una cifra que ensenar, la cabecera deja de decir "Sin analizar"
     /// y va sumando en vivo mientras el analisis avanza.
     private var showsTotal: Bool {
-        engine.hasScanned || engine.foundBytes > 0
+        engine.hasScanned || scopeBytes > 0
+    }
+
+    private var scopeBytes: Int64 {
+        scope.category.map(engine.groupBytes) ?? engine.foundBytes
+    }
+
+    private var scopeSelected: Bool {
+        scope.category.map(engine.anySelected(in:)) ?? engine.anySelected
+    }
+
+    private var caption: String {
+        if let group = scope.category { return group.title }
+        return showsTotal ? L("header.reclaimable") : "MacCleaner"
     }
 
     private var header: some View {
@@ -91,6 +131,7 @@ struct ContentView: View {
 
     /// Botones que marcan de golpe todas las filas de un nivel de riesgo.
     /// Son acumulativos: Seguras + Se regeneran deja las dos tandas marcadas.
+    /// Actuan sobre lo que se ve: con una categoria elegida, solo sobre ella.
     private var quickSelect: some View {
         HStack(spacing: 7) {
             Text(L("select.mark"))
@@ -100,19 +141,25 @@ struct ContentView: View {
             ForEach(Risk.allCases, id: \.self) { risk in
                 RiskFilterButton(
                     risk: risk,
-                    bytes: engine.bytes(for: risk),
-                    isOn: engine.allSelected(for: risk),
+                    bytes: engine.bytes(for: risk, in: scope.category),
+                    isOn: engine.allSelected(for: risk, in: scope.category),
                     showBytes: engine.hasScanned,
-                    action: { engine.toggleRisk(risk) }
+                    action: { engine.toggleRisk(risk, in: scope.category) }
                 )
             }
 
             Spacer()
 
-            if engine.anySelected {
-                Button(L("select.clear")) { engine.clearSelection() }
-                    .buttonStyle(.link)
-                    .font(.system(size: 11))
+            if scopeSelected {
+                Button(L("select.clear")) {
+                    if let group = scope.category {
+                        engine.selectAll(in: group, false)
+                    } else {
+                        engine.clearSelection()
+                    }
+                }
+                .buttonStyle(.link)
+                .font(.system(size: 11))
             }
         }
     }
@@ -120,14 +167,14 @@ struct ContentView: View {
     private var headerTop: some View {
         HStack(alignment: .center, spacing: 16) {
             VStack(alignment: .leading, spacing: 2) {
-                Text(showsTotal ? L("header.reclaimable") : "MacCleaner")
+                Text(caption)
                     .font(.system(size: 11, weight: .medium))
                     .foregroundStyle(.secondary)
                     .textCase(.uppercase)
-                Text(showsTotal ? FileSystem.humanBytes(engine.foundBytes) : L("header.notScanned"))
+                Text(showsTotal ? FileSystem.humanBytes(scopeBytes) : L("header.notScanned"))
                     .font(.system(size: 30, weight: .semibold, design: .rounded))
                     .contentTransition(.numericText())
-                    .animation(.default, value: engine.foundBytes)
+                    .animation(.default, value: scopeBytes)
 
                 // Sin esto, "12 GB recuperables" no responde a la pregunta que
                 // trae el usuario, que es si le llega el disco.
@@ -172,40 +219,66 @@ struct ContentView: View {
 
     private var listBody: some View {
         List {
-            ForEach(Category.allCases) { group in
-                let rows = engine.rows(in: group)
-                if !rows.isEmpty {
-                    Section {
-                        ForEach(rows) { row in
-                            TargetRow(
-                                row: row,
-                                onToggle: { engine.toggleRow(row.id) },
-                                onExpand: { engine.toggleExpanded(row.id) }
+            switch scope {
+            case .all:
+                ForEach(Category.allCases) { group in
+                    let rows = engine.rows(in: group)
+                    if !rows.isEmpty {
+                        Section {
+                            rowList(rows)
+                        } header: {
+                            GroupHeader(
+                                group: group,
+                                bytes: engine.groupBytes(group),
+                                showBytes: engine.hasScanned,
+                                onAll: { engine.selectAll(in: group, true) },
+                                onNone: { engine.selectAll(in: group, false) }
                             )
-                            if row.expanded {
-                                ForEach(row.items) { item in
-                                    SubItemRow(item: item) {
-                                        engine.setItemSelected(row.id, item.path, $0)
-                                    }
-                                }
-                            }
                         }
-                    } header: {
-                        GroupHeader(
-                            group: group,
-                            bytes: engine.groupBytes(group),
-                            showBytes: engine.hasScanned,
-                            onAll: { engine.selectAll(in: group, true) },
-                            onNone: { engine.selectAll(in: group, false) }
-                        )
                     }
                 }
+            case .category(let group):
+                // La cabecera ya dice que categoria es, y Todo/Nada lo hacen
+                // los botones de arriba.
+                rowList(engine.rows(in: group))
             }
         }
         .listStyle(.inset)
+        // Cada categoria empieza arriba, no donde se quedo la anterior.
+        .id(scope)
         .overlay {
             if !engine.hasScanned && !engine.isScanning {
                 EmptyState { engine.scan() }
+            } else if let group = scope.category, engine.rows(in: group).isEmpty {
+                // Al volver a analizar, las filas aun sin medir se ocultan.
+                if engine.isScanning {
+                    ProgressView()
+                } else {
+                    CategoryEmptyState(group: group)
+                }
+            }
+        }
+    }
+
+    private func rowList(_ rows: [Row]) -> some View {
+        ForEach(rows) { row in
+            TargetRow(
+                row: row,
+                occupancy: engine.occupancy(of: row),
+                onToggle: { engine.toggleRow(row.id) },
+                onExpand: { engine.toggleExpanded(row.id) },
+                onIgnore: { engine.ignoreRow(row.id) }
+            )
+            if row.expanded {
+                ForEach(row.items) { item in
+                    SubItemRow(
+                        item: item,
+                        occupancy: engine.occupancy(ofItem: item.path),
+                        flagsRecent: row.target.isSweep,
+                        onToggle: { engine.setItemSelected(row.id, item.path, $0) },
+                        onIgnore: { engine.ignorePath(item.path, in: row.id) }
+                    )
+                }
             }
         }
     }

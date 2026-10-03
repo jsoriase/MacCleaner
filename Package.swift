@@ -12,7 +12,9 @@ let package = Package(
         .testTarget(
             name: "MacCleanerTests",
             dependencies: ["MacCleaner"],
-            path: "Tests/MacCleanerTests"
+            path: "Tests/MacCleanerTests",
+            // Datos de prueba que se leen por ruta, no recursos del bundle.
+            exclude: ["Fixtures"]
         ),
     ]
 )
