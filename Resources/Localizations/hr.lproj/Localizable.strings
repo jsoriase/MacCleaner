@@ -27,6 +27,7 @@
 "category.projects" = "Projekti";
 "category.system" = "Sustav i aplikacije";
 "category.tools" = "Upravitelji paketa";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode i iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Repozitoriji i binarne datoteke SwiftPM ovisnosti";
 "target.trash.name" = "Smeće";
 "target.trash.note" = "Trajno prazni ~/.Trash";
+"target.unity.assetstore.name" = "Preuzimanja iz Asset Storea";
+"target.unity.assetstore.note" = "Preuzete .unitypackage datoteke. Ponovno ih možete preuzeti iz My Assets";
+"target.unity.editor.name" = "Predmemorija Unity uređivača";
+"target.unity.editor.note" = "Predmemorija bee gradnje i GI predmemorija. Sljedeća gradnja ili pečenje svjetla bit će sporije";
+"target.unity.hub.name" = "Preuzimanja Unity Hub-a";
+"target.unity.hub.note" = "Čekajuća ažuriranja za Hub i preuzeti predlošci projekata";
+"target.unity.logs.name" = "Unity zapisi";
+"target.unity.logs.note" = "Zapisi uređivača, upravitelja paketa i Hub-a";
+"target.unity.projects.name" = "Predmemorija Unity projekata";
+"target.unity.projects.note" = "Library, Temp i obj u vašim Unity projektima. Unity će ponovno uvesti resurse pri sljedećem otvaranju";
+"target.unity.upm.name" = "Predmemorija Unity paketa";
+"target.unity.upm.note" = "Paketi koje je preuzeo upravitelj paketa. Unity ih ponovno preuzima kad ih projekt zatraži";
 "target.user.logs.name" = "Korisnički zapisi";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Arhive Xcodea";

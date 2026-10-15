@@ -27,6 +27,7 @@
 "category.projects" = "Projektid";
 "category.system" = "Süsteem ja rakendused";
 "category.tools" = "Paketihaldurid";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode ja iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "SwiftPM-i sõltuvuste hoidlad ja binaarfailid";
 "target.trash.name" = "Prügikast";
 "target.trash.note" = "Tühjendab ~/.Trash jäädavalt";
+"target.unity.assetstore.name" = "Asset Store'i allalaadimised";
+"target.unity.assetstore.note" = "Allalaaditud .unitypackage-failid. Need saab uuesti alla laadida lehelt My Assets";
+"target.unity.editor.name" = "Unity redaktori vahemälu";
+"target.unity.editor.note" = "bee ehitusvahemälu ja GI-vahemälu. Järgmine ehitus või valguse küpsetamine on aeglasem";
+"target.unity.hub.name" = "Unity Hubi allalaadimised";
+"target.unity.hub.note" = "Ootel Hubi uuendused ja allalaaditud projektimallid";
+"target.unity.logs.name" = "Unity logid";
+"target.unity.logs.note" = "Redaktori, paketihalduri ja Hubi logid";
+"target.unity.projects.name" = "Unity projektide vahemälu";
+"target.unity.projects.note" = "Library, Temp ja obj sinu Unity projektides. Unity impordib varad järgmisel avamisel uuesti";
+"target.unity.upm.name" = "Unity paketivahemälu";
+"target.unity.upm.note" = "Paketihaldurist allalaaditud paketid. Unity laadib need uuesti alla, kui projekt neid vajab";
 "target.user.logs.name" = "Kasutaja logid";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode’i arhiivid";

@@ -66,12 +66,16 @@ final class SweepTests: XCTestCase {
         XCTAssertFalse(find(Catalog.outputFolders).contains("app/node_modules/paquete/build"))
     }
 
-    /// Las dos filas juntas no pueden solaparse ni dejarse nada.
-    func testLasDosFilasSeRepartenLosArtefactosSinPisarse() {
+    /// Las filas juntas no pueden solaparse ni dejarse nada. Las de Unity son
+    /// una tercera parte: se podan con las demas, pero las recoge su propia fila.
+    func testLasFilasSeRepartenLosArtefactosSinPisarse() {
         let deps = Set(Catalog.dependencyFolders)
         let outputs = Set(Catalog.outputFolders)
+        let unity = Set(Catalog.unityFolders)
         XCTAssertTrue(deps.isDisjoint(with: outputs))
-        XCTAssertEqual(deps.union(outputs), Set(Catalog.projectArtifacts))
+        XCTAssertTrue(deps.isDisjoint(with: unity))
+        XCTAssertTrue(outputs.isDisjoint(with: unity))
+        XCTAssertEqual(deps.union(outputs).union(unity), Set(Catalog.projectArtifacts))
     }
 
     func testUnCarpetaOcultaNoSeRecorre() {
@@ -141,6 +145,68 @@ final class SweepTests: XCTestCase {
         }
     }
 
+    // MARK: - Unity
+
+    /// Un proyecto de Unity de verdad. Lo que lo delata es `ProjectSettings`,
+    /// y dentro de su `Library` hay un paquete con `node_modules` que no debe
+    /// aparecer en ninguna fila.
+    private func makeUnityProject(_ name: String) throws {
+        try touch("\(name)/ProjectSettings/ProjectVersion.txt")
+        try touch("\(name)/Library/PackageCache/pkg/package.json")
+        try make("\(name)/Library/PackageCache/pkg/node_modules")
+        try make("\(name)/Temp")
+        try make("\(name)/obj")
+        try make("\(name)/Assets")
+    }
+
+    func testEncuentraLaLibraryTempYObjDeUnProyectoUnity() throws {
+        try makeUnityProject("juego")
+        XCTAssertEqual(find(Catalog.unityFolders),
+                       ["juego/Library", "juego/Temp", "juego/obj"])
+    }
+
+    /// Lo de dentro de la Library de Unity es de Unity: ninguna fila de
+    /// dependencias ni de compilacion lo recoge, aunque tenga nombres suyos.
+    func testLasFilasDeDependenciasYSalidasNoEntranEnUnProyectoUnity() throws {
+        try makeUnityProject("juego")
+        XCTAssertFalse(find(Catalog.dependencyFolders).contains { $0.hasPrefix("juego/") })
+        XCTAssertFalse(find(Catalog.outputFolders).contains { $0.hasPrefix("juego/") })
+    }
+
+    /// Un `Library` sin proyecto de Unity al lado es una carpeta de codigo
+    /// normal: no se recoge, pero se mira por dentro, y un proyecto de Unity
+    /// que haya dentro si aparece.
+    func testUnaLibraryQueNoEsDeUnityNoSeRecogePeroSeMiraPorDentro() throws {
+        try make("swiftlib/Library/Sources")
+        try make("swiftlib/Library/Temp")
+        try touch("swiftlib/Package.swift")
+        try makeUnityProject("swiftlib/Library/anidado")
+
+        XCTAssertEqual(find(Catalog.unityFolders), [
+            "swiftlib/Library/anidado/Library",
+            "swiftlib/Library/anidado/Temp",
+            "swiftlib/Library/anidado/obj",
+        ])
+    }
+
+    /// `obj/` es tambien la salida de MSBuild: sin el proyecto de Unity al
+    /// lado, no es de Unity.
+    func testUnObjDeDotnetNoEsDeUnity() throws {
+        try make("dotnet/obj")
+        try touch("dotnet/Proyecto.csproj")
+        XCTAssertFalse(find(Catalog.unityFolders).contains("dotnet/obj"))
+    }
+
+    func testLaFilaDeUnityBarreLosProyectosDeUnity() throws {
+        let unity = try XCTUnwrap(Catalog.targets.first { $0.id == "unity.projects" })
+        XCTAssertEqual(unity.group, .unity)
+        XCTAssertEqual(unity.risk, .rebuild)
+        XCTAssertEqual(unity.scope, .item)
+        XCTAssertEqual(unity.why, .slowerBuild)
+        XCTAssertEqual(unity.artifacts, Catalog.unityFolders)
+        XCTAssertEqual(unity.expansion, .paths)
+    }
+
     // MARK: - Nombres
 
     func testElComodinFinalValeComoPrefijo() {
@@ -167,7 +233,7 @@ final class SweepTests: XCTestCase {
 
     func testSoloEstasFilasBarrenElArbol() {
         XCTAssertEqual(Set(Catalog.targets.filter(\.isSweep).map(\.id)),
-                       ["projects.deps", "projects.builds"])
+                       ["projects.deps", "projects.builds", "unity.projects"])
     }
 
     /// La regla numero uno vale tambien aqui: se busca dentro del home y en

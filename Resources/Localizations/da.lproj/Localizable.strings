@@ -27,6 +27,7 @@
 "category.projects" = "Projekter";
 "category.system" = "System og apps";
 "category.tools" = "Pakkeadministratorer";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode og iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Arkiver og binære filer til SwiftPM-afhængigheder";
 "target.trash.name" = "Papirkurv";
 "target.trash.note" = "Tømmer ~/.Trash permanent";
+"target.unity.assetstore.name" = "Downloads fra Asset Store";
+"target.unity.assetstore.note" = "Downloadede .unitypackage-filer. Du kan hente dem igen under My Assets";
+"target.unity.editor.name" = "Unity Editor-cache";
+"target.unity.editor.note" = "bee-buildcache og GI-cache. Næste build eller lysbagning bliver langsommere";
+"target.unity.hub.name" = "Unity Hub-downloads";
+"target.unity.hub.note" = "Ventende Hub-opdateringer og downloadede projektskabeloner";
+"target.unity.logs.name" = "Unity-logfiler";
+"target.unity.logs.note" = "Logfiler fra editoren, Package Manager og Hub";
+"target.unity.projects.name" = "Unity-projektcache";
+"target.unity.projects.note" = "Library, Temp og obj i dine Unity-projekter. Unity genimporterer aktiverne, næste gang du åbner dem";
+"target.unity.upm.name" = "Unity-pakkecache";
+"target.unity.upm.note" = "Pakker hentet af Package Manageren. Unity henter dem igen, når et projekt har brug for dem";
 "target.user.logs.name" = "Brugerlogfiler";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode-arkiver";

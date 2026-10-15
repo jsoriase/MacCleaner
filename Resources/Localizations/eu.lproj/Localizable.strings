@@ -27,6 +27,7 @@
 "category.projects" = "Proiektuak";
 "category.system" = "Sistema eta aplikazioak";
 "category.tools" = "Pakete-kudeatzaileak";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode eta iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "SwiftPM mendekotasunen biltegiak eta binarioak";
 "target.trash.name" = "Zakarrontzia";
 "target.trash.note" = "~/.Trash betiko husten du";
+"target.unity.assetstore.name" = "Asset Store-ko deskargak";
+"target.unity.assetstore.note" = "Deskargatutako .unitypackage fitxategiak. Berriro deskarga daitezke My Assets-etik";
+"target.unity.editor.name" = "Unity editorearen cachéak";
+"target.unity.editor.note" = "bee eraikuntza-cachea eta GI cachea. Hurrengo eraikuntza edo argien labea motelagoa izango da";
+"target.unity.hub.name" = "Unity Hub-eko deskargak";
+"target.unity.hub.note" = "Zain dauden Hub eguneraketak eta deskargatutako proiektu-txantiloiak";
+"target.unity.logs.name" = "Unity erregistroak";
+"target.unity.logs.note" = "Editorearen, pakete-kudeatzailearen eta Hub-aren erregistroak";
+"target.unity.projects.name" = "Unity proiektuen cachéak";
+"target.unity.projects.note" = "Library, Temp eta obj zure Unity proiektuetan. Unity-k aktiboak berriro inportatuko ditu hurrengoan irekitzean";
+"target.unity.upm.name" = "Unity paketeen cachea";
+"target.unity.upm.note" = "Pakete-kudeatzaileak deskargatutako paketeak. Unity-k berriro deskargatuko ditu proiektu batek behar dituenean";
 "target.user.logs.name" = "Erabiltzailearen erregistroak";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcoderen artxiboak";

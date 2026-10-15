@@ -27,6 +27,7 @@
 "category.projects" = "Projeler";
 "category.system" = "Sistem ve uygulamalar";
 "category.tools" = "Paket yöneticileri";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode ve iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "SwiftPM bağımlılıklarının depoları ve ikili dosyaları";
 "target.trash.name" = "Çöp Sepeti";
 "target.trash.note" = "~/.Trash klasörünü kalıcı olarak boşaltır";
+"target.unity.assetstore.name" = "Asset Store indirmeleri";
+"target.unity.assetstore.note" = "İndirilen .unitypackage dosyaları. My Assets üzerinden yeniden indirilebilirler";
+"target.unity.editor.name" = "Unity Editor önbellekleri";
+"target.unity.editor.note" = "bee derleme önbelleği ve GI önbelleği. Sonraki derleme veya ışık pişirme daha yavaş olacak";
+"target.unity.hub.name" = "Unity Hub indirmeleri";
+"target.unity.hub.note" = "Bekleyen Hub güncellemeleri ve indirilen proje şablonları";
+"target.unity.logs.name" = "Unity günlükleri";
+"target.unity.logs.note" = "Editor, Package Manager ve Hub günlükleri";
+"target.unity.projects.name" = "Unity proje önbellekleri";
+"target.unity.projects.note" = "Unity projelerinizdeki Library, Temp ve obj klasörleri. Unity, projeyi bir sonraki açışınızda varlıkları yeniden içe aktarır";
+"target.unity.upm.name" = "Unity paket önbelleği";
+"target.unity.upm.note" = "Package Manager’ın indirdiği paketler. Bir proje ihtiyaç duyduğunda Unity bunları yeniden indirir";
 "target.user.logs.name" = "Kullanıcı günlükleri";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode arşivleri";

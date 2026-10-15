@@ -27,6 +27,7 @@
 "category.projects" = "Projektek";
 "category.system" = "Rendszer és appok";
 "category.tools" = "Csomagkezelők";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode és iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "A SwiftPM-függőségek tárolói és binárisai";
 "target.trash.name" = "Kuka";
 "target.trash.note" = "Véglegesen kiüríti a ~/.Trash mappát";
+"target.unity.assetstore.name" = "Asset Store letöltések";
+"target.unity.assetstore.note" = "Letöltött .unitypackage fájlok. Újra letölthetők a My Assets oldalról";
+"target.unity.editor.name" = "Unity szerkesztő gyorsítótárai";
+"target.unity.editor.note" = "A bee build-gyorsítótár és a GI-gyorsítótár. A következő build vagy fényszámítás lassabb lesz";
+"target.unity.hub.name" = "Unity Hub letöltések";
+"target.unity.hub.note" = "Függőben lévő Hub-frissítések és letöltött projektsablonok";
+"target.unity.logs.name" = "Unity naplók";
+"target.unity.logs.note" = "A szerkesztő, a csomagkezelő és a Hub naplói";
+"target.unity.projects.name" = "Unity projektek gyorsítótárai";
+"target.unity.projects.note" = "A Library, Temp és obj mappák a Unity projektjeidben. A Unity a következő megnyitáskor újraimportálja az asseteket";
+"target.unity.upm.name" = "Unity csomag-gyorsítótár";
+"target.unity.upm.note" = "A csomagkezelő által letöltött csomagok. A Unity újra letölti őket, amikor egy projektnek szüksége van rájuk";
 "target.user.logs.name" = "Felhasználói naplók";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode archívumok";

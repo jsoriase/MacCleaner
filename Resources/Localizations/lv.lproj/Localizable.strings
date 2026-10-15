@@ -27,6 +27,7 @@
 "category.projects" = "Projekti";
 "category.system" = "Sistēma un lietotnes";
 "category.tools" = "Pakotņu pārvaldnieki";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode un iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "SwiftPM atkarību krātuves un binārie faili";
 "target.trash.name" = "Miskaste";
 "target.trash.note" = "Neatgriezeniski iztukšo ~/.Trash";
+"target.unity.assetstore.name" = "Asset Store lejupielādes";
+"target.unity.assetstore.note" = "Lejupielādētie .unitypackage faili. Tos var atkal lejupielādēt sadaļā My Assets";
+"target.unity.editor.name" = "Unity redaktora kešatmiņa";
+"target.unity.editor.note" = "bee būvēšanas kešatmiņa un GI kešatmiņa. Nākamā būvēšana vai gaismu cepšana būs lēnāka";
+"target.unity.hub.name" = "Unity Hub lejupielādes";
+"target.unity.hub.note" = "Gaidošie Hub atjauninājumi un lejupielādētās projektu veidnes";
+"target.unity.logs.name" = "Unity žurnāli";
+"target.unity.logs.note" = "Redaktora, pakotņu pārvaldnieka un Hub žurnāli";
+"target.unity.projects.name" = "Unity projektu kešatmiņa";
+"target.unity.projects.note" = "Library, Temp un obj jūsu Unity projektos. Unity nākamajā atvēršanas reizē atkal importēs resursus";
+"target.unity.upm.name" = "Unity pakotņu kešatmiņa";
+"target.unity.upm.note" = "Pakotņu pārvaldnieka lejupielādētās pakotnes. Unity tās atkal lejupielādēs, kad projektam tās vajadzēs";
 "target.user.logs.name" = "Lietotāja žurnāli";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode arhīvi";

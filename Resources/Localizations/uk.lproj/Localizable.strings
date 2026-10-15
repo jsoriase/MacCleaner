@@ -27,6 +27,7 @@
 "category.projects" = "Проєкти";
 "category.system" = "Система та програми";
 "category.tools" = "Менеджери пакетів";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode та iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Репозиторії та бінарні файли залежностей SwiftPM";
 "target.trash.name" = "Кошик";
 "target.trash.note" = "Безповоротно спорожняє ~/.Trash";
+"target.unity.assetstore.name" = "Завантаження з Asset Store";
+"target.unity.assetstore.note" = "Завантажені файли .unitypackage. Їх можна завантажити знову в My Assets";
+"target.unity.editor.name" = "Кеш редактора Unity";
+"target.unity.editor.note" = "Кеш збирання bee та кеш GI. Наступне збирання або запікання освітлення триватиме довше";
+"target.unity.hub.name" = "Завантаження Unity Hub";
+"target.unity.hub.note" = "Очікувані оновлення Hub і завантажені шаблони проєктів";
+"target.unity.logs.name" = "Журнали Unity";
+"target.unity.logs.note" = "Журнали редактора, менеджера пакетів і Hub";
+"target.unity.projects.name" = "Кеш проєктів Unity";
+"target.unity.projects.note" = "Library, Temp і obj у ваших проєктах Unity. Unity знову імпортує ресурси під час наступного відкриття";
+"target.unity.upm.name" = "Кеш пакетів Unity";
+"target.unity.upm.note" = "Пакети, завантажені менеджером пакетів. Unity завантажить їх знову, коли вони знадобляться проєкту";
 "target.user.logs.name" = "Журнали користувача";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Архіви Xcode";

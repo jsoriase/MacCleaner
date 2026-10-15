@@ -27,6 +27,7 @@
 "category.projects" = "Projecten";
 "category.system" = "Systeem en apps";
 "category.tools" = "Pakketbeheerders";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode en iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Repositories en binaries van SwiftPM-afhankelijkheden";
 "target.trash.name" = "Prullenmand";
 "target.trash.note" = "Leegt ~/.Trash definitief";
+"target.unity.assetstore.name" = "Downloads uit de Asset Store";
+"target.unity.assetstore.note" = "Gedownloade .unitypackage-bestanden. Je kunt ze opnieuw downloaden via My Assets";
+"target.unity.editor.name" = "Caches van de Unity-editor";
+"target.unity.editor.note" = "bee-buildcache en GI-cache. De volgende build of lichtbake duurt langer";
+"target.unity.hub.name" = "Unity Hub-downloads";
+"target.unity.hub.note" = "Wachtende Hub-updates en gedownloade projecttemplates";
+"target.unity.logs.name" = "Unity-logs";
+"target.unity.logs.note" = "Logs van de editor, Package Manager en Hub";
+"target.unity.projects.name" = "Unity-projectcaches";
+"target.unity.projects.note" = "Library, Temp en obj in je Unity-projecten. Unity importeert de assets opnieuw de volgende keer dat je ze opent";
+"target.unity.upm.name" = "Unity-pakketcache";
+"target.unity.upm.note" = "Pakketten die Package Manager heeft gedownload. Unity downloadt ze opnieuw wanneer een project ze nodig heeft";
 "target.user.logs.name" = "Gebruikerslogboeken";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode-archieven";

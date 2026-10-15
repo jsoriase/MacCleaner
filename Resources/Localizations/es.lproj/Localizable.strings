@@ -28,6 +28,7 @@
 "category.projects" = "Proyectos";
 "category.system" = "Sistema y apps";
 "category.tools" = "Gestores de paquetes";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode e iOS";
 
 /* ---- common ---- */
@@ -214,6 +215,18 @@
 "target.swiftpm.note" = "Repositorios y binarios de dependencias SwiftPM";
 "target.trash.name" = "Papelera";
 "target.trash.note" = "Vacía ~/.Trash de forma permanente";
+"target.unity.assetstore.name" = "Descargas de Asset Store";
+"target.unity.assetstore.note" = "Archivos .unitypackage descargados. Puedes volver a bajarlos desde My Assets";
+"target.unity.editor.name" = "Cachés del editor de Unity";
+"target.unity.editor.note" = "Caché de compilación bee y caché de GI. La siguiente compilación o el siguiente horneado de luces tardará más";
+"target.unity.hub.name" = "Descargas de Unity Hub";
+"target.unity.hub.note" = "Actualizaciones pendientes de Hub y plantillas de proyecto descargadas";
+"target.unity.logs.name" = "Registros de Unity";
+"target.unity.logs.note" = "Registros del editor, del Package Manager y de Hub";
+"target.unity.projects.name" = "Cachés de proyectos de Unity";
+"target.unity.projects.note" = "Library, Temp y obj de tus proyectos de Unity. Unity reimportará los assets la próxima vez que los abras";
+"target.unity.upm.name" = "Caché de paquetes de Unity";
+"target.unity.upm.note" = "Paquetes que descarga el Package Manager. Unity los vuelve a bajar cuando un proyecto los necesita";
 "target.user.logs.name" = "Registros del usuario";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode Archives";

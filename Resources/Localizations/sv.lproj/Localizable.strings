@@ -27,6 +27,7 @@
 "category.projects" = "Projekt";
 "category.system" = "System och appar";
 "category.tools" = "Pakethanterare";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode och iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Arkiv och binärer för SwiftPM-beroenden";
 "target.trash.name" = "Papperskorgen";
 "target.trash.note" = "Tömmer ~/.Trash permanent";
+"target.unity.assetstore.name" = "Nedladdningar från Asset Store";
+"target.unity.assetstore.note" = "Nedladdade .unitypackage-filer. Du kan ladda ner dem igen från My Assets";
+"target.unity.editor.name" = "Unity Editor-cache";
+"target.unity.editor.note" = "bee-byggcache och GI-cache. Nästa bygge eller ljusbakning blir långsammare";
+"target.unity.hub.name" = "Unity Hub-nedladdningar";
+"target.unity.hub.note" = "Väntande Hub-uppdateringar och nedladdade projektmallar";
+"target.unity.logs.name" = "Unity-loggar";
+"target.unity.logs.note" = "Loggar från editorn, Package Manager och Hub";
+"target.unity.projects.name" = "Unity-projektcache";
+"target.unity.projects.note" = "Library, Temp och obj i dina Unity-projekt. Unity importerar om tillgångarna nästa gång du öppnar dem";
+"target.unity.upm.name" = "Unity-paketcache";
+"target.unity.upm.note" = "Paket som hämtats av Package Manager. Unity hämtar dem igen när ett projekt behöver dem";
 "target.user.logs.name" = "Användarloggar";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode-arkiv";

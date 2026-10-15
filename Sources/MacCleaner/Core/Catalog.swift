@@ -183,7 +183,7 @@ extension Target {
 }
 
 enum Category: String, CaseIterable, Identifiable {
-    case xcode, jvm, node, langs, editors, ai, projects, tools, browsers, system
+    case xcode, jvm, node, langs, editors, unity, ai, projects, tools, browsers, system
 
     var id: String { rawValue }
     var title: String { L("category.\(rawValue)") }
@@ -195,6 +195,7 @@ enum Category: String, CaseIterable, Identifiable {
         case .node:   return "globe"
         case .langs:  return "chevron.left.forwardslash.chevron.right"
         case .editors: return "curlybraces"
+        case .unity:  return "cube"
         case .ai:     return "brain"
         case .projects: return "folder"
         case .browsers: return "safari"
@@ -257,9 +258,16 @@ enum Catalog {
     static let outputFolders = ["build", ".build", "target", ".next", ".turbo",
                                 "DerivedData", "cmake-build-*", "__pycache__"]
 
-    /// Las dos filas de barrido podan por la lista entera aunque cada una
-    /// recoja su mitad.
-    static let projectArtifacts = dependencyFolders + outputFolders
+    /// Lo que Unity regenera al abrir un proyecto: la cache de importacion
+    /// (`Library`), los temporales (`Temp`) y los ficheros de compilacion de
+    /// scripts (`obj`). Solo cuentan dentro de un proyecto de Unity, que se
+    /// reconoce por `ProjectSettings/ProjectVersion.txt` (ver `artifactMarkers`).
+    static let unityFolders = ["Library", "Temp", "obj"]
+
+    /// Las filas de barrido podan por la lista entera aunque cada una recoja
+    /// su parte. Sin los de Unity, un `node_modules` dentro de la `Library` de
+    /// un proyecto se contaria como de codigo.
+    static let projectArtifacts = dependencyFolders + outputFolders + unityFolders
 
     /// Lo que delata que una carpeta con nombre de artefacto lo es de verdad.
     ///
@@ -280,6 +288,11 @@ enum Catalog {
                   "setup.py", "pyproject.toml"],
         ".build": ["Package.swift"],
         "target": ["Cargo.toml", "pom.xml", "build.sbt"],
+        // Son nombres de cualquier proyecto (`Library/` de Swift, `obj/` de
+        // .NET): solo son de Unity si el proyecto lo dice.
+        "Library": ["ProjectSettings/ProjectVersion.txt"],
+        "Temp": ["ProjectSettings/ProjectVersion.txt"],
+        "obj": ["ProjectSettings/ProjectVersion.txt"],
     ]
 
     static let targets: [Target] = [
@@ -576,6 +589,58 @@ enum Catalog {
                expansion: .paths,
                why: .superseded,
                pick: .obsoleteExtensions),
+
+        // MARK: Unity
+
+        // La cache global del Package Manager. Unity 2022 y 6 la guardan en
+        // ~/Library/Caches; las versiones anteriores a 2022, en ~/Library/Unity.
+        // ~/Library/Unity tambien tiene las licencias y la configuracion: esas
+        // no se tocan, solo la carpeta `cache` de al lado.
+        Target(id: "unity.upm",
+               group: .unity, risk: .rebuild, scope: .contents,
+               patterns: ["~/Library/Caches/Unity/upm", "~/Library/Unity/cache"],
+               why: .redownload),
+
+        // Los .unitypackage que se bajan de la Asset Store, una carpeta por
+        // editor. Sin ellos no se pierde nada del proyecto, pero hay que volver
+        // a bajarlos desde My Assets.
+        Target(id: "unity.assetstore",
+               group: .unity, risk: .caution, scope: .contents,
+               patterns: ["~/Library/Unity/Asset Store-5.x"],
+               expansion: .children,
+               why: .redownload),
+
+        // La cache de compilacion incremental (bee) y la de la luz precalculada
+        // (GI). Se rehacen al siguiente build o al siguiente bake de luces.
+        Target(id: "unity.editor",
+               group: .unity, risk: .rebuild, scope: .contents,
+               patterns: ["~/Library/Caches/com.unity3d.UnityEditor"],
+               why: .slowerBuild),
+
+        // Las actualizaciones de Hub que ya se han bajado y las plantillas de
+        // proyecto. Las dos vuelven a bajarse de la red.
+        Target(id: "unity.hub",
+               group: .unity, risk: .rebuild, scope: .contents,
+               patterns: ["~/Library/Caches/UnityHub",
+                          "~/Library/Caches/com.unity3d.unityhub.ShipIt",
+                          "~/Library/Application Support/UnityHub/Templates"],
+               why: .redownload),
+
+        Target(id: "unity.logs",
+               group: .unity, risk: .safe, scope: .contents,
+               patterns: ["~/Library/Logs/Unity",
+                          "~/Library/Application Support/UnityHub/logs"]),
+
+        // La Library, Temp y obj de cada proyecto. Se recorre el arbol buscando
+        // esos nombres (ver `artifactMarkers`): el proyecto puede estar en
+        // cualquier carpeta de codigo.
+        Target(id: "unity.projects",
+               group: .unity, risk: .rebuild, scope: .item,
+               patterns: codeRoots,
+               expansion: .paths,
+               naming: .project,
+               artifacts: unityFolders,
+               why: .slowerBuild),
 
         // MARK: Herramientas de IA
 

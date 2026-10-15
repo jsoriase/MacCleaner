@@ -192,6 +192,9 @@ final class OccupancyTests: XCTestCase {
             "/.cache/codex-runtimes/tmp-123",
             "/.claude/shell-snapshots",
             "/.cache/node/corepack", "/.expo/versions-cache",
+            "/Library/Unity/cache", "/Library/Caches/Unity/upm",
+            "/Library/Caches/com.unity3d.UnityEditor/bee", "/Library/Caches/UnityHub",
+            "/Library/Application Support/UnityHub/Templates",
         ]
         for relative in paths {
             let path = home + relative
@@ -695,5 +698,78 @@ final class LeftoverTests: XCTestCase {
         try make("codex-secondary")
         try write("codex-secondary/runtime.json", "{}")
         XCTAssertFalse(FileSystem.isStaleCodexRuntime(root + "/codex-secondary"))
+    }
+}
+
+// MARK: - Proyectos de Unity
+
+/// Un editor de Unity abierto ocupa todos los proyectos, porque no se sabe
+/// cual tiene abierto. Los proyectos son de verdad: se reconocen por su
+/// `ProjectSettings/ProjectVersion.txt`, asi que estos tests crean uno.
+final class UnityOccupancyTests: XCTestCase {
+
+    private var root: String!
+    private let editor = ProcessSnapshot.App(bundleID: "com.unity3d.UnityEditor5.x",
+                                             names: ["Unity"])
+
+    override func setUpWithError() throws {
+        root = FileManager.default.temporaryDirectory
+            .appendingPathComponent("unity-" + UUID().uuidString).path
+        let fm = FileManager.default
+        try fm.createDirectory(atPath: root + "/juego/ProjectSettings",
+                               withIntermediateDirectories: true)
+        try Data().write(to: URL(fileURLWithPath: root + "/juego/ProjectSettings/ProjectVersion.txt"))
+        try fm.createDirectory(atPath: root + "/juego/Library/PackageCache",
+                               withIntermediateDirectories: true)
+        try fm.createDirectory(atPath: root + "/swiftlib/Library",
+                               withIntermediateDirectories: true)
+    }
+
+    override func tearDownWithError() throws {
+        try? FileManager.default.removeItem(atPath: root)
+    }
+
+    private func snapshot(apps: [ProcessSnapshot.App] = [],
+                          processes: [[String]]? = []) -> ProcessSnapshot {
+        ProcessSnapshot(apps: apps, processes: processes, bootedSimulator: false)
+    }
+
+    func testLaLibraryDeUnProyectoEsDeUnityConElEditorAbierto() {
+        let library = root + "/juego/Library"
+        XCTAssertEqual(snapshot(apps: [editor]).occupancy(of: library), .busy("Unity"))
+        XCTAssertEqual(snapshot(apps: [editor]).occupancy(of: root + "/juego/obj"), .busy("Unity"))
+    }
+
+    /// El modo por lotes (`Unity -batchmode`) tambien lo ocupa: es como corren
+    /// los builds sin ventana.
+    func testUnBuildPorLotesTambienOcupaLosProyectos() {
+        let batch = ["/Applications/Unity/Hub/Editor/2022.3.1f1/Unity.app/Contents/MacOS/Unity",
+                     "-batchmode", "-projectPath", root + "/juego"]
+        XCTAssertEqual(snapshot(processes: [batch]).occupancy(of: root + "/juego/Temp"),
+                       .busy("Unity"))
+    }
+
+    func testSinEditorAbiertoEstaLibre() {
+        XCTAssertEqual(snapshot(processes: [["/bin/zsh"]])
+            .occupancy(of: root + "/juego/Library"), .free)
+    }
+
+    func testSinListaDeProcesosNoSeSabe() {
+        XCTAssertEqual(snapshot(processes: nil).occupancy(of: root + "/juego/Library"), .unknown)
+    }
+
+    /// Un `Library` que no es de Unity no es de nadie, aunque Unity este abierto.
+    func testUnaLibraryQueNoEsDeUnityNoEsSuya() {
+        let library = root + "/swiftlib/Library"
+        let unity = Owners.all.first { $0.name == "Unity" }
+        XCTAssertEqual(unity?.owns(library), false)
+        XCTAssertEqual(snapshot(apps: [editor]).occupancy(of: library), .free)
+    }
+
+    func testUnityHubOcupaSusCachesConLaAppAbierta() {
+        let hub = ProcessSnapshot.App(bundleID: "com.unity3d.unityhub", names: ["Unity Hub"])
+        let caches = NSHomeDirectory() + "/Library/Caches/UnityHub"
+        XCTAssertEqual(snapshot(apps: [hub]).occupancy(of: caches), .busy("Unity Hub"))
+        XCTAssertEqual(snapshot(apps: []).occupancy(of: caches), .free)
     }
 }

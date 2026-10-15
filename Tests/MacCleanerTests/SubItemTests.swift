@@ -151,13 +151,15 @@ final class SubItemTests: XCTestCase {
         XCTAssertEqual(Set(byChildren), ["gradle.caches", "gradle.wrapper",
                                          "xcode.deriveddata", "xcode.devicesupport",
                                          "xcode.archives", "ai.worktrees",
-                                         "ai.vmbundles", "ai.models", "android.avd"])
+                                         "ai.vmbundles", "ai.models", "android.avd",
+                                         "unity.assetstore"])
 
         let byPaths = Catalog.targets.filter { $0.expansion == .paths }.map(\.id)
         XCTAssertEqual(Set(byPaths), ["jetbrains.caches", "jetbrains.logs", "caches.other",
                                       "electron.appsupport",
                                       "sim.devices", "sim.runtimes", "projects.deps", "projects.builds",
-                                      "android.systemimages", "editors.extensions", "ai.runtimes"])
+                                      "android.systemimages", "editors.extensions", "ai.runtimes",
+                                      "unity.projects"])
     }
 
     func testLasFilasDesplegablesBorranPorContenido() {

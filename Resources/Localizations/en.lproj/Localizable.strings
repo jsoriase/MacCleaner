@@ -28,6 +28,7 @@
 "category.projects" = "Projects";
 "category.system" = "System & apps";
 "category.tools" = "Package managers";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode & iOS";
 
 /* ---- common ---- */
@@ -214,6 +215,18 @@
 "target.swiftpm.note" = "Repositories and binaries of SwiftPM dependencies";
 "target.trash.name" = "Trash";
 "target.trash.note" = "Empties ~/.Trash permanently";
+"target.unity.assetstore.name" = "Asset Store downloads";
+"target.unity.assetstore.note" = "Downloaded .unitypackage files. You can get them again from My Assets";
+"target.unity.editor.name" = "Unity Editor caches";
+"target.unity.editor.note" = "Bee build cache and GI cache. The next build or light bake is slower";
+"target.unity.hub.name" = "Unity Hub downloads";
+"target.unity.hub.note" = "Pending Hub updates and downloaded project templates";
+"target.unity.logs.name" = "Unity logs";
+"target.unity.logs.note" = "Editor, Package Manager and Hub logs";
+"target.unity.projects.name" = "Unity project caches";
+"target.unity.projects.note" = "Library, Temp and obj in your Unity projects. Unity reimports the assets the next time you open them";
+"target.unity.upm.name" = "Unity package cache";
+"target.unity.upm.note" = "Packages downloaded by the Package Manager. Unity fetches them again when a project needs them";
 "target.user.logs.name" = "User logs";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode Archives";

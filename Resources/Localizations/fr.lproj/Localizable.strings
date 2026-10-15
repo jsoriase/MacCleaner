@@ -28,6 +28,7 @@
 "category.projects" = "Projets";
 "category.system" = "Système et apps";
 "category.tools" = "Gestionnaires de paquets";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode et iOS";
 
 /* ---- common ---- */
@@ -214,6 +215,18 @@
 "target.swiftpm.note" = "Dépôts et binaires des dépendances SwiftPM";
 "target.trash.name" = "Corbeille";
 "target.trash.note" = "Vide ~/.Trash définitivement";
+"target.unity.assetstore.name" = "Téléchargements de l’Asset Store";
+"target.unity.assetstore.note" = "Fichiers .unitypackage téléchargés. Vous pouvez les récupérer à nouveau depuis My Assets";
+"target.unity.editor.name" = "Caches de l’éditeur Unity";
+"target.unity.editor.note" = "Cache de compilation bee et cache GI. La prochaine compilation ou le prochain calcul d’éclairage sera plus lent";
+"target.unity.hub.name" = "Téléchargements d’Unity Hub";
+"target.unity.hub.note" = "Mises à jour de Hub en attente et modèles de projet téléchargés";
+"target.unity.logs.name" = "Journaux Unity";
+"target.unity.logs.note" = "Journaux de l’éditeur, du gestionnaire de paquets et de Hub";
+"target.unity.projects.name" = "Caches des projets Unity";
+"target.unity.projects.note" = "Library, Temp et obj de vos projets Unity. Unity réimporte les assets la prochaine fois que vous les ouvrez";
+"target.unity.upm.name" = "Cache de paquets Unity";
+"target.unity.upm.note" = "Paquets téléchargés par le gestionnaire de paquets. Unity les retélécharge quand un projet en a besoin";
 "target.user.logs.name" = "Journaux de l’utilisateur";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Archives Xcode";

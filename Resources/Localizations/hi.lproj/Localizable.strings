@@ -28,6 +28,7 @@
 "category.projects" = "परियोजनाएँ";
 "category.system" = "सिस्टम और ऐप्स";
 "category.tools" = "पैकेज मैनेजर";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode और iOS";
 
 /* ---- common ---- */
@@ -214,6 +215,18 @@
 "target.swiftpm.note" = "SwiftPM निर्भरताओं की रिपॉज़िटरी और बाइनरी";
 "target.trash.name" = "ट्रैश";
 "target.trash.note" = "~/.Trash को स्थायी रूप से खाली करता है";
+"target.unity.assetstore.name" = "Asset Store डाउनलोड";
+"target.unity.assetstore.note" = "डाउनलोड की गई .unitypackage फ़ाइलें। इन्हें My Assets से फिर से पाया जा सकता है";
+"target.unity.editor.name" = "Unity Editor कैश";
+"target.unity.editor.note" = "bee बिल्ड कैश और GI कैश। अगला बिल्ड या लाइट बेक धीमा होगा";
+"target.unity.hub.name" = "Unity Hub डाउनलोड";
+"target.unity.hub.note" = "लंबित Hub अपडेट और डाउनलोड किए गए प्रोजेक्ट टेम्पलेट";
+"target.unity.logs.name" = "Unity लॉग";
+"target.unity.logs.note" = "Editor, Package Manager और Hub के लॉग";
+"target.unity.projects.name" = "Unity प्रोजेक्ट कैश";
+"target.unity.projects.note" = "आपके Unity प्रोजेक्ट में Library, Temp और obj। अगली बार प्रोजेक्ट खोलने पर Unity एसेट फिर से इम्पोर्ट करेगा";
+"target.unity.upm.name" = "Unity पैकेज कैश";
+"target.unity.upm.note" = "Package Manager से डाउनलोड किए गए पैकेज। किसी प्रोजेक्ट को ज़रूरत पड़ने पर Unity इन्हें फिर से डाउनलोड करता है";
 "target.user.logs.name" = "उपयोगकर्ता लॉग";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode Archives";

@@ -27,6 +27,7 @@
 "category.projects" = "Projectes";
 "category.system" = "Sistema i apps";
 "category.tools" = "Gestors de paquets";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode i iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Repositoris i binaris de dependències SwiftPM";
 "target.trash.name" = "Paperera";
 "target.trash.note" = "Buida ~/.Trash de manera permanent";
+"target.unity.assetstore.name" = "Descàrregues de l’Asset Store";
+"target.unity.assetstore.note" = "Fitxers .unitypackage descarregats. Els pots tornar a baixar des de My Assets";
+"target.unity.editor.name" = "Memòria cau de l’editor d’Unity";
+"target.unity.editor.note" = "Memòria cau de compilació bee i memòria cau de GI. La propera compilació o cocció de llums serà més lenta";
+"target.unity.hub.name" = "Descàrregues d’Unity Hub";
+"target.unity.hub.note" = "Actualitzacions pendents de Hub i plantilles de projecte descarregades";
+"target.unity.logs.name" = "Registres d’Unity";
+"target.unity.logs.note" = "Registres de l’editor, del gestor de paquets i de Hub";
+"target.unity.projects.name" = "Memòria cau dels projectes d’Unity";
+"target.unity.projects.note" = "Library, Temp i obj dels teus projectes d’Unity. Unity tornarà a importar els recursos la pròxima vegada que els obris";
+"target.unity.upm.name" = "Memòria cau de paquets d’Unity";
+"target.unity.upm.note" = "Paquets descarregats pel gestor de paquets. Unity els torna a baixar quan un projecte els necessita";
 "target.user.logs.name" = "Registres de l’usuari";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Arxius de Xcode";

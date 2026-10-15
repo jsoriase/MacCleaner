@@ -28,6 +28,7 @@
 "category.projects" = "المشاريع";
 "category.system" = "النظام والتطبيقات";
 "category.tools" = "مديرو الحزم";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode و iOS";
 
 /* ---- common ---- */
@@ -214,6 +215,18 @@
 "target.swiftpm.note" = "مستودعات وثنائيات اعتماديات SwiftPM";
 "target.trash.name" = "المهملات";
 "target.trash.note" = "يُفرِغ ‎~/.Trash نهائيًا";
+"target.unity.assetstore.name" = "تنزيلات Asset Store";
+"target.unity.assetstore.note" = "ملفات .unitypackage التي نُزّلت. يمكنك تنزيلها من جديد من My Assets";
+"target.unity.editor.name" = "ذاكرة محرر Unity المؤقتة";
+"target.unity.editor.note" = "ذاكرة البناء bee وذاكرة GI. البناء أو حساب الإضاءة التالي يكون أبطأ";
+"target.unity.hub.name" = "تنزيلات Unity Hub";
+"target.unity.hub.note" = "تحديثات Hub المعلقة وقوالب المشاريع المنزّلة";
+"target.unity.logs.name" = "سجلات Unity";
+"target.unity.logs.note" = "سجلات المحرر ومدير الحزم وHub";
+"target.unity.projects.name" = "ذاكرة مشاريع Unity المؤقتة";
+"target.unity.projects.note" = "Library وTemp وobj في مشاريع Unity. يعيد Unity استيراد الأصول في المرة التالية التي تفتحها فيها";
+"target.unity.upm.name" = "ذاكرة حزم Unity";
+"target.unity.upm.note" = "الحزم التي نزّلها مدير الحزم. يعيد Unity تنزيلها عندما يحتاجها أحد المشاريع";
 "target.user.logs.name" = "سجلات المستخدم";
 "target.user.logs.note" = "‎~/Library/Logs";
 "target.xcode.archives.name" = "أرشيفات Xcode";

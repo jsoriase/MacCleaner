@@ -27,6 +27,7 @@
 "category.projects" = "Projekty";
 "category.system" = "System i aplikacje";
 "category.tools" = "Menedżery pakietów";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode i iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Repozytoria i pliki binarne zależności SwiftPM";
 "target.trash.name" = "Kosz";
 "target.trash.note" = "Trwale opróżnia ~/.Trash";
+"target.unity.assetstore.name" = "Pobrane z Asset Store";
+"target.unity.assetstore.note" = "Pobrane pliki .unitypackage. Można je ponownie pobrać z My Assets";
+"target.unity.editor.name" = "Pamięć podręczna edytora Unity";
+"target.unity.editor.note" = "Pamięć podręczna kompilacji bee i pamięć GI. Następna kompilacja lub zapiekanie świateł będzie wolniejsze";
+"target.unity.hub.name" = "Pobrane przez Unity Hub";
+"target.unity.hub.note" = "Oczekujące aktualizacje Hub i pobrane szablony projektów";
+"target.unity.logs.name" = "Logi Unity";
+"target.unity.logs.note" = "Logi edytora, menedżera pakietów i Hub";
+"target.unity.projects.name" = "Pamięć podręczna projektów Unity";
+"target.unity.projects.note" = "Library, Temp i obj w projektach Unity. Unity ponownie zaimportuje zasoby przy następnym otwarciu";
+"target.unity.upm.name" = "Pamięć podręczna pakietów Unity";
+"target.unity.upm.note" = "Pakiety pobrane przez menedżera pakietów. Unity pobierze je ponownie, gdy projekt będzie ich potrzebować";
 "target.user.logs.name" = "Dzienniki użytkownika";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Archiwa Xcode";

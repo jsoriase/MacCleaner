@@ -27,6 +27,7 @@
 "category.projects" = "Proiecte";
 "category.system" = "Sistem și aplicații";
 "category.tools" = "Manageri de pachete";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode și iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Depozite și binare ale dependențelor SwiftPM";
 "target.trash.name" = "Coș";
 "target.trash.note" = "Golește ~/.Trash definitiv";
+"target.unity.assetstore.name" = "Descărcări din Asset Store";
+"target.unity.assetstore.note" = "Fișiere .unitypackage descărcate. Pot fi descărcate din nou din My Assets";
+"target.unity.editor.name" = "Cache-uri ale editorului Unity";
+"target.unity.editor.note" = "Cache-ul de build bee și cache-ul GI. Următorul build sau bake de lumini va fi mai lent";
+"target.unity.hub.name" = "Descărcări Unity Hub";
+"target.unity.hub.note" = "Actualizări Hub în așteptare și șabloane de proiect descărcate";
+"target.unity.logs.name" = "Jurnale Unity";
+"target.unity.logs.note" = "Jurnalele editorului, ale Package Manager-ului și ale Hub-ului";
+"target.unity.projects.name" = "Cache-uri ale proiectelor Unity";
+"target.unity.projects.note" = "Library, Temp și obj din proiectele tale Unity. Unity va reimporta resursele data viitoare când le deschizi";
+"target.unity.upm.name" = "Cache de pachete Unity";
+"target.unity.upm.note" = "Pachete descărcate de Package Manager. Unity le descarcă din nou atunci când un proiect are nevoie de ele";
 "target.user.logs.name" = "Jurnalele utilizatorului";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Arhive Xcode";

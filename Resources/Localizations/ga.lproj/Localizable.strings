@@ -27,6 +27,7 @@
 "category.projects" = "Tionscadail";
 "category.system" = "Córas agus aipeanna";
 "category.tools" = "Bainisteoirí pacáistí";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode agus iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Stórtha agus dénártha spleáchas SwiftPM";
 "target.trash.name" = "Bruscar";
 "target.trash.note" = "Folmhaíonn sé ~/.Trash go buan";
+"target.unity.assetstore.name" = "Íoslódálacha Asset Store";
+"target.unity.assetstore.note" = "Comhaid .unitypackage íoslódáilte. Is féidir iad a athíoslódáil ó My Assets";
+"target.unity.editor.name" = "Taisce eagarthóra Unity";
+"target.unity.editor.note" = "Taisce tógála bee agus taisce GI. Beidh an chéad tógáil nó bácáil solais eile níos moille";
+"target.unity.hub.name" = "Íoslódálacha Unity Hub";
+"target.unity.hub.note" = "Nuashonruithe Hub atá ar feitheamh agus teimpléid thionscadail íoslódáilte";
+"target.unity.logs.name" = "Logaí Unity";
+"target.unity.logs.note" = "Logaí an eagarthóra, an bhainisteora pacáistí agus Hub";
+"target.unity.projects.name" = "Taisce tionscadal Unity";
+"target.unity.projects.note" = "Library, Temp agus obj i do thionscadail Unity. Athiompórtálann Unity na sócmhainní an chéad uair eile a osclaíonn tú iad";
+"target.unity.upm.name" = "Taisce pacáistí Unity";
+"target.unity.upm.note" = "Pacáistí a íoslódáil an bainisteoir pacáistí. Íoslódálfaidh Unity arís iad nuair a theastaíonn siad ó thionscadal";
 "target.user.logs.name" = "Logaí an úsáideora";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Cartlanna Xcode";

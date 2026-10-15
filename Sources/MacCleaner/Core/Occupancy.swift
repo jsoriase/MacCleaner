@@ -40,17 +40,25 @@ struct Owner: Sendable {
     /// Un simulador arrancado tambien la tiene ocupada, aunque Simulator.app
     /// este cerrada.
     var simulators = false
+    /// Las carpetas de los proyectos de Unity (`Library`, `Temp`, `obj`) estan
+    /// a cualquier profundidad, asi que no caben en `paths`. Con esto activo,
+    /// `owns` reconoce las que `FileSystem.isUnityProjectArtifact` marca.
+    ///
+    /// Cualquier editor de Unity abierto ocupa todos los proyectos: no hay
+    /// forma fiable de saber cual tiene abierto, asi que se asume el peor caso.
+    var unityProjects = false
 
     /// Los patrones se expanden una vez: se comparan contra cada ruta del
     /// analisis, y son cientos.
     init(name: String, paths: [String], apps: [String] = [], commands: [String] = [],
-         arguments: [String] = [], simulators: Bool = false) {
+         arguments: [String] = [], simulators: Bool = false, unityProjects: Bool = false) {
         self.name = name
         self.paths = paths.map(FileSystem.expandTilde)
         self.apps = apps
         self.commands = commands
         self.arguments = arguments
         self.simulators = simulators
+        self.unityProjects = unityProjects
     }
 
     /// Para preguntar por procesos hace falta haber podido listarlos; para
@@ -58,7 +66,8 @@ struct Owner: Sendable {
     var needsProcesses: Bool { !commands.isEmpty || !arguments.isEmpty || simulators }
 
     func owns(_ path: String) -> Bool {
-        paths.contains { Owner.pattern($0, covers: path) }
+        if unityProjects && FileSystem.isUnityProjectArtifact(path) { return true }
+        return paths.contains { Owner.pattern($0, covers: path) }
     }
 
     /// `pattern` casa con `path` o con alguna carpeta que lo contiene; o, al
@@ -294,6 +303,20 @@ enum Simulators {
 enum Owners {
 
     static let all: [Owner] = [
+        // Unity. El editor es `Unity` tanto con ventana como en `-batchmode`,
+        // que es como corren muchos builds de CI en la misma maquina.
+        Owner(name: "Unity",
+              paths: ["~/Library/Caches/Unity", "~/Library/Caches/com.unity3d.UnityEditor",
+                      "~/Library/Unity", "~/Library/Logs/Unity"],
+              apps: ["com.unity3d.UnityEditor*"],
+              commands: ["Unity"],
+              unityProjects: true),
+
+        Owner(name: "Unity Hub",
+              paths: ["~/Library/Caches/UnityHub", "~/Library/Caches/com.unity3d.unityhub*",
+                      "~/Library/Application Support/UnityHub"],
+              apps: ["com.unity3d.unityhub"]),
+
         // Xcode y lo que compila sin el: xcodebuild, swift build.
         Owner(name: "Xcode",
               paths: ["~/Library/Developer/Xcode",

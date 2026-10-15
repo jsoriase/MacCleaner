@@ -415,6 +415,17 @@ enum FileSystem {
         }
     }
 
+    /// Una carpeta de proyecto de Unity que Unity regenera al abrirlo. Solo
+    /// cuenta si al lado hay un proyecto de Unity: `Library` y `obj` son
+    /// nombres normales en cualquier otro sitio. El nombre va primero, que es
+    /// lo barato, porque `Owner.owns` lo pregunta por cada ruta.
+    static func isUnityProjectArtifact(_ path: String) -> Bool {
+        let name = (path as NSString).lastPathComponent
+        guard Catalog.unityFolders.contains(name) else { return false }
+        let parent = (path as NSString).deletingLastPathComponent
+        return exists((parent as NSString).appendingPathComponent("ProjectSettings/ProjectVersion.txt"))
+    }
+
     // MARK: - Restos de versiones
 
     /// Las extensiones que el editor ha dado por obsoletas: VS Code y sus

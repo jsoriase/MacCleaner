@@ -27,6 +27,7 @@
 "category.projects" = "Projektai";
 "category.system" = "Sistema ir programos";
 "category.tools" = "Paketų tvarkyklės";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode ir iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "„SwiftPM“ priklausomybių saugyklos ir dvejetainiai failai";
 "target.trash.name" = "Šiukšlinė";
 "target.trash.note" = "Visam laikui išvalo ~/.Trash";
+"target.unity.assetstore.name" = "Asset Store atsisiuntimai";
+"target.unity.assetstore.note" = "Atsisiųsti .unitypackage failai. Juos galima vėl atsisiųsti iš My Assets";
+"target.unity.editor.name" = "Unity redaktoriaus talpykla";
+"target.unity.editor.note" = "bee kūrimo talpykla ir GI talpykla. Kitas kūrimas ar šviesų kepimas bus lėtesnis";
+"target.unity.hub.name" = "Unity Hub atsisiuntimai";
+"target.unity.hub.note" = "Laukiantys Hub atnaujinimai ir atsisiųsti projektų šablonai";
+"target.unity.logs.name" = "Unity žurnalai";
+"target.unity.logs.note" = "Redaktoriaus, paketų tvarkyklės ir Hub žurnalai";
+"target.unity.projects.name" = "Unity projektų talpykla";
+"target.unity.projects.note" = "Library, Temp ir obj jūsų Unity projektuose. Kitą kartą atvėrus projektą Unity iš naujo importuos išteklius";
+"target.unity.upm.name" = "Unity paketų talpykla";
+"target.unity.upm.note" = "Paketų tvarkyklės atsisiųsti paketai. Unity juos atsisiųs iš naujo, kai projektui jų prireiks";
 "target.user.logs.name" = "Naudotojo žurnalai";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "„Xcode“ archyvai";

@@ -27,6 +27,7 @@
 "category.projects" = "Projetos";
 "category.system" = "Sistema e apps";
 "category.tools" = "Gestores de pacotes";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode e iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Repositórios e binários das dependências SwiftPM";
 "target.trash.name" = "Lixo";
 "target.trash.note" = "Esvazia ~/.Trash de forma permanente";
+"target.unity.assetstore.name" = "Transferências da Asset Store";
+"target.unity.assetstore.note" = "Ficheiros .unitypackage transferidos. Podem ser transferidos novamente em My Assets";
+"target.unity.editor.name" = "Caches do editor Unity";
+"target.unity.editor.note" = "Cache de compilação bee e cache de GI. A próxima compilação ou o próximo bake de luzes será mais lento";
+"target.unity.hub.name" = "Transferências do Unity Hub";
+"target.unity.hub.note" = "Atualizações pendentes do Hub e modelos de projeto transferidos";
+"target.unity.logs.name" = "Registos do Unity";
+"target.unity.logs.note" = "Registos do editor, do Package Manager e do Hub";
+"target.unity.projects.name" = "Caches dos projetos Unity";
+"target.unity.projects.note" = "Library, Temp e obj dos seus projetos Unity. O Unity volta a importar os recursos da próxima vez que o abrir";
+"target.unity.upm.name" = "Cache de pacotes do Unity";
+"target.unity.upm.note" = "Pacotes transferidos pelo Package Manager. O Unity volta a transferi-los quando um projeto precisar deles";
 "target.user.logs.name" = "Registos do utilizador";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Arquivos do Xcode";

@@ -27,6 +27,7 @@
 "category.projects" = "Projektet";
 "category.system" = "Sistemi dhe aplikacionet";
 "category.tools" = "Menaxherë paketash";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode dhe iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Depot dhe skedarët binarë të varësive SwiftPM";
 "target.trash.name" = "Koshi";
 "target.trash.note" = "Zbraz ~/.Trash përgjithmonë";
+"target.unity.assetstore.name" = "Shkarkimet nga Asset Store";
+"target.unity.assetstore.note" = "Skedarë .unitypackage të shkarkuar. Mund t’i shkarkoni përsëri nga My Assets";
+"target.unity.editor.name" = "Memoria e përkohshme e Unity Editor";
+"target.unity.editor.note" = "Memoria e përkohshme e ndërtimit bee dhe ajo e GI. Ndërtimi ose pjekja e dritave e radhës do të jetë më e ngadaltë";
+"target.unity.hub.name" = "Shkarkimet e Unity Hub";
+"target.unity.hub.note" = "Përditësime të pritura të Hub dhe shabllone projektesh të shkarkuara";
+"target.unity.logs.name" = "Regjistrat e Unity";
+"target.unity.logs.note" = "Regjistrat e editorit, të Package Manager dhe të Hub";
+"target.unity.projects.name" = "Memoria e përkohshme e projekteve Unity";
+"target.unity.projects.note" = "Library, Temp dhe obj te projektet tuaja Unity. Unity do t’i ri-importojë asetet herën tjetër që i hapni";
+"target.unity.upm.name" = "Memoria e paketave Unity";
+"target.unity.upm.note" = "Paketat e shkarkuara nga Package Manager. Unity i shkarkon përsëri kur një projekt t’i duhen";
 "target.user.logs.name" = "Regjistrat e përdoruesit";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Arkivat e Xcode";

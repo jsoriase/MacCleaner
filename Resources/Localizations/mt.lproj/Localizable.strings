@@ -27,6 +27,7 @@
 "category.projects" = "Proġetti";
 "category.system" = "Sistema u apps";
 "category.tools" = "Maniġers tal-pakketti";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode u iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Repożitorji u binarji tad-dipendenzi ta’ SwiftPM";
 "target.trash.name" = "Basket";
 "target.trash.note" = "Ibattal ~/.Trash għal dejjem";
+"target.unity.assetstore.name" = "Tniżżil mill-Asset Store";
+"target.unity.assetstore.note" = "Fajls .unitypackage imniżżlin. Jistgħu jitniżżlu mill-ġdid minn My Assets";
+"target.unity.editor.name" = "Cache tal-editur ta’ Unity";
+"target.unity.editor.note" = "Cache tal-bini bee u cache tal-GI. Il-bini jew il-bake tad-dwal li jmiss se jkun aktar bil-mod";
+"target.unity.hub.name" = "Tniżżil ta’ Unity Hub";
+"target.unity.hub.note" = "Aġġornamenti pendenti tal-Hub u mudelli tal-proġetti mniżżla";
+"target.unity.logs.name" = "Logs ta’ Unity";
+"target.unity.logs.note" = "Logs tal-editur, tal-Package Manager u tal-Hub";
+"target.unity.projects.name" = "Cache tal-proġetti ta’ Unity";
+"target.unity.projects.note" = "Library, Temp u obj fil-proġetti ta’ Unity tiegħek. Unity jerġa’ jimporta l-assets meta tiftaħ il-proġett sussegwentement";
+"target.unity.upm.name" = "Cache tal-pakketti ta’ Unity";
+"target.unity.upm.note" = "Pakketti mniżżla mill-Package Manager. Unity jerġa’ jniżżilhom meta proġett ikun jeħtieġhom";
 "target.user.logs.name" = "Logs tal-utent";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Arkivji ta’ Xcode";

@@ -8,14 +8,14 @@ Native dev-cache cleaner for macOS. No dependencies, ~1 MB.
 ![macOS](https://img.shields.io/badge/macOS-13%2B-blue)
 ![Platform](https://img.shields.io/badge/platform-macOS-lightgrey)
 
-MacCleaner finds and measures the caches left behind by developer tools — Xcode, Gradle, Android Studio, npm, Cargo, Homebrew, Docker, VS Code, and more — and lets you delete what you choose. **67 categories** across 10 groups, including AI-assistant leftovers and build artifacts inside your own projects.
+MacCleaner finds and measures the caches left behind by developer tools — Xcode, Gradle, Android Studio, npm, Cargo, Homebrew, Docker, VS Code, and more — and lets you delete what you choose. **73 categories** across 11 groups, including AI-assistant leftovers and build artifacts inside your own projects.
 
 ## Features
 
 - **Scan-only by default** — analyzing never deletes anything
-- **67 categories in 10 groups**: Xcode, JVM / Android, Node, other languages, code editors, AI tools, project artifacts, dev tools, browsers, system
+- **73 categories in 11 groups**: Xcode, JVM / Android, Node, other languages, code editors, Unity, AI tools, project artifacts, dev tools, browsers, system
 - **Risk-based selection** — nothing is pre-selected; bulk-select by risk level with live totals
-- **Expandable rows** — 20 categories break down by version, project, app, device, etc., with per-item size and last-modified date
+- **Expandable rows** — 22 categories break down by version, project, app, device, etc., with per-item size and last-modified date
 - **Stale highlighting** — items untouched for 6+ months are flagged in amber
 - **In-use detection** — a cache whose program is open (Xcode, a Gradle daemon, `npm install`, a browser…) is flagged and skipped at clean time
 - **Safety first** — never touches anything outside your home directory, skips TCC-protected paths, moves to Trash by default, re-checks every path right before deleting it
@@ -84,6 +84,7 @@ Other UI details:
 | Node | npm, pnpm store, Yarn, Bun / Deno caches, Corepack, node-gyp, TypeScript / ESLint / Prettier / Vite / Prisma caches, Expo, Electron app caches (per app), Playwright / Puppeteer browsers |
 | Languages | Cargo, Go, Python, Ruby, Maven, Terraform, Bazel, Zig, Ruff, mypy, etc. |
 | Code editors | VS Code / Cursor / Windsurf / VSCodium cached VSIX, code cache and logs; extension versions the editor marked obsolete |
+| Unity | Package Manager cache, Asset Store downloads (per publisher), Editor build and GI caches, Hub updates and templates, Unity logs, and the `Library`, `Temp` and `obj` folders of your Unity projects |
 | AI tools | Agent worktrees (per branch), assistant VMs, downloaded models, abandoned Codex runtimes |
 | Project artifacts | `node_modules`, `Pods`, `target`, `build`, `.venv` found under `~/Projects`, `~/Code`, `~/dev`, `~/Developer`, `~/src`, `~/GitHub`, `~/Workspace`, `~/repos`, `~/Sites` |
 | Dev tools | Homebrew, Docker, Docker Buildx cache |
@@ -103,6 +104,8 @@ Hovering a row's badge explains *why* it has that level.
 ### Special cases
 
 **Project artifacts** live where your code lives, not at a fixed path. Two rows (`Project dependencies`, `Build outputs`) sweep your code folders up to 8 levels deep, skipping hidden directories (except artifacts like `.build`, `.venv`, `.next`) and never descending into a match (so a `build` inside `node_modules` isn't counted twice). Home directory only — external drives and `/Volumes` are excluded.
+
+A third row (`Unity project caches`) does the same for the `Library`, `Temp` and `obj` folders of Unity projects. Those names are too common to take on their own, so they are only collected when `ProjectSettings/ProjectVersion.txt` sits beside them: a Swift `Library/` or a .NET `obj/` is left alone. Nothing inside a Unity `Library` is offered by the other two rows.
 
 A folder name alone isn't enough, because `build`, `target` and `vendor` are also ordinary names:
 
@@ -131,7 +134,7 @@ Layers, all covered by tests:
 3. TCC-protected paths (`com.apple.Music`, `com.apple.Photos`, `MobileSync`, …) are ignored entirely — even reading them would trigger a permission prompt and freeze the scan. Coding assistants' conversation history (`~/.codex/sessions`, `~/.claude/projects`) is protected too: it weighs gigabytes, but it's data, not cache.
 4. Other apps' sandbox containers (`~/Library/Containers`, `~/Library/Group Containers`) are never entered: since macOS Sonoma, doing so asks "would like to access data from other apps" on every scan. Sandboxed apps' own caches are therefore not included. The one exception is Docker, which isn't sandboxed and only keeps its data under that folder.
 5. Symlinks in the middle of a path are resolved and the real location is checked again. A `~/.npm` pointing into `~/Documents` is refused. The resolved path can only take permission away, never grant it: a cache moved to an external disk (`/Volumes/…`) can still be cleaned, but never the volume root, the system, or another protected home folder. A symlink as the last component is removed itself, not what it points to.
-6. **Is it in use?** Each path has an owner — Xcode, Simulator (including a booted device), a Gradle or Kotlin daemon, npm / pnpm / Yarn, Cargo, Go, the browsers, VS Code, Cursor, Claude Code, Codex, … — and any app that is open owns its own `~/Library/Caches/<id or name>` and `~/Library/Application Support/<name>`. Processes are listed with `libproc` (no `ps`), scripts are recognized by the script and not the interpreter (`node …/npm` is npm). If the process list can't be read, owned paths are skipped: unknown means no.
+6. **Is it in use?** Each path has an owner — Xcode, Simulator (including a booted device), a Gradle or Kotlin daemon, npm / pnpm / Yarn, Cargo, Go, the browsers, VS Code, Cursor, Claude Code, Codex, Unity, Unity Hub, … — and any app that is open owns its own `~/Library/Caches/<id or name>` and `~/Library/Application Support/<name>`. An open Unity editor, including a `-batchmode` build, owns the `Library`, `Temp` and `obj` of every Unity project, because there is no reliable way to tell which one it has open. Processes are listed with `libproc` (no `ps`), scripts are recognized by the script and not the interpreter (`node …/npm` is npm). If the process list can't be read, owned paths are skipped: unknown means no.
 7. **Re-checked right before deleting**, not just at scan time: ownership again, and the path must still be the same object (device + inode) that was measured — a folder recreated or swapped for a symlink in between is skipped. Project artifacts also must not have been written to since the scan started, nor added to git.
 8. `Tests/MacCleanerTests/Fixtures/dangerous_paths.txt` lists 96 adversarial paths (system roots, home folders, `..` escapes, relative paths, protected data) that the final check must reject, every one.
 
@@ -176,7 +179,7 @@ open MacCleaner.app --args -AppleLanguages "(ja)"
 Sources/MacCleaner/
   App/MacCleanerApp.swift    entry point
   Core/FileSystem.swift      glob, fts, deletion, protected paths
-  Core/Catalog.swift         the 67 categories and their paths
+  Core/Catalog.swift         the 73 categories and their paths
   Core/Engine.swift          parallel analysis, pre-delete checks, cleaning, reclaim tracking
   Core/Occupancy.swift       which program uses which path, process listing
   Core/SimRuntimes.swift     orphan simulator runtimes via simctl

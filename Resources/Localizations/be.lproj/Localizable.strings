@@ -27,6 +27,7 @@
 "category.projects" = "Праекты";
 "category.system" = "Сістэма і праграмы";
 "category.tools" = "Менеджары пакетаў";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode і iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Рэпазіторыі і бінарныя файлы залежнасцяў SwiftPM";
 "target.trash.name" = "Сметніца";
 "target.trash.note" = "Назаўсёды спусташае ~/.Trash";
+"target.unity.assetstore.name" = "Спампоўкі з Asset Store";
+"target.unity.assetstore.note" = "Спампаваныя файлы .unitypackage. Іх можна зноў спампаваць з My Assets";
+"target.unity.editor.name" = "Кэш рэдактара Unity";
+"target.unity.editor.note" = "Кэш зборкі bee і кэш GI. Наступная зборка або запячатванне святла будзе павольнейшым";
+"target.unity.hub.name" = "Спампоўкі Unity Hub";
+"target.unity.hub.note" = "Чаканыя абнаўленні Hub і спампаваныя шаблоны праектаў";
+"target.unity.logs.name" = "Журналы Unity";
+"target.unity.logs.note" = "Журналы рэдактара, менеджара пакетаў і Hub";
+"target.unity.projects.name" = "Кэш праектаў Unity";
+"target.unity.projects.note" = "Library, Temp і obj у вашых праектах Unity. Unity паўторна імпартуе актывы пры наступным адкрыцці";
+"target.unity.upm.name" = "Кэш пакетаў Unity";
+"target.unity.upm.note" = "Пакеты, спампаваныя менеджарам пакетаў. Unity спампуе іх зноў, калі праект будзе патрабаваць";
 "target.user.logs.name" = "Журналы карыстальніка";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Архівы Xcode";

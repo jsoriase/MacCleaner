@@ -27,6 +27,7 @@
 "category.projects" = "Projekty";
 "category.system" = "Systém a aplikácie";
 "category.tools" = "Správcovia balíkov";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode a iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Repozitáre a binárky závislostí SwiftPM";
 "target.trash.name" = "Kôš";
 "target.trash.note" = "Natrvalo vysype ~/.Trash";
+"target.unity.assetstore.name" = "Stiahnuté z Asset Store";
+"target.unity.assetstore.note" = "Stiahnuté súbory .unitypackage. Znova ich môžete stiahnuť v sekcii My Assets";
+"target.unity.editor.name" = "Vyrovnávacia pamäť editora Unity";
+"target.unity.editor.note" = "Vyrovnávacia pamäť zostavovania bee a vyrovnávacia pamäť GI. Ďalšie zostavenie alebo výpočet osvetlenia bude pomalší";
+"target.unity.hub.name" = "Stiahnuté cez Unity Hub";
+"target.unity.hub.note" = "Čakajúce aktualizácie Hubu a stiahnuté šablóny projektov";
+"target.unity.logs.name" = "Logy Unity";
+"target.unity.logs.note" = "Logy editora, správcu balíčkov a Hubu";
+"target.unity.projects.name" = "Vyrovnávacia pamäť projektov Unity";
+"target.unity.projects.note" = "Library, Temp a obj vo vašich projektoch Unity. Unity pri ďalšom otvorení znovu importuje assety";
+"target.unity.upm.name" = "Vyrovnávacia pamäť balíčkov Unity";
+"target.unity.upm.note" = "Balíčky stiahnuté správcom balíčkov. Unity ich stiahne znova, keď ich projekt bude potrebovať";
 "target.user.logs.name" = "Záznamy používateľa";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Archívy Xcode";

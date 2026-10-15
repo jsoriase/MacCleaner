@@ -27,6 +27,7 @@
 "category.projects" = "Projektit";
 "category.system" = "Järjestelmä ja apit";
 "category.tools" = "Pakettien hallinta";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode ja iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "SwiftPM-riippuvuuksien varastot ja binäärit";
 "target.trash.name" = "Roskakori";
 "target.trash.note" = "Tyhjentää ~/.Trash-kansion pysyvästi";
+"target.unity.assetstore.name" = "Asset Storen lataukset";
+"target.unity.assetstore.note" = "Ladatut .unitypackage-tiedostot. Ne voi ladata uudelleen kohdasta My Assets";
+"target.unity.editor.name" = "Unity-editorin välimuisti";
+"target.unity.editor.note" = "bee-käännösvälimuisti ja GI-välimuisti. Seuraava käännös tai valojen esilaskenta on hitaampi";
+"target.unity.hub.name" = "Unity Hubin lataukset";
+"target.unity.hub.note" = "Odottavat Hub-päivitykset ja ladatut projektipohjat";
+"target.unity.logs.name" = "Unity-lokit";
+"target.unity.logs.note" = "Editorin, paketinhallinnan ja Hubin lokit";
+"target.unity.projects.name" = "Unity-projektien välimuisti";
+"target.unity.projects.note" = "Library, Temp ja obj Unity-projekteissasi. Unity tuo assetit uudelleen seuraavan avauksen yhteydessä";
+"target.unity.upm.name" = "Unity-pakettien välimuisti";
+"target.unity.upm.note" = "Paketinhallinnan lataamat paketit. Unity lataa ne uudelleen, kun projekti tarvitsee niitä";
 "target.user.logs.name" = "Käyttäjän lokit";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcoden arkistot";

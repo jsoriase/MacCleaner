@@ -27,6 +27,7 @@
 "category.projects" = "Verkefni";
 "category.system" = "Kerfi og forrit";
 "category.tools" = "Pakkastjórar";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode og iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Safn og tvíundarskrár fyrir SwiftPM-hluti";
 "target.trash.name" = "Rusl";
 "target.trash.note" = "Tæmir ~/.Trash varanlega";
+"target.unity.assetstore.name" = "Niðurhal úr Asset Store";
+"target.unity.assetstore.note" = "Niðurhalaðar .unitypackage skrár. Hægt er að sækja þær aftur undir My Assets";
+"target.unity.editor.name" = "Skyndiminni Unity-ritils";
+"target.unity.editor.note" = "bee smíðaskyndiminni og GI-skyndiminni. Næsta smíði eða ljósabökun verður hægari";
+"target.unity.hub.name" = "Niðurhal úr Unity Hub";
+"target.unity.hub.note" = "Biðjandi uppfærslur fyrir Hub og niðurhalaðar verkefnasniðmát";
+"target.unity.logs.name" = "Unity atburðaskrár";
+"target.unity.logs.note" = "Atburðaskrár ritils, pakkastjóra og Hub";
+"target.unity.projects.name" = "Skyndiminni Unity-verkefna";
+"target.unity.projects.note" = "Library, Temp og obj í Unity-verkefnum þínum. Unity endurflytur eignirnar næst þegar þú opnar þau";
+"target.unity.upm.name" = "Skyndiminni Unity-pakka";
+"target.unity.upm.note" = "Pakkar sem pakkastjórinn hefur sótt. Unity sækir þá aftur þegar verkefni þarf þá";
 "target.user.logs.name" = "Annálar notanda";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode-safn";

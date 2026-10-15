@@ -28,6 +28,7 @@
 "category.projects" = "プロジェクト";
 "category.system" = "システムとApp";
 "category.tools" = "パッケージマネージャ";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode と iOS";
 
 /* ---- common ---- */
@@ -214,6 +215,18 @@
 "target.swiftpm.note" = "SwiftPM 依存関係のリポジトリとバイナリ";
 "target.trash.name" = "ゴミ箱";
 "target.trash.note" = "~/.Trash を完全に空にします";
+"target.unity.assetstore.name" = "Asset Store のダウンロード";
+"target.unity.assetstore.note" = "ダウンロードした .unitypackage ファイル。My Assets から再ダウンロードできます";
+"target.unity.editor.name" = "Unity Editor のキャッシュ";
+"target.unity.editor.note" = "bee のビルドキャッシュと GI キャッシュ。次のビルドやライトベイクに時間がかかるようになります";
+"target.unity.hub.name" = "Unity Hub のダウンロード";
+"target.unity.hub.note" = "保留中の Hub アップデートとダウンロード済みのプロジェクトテンプレート";
+"target.unity.logs.name" = "Unity のログ";
+"target.unity.logs.note" = "Editor、Package Manager、Hub のログ";
+"target.unity.projects.name" = "Unity プロジェクトのキャッシュ";
+"target.unity.projects.note" = "Unity プロジェクトの Library、Temp、obj。次に開いたとき、Unity がアセットを再インポートします";
+"target.unity.upm.name" = "Unity パッケージのキャッシュ";
+"target.unity.upm.note" = "Package Manager がダウンロードしたパッケージ。プロジェクトが必要とするとき Unity が再ダウンロードします";
 "target.user.logs.name" = "ユーザのログ";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode アーカイブ";

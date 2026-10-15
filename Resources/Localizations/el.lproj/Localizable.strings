@@ -27,6 +27,7 @@
 "category.projects" = "Έργα";
 "category.system" = "Σύστημα και εφαρμογές";
 "category.tools" = "Διαχειριστές πακέτων";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode και iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Αποθετήρια και δυαδικά αρχεία των εξαρτήσεων SwiftPM";
 "target.trash.name" = "Απορρίμματα";
 "target.trash.note" = "Αδειάζει οριστικά τον φάκελο ~/.Trash";
+"target.unity.assetstore.name" = "Λήψεις από το Asset Store";
+"target.unity.assetstore.note" = "Ληφθέντα αρχεία .unitypackage. Μπορείτε να τα κατεβάσετε ξανά από το My Assets";
+"target.unity.editor.name" = "Κρυφή μνήμη του Unity Editor";
+"target.unity.editor.note" = "Κρυφή μνήμη κατασκευής bee και κρυφή μνήμη GI. Η επόμενη κατασκευή ή ο επόμενος φωτισμός θα είναι πιο αργά";
+"target.unity.hub.name" = "Λήψεις του Unity Hub";
+"target.unity.hub.note" = "Εκκρεμείς ενημερώσεις του Hub και ληφθέντα πρότυπα έργων";
+"target.unity.logs.name" = "Αρχεία καταγραφής Unity";
+"target.unity.logs.note" = "Αρχεία καταγραφής του Editor, του Package Manager και του Hub";
+"target.unity.projects.name" = "Κρυφή μνήμη έργων Unity";
+"target.unity.projects.note" = "Library, Temp και obj στα έργα σας Unity. Το Unity θα επανεισάγει τα assets την επόμενη φορά που θα τα ανοίξετε";
+"target.unity.upm.name" = "Κρυφή μνήμη πακέτων Unity";
+"target.unity.upm.note" = "Πακέτα που λήφθηκαν από τον Package Manager. Το Unity θα τα κατεβάσει ξανά όταν τα χρειαστεί ένα έργο";
 "target.user.logs.name" = "Καταγραφές χρήστη";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Αρχειοθετήσεις Xcode";

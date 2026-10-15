@@ -27,6 +27,7 @@
 "category.projects" = "Projeten";
 "category.system" = "System an Apps";
 "category.tools" = "Package-Manager";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode an iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Repositoryen a Binäre vun de SwiftPM-Ofhängegkeeten";
 "target.trash.name" = "Poubelle";
 "target.trash.note" = "Eidelt ~/.Trash definitiv";
+"target.unity.assetstore.name" = "Downloads aus dem Asset Store";
+"target.unity.assetstore.note" = "Heruntergeladen .unitypackage-Dateien. Déi kann een iwwer My Assets nei eroflueden";
+"target.unity.editor.name" = "Caches vum Unity-Editor";
+"target.unity.editor.note" = "bee-Build-Cache an GI-Cache. De nächste Build oder de nächste Liichtbak dauert méi laang";
+"target.unity.hub.name" = "Unity-Hub-Downloads";
+"target.unity.hub.note" = "Ausstoend Hub-Updates a gespäichert Projektvirlagen";
+"target.unity.logs.name" = "Unity-Logs";
+"target.unity.logs.note" = "Logs vum Editor, vum Package Manager a vum Hub";
+"target.unity.projects.name" = "Unity-Projet-Caches";
+"target.unity.projects.note" = "Library, Temp an obj an Äre Unity-Projeten. Unity importéiert d’Assets nei, wann Dir se nächst Kéier opmaacht";
+"target.unity.upm.name" = "Unity-Package-Cache";
+"target.unity.upm.note" = "Packagen, déi den Package Manager gelueden huet. Unity lued se nei erof, wann e Projet se brauch";
 "target.user.logs.name" = "Benotzer-Logbicher";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode-Archiven";

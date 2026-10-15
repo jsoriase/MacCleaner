@@ -35,6 +35,25 @@ final class SafetyTests: XCTestCase {
         XCTAssertTrue(Engine.isSafe(home + "/.dartServer"))
     }
 
+    /// La Library, Temp y obj de un proyecto de Unity son rutas legitimas
+    /// dentro del home: el barrido las recoge por nombre.
+    func testAceptaLaLibraryDeUnProyectoUnity() {
+        XCTAssertTrue(Engine.isSafe(home + "/Projects/Game/Library"))
+        XCTAssertTrue(Engine.isSafe(home + "/Projects/Game/Temp"))
+        XCTAssertTrue(Engine.isSafe(home + "/Projects/Game/obj"))
+    }
+
+    /// Las licencias y la configuracion de Unity viven junto a la cache, pero
+    /// no son cache: ninguna fila puede llevarselas.
+    func testUnityNoTocaLicenciasNiConfiguracion() {
+        for target in Catalog.targets where target.group == .unity {
+            for pattern in target.patterns {
+                XCTAssertFalse(pattern.contains("licenses"), "\(target.id): \(pattern)")
+                XCTAssertFalse(pattern.hasSuffix("/config"), "\(target.id): \(pattern)")
+            }
+        }
+    }
+
     func testRechazaEscapesConDosPuntos() {
         XCTAssertFalse(Engine.isSafe(home + "/Library/../.."))
         XCTAssertFalse(Engine.isSafe(home + "/Library/Caches/../../.."))

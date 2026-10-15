@@ -27,6 +27,7 @@
 "category.projects" = "Proxectos";
 "category.system" = "Sistema e apps";
 "category.tools" = "Xestores de paquetes";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode e iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Repositorios e binarios de dependencias SwiftPM";
 "target.trash.name" = "Lixo";
 "target.trash.note" = "Baleira ~/.Trash de forma permanente";
+"target.unity.assetstore.name" = "Descargas da Asset Store";
+"target.unity.assetstore.note" = "Ficheiros .unitypackage descargados. Pódense volver descargar desde My Assets";
+"target.unity.editor.name" = "Cachés do editor de Unity";
+"target.unity.editor.note" = "Caché de compilación bee e caché de GI. A seguinte compilación ou o seguinte cocido de luces será máis lento";
+"target.unity.hub.name" = "Descargas de Unity Hub";
+"target.unity.hub.note" = "Actualizacións pendentes de Hub e modelos de proxecto descargados";
+"target.unity.logs.name" = "Rexistros de Unity";
+"target.unity.logs.note" = "Rexistros do editor, do xestor de paquetes e de Hub";
+"target.unity.projects.name" = "Cachés dos proxectos de Unity";
+"target.unity.projects.note" = "Library, Temp e obj dos teus proxectos de Unity. Unity volverá importar os recursos a próxima vez que os abras";
+"target.unity.upm.name" = "Caché de paquetes de Unity";
+"target.unity.upm.note" = "Paquetes que descargou o xestor de paquetes. Unity volve descargalos cando un proxecto os necesite";
 "target.user.logs.name" = "Rexistros do usuario";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Arquivos de Xcode";

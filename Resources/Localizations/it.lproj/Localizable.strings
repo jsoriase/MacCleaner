@@ -27,6 +27,7 @@
 "category.projects" = "Progetti";
 "category.system" = "Sistema e app";
 "category.tools" = "Gestori di pacchetti";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode e iOS";
 
 /* ---- common ---- */
@@ -213,6 +214,18 @@
 "target.swiftpm.note" = "Repository e binari delle dipendenze SwiftPM";
 "target.trash.name" = "Cestino";
 "target.trash.note" = "Svuota ~/.Trash definitivamente";
+"target.unity.assetstore.name" = "Download dell’Asset Store";
+"target.unity.assetstore.note" = "File .unitypackage scaricati. Puoi scaricarli di nuovo da My Assets";
+"target.unity.editor.name" = "Cache dell’editor Unity";
+"target.unity.editor.note" = "Cache di build bee e cache GI. La prossima build o il prossimo bake delle luci sarà più lento";
+"target.unity.hub.name" = "Download di Unity Hub";
+"target.unity.hub.note" = "Aggiornamenti di Hub in attesa e template di progetto scaricati";
+"target.unity.logs.name" = "Log di Unity";
+"target.unity.logs.note" = "Log dell’editor, del Package Manager e di Hub";
+"target.unity.projects.name" = "Cache dei progetti Unity";
+"target.unity.projects.note" = "Library, Temp e obj dei tuoi progetti Unity. Unity reimporterà gli asset la prossima volta che li apri";
+"target.unity.upm.name" = "Cache dei pacchetti Unity";
+"target.unity.upm.note" = "Pacchetti scaricati dal Package Manager. Unity li scarica di nuovo quando un progetto ne ha bisogno";
 "target.user.logs.name" = "Log dell’utente";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Archivi Xcode";

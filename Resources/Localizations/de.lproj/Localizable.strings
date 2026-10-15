@@ -28,6 +28,7 @@
 "category.projects" = "Projekte";
 "category.system" = "System und Apps";
 "category.tools" = "Paketmanager";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode und iOS";
 
 /* ---- common ---- */
@@ -214,6 +215,18 @@
 "target.swiftpm.note" = "Repositories und Binärdateien der SwiftPM-Abhängigkeiten";
 "target.trash.name" = "Papierkorb";
 "target.trash.note" = "Leert ~/.Trash endgültig";
+"target.unity.assetstore.name" = "Asset-Store-Downloads";
+"target.unity.assetstore.note" = "Heruntergeladene .unitypackage-Dateien. Unter My Assets lassen sie sich erneut laden";
+"target.unity.editor.name" = "Caches des Unity-Editors";
+"target.unity.editor.note" = "bee-Build-Cache und GI-Cache. Der nächste Build oder das nächste Light Baking dauert länger";
+"target.unity.hub.name" = "Unity-Hub-Downloads";
+"target.unity.hub.note" = "Ausstehende Hub-Updates und heruntergeladene Projektvorlagen";
+"target.unity.logs.name" = "Unity-Logs";
+"target.unity.logs.note" = "Logs von Editor, Package Manager und Hub";
+"target.unity.projects.name" = "Unity-Projekt-Caches";
+"target.unity.projects.note" = "Library, Temp und obj in deinen Unity-Projekten. Unity importiert die Assets beim nächsten Öffnen erneut";
+"target.unity.upm.name" = "Unity-Paket-Cache";
+"target.unity.upm.note" = "Vom Package Manager heruntergeladene Pakete. Unity lädt sie erneut, sobald ein Projekt sie braucht";
 "target.user.logs.name" = "Benutzerprotokolle";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode-Archive";

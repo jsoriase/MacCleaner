@@ -28,6 +28,7 @@
 "category.projects" = "项目";
 "category.system" = "系统与应用";
 "category.tools" = "包管理器";
+"category.unity" = "Unity";
 "category.xcode" = "Xcode 与 iOS";
 
 /* ---- common ---- */
@@ -214,6 +215,18 @@
 "target.swiftpm.note" = "SwiftPM 依赖的仓库和二进制文件";
 "target.trash.name" = "废纸篓";
 "target.trash.note" = "永久清空 ~/.Trash";
+"target.unity.assetstore.name" = "Asset Store 下载内容";
+"target.unity.assetstore.note" = "已下载的 .unitypackage 文件。可以在 My Assets 中重新下载";
+"target.unity.editor.name" = "Unity 编辑器缓存";
+"target.unity.editor.note" = "bee 构建缓存和 GI 缓存。下一次构建或光照烘焙会变慢";
+"target.unity.hub.name" = "Unity Hub 下载内容";
+"target.unity.hub.note" = "待安装的 Hub 更新和已下载的项目模板";
+"target.unity.logs.name" = "Unity 日志";
+"target.unity.logs.note" = "编辑器、包管理器和 Hub 的日志";
+"target.unity.projects.name" = "Unity 项目缓存";
+"target.unity.projects.note" = "Unity 项目中的 Library、Temp 和 obj。下次打开时 Unity 会重新导入资源";
+"target.unity.upm.name" = "Unity 包缓存";
+"target.unity.upm.note" = "包管理器下载的软件包。项目需要时 Unity 会重新下载";
 "target.user.logs.name" = "用户日志";
 "target.user.logs.note" = "~/Library/Logs";
 "target.xcode.archives.name" = "Xcode 归档";
