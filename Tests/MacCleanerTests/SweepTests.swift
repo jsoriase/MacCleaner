@@ -237,7 +237,8 @@ final class SweepTests: XCTestCase {
     }
 
     /// La regla numero uno vale tambien aqui: se busca dentro del home y en
-    /// ningun otro sitio.
+    /// ningun otro sitio. Esto cubre las carpetas predeterminadas; las que
+    /// anade el usuario, tambien fuera del home, estan en `CodeRootsTests`.
     func testSoloSeBuscaDentroDelHome() {
         for pattern in Catalog.codeRoots {
             XCTAssertTrue(pattern.hasPrefix("~/"), pattern)

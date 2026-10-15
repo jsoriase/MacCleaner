@@ -261,3 +261,24 @@
 "why.superseded" = "Tai sena versija, kurios niekas nebenaudoja. Jei kas nors jos vėl paprašytų, ji būtų atsiųsta iš naujo.";
 "why.toolDecides" = "Trina pats įrankis, tad ką tiksliai dings, sprendžia jis.";
 "why.unknown" = "Stalčius visam kam: čia patenka tai, ko neįvardijo joks kitas įrašas. Pažiūrėk prieš trindamas.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Kodo aplankai…";
+"coderoots.title" = "Kodo aplankai";
+"coderoots.note" = "Šiuose aplankuose taip pat ieškoma node_modules, build, Unity projektų Library ir kitų projektų artefaktų, kaip ir asmeniniame aplanke. Už asmeninio aplanko ribų liečiami tik šie artefaktai, niekada diskų šaknis ar sistemos aplankai.";
+"coderoots.defaults" = "Numatytieji";
+"coderoots.custom" = "Jūsų aplankai";
+"coderoots.empty" = "Dar nepridėjote nė vieno.";
+"coderoots.add" = "Pridėti…";
+"coderoots.panel.prompt" = "Pridėti";
+"coderoots.remove" = "Pašalinti";
+"coderoots.unavailable" = "Šiuo metu nepasiekiama (ar diskas atjungtas?)";
+"coderoots.rescan" = "Pakeitimai įsigalios kitos analizės metu.";
+"coderoots.reject.title" = "Šio aplanko pridėti negalima";
+"coderoots.reject.invalid" = "Kelias netinkamas.";
+"coderoots.reject.missing" = "Aplankas neegzistuoja arba tai nėra aplankas.";
+"coderoots.reject.tooBroad" = "Per platu. Pasirinkite aplanką su savo kodu, o ne visą diską ar asmeninį aplanką.";
+"coderoots.reject.volumeRoot" = "Tai disko šaknis. Pasirinkite aplanką diske.";
+"coderoots.reject.system" = "Tai sistemos aplankas, kito naudotojo aplankas arba atsarginė kopija.";
+"coderoots.reject.protected" = "Tai apsaugotas aplankas: jūsų biblioteka arba macOS atskirai saugomi duomenys.";
+"coderoots.reject.duplicate" = "Jis jau sąraše arba yra vienas iš numatytųjų aplankų.";

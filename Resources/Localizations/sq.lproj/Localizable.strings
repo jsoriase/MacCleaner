@@ -261,3 +261,24 @@
 "why.superseded" = "Është një version i vjetër që nuk e përdor më asgjë. Nëse diçka e kërkon sërish, do të shkarkohet përsëri.";
 "why.toolDecides" = "Fshin vetë mjeti, prandaj çfarë zhduket saktësisht e vendos ai.";
 "why.unknown" = "Sirtar për gjithçka: këtu bie ajo që asnjë rresht tjetër nuk e ka emërtuar. Shiko para se të fshish.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Dosje me kod…";
+"coderoots.title" = "Dosje me kod";
+"coderoots.note" = "Në këto dosje kërkohen gjithashtu node_modules, build, dosjet Library të projekteve Unity dhe artefaktet e tjera të projekteve, ashtu si në dosjen tënde personale. Jashtë dosjes personale preken vetëm këto artefakte, kurrë rrënja e një disku ose dosjet e sistemit.";
+"coderoots.defaults" = "Të parazgjedhura";
+"coderoots.custom" = "Dosjet e tua";
+"coderoots.empty" = "Ende nuk ke shtuar asnjë.";
+"coderoots.add" = "Shto…";
+"coderoots.panel.prompt" = "Shto";
+"coderoots.remove" = "Hiqe";
+"coderoots.unavailable" = "Nuk është e disponueshme tani (disku është shkëputur?)";
+"coderoots.rescan" = "Ndryshimet zbatohen në analizën e radhës.";
+"coderoots.reject.title" = "Kjo dosje nuk mund të shtohet";
+"coderoots.reject.invalid" = "Shtegu nuk është i vlefshëm.";
+"coderoots.reject.missing" = "Dosja nuk ekziston ose nuk është dosje.";
+"coderoots.reject.tooBroad" = "Është shumë e gjerë. Zgjidh një dosje me kodin tënd, jo të gjithë diskun ose dosjen personale.";
+"coderoots.reject.volumeRoot" = "Kjo është rrënja e një disku. Zgjidh një dosje brenda diskut.";
+"coderoots.reject.system" = "Është një dosje e sistemit, dosja e një përdoruesi tjetër ose një kopje rezervë.";
+"coderoots.reject.protected" = "Është një dosje e mbrojtur: biblioteka jote ose të dhëna që macOS i ruan veçmas.";
+"coderoots.reject.duplicate" = "Është tashmë në listë ose është një nga dosjet e parazgjedhura.";

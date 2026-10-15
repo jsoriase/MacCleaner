@@ -261,3 +261,24 @@
 "why.superseded" = "Bertsio zaharra da, eta jada ezerk ez du erabiltzen. Zerbaitek berriro eskatuko balu, berriro deskargatuko litzateke.";
 "why.toolDecides" = "Tresnak berak ezabatzen du, beraz zer desagertzen den zehazki berak erabakitzen du.";
 "why.unknown" = "Denetariko kutxa: hemen erortzen da beste inork izendatu ez duena. Begiratu ezabatu aurretik.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Kode-karpetak…";
+"coderoots.title" = "Kode-karpetak";
+"coderoots.note" = "Karpeta hauetan node_modules, build, Unity proiektuen Library eta gainerako proiektu-artefaktuak ere bilatzen dira, zure etxeko karpetan bezala. Etxeko karpetatik kanpo artefaktu horiek bakarrik ukitzen dira, inoiz ez disko baten erroa edo sistema-karpetak.";
+"coderoots.defaults" = "Lehenetsiak";
+"coderoots.custom" = "Zure karpetak";
+"coderoots.empty" = "Oraindik ez duzu bat ere gehitu.";
+"coderoots.add" = "Gehitu…";
+"coderoots.panel.prompt" = "Gehitu";
+"coderoots.remove" = "Kendu";
+"coderoots.unavailable" = "Ez dago erabilgarri orain (diskoa deskonektatuta dago?)";
+"coderoots.rescan" = "Aldaketak hurrengo analisian aplikatuko dira.";
+"coderoots.reject.title" = "Karpeta hau ezin da gehitu";
+"coderoots.reject.invalid" = "Bide-izena ez da baliozkoa.";
+"coderoots.reject.missing" = "Karpeta ez dago edo ez da karpeta bat.";
+"coderoots.reject.tooBroad" = "Zabalegia da. Aukeratu zure kodea duen karpeta, ez diskoa osoa edo etxeko karpeta.";
+"coderoots.reject.volumeRoot" = "Disko baten erroa da hau. Aukeratu diskoaren barruko karpeta bat.";
+"coderoots.reject.system" = "Sistema-karpeta bat da, beste erabiltzaile baten karpeta edo babeskopia bat.";
+"coderoots.reject.protected" = "Babestutako karpeta da: zure liburutegia edo macOSek bereizita gordetzen dituen datuak.";
+"coderoots.reject.duplicate" = "Dagoeneko zerrendan dago edo lehenetsitako karpetetako bat da.";

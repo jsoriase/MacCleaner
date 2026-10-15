@@ -261,3 +261,24 @@
 "why.superseded" = "To je stara verzija koju više ništa ne koristi. Ako je nešto ponovno zatraži, ponovno će se preuzeti.";
 "why.toolDecides" = "Briše sam alat, pa što točno nestaje odlučuje on.";
 "why.unknown" = "Ladica za sve: ovdje pada ono što nijedan drugi red nije imenovao. Pogledaj prije brisanja.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Mape s kodom…";
+"coderoots.title" = "Mape s kodom";
+"coderoots.note" = "U tim se mapama također traže node_modules, build, Library mape Unity projekata i ostali artefakti projekata, kao i u vašoj osobnoj mapi. Izvan osobne mape diraju se samo ti artefakti, nikad korijen diska ni sustavske mape.";
+"coderoots.defaults" = "Zadano";
+"coderoots.custom" = "Vaše mape";
+"coderoots.empty" = "Još niste dodali nijednu.";
+"coderoots.add" = "Dodaj…";
+"coderoots.panel.prompt" = "Dodaj";
+"coderoots.remove" = "Ukloni";
+"coderoots.unavailable" = "Trenutno nedostupno (je li disk odspojen?)";
+"coderoots.rescan" = "Promjene vrijede od sljedeće analize.";
+"coderoots.reject.title" = "Ova se mapa ne može dodati";
+"coderoots.reject.invalid" = "Putanja nije valjana.";
+"coderoots.reject.missing" = "Mapa ne postoji ili nije mapa.";
+"coderoots.reject.tooBroad" = "Preširoko je. Odaberite mapu s vašim kodom, a ne cijeli disk ili osobnu mapu.";
+"coderoots.reject.volumeRoot" = "Ovo je korijen diska. Odaberite mapu unutar diska.";
+"coderoots.reject.system" = "Ovo je sustavska mapa, mapa drugog korisnika ili sigurnosna kopija.";
+"coderoots.reject.protected" = "Ovo je zaštićena mapa: vaša biblioteka ili podaci koje macOS čuva odvojeno.";
+"coderoots.reject.duplicate" = "Već je na popisu ili je jedna od zadanih mapa.";

@@ -261,3 +261,24 @@
 "why.superseded" = "És una versió antiga que ja no fa servir res. Si alguna cosa la tornés a demanar, es tornaria a baixar.";
 "why.toolDecides" = "Ho esborra la mateixa eina, així que què desapareix exactament ho decideix ella.";
 "why.unknown" = "Calaix de sastre: aquí cau el que cap altra fila ha anomenat. Mira-ho abans d’esborrar.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Carpetes de codi…";
+"coderoots.title" = "Carpetes de codi";
+"coderoots.note" = "Dins d'aquestes carpetes també es busquen node_modules, build, Library de projectes d'Unity i la resta d'artefactes de projecte, igual que dins de la teva carpeta personal. Fora de la carpeta personal només es toquen aquests artefactes: mai l'arrel d'un disc ni res del sistema.";
+"coderoots.defaults" = "Predeterminades";
+"coderoots.custom" = "Les teves carpetes";
+"coderoots.empty" = "Encara no n'has afegit cap.";
+"coderoots.add" = "Afegeix…";
+"coderoots.panel.prompt" = "Afegeix";
+"coderoots.remove" = "Treu";
+"coderoots.unavailable" = "No disponible ara (el disc està desconnectat?)";
+"coderoots.rescan" = "Els canvis s'aplicaran a la propera anàlisi.";
+"coderoots.reject.title" = "No es pot afegir aquesta carpeta";
+"coderoots.reject.invalid" = "La ruta no és vàlida.";
+"coderoots.reject.missing" = "La carpeta no existeix o no és una carpeta.";
+"coderoots.reject.tooBroad" = "És massa àmplia. Tria una carpeta del teu codi, no tot el disc ni la carpeta personal.";
+"coderoots.reject.volumeRoot" = "És l'arrel d'un disc. Tria una carpeta dins del disc.";
+"coderoots.reject.system" = "És una carpeta del sistema, d'un altre usuari o d'una còpia de seguretat.";
+"coderoots.reject.protected" = "És una carpeta protegida: la teva biblioteca o dades que macOS guarda a part.";
+"coderoots.reject.duplicate" = "Ja és a la llista o és una de les carpetes predeterminades.";

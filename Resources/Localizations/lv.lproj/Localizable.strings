@@ -261,3 +261,24 @@
 "why.superseded" = "Šī ir veca versija, ko vairs nekas neizmanto. Ja kaut kas to atkal pieprasītu, tā tiktu lejupielādēta vēlreiz.";
 "why.toolDecides" = "Dzēš pats rīks, tāpēc, kas tieši pazudīs, izlemj tas.";
 "why.unknown" = "Atvilktne visam: te nonāk tas, ko neviena cita rinda nav nosaukusi. Paskaties, pirms dzēs.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Koda mapes…";
+"coderoots.title" = "Koda mapes";
+"coderoots.note" = "Šajās mapēs tāpat tiek meklēti node_modules, build, Unity projektu Library un citi projektu artefakti, tāpat kā sākuma mapē. Ārpus sākuma mapes tiek skarti tikai šie artefakti, nekad diska sakne vai sistēmas mapes.";
+"coderoots.defaults" = "Noklusējuma";
+"coderoots.custom" = "Jūsu mapes";
+"coderoots.empty" = "Vēl neesat pievienojis nevienu.";
+"coderoots.add" = "Pievienot…";
+"coderoots.panel.prompt" = "Pievienot";
+"coderoots.remove" = "Noņemt";
+"coderoots.unavailable" = "Šobrīd nav pieejama (vai disks ir atvienots?)";
+"coderoots.rescan" = "Izmaiņas stāsies spēkā nākamajā analīzē.";
+"coderoots.reject.title" = "Šo mapi nevar pievienot";
+"coderoots.reject.invalid" = "Ceļš nav derīgs.";
+"coderoots.reject.missing" = "Mape neeksistē vai nav mape.";
+"coderoots.reject.tooBroad" = "Tā ir pārāk plaša. Izvēlieties mapi ar savu kodu, nevis visu disku vai sākuma mapi.";
+"coderoots.reject.volumeRoot" = "Tā ir diska sakne. Izvēlieties mapi diska iekšienē.";
+"coderoots.reject.system" = "Tā ir sistēmas mape, cita lietotāja mape vai dublējums.";
+"coderoots.reject.protected" = "Tā ir aizsargāta mape: jūsu bibliotēka vai dati, ko macOS glabā atsevišķi.";
+"coderoots.reject.duplicate" = "Tā jau ir sarakstā vai ir viena no noklusējuma mapēm.";

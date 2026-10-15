@@ -261,3 +261,24 @@
 "why.superseded" = "To stara wersja, której już nic nie używa. Gdyby coś znów jej zażądało, zostałaby pobrana ponownie.";
 "why.toolDecides" = "Kasuje samo narzędzie, więc co dokładnie znika, decyduje ono.";
 "why.unknown" = "Zbiornik na resztę: tu trafia to, czego nie nazwał żaden inny wiersz. Zajrzyj przed usunięciem.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Foldery z kodem…";
+"coderoots.title" = "Foldery z kodem";
+"coderoots.note" = "W tych folderach szukane są również node_modules, build, foldery Library projektów Unity i pozostałe artefakty projektów, tak samo jak w folderze domowym. Poza folderem domowym naruszane są tylko te artefakty, nigdy katalog główny dysku ani foldery systemowe.";
+"coderoots.defaults" = "Domyślne";
+"coderoots.custom" = "Twoje foldery";
+"coderoots.empty" = "Nie dodano jeszcze żadnego.";
+"coderoots.add" = "Dodaj…";
+"coderoots.panel.prompt" = "Dodaj";
+"coderoots.remove" = "Usuń";
+"coderoots.unavailable" = "Obecnie niedostępny (czy dysk jest odłączony?)";
+"coderoots.rescan" = "Zmiany zostaną uwzględnione przy następnej analizie.";
+"coderoots.reject.title" = "Nie można dodać tego folderu";
+"coderoots.reject.invalid" = "Ścieżka jest nieprawidłowa.";
+"coderoots.reject.missing" = "Folder nie istnieje lub nie jest folderem.";
+"coderoots.reject.tooBroad" = "Jest zbyt szeroki. Wybierz folder z kodem, a nie cały dysk ani folder domowy.";
+"coderoots.reject.volumeRoot" = "To katalog główny dysku. Wybierz folder wewnątrz dysku.";
+"coderoots.reject.system" = "To folder systemowy, folder innego użytkownika lub kopia zapasowa.";
+"coderoots.reject.protected" = "To chroniony folder: Twoja biblioteka lub dane, które macOS przechowuje osobno.";
+"coderoots.reject.duplicate" = "Jest już na liście albo jest jednym z folderów domyślnych.";

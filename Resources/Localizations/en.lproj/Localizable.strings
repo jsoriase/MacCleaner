@@ -262,3 +262,24 @@
 "why.superseded" = "It’s an old version that nothing uses any more. If something asked for it again, it would be downloaded again.";
 "why.toolDecides" = "The tool itself does the deleting, so exactly what disappears is up to it.";
 "why.unknown" = "A catch-all: whatever no other row has named lands here. Look before deleting.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Code Folders…";
+"coderoots.title" = "Code Folders";
+"coderoots.note" = "MacCleaner also looks for node_modules, build output, Unity Library folders and other project artifacts inside these folders, just as it does in your home folder. Outside your home folder it only touches those artifacts, never the root of a volume or system folders.";
+"coderoots.defaults" = "Default";
+"coderoots.custom" = "Your folders";
+"coderoots.empty" = "You haven't added any yet.";
+"coderoots.add" = "Add…";
+"coderoots.panel.prompt" = "Add";
+"coderoots.remove" = "Remove";
+"coderoots.unavailable" = "Not available right now (is the drive disconnected?)";
+"coderoots.rescan" = "Changes take effect on the next scan.";
+"coderoots.reject.title" = "This folder can't be added";
+"coderoots.reject.invalid" = "The path isn't valid.";
+"coderoots.reject.missing" = "The folder doesn't exist or isn't a folder.";
+"coderoots.reject.tooBroad" = "It's too broad. Choose a folder with your code, not the whole disk or your home folder.";
+"coderoots.reject.volumeRoot" = "This is the root of a disk. Choose a folder inside the disk.";
+"coderoots.reject.system" = "It's a system folder, another user's folder, or a backup.";
+"coderoots.reject.protected" = "It's a protected folder: your Library or data that macOS keeps separately.";
+"coderoots.reject.duplicate" = "It's already in the list or it's one of the default folders.";

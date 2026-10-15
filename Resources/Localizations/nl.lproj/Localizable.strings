@@ -261,3 +261,24 @@
 "why.superseded" = "Het is een oude versie die niets meer gebruikt. Als iets er weer om vraagt, wordt die opnieuw gedownload.";
 "why.toolDecides" = "Het gereedschap wist zelf, dus wat er precies verdwijnt bepaalt het.";
 "why.unknown" = "Verzamelbak: hier belandt wat geen andere regel heeft benoemd. Kijk voor je wist.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Codemappen…";
+"coderoots.title" = "Codemappen";
+"coderoots.note" = "In deze mappen worden ook node_modules, build, Library-mappen van Unity-projecten en de overige projectartefacten gezocht, net als in je thuismap. Buiten je thuismap worden alleen deze artefacten aangeraakt, nooit de hoofdmap van een schijf of systeemmappen.";
+"coderoots.defaults" = "Standaard";
+"coderoots.custom" = "Jouw mappen";
+"coderoots.empty" = "Je hebt nog geen map toegevoegd.";
+"coderoots.add" = "Voeg toe…";
+"coderoots.panel.prompt" = "Voeg toe";
+"coderoots.remove" = "Verwijder";
+"coderoots.unavailable" = "Nu niet beschikbaar (is de schijf losgekoppeld?)";
+"coderoots.rescan" = "Wijzigingen gelden bij de volgende analyse.";
+"coderoots.reject.title" = "Deze map kan niet worden toegevoegd";
+"coderoots.reject.invalid" = "Het pad is ongeldig.";
+"coderoots.reject.missing" = "De map bestaat niet of is geen map.";
+"coderoots.reject.tooBroad" = "Die is te breed. Kies een map met je code, niet de hele schijf of je thuismap.";
+"coderoots.reject.volumeRoot" = "Dit is de hoofdmap van een schijf. Kies een map op de schijf.";
+"coderoots.reject.system" = "Het is een systeemmap, de map van een andere gebruiker of een back-up.";
+"coderoots.reject.protected" = "Het is een beschermde map: je bibliotheek of gegevens die macOS apart bewaart.";
+"coderoots.reject.duplicate" = "Die staat al in de lijst of is een van de standaardmappen.";

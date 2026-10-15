@@ -107,3 +107,19 @@ $HOME/.codex/sessions/2026
 $HOME/.codex/archived_sessions
 $HOME/.claude/projects
 $HOME/.claude/projects/-Users-x-proyecto
+
+# Discos externos: fuera del home solo cuentan las carpetas de codigo del
+# usuario, y nunca la raiz de un disco ni lo que cuelga de una carpeta de sistema.
+/Volumes/External/proyecto/node_modules
+/Volumes/External/Library
+/Volumes/External/.Trashes
+/Volumes/External/Backups.backupdb/x/build
+/Volumes/External/Users/x/node_modules
+
+# Sistema y otros usuarios, con artefactos de proyecto dentro
+/usr/local/src/app/node_modules
+/opt/app/build
+/private/tmp/app/node_modules
+
+# Dentro del home, pero en carpetas protegidas
+$HOME/Documents/app/node_modules

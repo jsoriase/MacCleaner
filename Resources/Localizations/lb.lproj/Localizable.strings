@@ -261,3 +261,24 @@
 "why.superseded" = "Et ass eng al Versioun, déi näischt méi benotzt. Wann eppes se nees ufrot, géif se nees erofgeluede ginn.";
 "why.toolDecides" = "D’Geschir läscht selwer, also entscheet et wat genau verschwënnt.";
 "why.unknown" = "Sammelkëscht: hei landet wat keng aner Rei benannt huet. Kuck ier s du läschs.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Code-Dossieren…";
+"coderoots.title" = "Code-Dossieren";
+"coderoots.note" = "An dëse Dossieren gesicht een och node_modules, build, d'Library-Dossieren vun Unity-Projeten an déi aner Projektartefakten, wéi a Ärem Heemdossier. Ausserhalb vum Heemdossier gi just dës Artefakter ugeréiert, ni d'Wuerzel vun engem Disk oder Systemdossieren.";
+"coderoots.defaults" = "Standard";
+"coderoots.custom" = "Är Dossieren";
+"coderoots.empty" = "Dir hutt nach keng bäigesat.";
+"coderoots.add" = "Bäisetzen…";
+"coderoots.panel.prompt" = "Bäisetzen";
+"coderoots.remove" = "Ewechhuelen";
+"coderoots.unavailable" = "Momentan net disponibel (ass de Disk ofgehaangen?)";
+"coderoots.rescan" = "D'Ännerungen gëllen bei der nächster Analyse.";
+"coderoots.reject.title" = "Dëse Dossier kann net bäigesat ginn";
+"coderoots.reject.invalid" = "De Pad ass net gülteg.";
+"coderoots.reject.missing" = "De Dossier existéiert net oder ass kee Dossier.";
+"coderoots.reject.tooBroad" = "Zevill breet. Wielt e Dossier mat Ärem Code, net de ganze Disk oder Äre Heemdossier.";
+"coderoots.reject.volumeRoot" = "Dat ass d'Wuerzel vun engem Disk. Wielt e Dossier op dem Disk.";
+"coderoots.reject.system" = "Dat ass e Systemdossier, de Dossier vun engem anere Benotzer oder eng Sécherung.";
+"coderoots.reject.protected" = "Dat ass e geschützten Dossier: Är Bibliothéik oder Daten, déi macOS separat späichert.";
+"coderoots.reject.duplicate" = "Et ass schonn op der Lëscht oder ass ee vun den Standarddossieren.";

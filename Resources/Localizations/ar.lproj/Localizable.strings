@@ -262,3 +262,24 @@
 "why.superseded" = "إنها نسخة قديمة لم يعد يستخدمها شيء. إذا طلبها شيء مرة أخرى، فسيُعاد تنزيلها.";
 "why.toolDecides" = "الأداة نفسها هي التي تحذف، فما الذي يختفي بالضبط تقرره هي.";
 "why.unknown" = "درج لكل شيء: هنا يقع ما لم يسمّه أي صف آخر. انظر قبل الحذف.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "مجلدات الشيفرة…";
+"coderoots.title" = "مجلدات الشيفرة";
+"coderoots.note" = "تُبحث داخل هذه المجلدات أيضًا عن node_modules وbuild ومجلدات Library في مشاريع Unity وبقية مجلدات المشاريع المؤقتة، كما تُبحث داخل مجلدك الشخصي. خارج مجلدك الشخصي لا تُمس إلا هذه المجلدات المؤقتة، ولا يُمس أبدًا جذر قرص أو أي مجلد من النظام.";
+"coderoots.defaults" = "الافتراضية";
+"coderoots.custom" = "مجلداتك";
+"coderoots.empty" = "لم تضف أي مجلد بعد.";
+"coderoots.add" = "إضافة…";
+"coderoots.panel.prompt" = "إضافة";
+"coderoots.remove" = "إزالة";
+"coderoots.unavailable" = "غير متاح الآن (هل القرص غير متصل؟)";
+"coderoots.rescan" = "تُطبَّق التغييرات في التحليل التالي.";
+"coderoots.reject.title" = "تعذّرت إضافة هذا المجلد";
+"coderoots.reject.invalid" = "المسار غير صالح.";
+"coderoots.reject.missing" = "المجلد غير موجود أو ليس مجلدًا.";
+"coderoots.reject.tooBroad" = "واسع جدًا. اختر مجلد شيفرتك، لا القرص بأكمله ولا مجلدك الشخصي.";
+"coderoots.reject.volumeRoot" = "هذا جذر قرص. اختر مجلدًا داخل القرص.";
+"coderoots.reject.system" = "هذا مجلد نظام أو لمستخدم آخر أو نسخة احتياطية.";
+"coderoots.reject.protected" = "هذا مجلد محمي: مكتبتك أو بيانات يحفظها macOS بشكل منفصل.";
+"coderoots.reject.duplicate" = "هو موجود في القائمة بالفعل أو هو أحد المجلدات الافتراضية.";

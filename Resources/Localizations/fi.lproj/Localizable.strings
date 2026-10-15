@@ -261,3 +261,24 @@
 "why.superseded" = "Vanha versio, jota mikään ei enää käytä. Jos jokin pyytäisi sitä uudelleen, se ladattaisiin uudelleen.";
 "why.toolDecides" = "Työkalu poistaa itse, joten se päättää mitä tarkalleen katoaa.";
 "why.unknown" = "Sekalaatikko: tänne päätyy se, mitä mikään muu rivi ei ole nimennyt. Katso ennen poistoa.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Koodikansiot…";
+"coderoots.title" = "Koodikansiot";
+"coderoots.note" = "Näistä kansioista etsitään myös node_modules- ja build-kansiot, Unity-projektien Library-kansiot ja muut projektien väliaikaiset tiedostot, aivan kuten kotikansiosta. Kotikansion ulkopuolella koskemme vain näihin, emme koskaan levyn juurta tai järjestelmäkansioita.";
+"coderoots.defaults" = "Oletukset";
+"coderoots.custom" = "Omat kansiot";
+"coderoots.empty" = "Et ole vielä lisännyt yhtään.";
+"coderoots.add" = "Lisää…";
+"coderoots.panel.prompt" = "Lisää";
+"coderoots.remove" = "Poista";
+"coderoots.unavailable" = "Ei käytettävissä juuri nyt (onko levy irrotettu?)";
+"coderoots.rescan" = "Muutokset tulevat voimaan seuraavassa analyysissä.";
+"coderoots.reject.title" = "Kansiota ei voi lisätä";
+"coderoots.reject.invalid" = "Polku ei kelpaa.";
+"coderoots.reject.missing" = "Kansiota ei ole tai se ei ole kansio.";
+"coderoots.reject.tooBroad" = "Se on liian laaja. Valitse kansio, jossa koodisi on, älä koko levyä tai kotikansiota.";
+"coderoots.reject.volumeRoot" = "Tämä on levyn juurikansio. Valitse kansio levyn sisältä.";
+"coderoots.reject.system" = "Se on järjestelmäkansio, toisen käyttäjän kansio tai varmuuskopio.";
+"coderoots.reject.protected" = "Se on suojattu kansio: kirjastosi tai tiedot, jotka macOS tallentaa erikseen.";
+"coderoots.reject.duplicate" = "Se on jo listalla tai yksi oletuskansioista.";

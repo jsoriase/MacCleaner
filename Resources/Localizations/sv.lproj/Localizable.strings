@@ -261,3 +261,24 @@
 "why.superseded" = "Det är en gammal version som ingenting använder längre. Om något bad om den igen skulle den hämtas på nytt.";
 "why.toolDecides" = "Verktyget raderar självt, så vad som exakt försvinner bestämmer det.";
 "why.unknown" = "Skräplåda: här hamnar det som ingen annan rad har namngett. Titta innan du raderar.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Kodmappar…";
+"coderoots.title" = "Kodmappar";
+"coderoots.note" = "I de här mapparna letas även efter node_modules, build, Library-mappar i Unity-projekt och övriga projektartefakter, precis som i din hemmapp. Utanför hemmappen rörs bara dessa artefakter, aldrig roten på en disk eller systemmappar.";
+"coderoots.defaults" = "Standard";
+"coderoots.custom" = "Dina mappar";
+"coderoots.empty" = "Du har inte lagt till några ännu.";
+"coderoots.add" = "Lägg till…";
+"coderoots.panel.prompt" = "Lägg till";
+"coderoots.remove" = "Ta bort";
+"coderoots.unavailable" = "Inte tillgänglig just nu (är disken frånkopplad?)";
+"coderoots.rescan" = "Ändringarna gäller vid nästa analys.";
+"coderoots.reject.title" = "Mappen kan inte läggas till";
+"coderoots.reject.invalid" = "Sökvägen är ogiltig.";
+"coderoots.reject.missing" = "Mappen finns inte eller är inte en mapp.";
+"coderoots.reject.tooBroad" = "Den är för bred. Välj en mapp med din kod, inte hela disken eller hemmappen.";
+"coderoots.reject.volumeRoot" = "Detta är roten på en disk. Välj en mapp på disken.";
+"coderoots.reject.system" = "Det är en systemmapp, en annan användares mapp eller en säkerhetskopia.";
+"coderoots.reject.protected" = "Det är en skyddad mapp: ditt bibliotek eller data som macOS sparar separat.";
+"coderoots.reject.duplicate" = "Den finns redan i listan eller är en av standardmapparna.";

@@ -261,3 +261,24 @@
 "why.superseded" = "To je stara verzija koju više ništa ne koristi. Ako je nešto ponovo zatraži, ponovo će se preuzeti.";
 "why.toolDecides" = "Briše sam alat, pa šta tačno nestaje odlučuje on.";
 "why.unknown" = "Ladica za sve: ovdje pada ono što nijedan drugi red nije imenovao. Pogledaj prije brisanja.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Fascikle s kodom…";
+"coderoots.title" = "Fascikle s kodom";
+"coderoots.note" = "U ovim fasciklama se takođe traže node_modules, build, Unity Library i ostali artefakti projekata, kao i unutar vaše lične fascikle. Van lične fascikle diraju se samo ti artefakti, nikad korijen diska niti sistemske fascikle.";
+"coderoots.defaults" = "Podrazumijevane";
+"coderoots.custom" = "Vaše fascikle";
+"coderoots.empty" = "Još niste dodali nijednu.";
+"coderoots.add" = "Dodaj…";
+"coderoots.panel.prompt" = "Dodaj";
+"coderoots.remove" = "Ukloni";
+"coderoots.unavailable" = "Trenutno nedostupno (je li disk isključen?)";
+"coderoots.rescan" = "Promjene se primjenjuju pri sljedećoj analizi.";
+"coderoots.reject.title" = "Ova fascikla se ne može dodati";
+"coderoots.reject.invalid" = "Putanja nije valjana.";
+"coderoots.reject.missing" = "Fascikla ne postoji ili nije fascikla.";
+"coderoots.reject.tooBroad" = "Preširoko je. Odaberite fasciklu s vašim kodom, a ne cijeli disk ili ličnu fasciklu.";
+"coderoots.reject.volumeRoot" = "Ovo je korijen diska. Odaberite fasciklu unutar diska.";
+"coderoots.reject.system" = "Ovo je sistemska fascikla, fascikla drugog korisnika ili rezervna kopija.";
+"coderoots.reject.protected" = "Ovo je zaštićena fascikla: vaša biblioteka ili podaci koje macOS čuva odvojeno.";
+"coderoots.reject.duplicate" = "Već je na popisu ili je jedna od podrazumijevanih fascikli.";

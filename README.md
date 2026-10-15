@@ -18,7 +18,7 @@ MacCleaner finds and measures the caches left behind by developer tools — Xcod
 - **Expandable rows** — 22 categories break down by version, project, app, device, etc., with per-item size and last-modified date
 - **Stale highlighting** — items untouched for 6+ months are flagged in amber
 - **In-use detection** — a cache whose program is open (Xcode, a Gradle daemon, `npm install`, a browser…) is flagged and skipped at clean time
-- **Safety first** — never touches anything outside your home directory, skips TCC-protected paths, moves to Trash by default, re-checks every path right before deleting it
+- **Safety first** — never touches anything outside your home directory except project artifacts inside code folders you add yourself, skips TCC-protected paths, moves to Trash by default, re-checks every path right before deleting it
 - **Cleanup history** — every deleted, trashed or skipped path is logged to `~/Library/Logs/MacCleaner/operations.log`
 - **Accurate measuring** — counts allocated blocks like `du`, deduplicates hard links, never double-counts a path
 - **Localized in 43 languages**, follows your system language with English fallback
@@ -86,7 +86,7 @@ Other UI details:
 | Code editors | VS Code / Cursor / Windsurf / VSCodium cached VSIX, code cache and logs; extension versions the editor marked obsolete |
 | Unity | Package Manager cache, Asset Store downloads (per publisher), Editor build and GI caches, Hub updates and templates, Unity logs, and the `Library`, `Temp` and `obj` folders of your Unity projects |
 | AI tools | Agent worktrees (per branch), assistant VMs, downloaded models, abandoned Codex runtimes |
-| Project artifacts | `node_modules`, `Pods`, `target`, `build`, `.venv` found under `~/Projects`, `~/Code`, `~/dev`, `~/Developer`, `~/src`, `~/GitHub`, `~/Workspace`, `~/repos`, `~/Sites` |
+| Project artifacts | `node_modules`, `Pods`, `target`, `build`, `.venv` found under `~/Projects`, `~/Code`, `~/dev`, `~/Developer`, `~/src`, `~/GitHub`, `~/Workspace`, `~/repos`, `~/Sites`, plus any folder you add under **Code Folders…** (external drives included) |
 | Dev tools | Homebrew, Docker, Docker Buildx cache |
 | Browsers | Chromium-family cache, service workers, site storage, history, cookies |
 | System | User caches, logs, saved app state, old installers, Trash |
@@ -103,7 +103,7 @@ Hovering a row's badge explains *why* it has that level.
 
 ### Special cases
 
-**Project artifacts** live where your code lives, not at a fixed path. Two rows (`Project dependencies`, `Build outputs`) sweep your code folders up to 8 levels deep, skipping hidden directories (except artifacts like `.build`, `.venv`, `.next`) and never descending into a match (so a `build` inside `node_modules` isn't counted twice). Home directory only — external drives and `/Volumes` are excluded.
+**Project artifacts** live where your code lives, not at a fixed path. Two rows (`Project dependencies`, `Build outputs`) sweep your code folders up to 8 levels deep, skipping hidden directories (except artifacts like `.build`, `.venv`, `.next`) and never descending into a match (so a `build` inside `node_modules` isn't counted twice). By default they only look under your home directory. To include code on an external drive, add a folder on it under **Code Folders…** in the menu. Other locations outside your home (`/opt`, `/usr`, `/private/tmp`, other users' folders…) are refused. Those folders are validated again on every scan and every clean: volume roots, system folders on a disk (`/Volumes/<disk>/System`, `/Volumes/<disk>/Users`…), Time Machine backups, `~/Library` and other protected data are refused too, and outside your home only the artifacts listed above are ever removed.
 
 A third row (`Unity project caches`) does the same for the `Library`, `Temp` and `obj` folders of Unity projects. Those names are too common to take on their own, so they are only collected when `ProjectSettings/ProjectVersion.txt` sits beside them: a Swift `Library/` or a .NET `obj/` is left alone. Nothing inside a Unity `Library` is offered by the other two rows.
 
@@ -129,14 +129,14 @@ For these rows space is re-measured after cleanup, and Trash does not apply. The
 
 Layers, all covered by tests:
 
-1. Nothing outside `$HOME` is ever touched — no `/`, no `/System`, no other volumes. Only absolute paths without control characters are accepted.
+1. Nothing outside `$HOME` is touched, with two exceptions: (a) a cache reached through a symlink (rule 5), and (b) project artifacts (`node_modules`, `build`, Unity's `Library`, …, with their marker file where the name alone is not enough) inside a code folder you added yourself under **Code Folders…**. Such a folder is never a volume root or a system folder, it is checked again at the moment of deleting, and the rest of the layers below still apply. Only absolute paths without control characters are accepted.
 2. Top-level home folders (`Library`, `Documents`, `Desktop`, `Downloads`, `Pictures`, …) are protected.
 3. TCC-protected paths (`com.apple.Music`, `com.apple.Photos`, `MobileSync`, …) are ignored entirely — even reading them would trigger a permission prompt and freeze the scan. Coding assistants' conversation history (`~/.codex/sessions`, `~/.claude/projects`) is protected too: it weighs gigabytes, but it's data, not cache.
 4. Other apps' sandbox containers (`~/Library/Containers`, `~/Library/Group Containers`) are never entered: since macOS Sonoma, doing so asks "would like to access data from other apps" on every scan. Sandboxed apps' own caches are therefore not included. The one exception is Docker, which isn't sandboxed and only keeps its data under that folder.
 5. Symlinks in the middle of a path are resolved and the real location is checked again. A `~/.npm` pointing into `~/Documents` is refused. The resolved path can only take permission away, never grant it: a cache moved to an external disk (`/Volumes/…`) can still be cleaned, but never the volume root, the system, or another protected home folder. A symlink as the last component is removed itself, not what it points to.
 6. **Is it in use?** Each path has an owner — Xcode, Simulator (including a booted device), a Gradle or Kotlin daemon, npm / pnpm / Yarn, Cargo, Go, the browsers, VS Code, Cursor, Claude Code, Codex, Unity, Unity Hub, … — and any app that is open owns its own `~/Library/Caches/<id or name>` and `~/Library/Application Support/<name>`. An open Unity editor, including a `-batchmode` build, owns the `Library`, `Temp` and `obj` of every Unity project, because there is no reliable way to tell which one it has open. Processes are listed with `libproc` (no `ps`), scripts are recognized by the script and not the interpreter (`node …/npm` is npm). If the process list can't be read, owned paths are skipped: unknown means no.
 7. **Re-checked right before deleting**, not just at scan time: ownership again, and the path must still be the same object (device + inode) that was measured — a folder recreated or swapped for a symlink in between is skipped. Project artifacts also must not have been written to since the scan started, nor added to git.
-8. `Tests/MacCleanerTests/Fixtures/dangerous_paths.txt` lists 96 adversarial paths (system roots, home folders, `..` escapes, relative paths, protected data) that the final check must reject, every one.
+8. `Tests/MacCleanerTests/Fixtures/dangerous_paths.txt` lists 105 adversarial paths (system roots, home folders, `..` escapes, relative paths, protected data) that the final check must reject, every one.
 
 Every cleanup is recorded in `~/Library/Logs/MacCleaner/operations.log`, one tab-separated line per path: timestamp, action (`TRASH`, `DELETE`, `TOOL`), status (`OK`, `PARTIAL`, `FAILED`, `SKIPPED`), bytes, path and detail. It rotates to `.1` at 5 MB. Scanning writes nothing.
 

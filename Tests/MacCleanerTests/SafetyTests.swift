@@ -172,6 +172,24 @@ final class MayDeleteTests: XCTestCase {
         }
     }
 
+    /// Lo mismo, pero con carpetas de codigo hostiles: cada una es algo que
+    /// `CodeRoots.check` tiene que rechazar. Ninguna puede abrir el borrado.
+    func testNingunaRutaPeligrosaPasaConRaicesHostiles() throws {
+        let corpus = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .appendingPathComponent("Fixtures/dangerous_paths.txt")
+        let lines = try String(contentsOf: corpus, encoding: .utf8)
+            .split(separator: "\n", omittingEmptySubsequences: false)
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .filter { !$0.isEmpty && !$0.hasPrefix("#") }
+            .map { $0.replacingOccurrences(of: "$HOME", with: home) }
+        let hostile = ["/", "/Volumes", "/Volumes/External", home, "/System", "/usr",
+                       "/private/tmp", home + "/Library"]
+        for path in lines {
+            XCTAssertFalse(Engine.mayDelete(path, codeRoots: hostile), "paso: \(path)")
+        }
+    }
+
     func testLosCaracteresDeControlNoPasan() {
         XCTAssertFalse(Engine.isSafe(home + "/Library/Caches/a\nb"))
         XCTAssertFalse(Engine.isSafe(home + "/Library/Caches/a\u{0}b"))

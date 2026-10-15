@@ -261,3 +261,24 @@
 "why.superseded" = "Je to stará verzia, ktorú už nič nepoužíva. Ak by ju niečo znova potrebovalo, stiahla by sa znova.";
 "why.toolDecides" = "Maže samotný nástroj, takže čo presne zmizne, rozhoduje on.";
 "why.unknown" = "Priehradka na zvyšok: sem spadne, čo žiadny iný riadok nepomenoval. Pozri sa pred mazaním.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Priečinky s kódom…";
+"coderoots.title" = "Priečinky s kódom";
+"coderoots.note" = "V týchto priečinkoch sa hľadajú aj node_modules, build, priečinky Library projektov Unity a ostatné artefakty projektov, rovnako ako vo vašom domovskom priečinku. Mimo domovského priečinka sa dotýkajú iba tieto artefakty, nikdy koreň disku ani systémové priečinky.";
+"coderoots.defaults" = "Predvolené";
+"coderoots.custom" = "Vaše priečinky";
+"coderoots.empty" = "Zatiaľ ste nepridali žiadny.";
+"coderoots.add" = "Pridať…";
+"coderoots.panel.prompt" = "Pridať";
+"coderoots.remove" = "Odstrániť";
+"coderoots.unavailable" = "Momentálne nedostupné (je disk odpojený?)";
+"coderoots.rescan" = "Zmeny sa uplatnia pri ďalšej analýze.";
+"coderoots.reject.title" = "Tento priečinok sa nedá pridať";
+"coderoots.reject.invalid" = "Cesta nie je platná.";
+"coderoots.reject.missing" = "Priečinok neexistuje alebo nie je priečinok.";
+"coderoots.reject.tooBroad" = "Je príliš široký. Vyberte priečinok so svojím kódom, nie celý disk ani domovský priečinok.";
+"coderoots.reject.volumeRoot" = "Toto je koreň disku. Vyberte priečinok vnútri disku.";
+"coderoots.reject.system" = "Je to systémový priečinok, priečinok iného používateľa alebo záloha.";
+"coderoots.reject.protected" = "Je to chránený priečinok: vaša knižnica alebo údaje, ktoré macOS uchováva oddelene.";
+"coderoots.reject.duplicate" = "Už je v zozname alebo je jedným z predvolených priečinkov.";

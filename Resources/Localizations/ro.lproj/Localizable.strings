@@ -261,3 +261,24 @@
 "why.superseded" = "Este o versiune veche pe care n-o mai folosește nimic. Dacă ceva ar cere-o din nou, ar fi descărcată iar.";
 "why.toolDecides" = "Șterge chiar unealta, deci ce dispare exact decide ea.";
 "why.unknown" = "Sertar de toate: aici cade ce nicio altă linie nu a numit. Uită-te înainte să ștergi.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Foldere cu cod…";
+"coderoots.title" = "Foldere cu cod";
+"coderoots.note" = "În aceste foldere se caută și node_modules, build, folderele Library ale proiectelor Unity și celelalte artefacte de proiect, la fel ca în folderul tău de acasă. În afara folderului de acasă sunt atinse doar aceste artefacte, niciodată rădăcina unui disc sau folderele sistemului.";
+"coderoots.defaults" = "Implicite";
+"coderoots.custom" = "Folderele tale";
+"coderoots.empty" = "Nu ai adăugat încă niciunul.";
+"coderoots.add" = "Adaugă…";
+"coderoots.panel.prompt" = "Adaugă";
+"coderoots.remove" = "Elimină";
+"coderoots.unavailable" = "Indisponibil acum (discul este deconectat?)";
+"coderoots.rescan" = "Modificările se aplică la următoarea analiză.";
+"coderoots.reject.title" = "Folderul nu poate fi adăugat";
+"coderoots.reject.invalid" = "Calea nu este validă.";
+"coderoots.reject.missing" = "Folderul nu există sau nu este un folder.";
+"coderoots.reject.tooBroad" = "Este prea larg. Alege un folder cu codul tău, nu întregul disc sau folderul de acasă.";
+"coderoots.reject.volumeRoot" = "Aceasta este rădăcina unui disc. Alege un folder din interiorul discului.";
+"coderoots.reject.system" = "Este un folder de sistem, folderul altui utilizator sau o copie de rezervă.";
+"coderoots.reject.protected" = "Este un folder protejat: biblioteca ta sau date pe care macOS le păstrează separat.";
+"coderoots.reject.duplicate" = "Este deja în listă sau este unul dintre folderele implicite.";

@@ -415,6 +415,16 @@ enum FileSystem {
         }
     }
 
+    /// Si la carpeta cumple el marcador que el barrido exige para su nombre
+    /// (`Library` pide `ProjectSettings/ProjectVersion.txt` al lado, por
+    /// ejemplo). Sin marcador definido, el nombre basta. Es la misma regla de
+    /// `artifactFolders`, para repetirla justo antes de borrar.
+    static func hasArtifactMarker(_ path: String) -> Bool {
+        let name = (path as NSString).lastPathComponent
+        let pattern = artifactPattern(name, Catalog.projectArtifacts)
+        return hasMarker(path, pattern.flatMap { Catalog.artifactMarkers[$0] })
+    }
+
     /// Una carpeta de proyecto de Unity que Unity regenera al abrirlo. Solo
     /// cuenta si al lado hay un proyecto de Unity: `Library` y `obj` son
     /// nombres normales en cualquier otro sitio. El nombre va primero, que es

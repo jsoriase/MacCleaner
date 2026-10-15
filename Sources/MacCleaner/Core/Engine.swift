@@ -196,6 +196,11 @@ final class Engine: ObservableObject {
     /// Lo que el usuario ha pedido no volver a ver. Se recuerda entre sesiones.
     @Published private(set) var ignoredRows: Set<String> = []
     @Published private(set) var ignoredPaths: Set<String> = []
+    /// Carpetas de codigo que el usuario ha anadido. Incluye las que hoy no
+    /// estan disponibles: la hoja las muestra marcadas.
+    @Published private(set) var userCodeRoots: [String] = []
+    /// La hoja de carpetas de codigo, abierta desde el menu.
+    @Published var showingCodeRoots = false
 
     struct Report {
         var freed: Int64
@@ -236,7 +241,28 @@ final class Engine: ObservableObject {
         useTrash = store.object(forKey: "useTrash") as? Bool ?? true
         ignoredRows = Set(store.stringArray(forKey: Engine.ignoredRowsKey) ?? [])
         ignoredPaths = Set(store.stringArray(forKey: Engine.ignoredPathsKey) ?? [])
+        userCodeRoots = CodeRoots.stored(store)
         volume = FileSystem.homeVolume()
+    }
+
+    // MARK: - Carpetas de codigo
+
+    /// Anade una carpeta de codigo propia. Si se rechaza, devuelve el motivo.
+    /// No hace nada mientras se analiza o se limpia: el analisis en curso ya
+    /// tiene decididas sus rutas, y la lista se aplica en el siguiente.
+    func addCodeRoot(_ path: String) -> CodeRoots.Rejection? {
+        guard !isScanning && !isCleaning else { return nil }
+        let rejection = CodeRoots.add(path, to: defaults)
+        userCodeRoots = CodeRoots.stored(defaults)
+        return rejection
+    }
+
+    /// Quita una carpeta de la lista. Tampoco mientras hay un analisis o una
+    /// limpieza en marcha.
+    func removeCodeRoot(_ path: String) {
+        guard !isScanning && !isCleaning else { return }
+        CodeRoots.remove(path, from: defaults)
+        userCodeRoots = CodeRoots.stored(defaults)
     }
 
     func refreshVolume() {
@@ -753,6 +779,10 @@ final class Engine: ObservableObject {
                 let (paths, scope) = row.victims
                 let target = row.target
                 let records = row.records
+                // Las carpetas de codigo del usuario se leen aqui, fuera de la
+                // tarea de fondo: lo que se borra no depende de lo que cambie
+                // mientras tanto en las preferencias. Solo los barridos las usan.
+                let codeRoots = target.isSweep ? CodeRoots.load() : []
                 // Vaciar la Papelera moviendo su contenido a la Papelera no
                 // libera nada.
                 let toTrash = trash && !target.isTrash
@@ -773,9 +803,10 @@ final class Engine: ObservableObject {
                     }
                     let snapshot = ProcessSnapshot.capture(apps: apps)
                     let check = Engine.preflight(paths, target: target, records: records,
-                                                 scannedAt: scannedAt, snapshot: snapshot)
+                                                 scannedAt: scannedAt, snapshot: snapshot,
+                                                 codeRoots: codeRoots)
                     var result = Engine.erase(paths: check.allowed, scope: scope, toTrash: toTrash,
-                                              isCancelled: stopped)
+                                              codeRoots: codeRoots, isCancelled: stopped)
                     for (path, reason) in check.skipped {
                         result.skipped[path] = reason
                         result.leftover[path] = records[path]?.bytes ?? FileSystem.usage(of: path).bytes
@@ -875,9 +906,13 @@ final class Engine: ObservableObject {
     ///   sustituida por un enlace, ya no es lo que el usuario aprobo.
     /// - En los artefactos de proyecto, ademas, que nadie haya escrito dentro
     ///   desde que empezo el analisis y que no se haya versionado en git.
+    ///
+    /// `codeRoots` son las carpetas de codigo del usuario: solo importan para
+    /// saber en que repositorios mirar lo versionado.
     nonisolated static func preflight(_ paths: [String], target: Target,
                                       records: [String: Row.Record], scannedAt: Date?,
                                       snapshot: ProcessSnapshot,
+                                      codeRoots: [String] = [],
                                       owners: [Owner] = Owners.all) -> Preflight {
         var check = Preflight()
         for path in paths {
@@ -908,7 +943,7 @@ final class Engine: ObservableObject {
         }
 
         if target.isSweep && !check.allowed.isEmpty {
-            let roots = target.patterns.flatMap { FileSystem.expand($0) }
+            let roots = target.searchRoots(userRoots: codeRoots)
             for path in Tools.versioned(check.allowed, within: roots) {
                 check.skipped[path] = L("skip.changed")
             }
@@ -932,6 +967,7 @@ final class Engine: ObservableObject {
     }
 
     nonisolated static func erase(paths: [String], scope: Scope, toTrash: Bool,
+                                  codeRoots: [String] = [],
                                   isCancelled: () -> Bool = { false }) -> EraseResult {
         var result = EraseResult()
 
@@ -941,7 +977,7 @@ final class Engine: ObservableObject {
                 result.leftover[path] = 0
                 continue
             }
-            guard mayDelete(path) else {
+            guard mayDelete(path, codeRoots: codeRoots) else {
                 result.errors.append("ruta protegida: \(FileSystem.prettyPath(path))")
                 continue
             }
@@ -952,7 +988,7 @@ final class Engine: ObservableObject {
 
             var left: Int64 = 0
             for victim in victims {
-                guard mayDelete(victim) else { continue }
+                guard mayDelete(victim, codeRoots: codeRoots) else { continue }
                 // Detenido: lo que queda no se toca, pero se mide. Sin eso la
                 // fila daria por liberado lo que sigue en el disco.
                 if isCancelled() {
@@ -1131,6 +1167,12 @@ final class Engine: ObservableObject {
     /// Carpetas propias de una herramienta (~/.Trash, ~/.pnpm-store) si se aceptan:
     /// son justo las que algunos targets necesitan vaciar.
     ///
+    /// La unica excepcion fuera del home es la de `isInCodeRoot`: un artefacto
+    /// de proyecto dentro de una carpeta de codigo que el usuario eligio a mano.
+    /// Es estrecha a proposito: solo lo ofrece el barrido, solo por nombre de
+    /// artefacto, solo dentro de esa carpeta y solo si sigue siendo valida en
+    /// el momento de borrar. Nunca la raiz de un volumen ni nada del sistema.
+    ///
     /// Solo rutas absolutas, y sin caracteres de control: un salto de linea
     /// en una ruta no lo pone ninguna herramienta, lo pone un error.
     nonisolated static func isSafe(_ path: String) -> Bool {
@@ -1160,13 +1202,67 @@ final class Engine: ObservableObject {
     /// en otro disco —quien tiene `~/.gradle` en un disco externo quiere
     /// poder limpiarlo—, pero no en el sistema, ni en otra carpeta protegida
     /// del home.
-    nonisolated static func mayDelete(_ path: String) -> Bool {
-        guard isSafe(path), !FileSystem.isProtected(path) else { return false }
+    ///
+    /// Fuera del home, lo unico que pasa es `isInCodeRoot`, con las carpetas
+    /// de codigo del usuario (`codeRoots`, vacio fuera de los barridos). Ahi
+    /// tambien se exige el marcador del barrido, no solo el nombre.
+    nonisolated static func mayDelete(_ path: String, codeRoots: [String] = []) -> Bool {
+        guard isSafe(path) else { return isInCodeRoot(path, roots: codeRoots) }
+        guard !FileSystem.isProtected(path) else { return false }
         guard FileSystem.exists(path) else { return true }
         guard let real = FileSystem.canonical(path) else { return false }
         if real == (path as NSString).standardizingPath { return true }
         if isSafe(real) && !FileSystem.isProtected(real) { return true }
         return isOnExternalVolume(real)
+    }
+
+    /// Si `path` es un artefacto dentro de una de las carpetas de codigo del
+    /// usuario. Las raices se validan otra vez aqui, con el disco tal como
+    /// esta ahora: si el disco se ha desmontado o la carpeta es ya otra cosa,
+    /// no sirven.
+    ///
+    /// Defensa en profundidad: si la ruta existe, se vuelve a exigir el
+    /// marcador que el barrido pide para su nombre (una `Library` sin
+    /// `ProjectSettings/ProjectVersion.txt` al lado no es de Unity). Si no
+    /// existe no hay nada que borrar, y eso ya lo contesta la capa de arriba.
+    nonisolated static func isInCodeRoot(_ path: String, roots: [String]) -> Bool {
+        let canonicalRoots = roots.compactMap { root -> String? in
+            guard CodeRoots.check(root) == nil else { return nil }
+            return CodeRoots.canonicalPath(root)
+        }
+        guard !canonicalRoots.isEmpty, path.hasPrefix("/") else { return false }
+        if FileSystem.exists(path), !FileSystem.hasArtifactMarker(path) { return false }
+        // Si la ruta no existe, basta la escrita: lo mismo que hace `mayDelete`
+        // con lo que ya no esta.
+        let real: String
+        if FileSystem.exists(path) {
+            guard let resolved = FileSystem.canonical(path) else { return false }
+            real = resolved
+        } else {
+            real = (path as NSString).standardizingPath
+        }
+        return isInCodeRoot(path, real: real, canonicalRoots: canonicalRoots)
+    }
+
+    /// La parte sin disco de `isInCodeRoot`. `path` es la ruta tal como se
+    /// escribio, `real` la que lleva de verdad y `canonicalRoots` las raices ya
+    /// resueltas. Se exige que la escrita y la real caigan dentro de la misma
+    /// raiz, para que un enlace no saque el borrado de ella.
+    nonisolated static func isInCodeRoot(_ path: String, real: String,
+                                         canonicalRoots: [String]) -> Bool {
+        guard path.hasPrefix("/"), real.hasPrefix("/"),
+              !path.unicodeScalars.contains(where: { $0.properties.generalCategory == .control }),
+              !(path as NSString).pathComponents.contains("..")
+        else { return false }
+        let written = (path as NSString).standardizingPath
+        guard FileSystem.matchesArtifact((written as NSString).lastPathComponent,
+                                         Catalog.projectArtifacts),
+              !FileSystem.isProtected(written), !FileSystem.isProtected(real)
+        else { return false }
+        // Estrictamente dentro: la propia raiz no es un artefacto que borrar.
+        return canonicalRoots.contains { root in
+            written.hasPrefix(root + "/") && real.hasPrefix(root + "/")
+        }
     }
 
     /// Dentro de un disco montado en /Volumes, nunca su raiz.

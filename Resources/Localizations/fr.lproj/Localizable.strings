@@ -262,3 +262,24 @@
 "why.superseded" = "C’est une ancienne version que plus rien n’utilise. Si quelque chose la redemandait, elle serait retéléchargée.";
 "why.toolDecides" = "C’est l’outil lui-même qui supprime, donc ce qui disparaît exactement, c’est lui qui décide.";
 "why.unknown" = "Fourre-tout : ici tombe ce qu’aucune autre ligne n’a nommé. Regardez avant de supprimer.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Dossiers de code…";
+"coderoots.title" = "Dossiers de code";
+"coderoots.note" = "Ces dossiers sont aussi analysés pour y trouver node_modules, build, les dossiers Library des projets Unity et les autres artefacts de projet, comme dans votre dossier personnel. En dehors de votre dossier personnel, seuls ces artefacts sont touchés, jamais la racine d'un disque ni les dossiers système.";
+"coderoots.defaults" = "Par défaut";
+"coderoots.custom" = "Vos dossiers";
+"coderoots.empty" = "Vous n'en avez encore ajouté aucun.";
+"coderoots.add" = "Ajouter…";
+"coderoots.panel.prompt" = "Ajouter";
+"coderoots.remove" = "Retirer";
+"coderoots.unavailable" = "Indisponible pour l'instant (le disque est-il déconnecté ?)";
+"coderoots.rescan" = "Les changements s'appliquent à la prochaine analyse.";
+"coderoots.reject.title" = "Ce dossier ne peut pas être ajouté";
+"coderoots.reject.invalid" = "Le chemin n'est pas valide.";
+"coderoots.reject.missing" = "Le dossier n'existe pas ou ce n'est pas un dossier.";
+"coderoots.reject.tooBroad" = "Il est trop large. Choisissez un dossier contenant votre code, pas tout le disque ni votre dossier personnel.";
+"coderoots.reject.volumeRoot" = "C'est la racine d'un disque. Choisissez un dossier à l'intérieur du disque.";
+"coderoots.reject.system" = "C'est un dossier système, le dossier d'un autre utilisateur ou une sauvegarde.";
+"coderoots.reject.protected" = "C'est un dossier protégé : votre bibliothèque ou des données que macOS conserve à part.";
+"coderoots.reject.duplicate" = "Il est déjà dans la liste ou fait partie des dossiers par défaut.";

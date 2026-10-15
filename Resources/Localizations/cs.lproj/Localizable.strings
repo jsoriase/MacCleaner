@@ -261,3 +261,24 @@
 "why.superseded" = "Je to stará verze, kterou už nic nepoužívá. Kdyby ji něco znovu potřebovalo, stáhla by se znovu.";
 "why.toolDecides" = "Maže samotný nástroj, takže co přesně zmizí, rozhoduje on.";
 "why.unknown" = "Přihrádka na zbytek: sem spadne, co žádný jiný řádek nepojmenoval. Podívej se před mazáním.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Složky s kódem…";
+"coderoots.title" = "Složky s kódem";
+"coderoots.note" = "V těchto složkách se hledají také node_modules, build, Library projektů Unity a ostatní artefakty projektů, stejně jako ve vaší domovské složce. Mimo domovskou složku se dotýkají jen těchto artefaktů, nikdy kořen disku ani systémové složky.";
+"coderoots.defaults" = "Výchozí";
+"coderoots.custom" = "Vaše složky";
+"coderoots.empty" = "Zatím jste nepřidali žádnou.";
+"coderoots.add" = "Přidat…";
+"coderoots.panel.prompt" = "Přidat";
+"coderoots.remove" = "Odebrat";
+"coderoots.unavailable" = "Teď nedostupné (je disk odpojený?)";
+"coderoots.rescan" = "Změny se projeví při příští analýze.";
+"coderoots.reject.title" = "Tuto složku nelze přidat";
+"coderoots.reject.invalid" = "Cesta není platná.";
+"coderoots.reject.missing" = "Složka neexistuje nebo nejde o složku.";
+"coderoots.reject.tooBroad" = "Je příliš obecná. Vyberte složku se svým kódem, ne celý disk nebo domovskou složku.";
+"coderoots.reject.volumeRoot" = "Toto je kořen disku. Vyberte složku uvnitř disku.";
+"coderoots.reject.system" = "Jde o systémovou složku, složku jiného uživatele nebo zálohu.";
+"coderoots.reject.protected" = "Jde o chráněnou složku: vaši knihovnu nebo data, která macOS ukládá odděleně.";
+"coderoots.reject.duplicate" = "Už je v seznamu, nebo jde o jednu z výchozích složek.";

@@ -262,3 +262,24 @@
 "why.superseded" = "这是一个已经没有任何东西在用的旧版本。如果之后又有东西需要它，会重新下载。";
 "why.toolDecides" = "删除的是工具本身，所以到底消失什么由它决定。";
 "why.unknown" = "杂物抽屉：其他行没点名的东西都落在这里。删之前先看看。";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "代码文件夹…";
+"coderoots.title" = "代码文件夹";
+"coderoots.note" = "这些文件夹中同样会搜索 node_modules、build、Unity 项目的 Library 以及其他项目产物，与主文件夹中一样。在主文件夹之外，只会处理这些产物，绝不会触及磁盘根目录或系统文件夹。";
+"coderoots.defaults" = "默认";
+"coderoots.custom" = "你的文件夹";
+"coderoots.empty" = "你还没有添加任何文件夹。";
+"coderoots.add" = "添加…";
+"coderoots.panel.prompt" = "添加";
+"coderoots.remove" = "移除";
+"coderoots.unavailable" = "当前不可用（磁盘是否已断开？）";
+"coderoots.rescan" = "更改将在下一次分析时生效。";
+"coderoots.reject.title" = "无法添加此文件夹";
+"coderoots.reject.invalid" = "路径无效。";
+"coderoots.reject.missing" = "文件夹不存在，或不是文件夹。";
+"coderoots.reject.tooBroad" = "范围过大。请选择存放你代码的文件夹，而不是整个磁盘或主文件夹。";
+"coderoots.reject.volumeRoot" = "这是磁盘的根目录。请选择磁盘内的一个文件夹。";
+"coderoots.reject.system" = "这是系统文件夹、其他用户的文件夹或备份。";
+"coderoots.reject.protected" = "这是受保护的文件夹：资源库或 macOS 单独保存的数据。";
+"coderoots.reject.duplicate" = "它已在列表中，或是默认文件夹之一。";

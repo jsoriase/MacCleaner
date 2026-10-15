@@ -262,3 +262,24 @@
 "why.superseded" = "Es una versión antigua que ya no usa nada. Si algo la volviera a pedir, se descargaría otra vez.";
 "why.toolDecides" = "Lo borra la propia herramienta, así que qué desaparece exactamente lo decide ella.";
 "why.unknown" = "Cajón de sastre: aquí cae lo que ninguna otra fila ha nombrado. Mira antes de borrar.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Carpetas de código…";
+"coderoots.title" = "Carpetas de código";
+"coderoots.note" = "Dentro de estas carpetas también se buscan node_modules, build, Library de Unity y el resto de artefactos de proyecto, igual que dentro de tu carpeta personal. Fuera de tu carpeta personal solo se tocan esos artefactos: nunca la raíz de un disco ni nada del sistema.";
+"coderoots.defaults" = "Predeterminadas";
+"coderoots.custom" = "Tus carpetas";
+"coderoots.empty" = "Todavía no has añadido ninguna.";
+"coderoots.add" = "Añadir…";
+"coderoots.panel.prompt" = "Añadir";
+"coderoots.remove" = "Quitar";
+"coderoots.unavailable" = "No disponible ahora (¿disco desconectado?)";
+"coderoots.rescan" = "Los cambios se aplican en el próximo análisis.";
+"coderoots.reject.title" = "No se puede añadir esta carpeta";
+"coderoots.reject.invalid" = "La ruta no es válida.";
+"coderoots.reject.missing" = "La carpeta no existe o no es una carpeta.";
+"coderoots.reject.tooBroad" = "Es demasiado amplia. Elige una carpeta de tu código, no el disco ni tu carpeta personal.";
+"coderoots.reject.volumeRoot" = "Es la raíz de un disco. Elige una carpeta dentro del disco.";
+"coderoots.reject.system" = "Es una carpeta del sistema, de otro usuario o de una copia de seguridad.";
+"coderoots.reject.protected" = "Es una carpeta protegida: tu biblioteca o datos que macOS guarda aparte.";
+"coderoots.reject.duplicate" = "Ya está en la lista o es una de las carpetas predeterminadas.";

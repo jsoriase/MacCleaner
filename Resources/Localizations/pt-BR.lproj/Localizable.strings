@@ -262,3 +262,24 @@
 "why.superseded" = "É uma versão antiga que nada usa mais. Se algo pedisse por ela de novo, ela seria baixada outra vez.";
 "why.toolDecides" = "Quem apaga é a própria ferramenta, então o que some exatamente quem decide é ela.";
 "why.unknown" = "Gaveta de tudo: aqui cai o que nenhuma outra linha nomeou. Olhe antes de apagar.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Pastas de código…";
+"coderoots.title" = "Pastas de código";
+"coderoots.note" = "Dentro dessas pastas também são procurados node_modules, build, as pastas Library de projetos Unity e os demais artefatos de projeto, assim como na sua pasta pessoal. Fora da pasta pessoal, só esses artefatos são tocados, nunca a raiz de um disco nem pastas do sistema.";
+"coderoots.defaults" = "Padrão";
+"coderoots.custom" = "Suas pastas";
+"coderoots.empty" = "Você ainda não adicionou nenhuma.";
+"coderoots.add" = "Adicionar…";
+"coderoots.panel.prompt" = "Adicionar";
+"coderoots.remove" = "Remover";
+"coderoots.unavailable" = "Indisponível agora (o disco está desconectado?)";
+"coderoots.rescan" = "As alterações valem a partir da próxima análise.";
+"coderoots.reject.title" = "Não é possível adicionar esta pasta";
+"coderoots.reject.invalid" = "O caminho não é válido.";
+"coderoots.reject.missing" = "A pasta não existe ou não é uma pasta.";
+"coderoots.reject.tooBroad" = "É ampla demais. Escolha uma pasta com o seu código, não o disco inteiro nem a pasta pessoal.";
+"coderoots.reject.volumeRoot" = "Esta é a raiz de um disco. Escolha uma pasta dentro do disco.";
+"coderoots.reject.system" = "É uma pasta do sistema, de outro usuário ou uma cópia de segurança.";
+"coderoots.reject.protected" = "É uma pasta protegida: sua biblioteca ou dados que o macOS guarda separadamente.";
+"coderoots.reject.duplicate" = "Ela já está na lista ou é uma das pastas padrão.";

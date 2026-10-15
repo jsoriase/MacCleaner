@@ -261,3 +261,24 @@
 "why.superseded" = "Régi verzió, amelyet már semmi sem használ. Ha valami újra kérné, ismét le lenne töltve.";
 "why.toolDecides" = "Maga az eszköz töröl, így pontosan mi tűnik el, azt ő dönti el.";
 "why.unknown" = "Mindenes fiók: ide kerül, amit egyetlen másik sor sem nevezett meg. Nézd meg törlés előtt.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Kódmappák…";
+"coderoots.title" = "Kódmappák";
+"coderoots.note" = "Ezekben a mappákban a node_modules, build, a Unity-projektek Library mappái és a többi projektartefaktum is keresésre kerül, akárcsak a saját mappádban. A saját mappádon kívül csak ezeket az artefaktumokat érinti, soha nem egy lemez gyökerét vagy rendszermappákat.";
+"coderoots.defaults" = "Alapértelmezett";
+"coderoots.custom" = "Saját mappák";
+"coderoots.empty" = "Még nem adtál hozzá egyet sem.";
+"coderoots.add" = "Hozzáadás…";
+"coderoots.panel.prompt" = "Hozzáadás";
+"coderoots.remove" = "Eltávolítás";
+"coderoots.unavailable" = "Jelenleg nem elérhető (le van választva a lemez?)";
+"coderoots.rescan" = "A módosítások a következő elemzéskor érvényesülnek.";
+"coderoots.reject.title" = "Ez a mappa nem adható hozzá";
+"coderoots.reject.invalid" = "Az útvonal érvénytelen.";
+"coderoots.reject.missing" = "A mappa nem létezik, vagy nem mappa.";
+"coderoots.reject.tooBroad" = "Túl általános. Válassz olyan mappát, amelyben a kódod van, ne az egész lemezt vagy a saját mappádat.";
+"coderoots.reject.volumeRoot" = "Ez egy lemez gyökere. Válassz mappát a lemezen belül.";
+"coderoots.reject.system" = "Ez rendszermappa, más felhasználó mappája vagy biztonsági mentés.";
+"coderoots.reject.protected" = "Ez védett mappa: a könyvtárad vagy a macOS által külön tárolt adatok.";
+"coderoots.reject.duplicate" = "Már szerepel a listán, vagy az egyik alapértelmezett mappa.";

@@ -262,3 +262,24 @@
 "why.superseded" = "もう何も使っていない古いバージョンです。再び必要になった場合は、もう一度ダウンロードされます。";
 "why.toolDecides" = "削除するのはツール自身なので、何が消えるかはツールが決めます。";
 "why.unknown" = "なんでも入れ：ほかのどの行も名前を付けなかったものがここに落ちます。消す前に確認を。";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "コードフォルダ…";
+"coderoots.title" = "コードフォルダ";
+"coderoots.note" = "これらのフォルダの中でも、ホームフォルダと同じように node_modules、build、Unity プロジェクトの Library、その他のプロジェクトの成果物を探します。ホームフォルダの外では、これらの成果物だけを対象にし、ディスクのルートやシステムのフォルダには触れません。";
+"coderoots.defaults" = "標準";
+"coderoots.custom" = "追加したフォルダ";
+"coderoots.empty" = "まだ追加したフォルダはありません。";
+"coderoots.add" = "追加…";
+"coderoots.panel.prompt" = "追加";
+"coderoots.remove" = "削除";
+"coderoots.unavailable" = "現在利用できません（ディスクが接続されていませんか？）";
+"coderoots.rescan" = "変更は次の分析から反映されます。";
+"coderoots.reject.title" = "このフォルダは追加できません";
+"coderoots.reject.invalid" = "パスが正しくありません。";
+"coderoots.reject.missing" = "フォルダが存在しないか、フォルダではありません。";
+"coderoots.reject.tooBroad" = "範囲が広すぎます。ディスク全体やホームフォルダではなく、コードのあるフォルダを選んでください。";
+"coderoots.reject.volumeRoot" = "これはディスクのルートです。ディスク内のフォルダを選んでください。";
+"coderoots.reject.system" = "システムのフォルダ、別のユーザーのフォルダ、またはバックアップです。";
+"coderoots.reject.protected" = "保護されたフォルダです。ライブラリや、macOS が別に保管しているデータです。";
+"coderoots.reject.duplicate" = "すでに一覧にあるか、標準のフォルダの一つです。";

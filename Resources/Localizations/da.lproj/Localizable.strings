@@ -261,3 +261,24 @@
 "why.superseded" = "Det er en gammel version, som intet bruger længere. Hvis noget skulle bede om den igen, hentes den igen.";
 "why.toolDecides" = "Værktøjet sletter selv, så hvad der præcis forsvinder, bestemmer det.";
 "why.unknown" = "Rodekasse: her ender det, ingen anden række har navngivet. Kig, før du sletter.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Kodemapper…";
+"coderoots.title" = "Kodemapper";
+"coderoots.note" = "I disse mapper søges der også efter node_modules, build, Unity-projekters Library og de øvrige projektartefakter, ligesom i din hjemmemappe. Uden for hjemmemappen rører appen kun ved disse artefakter – aldrig roden af en disk eller systemmapper.";
+"coderoots.defaults" = "Standard";
+"coderoots.custom" = "Dine mapper";
+"coderoots.empty" = "Du har ikke tilføjet nogen endnu.";
+"coderoots.add" = "Tilføj…";
+"coderoots.panel.prompt" = "Tilføj";
+"coderoots.remove" = "Fjern";
+"coderoots.unavailable" = "Ikke tilgængelig nu (er disken frakoblet?)";
+"coderoots.rescan" = "Ændringerne træder i kraft ved næste analyse.";
+"coderoots.reject.title" = "Mappen kan ikke tilføjes";
+"coderoots.reject.invalid" = "Stien er ugyldig.";
+"coderoots.reject.missing" = "Mappen findes ikke, eller det er ikke en mappe.";
+"coderoots.reject.tooBroad" = "Den er for bred. Vælg en mappe med din kode, ikke hele disken eller din hjemmemappe.";
+"coderoots.reject.volumeRoot" = "Dette er roden af en disk. Vælg en mappe inde på disken.";
+"coderoots.reject.system" = "Det er en systemmappe, en andens mappe eller en sikkerhedskopi.";
+"coderoots.reject.protected" = "Det er en beskyttet mappe: dit bibliotek eller data, macOS gemmer separat.";
+"coderoots.reject.duplicate" = "Den er allerede på listen, eller den er en af standardmapperne.";

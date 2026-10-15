@@ -261,3 +261,24 @@
 "why.superseded" = "Is seanleagan é nach n-úsáideann aon rud a thuilleadh. Dá n-iarrfadh rud éigin arís é, d’íoslódálfaí arís é.";
 "why.toolDecides" = "Scriosann an uirlis féin é, mar sin is í a shocraíonn cad a imíonn go baileach.";
 "why.unknown" = "Tarraiceán do gach rud: titeann anseo an rud nár ainmnigh aon líne eile. Féach sula scriosann tú.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Fillteáin chóid…";
+"coderoots.title" = "Fillteáin chóid";
+"coderoots.note" = "Sna fillteáin seo cuardaítear node_modules, build, fillteáin Library de thionscadail Unity agus na hairtifact tionscadail eile freisin, mar a dhéantar i do fhillteán baile. Lasmuigh de do fhillteán baile ní théitear ach chuig na hairtifact sin, go deo chuig fréamh diosca ná fillteáin chórais.";
+"coderoots.defaults" = "Réamhshocraithe";
+"coderoots.custom" = "Do fhillteáin";
+"coderoots.empty" = "Níor chuir tú aon cheann leis fós.";
+"coderoots.add" = "Cuir leis…";
+"coderoots.panel.prompt" = "Cuir leis";
+"coderoots.remove" = "Bain";
+"coderoots.unavailable" = "Ar fáil faoi láthair (an bhfuil an diosca dícheangailte?)";
+"coderoots.rescan" = "Tiocfaidh na hathruithe i bhfeidhm ag an anailís eile.";
+"coderoots.reject.title" = "Ní féidir an fillteán seo a chur leis";
+"coderoots.reject.invalid" = "Níl an cosán bailí.";
+"coderoots.reject.missing" = "Níl an fillteán ann nó ní fillteán é.";
+"coderoots.reject.tooBroad" = "Tá sé ró-leathan. Roghnaigh fillteán ina bhfuil do chód, ní an diosca iomlán ná do fhillteán baile.";
+"coderoots.reject.volumeRoot" = "Is fréamh diosca é seo. Roghnaigh fillteán taobh istigh den diosca.";
+"coderoots.reject.system" = "Is fillteán córais é, fillteán úsáideora eile nó cóip chúltaca.";
+"coderoots.reject.protected" = "Is fillteán cosanta é: do leabharlann nó sonraí a stórálann macOS ar leith.";
+"coderoots.reject.duplicate" = "Tá sé ar an liosta cheana nó is ceann de na fillteáin réamhshocraithe é.";

@@ -261,3 +261,24 @@
 "why.superseded" = "Artık hiçbir şeyin kullanmadığı eski bir sürüm. Bir şey yeniden isterse, yeniden indirilir.";
 "why.toolDecides" = "Silen aracın kendisi, yani tam olarak neyin kaybolacağına o karar verir.";
 "why.unknown" = "Karma çekmece: başka hiçbir satırın adlandırmadığı şey buraya düşer. Silmeden önce bak.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Kod klasörleri…";
+"coderoots.title" = "Kod klasörleri";
+"coderoots.note" = "Bu klasörlerde de node_modules, build, Unity projelerinin Library klasörleri ve diğer proje artefaktları aranır; tıpkı ana klasörünüzde olduğu gibi. Ana klasörünüzün dışında yalnızca bu artefaktlara dokunulur, asla bir diskin kökü ya da sistem klasörleri.";
+"coderoots.defaults" = "Varsayılan";
+"coderoots.custom" = "Klasörleriniz";
+"coderoots.empty" = "Henüz hiç klasör eklemediniz.";
+"coderoots.add" = "Ekle…";
+"coderoots.panel.prompt" = "Ekle";
+"coderoots.remove" = "Kaldır";
+"coderoots.unavailable" = "Şu anda kullanılamıyor (disk bağlantısı kesildi mi?)";
+"coderoots.rescan" = "Değişiklikler bir sonraki taramada uygulanır.";
+"coderoots.reject.title" = "Bu klasör eklenemiyor";
+"coderoots.reject.invalid" = "Yol geçerli değil.";
+"coderoots.reject.missing" = "Klasör yok ya da bir klasör değil.";
+"coderoots.reject.tooBroad" = "Çok geniş. Ana klasörünüzü ya da tüm diski değil, kodunuzun bulunduğu bir klasörü seçin.";
+"coderoots.reject.volumeRoot" = "Bu bir diskin köküdür. Diskin içinde bir klasör seçin.";
+"coderoots.reject.system" = "Bu bir sistem klasörü, başka bir kullanıcının klasörü ya da bir yedek.";
+"coderoots.reject.protected" = "Bu korumalı bir klasör: kitaplığınız ya da macOS'in ayrı tuttuğu veriler.";
+"coderoots.reject.duplicate" = "Zaten listede ya da varsayılan klasörlerden biri.";

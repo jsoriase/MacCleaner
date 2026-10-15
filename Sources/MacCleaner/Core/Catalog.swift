@@ -151,12 +151,24 @@ struct Target: Identifiable {
 }
 
 extension Target {
+    /// Las carpetas donde se busca esta fila. Las de sus patrones, y en los
+    /// barridos tambien las que el usuario ha anadido (ver `CodeRoots`).
+    ///
+    /// Sin repetidos, y en el mismo orden: si una carpeta del usuario cae
+    /// dentro de una predeterminada, el recorrido ya la deduplica por ruta.
+    func searchRoots(userRoots: [String] = CodeRoots.load()) -> [String] {
+        let all = patterns.flatMap { FileSystem.expand($0) } + (isSweep ? userRoots : [])
+        var seen = Set<String>()
+        return all.filter { seen.insert($0).inserted }
+    }
+
     /// Las rutas reales de esta fila, antes de descartar las protegidas.
     ///
     /// Casi todas salen de expandir el patron. Las de barrido no: ahi el patron
     /// dice donde mirar y las rutas salen de recorrer el arbol buscando por
-    /// nombre.
-    func resolvePaths() -> [String] {
+    /// nombre. `userRoots` son las carpetas que el usuario ha anadido; por
+    /// defecto, las guardadas ahora mismo.
+    func resolvePaths(userRoots: [String] = CodeRoots.load()) -> [String] {
         if reclaim == .runtime {
             return SimRuntimes.scan().map(\.bundlePath)
         }
@@ -170,14 +182,15 @@ extension Target {
         case .staleRuntimes: return expanded.filter(FileSystem.isStaleCodexRuntime)
         }
         guard isSweep else { return expanded }
+        let roots = searchRoots(userRoots: userRoots)
         let found = FileSystem.artifactFolders(collecting: artifacts,
                                                pruning: Catalog.projectArtifacts,
-                                               under: expanded,
+                                               under: roots,
                                                markers: Catalog.artifactMarkers)
         // Lo versionado se queda fuera aunque tenga nombre y marcador: un
         // `build/` con codigo propio al lado de un `package.json` pasa la
         // primera criba, pero no esta.
-        let versioned = Tools.versioned(found, within: expanded)
+        let versioned = Tools.versioned(found, within: roots)
         return found.filter { !versioned.contains($0) }
     }
 }
@@ -207,9 +220,11 @@ enum Category: String, CaseIterable, Identifiable {
 
 enum Catalog {
 
-    /// Donde se busca codigo. Solo dentro del home: la regla de que fuera de el
-    /// no se toca nada vale tambien aqui, y es la que hace que este barrido
-    /// pueda existir sin pedir permisos nuevos.
+    /// Donde se busca codigo por defecto. Solo dentro del home: la regla de que
+    /// fuera de el no se toca nada vale tambien aqui, y es la que hace que este
+    /// barrido pueda existir sin pedir permisos nuevos. Las carpetas que el
+    /// usuario anade a mano —tambien en discos externos— van aparte, en
+    /// `CodeRoots`, y solo entran en los barridos (ver `Target.searchRoots`).
     static let codeRoots = ["~/Projects", "~/Code", "~/dev", "~/Developer",
                             "~/src", "~/GitHub", "~/Workspace", "~/repos", "~/Sites"]
 

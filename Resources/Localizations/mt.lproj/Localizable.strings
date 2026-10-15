@@ -261,3 +261,24 @@
 "why.superseded" = "Hija verżjoni qadima li m’għadu juża xejn. Jekk xi ħaġa terġa’ titlobha, terġa’ titniżżel.";
 "why.toolDecides" = "Iħassar l-għodda nnifisha, allura x’jisparixxi eżatt tiddeċiedi hi.";
 "why.unknown" = "Kexxun ta’ kollox: hawn jaqa dak li l-ebda ringiela oħra ma semmiet. Ħares qabel tħassar.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Folders tal-kodiċi…";
+"coderoots.title" = "Folders tal-kodiċi";
+"coderoots.note" = "F'dawn il-folders qed jinstabu wkoll node_modules, build, il-folders Library tal-proġetti Unity u l-artifacts l-oħra tal-proġetti, bħalma jsir fil-folder personali tiegħek. Barra mill-folder personali jintaqqbu biss dawk l-artifacts, qatt il-għerq ta' disk jew il-folders tas-sistema.";
+"coderoots.defaults" = "Default";
+"coderoots.custom" = "Il-folders tiegħek";
+"coderoots.empty" = "Għadek ma żidt xejn.";
+"coderoots.add" = "Żid…";
+"coderoots.panel.prompt" = "Żid";
+"coderoots.remove" = "Neħħi";
+"coderoots.unavailable" = "Mhux disponibbli issa (id-disk huwa diskonnettjat?)";
+"coderoots.rescan" = "Il-bidliet japplikaw fl-analiżi li jmiss.";
+"coderoots.reject.title" = "Dan il-folder ma jistax jiżdied";
+"coderoots.reject.invalid" = "Il-path mhux validu.";
+"coderoots.reject.missing" = "Il-folder ma jeżistix jew mhuwiex folder.";
+"coderoots.reject.tooBroad" = "Huwa wiesa' wisq. Agħżel folder bil-kodiċi tiegħek, mhux id-disk kollu jew il-folder personali.";
+"coderoots.reject.volumeRoot" = "Dan huwa l-għerq ta' disk. Agħżel folder ġewwa d-disk.";
+"coderoots.reject.system" = "Dan huwa folder tas-sistema, folder ta' utent ieħor jew backup.";
+"coderoots.reject.protected" = "Dan huwa folder protett: il-librerija tiegħek jew dejta li macOS iżomm separatament.";
+"coderoots.reject.duplicate" = "Diġà hu fil-lista jew wieħed mill-folders default.";

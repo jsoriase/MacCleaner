@@ -45,6 +45,9 @@ struct ContentView: View {
         } message: {
             Text(confirmationMessage)
         }
+        .sheet(isPresented: $engine.showingCodeRoots) {
+            CodeRootsSheet(engine: engine)
+        }
         .alert(L("alert.report.title"), isPresented: Binding(
             get: { showingReport && engine.lastReport != nil },
             set: { if !$0 { showingReport = false } }

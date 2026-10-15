@@ -261,3 +261,24 @@
 "why.superseded" = "È una versione vecchia che non usa più niente. Se qualcosa la richiedesse di nuovo, verrebbe riscaricata.";
 "why.toolDecides" = "Cancella lo strumento stesso, quindi cosa sparisce esattamente lo decide lui.";
 "why.unknown" = "Ripostiglio: qui finisce ciò che nessun’altra riga ha nominato. Guarda prima di cancellare.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Cartelle del codice…";
+"coderoots.title" = "Cartelle del codice";
+"coderoots.note" = "In queste cartelle vengono cercate anche node_modules, build, le cartelle Library dei progetti Unity e gli altri artefatti di progetto, esattamente come nella cartella personale. Al di fuori della cartella personale vengono toccati solo questi artefatti, mai la radice di un disco né le cartelle di sistema.";
+"coderoots.defaults" = "Predefinite";
+"coderoots.custom" = "Le tue cartelle";
+"coderoots.empty" = "Non ne hai ancora aggiunta nessuna.";
+"coderoots.add" = "Aggiungi…";
+"coderoots.panel.prompt" = "Aggiungi";
+"coderoots.remove" = "Rimuovi";
+"coderoots.unavailable" = "Non disponibile ora (il disco è scollegato?)";
+"coderoots.rescan" = "Le modifiche si applicano alla prossima analisi.";
+"coderoots.reject.title" = "Impossibile aggiungere questa cartella";
+"coderoots.reject.invalid" = "Il percorso non è valido.";
+"coderoots.reject.missing" = "La cartella non esiste o non è una cartella.";
+"coderoots.reject.tooBroad" = "È troppo generica. Scegli una cartella con il tuo codice, non l'intero disco o la cartella personale.";
+"coderoots.reject.volumeRoot" = "È la radice di un disco. Scegli una cartella all'interno del disco.";
+"coderoots.reject.system" = "È una cartella di sistema, la cartella di un altro utente o un backup.";
+"coderoots.reject.protected" = "È una cartella protetta: la tua libreria o dati che macOS conserva a parte.";
+"coderoots.reject.duplicate" = "È già nell'elenco o è una delle cartelle predefinite.";

@@ -261,3 +261,24 @@
 "why.superseded" = "Þetta er gömul útgáfa sem ekkert notar lengur. Ef eitthvað bæði um hana aftur yrði hún sótt aftur.";
 "why.toolDecides" = "Tólið eyðir sjálft, svo hvað nákvæmlega hverfur ræður það.";
 "why.unknown" = "Ruslakista: hér lendir það sem engin önnur röð hefur nefnt. Kíktu áður en þú eyðir.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Kóðamöppur…";
+"coderoots.title" = "Kóðamöppur";
+"coderoots.note" = "Í þessum möppum er einnig leitað að node_modules, build, Library-möppum Unity-verkefna og öðrum verkefnaleifum, rétt eins og í heimamöppunni þinni. Utan heimamöppunnar er aðeins snert við þessar leifar, aldrei rót disks eða kerfismöppur.";
+"coderoots.defaults" = "Sjálfgefnar";
+"coderoots.custom" = "Möppurnar þínar";
+"coderoots.empty" = "Þú hefur ekki bætt við neinni enn.";
+"coderoots.add" = "Bæta við…";
+"coderoots.panel.prompt" = "Bæta við";
+"coderoots.remove" = "Fjarlægja";
+"coderoots.unavailable" = "Ekki tiltækt núna (er diskurinn aftengdur?)";
+"coderoots.rescan" = "Breytingar taka gildi við næstu greiningu.";
+"coderoots.reject.title" = "Ekki er hægt að bæta þessari möppu við";
+"coderoots.reject.invalid" = "Slóðin er ekki gild.";
+"coderoots.reject.missing" = "Mappan er ekki til eða er ekki mappa.";
+"coderoots.reject.tooBroad" = "Hún er of víð. Veldu möppu með kóðanum þínum, ekki allan diskinn eða heimamöppuna.";
+"coderoots.reject.volumeRoot" = "Þetta er rót disks. Veldu möppu innan disksins.";
+"coderoots.reject.system" = "Þetta er kerfismappa, mappa annars notanda eða öryggisafrit.";
+"coderoots.reject.protected" = "Þetta er varin mappa: bókasafnið þitt eða gögn sem macOS geymir sérstaklega.";
+"coderoots.reject.duplicate" = "Hún er þegar á listanum eða er ein af sjálfgefnu möppunum.";

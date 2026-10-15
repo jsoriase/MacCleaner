@@ -261,3 +261,24 @@
 "why.superseded" = "É unha versión antiga que xa non usa nada. Se algo a volvese pedir, descargaríase outra vez.";
 "why.toolDecides" = "Bórrao a propia ferramenta, así que que desaparece exactamente decídeo ela.";
 "why.unknown" = "Caixón de xastre: aquí cae o que ningunha outra fila nomeou. Mira antes de borrar.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Cartafoles de código…";
+"coderoots.title" = "Cartafoles de código";
+"coderoots.note" = "Dentro destes cartafoles tamén se buscan node_modules, build, os Library dos proxectos de Unity e os demais artefactos de proxecto, igual que dentro do teu cartafol persoal. Fóra do cartafol persoal só se tocan eses artefactos, nunca a raíz dun disco nin cartafoles do sistema.";
+"coderoots.defaults" = "Predeterminados";
+"coderoots.custom" = "Os teus cartafoles";
+"coderoots.empty" = "Aínda non engadiches ningún.";
+"coderoots.add" = "Engadir…";
+"coderoots.panel.prompt" = "Engadir";
+"coderoots.remove" = "Quitar";
+"coderoots.unavailable" = "Non dispoñible agora (está desconectado o disco?)";
+"coderoots.rescan" = "Os cambios aplícanse na seguinte análise.";
+"coderoots.reject.title" = "Non se pode engadir este cartafol";
+"coderoots.reject.invalid" = "A ruta non é válida.";
+"coderoots.reject.missing" = "O cartafol non existe ou non é un cartafol.";
+"coderoots.reject.tooBroad" = "É demasiado amplo. Escolle un cartafol co teu código, non todo o disco nin o cartafol persoal.";
+"coderoots.reject.volumeRoot" = "Esta é a raíz dun disco. Escolle un cartafol dentro do disco.";
+"coderoots.reject.system" = "É un cartafol do sistema, de outro usuario ou unha copia de seguridade.";
+"coderoots.reject.protected" = "É un cartafol protexido: a túa biblioteca ou datos que macOS garda por separado.";
+"coderoots.reject.duplicate" = "Xa está na lista ou é un dos cartafoles predeterminados.";

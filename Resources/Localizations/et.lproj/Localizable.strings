@@ -261,3 +261,24 @@
 "why.superseded" = "See on vana versioon, mida enam miski ei kasuta. Kui miski seda uuesti küsiks, laaditaks see uuesti alla.";
 "why.toolDecides" = "Kustutab tööriist ise, seega mis täpselt kaob, otsustab tema.";
 "why.unknown" = "Kogumiskoht: siia satub see, mida ükski teine rida pole nimetanud. Vaata enne kustutamist.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Koodikaustad…";
+"coderoots.title" = "Koodikaustad";
+"coderoots.note" = "Nendes kaustades otsitakse samuti node_modules, build, Unity projektide Library ja muud projektide artefaktid, nagu sinu kodukaustas. Väljaspool kodukausta puudutatakse ainult neid artefakte, mitte kunagi kettajuurt ega süsteemikaustu.";
+"coderoots.defaults" = "Vaikimisi";
+"coderoots.custom" = "Sinu kaustad";
+"coderoots.empty" = "Sa pole veel ühtegi lisanud.";
+"coderoots.add" = "Lisa…";
+"coderoots.panel.prompt" = "Lisa";
+"coderoots.remove" = "Eemalda";
+"coderoots.unavailable" = "Praegu pole saadaval (kas ketas on lahti ühendatud?)";
+"coderoots.rescan" = "Muudatused rakenduvad järgmisel analüüsil.";
+"coderoots.reject.title" = "Seda kausta ei saa lisada";
+"coderoots.reject.invalid" = "Tee ei ole sobiv.";
+"coderoots.reject.missing" = "Kausta ei ole olemas või see ei ole kaust.";
+"coderoots.reject.tooBroad" = "See on liiga lai. Vali kaust oma koodiga, mitte kogu ketas ega kodukaust.";
+"coderoots.reject.volumeRoot" = "See on ketta juurkaust. Vali kaust kettal.";
+"coderoots.reject.system" = "See on süsteemikaust, teise kasutaja kaust või varundus.";
+"coderoots.reject.protected" = "See on kaitstud kaust: sinu teek või andmed, mida macOS hoiab eraldi.";
+"coderoots.reject.duplicate" = "See on juba loendis või on üks vaikekaustadest.";

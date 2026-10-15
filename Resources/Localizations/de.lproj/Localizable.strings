@@ -262,3 +262,24 @@
 "why.superseded" = "Eine alte Version, die nichts mehr verwendet. Würde etwas sie erneut anfordern, würde sie wieder heruntergeladen.";
 "why.toolDecides" = "Es löscht das Werkzeug selbst, also entscheidet es, was genau verschwindet.";
 "why.unknown" = "Sammelbecken: hier landet, was keine andere Zeile benannt hat. Erst schauen, dann löschen.";
+
+/* ---- carpetas de codigo ---- */
+"menu.coderoots" = "Codeordner…";
+"coderoots.title" = "Codeordner";
+"coderoots.note" = "In diesen Ordnern werden ebenso node_modules, build, Library-Ordner von Unity-Projekten und die übrigen Projektartefakte gesucht, genau wie in deinem Benutzerordner. Außerhalb des Benutzerordners werden nur diese Artefakte angefasst – niemals die Wurzel eines Datenträgers oder Systemordner.";
+"coderoots.defaults" = "Standard";
+"coderoots.custom" = "Deine Ordner";
+"coderoots.empty" = "Du hast noch keinen hinzugefügt.";
+"coderoots.add" = "Hinzufügen…";
+"coderoots.panel.prompt" = "Hinzufügen";
+"coderoots.remove" = "Entfernen";
+"coderoots.unavailable" = "Gerade nicht verfügbar (Datenträger getrennt?)";
+"coderoots.rescan" = "Änderungen gelten ab der nächsten Analyse.";
+"coderoots.reject.title" = "Dieser Ordner kann nicht hinzugefügt werden";
+"coderoots.reject.invalid" = "Der Pfad ist ungültig.";
+"coderoots.reject.missing" = "Der Ordner existiert nicht oder ist kein Ordner.";
+"coderoots.reject.tooBroad" = "Zu allgemein. Wähle einen Ordner mit deinem Code, nicht den ganzen Datenträger oder deinen Benutzerordner.";
+"coderoots.reject.volumeRoot" = "Das ist die Wurzel eines Datenträgers. Wähle einen Ordner auf dem Datenträger.";
+"coderoots.reject.system" = "Das ist ein Systemordner, der Ordner eines anderen Benutzers oder eine Sicherungskopie.";
+"coderoots.reject.protected" = "Das ist ein geschützter Ordner: deine Mediathek oder Daten, die macOS getrennt speichert.";
+"coderoots.reject.duplicate" = "Er ist schon in der Liste oder einer der Standardordner.";

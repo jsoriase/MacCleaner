@@ -22,6 +22,10 @@ struct MacCleanerApp: App {
                     .disabled(!OperationLog.shared.exists)
                 Button(L("menu.unignore")) { engine.unignoreAll() }
                     .disabled(engine.ignoredCount == 0 || engine.isScanning || engine.isCleaning)
+                // Las carpetas de codigo solo se cambian entre analisis: la
+                // hoja no abre mientras hay uno en marcha.
+                Button(L("menu.coderoots")) { engine.showingCodeRoots = true }
+                    .disabled(engine.isScanning || engine.isCleaning)
             }
         }
     }
